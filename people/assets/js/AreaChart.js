@@ -4,7 +4,7 @@ function drawAreaChart(json) {
     var mychart = echarts.init(document.getElementById("scence"));
     option = {
            title:{
-               text:'景区客流量实时监测',
+//             text:'景区客流量实时监测',
                textStyle:{
                    color:'white'
                }
