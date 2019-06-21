@@ -284,7 +284,7 @@
 
              <div class="row">
                  <div class="col-md-4 col-sm-4 col-xs-12">
- <div class="panel panel-default" style="background-color: transparent;">
+ 			<div class="panel panel-default" style="background-color: transparent;">
                         <div class="panel-heading panel-success" style="background-color: #dff0d8;" >
                         	评价雷达
                         </div>
@@ -301,30 +301,37 @@
                     </div>
              </div>
 </div>
- <div class="col-md-8 col-sm-8 col-xs-12" style="background-color: transparent;" >
-                      <div class="panel panel-success" >
-                        <div class="panel-heading">
-                           实时定位数据
-                        </div>
-                        	<div  id ="scence" ></div>
-                        	
-                    </div>
-             </div>
 
-<div class="panel panel-success">
-                        <div class="panel-heading">
+<div class="row" >
+<div class="panel panel-success" >
+                        <div class="panel-heading" >
+                           位置趋势
+                        </div>
+                        <div  id ="trend"></div>
+</div>
+
+</div>
+
+<div class="row" >
+<div class="panel panel-success" >
+                        <div class="panel-heading" >
                            地区搜索热度
                         </div>
                         <div  id ="search-index"></div>
 </div>
 
+</div>
+
+
+<div class="row" style="clear: both;">
 <div class="panel panel-success">
-                        <div class="panel-heading">
+                        <div class="panel">
                         	景区人流密度分布图
                         </div>
 <div id='container' style="width: auto;height: 700px;">
 </div>
 	
+</div>
 </div>
   <script>
      	
@@ -338,7 +345,12 @@
   	"13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", 
   	"21:00", "21:30"]};
              new drawAreaChart(json);
-             new LineChart(json);
+              trend = new LineChart("trend");
+              trend.drawtrend(json);
+			search= new LineChart("search-index");
+			search.drawsearch(json);
+            
+            
     });
     
                  </script>
