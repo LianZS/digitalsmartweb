@@ -117,7 +117,7 @@
      <!-- MENU SECTION END-->
     <div class="content-wrapper">
          <div class="container">
-             <div class="row" style="margin-bottom: 50px;">
+  <div class="row" style="margin-bottom: 50px;">
              	<div style="margin-left:10px;display: block;">
              	
 				<div class="field prov_field" style="float: left;margin-left: 5%;" ><label style="color: white;">省份</label><div class="ui search selection dropdown w140">
@@ -158,8 +158,7 @@
               	</div>
               
      
-			<div class="field interval_field" style="float: left;margin-left: 5%;">
-              		<label style="color: white;">粒度</label>
+			<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
              
 					<div class="ui compact search selection dropdown">
 				<select id="range_select0">
@@ -171,23 +170,26 @@
 			              </div>
 			        </div>
 
-		<div class="field date_field" style="float: left;margin-left: 5%;">
-	
-              		<label style="color: white;">日期</label>
+		<div class="field date_field" style="float: left;margin-left: 5%;"><label style="color: white;">日期</label>
              
 					<div class="ui compact search selection dropdown" >
 							<input type="text" id="datepicker" style=" width:100px">
 
 			              </div>
 		</div>
-
+		<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
+		<div class="ui compact search selection dropdown">
+			<span style="color: yellow;">
+				<i class="fa fa-search fa-2x " ></i>
+			</span>
+		
+		  <!--<button  class="sumit" >查看 </button>-->
+		  </div>
+			</div>
            </div>              
-             
-             
-             
+ 
              
              </div>
-
         <div class="row pad-botm">
 
         </div>
@@ -299,7 +301,22 @@
                     </div>
              </div>
 </div>
+ <div class="col-md-8 col-sm-8 col-xs-12" style="background-color: transparent;" >
+                      <div class="panel panel-success" >
+                        <div class="panel-heading">
+                           实时定位数据
+                        </div>
+                        	<div  id ="scence" ></div>
+                        	
+                    </div>
+             </div>
 
+<div class="panel panel-success">
+                        <div class="panel-heading">
+                           地区搜索热度
+                        </div>
+                        <div  id ="search-index"></div>
+</div>
 
 <div class="panel panel-success">
                         <div class="panel-heading">
