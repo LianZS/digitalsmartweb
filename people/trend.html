@@ -19,18 +19,23 @@
         src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
 
   <script src="assets/js/map.js"></script>
-<script src="//a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME STYLE  -->
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
-		
-		
-
         <link rel="stylesheet" href="../css/main.css">
-
+    <script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+        $( "#anim" ).change(function() {
+            $( "#datepicker" ).datepicker( "option", "showAnim", $( this ).val() );
+        });
+    });
+    </script>
 
 </head>
 <body style="background-color: #011a33;">
@@ -97,12 +102,12 @@
  
                         <ul id="menu-top" class="nav navbar-nav navbar-right">
                        
-                            <li><a href="index.html" >景区客流实时监测</a></li>
+                            <li><a href="realtimeScence.html" >景区客流实时监测</a></li>
                            
-                            <li><a href="form.html" class="menu-top-active">地区人口实时定位</a></li>
-                            <li><a href="tab.html">地区实时人流趋势</a></li>
+                            <li><a href="placepositioning.html">地区人口实时定位</a></li>
+                            <li><a href="trend.html"class="menu-top-active">地区实时人流趋势</a></li>
 
-                          
+                           
                             
 
                         </ul>
@@ -115,11 +120,80 @@
      <!-- MENU SECTION END-->
     <div class="content-wrapper">
          <div class="container">
-        <div class="row pad-botm">
+  
 
-        </div>
+             <div class="row" style="margin-bottom: 50px;">
+             	<div style="margin-left:10px;display: block;">
+             	
+				<div class="field prov_field" style="float: left;margin-left: 5%;" ><label style="color: white;">省份</label><div class="ui search selection dropdown w140">
+					<select id="prov_select0"><option value="北京市">北京市</option><option value="天津市">天津市</option><option value="河北省">河北省</option><option value="山西省">山西省</option>
+						<option value="内蒙古自治区">内蒙古自治区</option><option value="辽宁省">辽宁省</option>
+						<option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option>
+						<option value="上海市">上海市</option><option value="江苏省">江苏省</option>
+						<option value="浙江省">浙江省</option><option value="安徽省">安徽省</option>
+						<option value="福建省">福建省</option><option value="江西省">江西省</option>
+						<option value="山东省">山东省</option><option value="河南省">河南省</option>
+						<option value="湖北省">湖北省</option><option value="湖南省">湖南省</option>
+						<option value="广东省">广东省</option><option value="广西壮族自治区">广西壮族自治区</option>
+						<option value="海南省">海南省</option><option value="重庆市">重庆市</option>
+						<option value="四川省">四川省</option><option value="贵州省">贵州省</option>
+						<option value="云南省">云南省</option><option value="西藏自治区">西藏自治区</option>
+						<option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option>
+						<option value="青海省">青海省</option><option value="宁夏回族自治区">宁夏回族自治区</option>
+						<option value="新疆维吾尔自治区">新疆维吾尔自治区</option></select>
+             	</div>
+                     </div>
+              	<div class="field city_field" style="float: left;margin-left: 5%;"><label style="color: white;">城市</label>
+              		<div class="ui search selection dropdown">
+              			<select id="city_select0">
+              				<option value="汕头市">汕头市</option>
+              				<option value="深圳市">深圳市</option>
+
+              			</select>
+              				</div>
+              	</div>
+              <div class=" field area_field" style="float:left ;margin-left: 5%;" ><label style="color: white;">区域</label>
+              		<div class="ui search selection dropdown">
+              			<select id="city_select0">
+              				<option value="公园">公园</option>
+              				<option value="游乐场">游乐场</option>
+
+              			</select>
+              				</div>
+              	</div>
+              
+     
+			<div class="field interval_field" style="float: left;margin-left: 5%;">
+              		<label style="color: white;">粒度</label>
              
-             <div class="row">
+					<div class="ui compact search selection dropdown">
+				<select id="range_select0">
+					<option value="60">60分钟</option>
+					<option value="30">30分钟</option>
+					<option value="10">10分钟</option>
+			              	<option value="5">5分钟</option>
+				</select>
+			              </div>
+			        </div>
+
+		<div class="field date_field" style="float: left;margin-left: 5%;">
+	
+              		<label style="color: white;">日期</label>
+             
+					<div class="ui compact search selection dropdown" >
+							<input type="text" id="datepicker" style=" width:100px">
+
+			              </div>
+		</div>
+
+           </div>              
+             
+             
+             
+             
+             </div>
+             
+             <div class="row" style="clear: both;">
 
               <div class="col-md-8 col-sm-8 col-xs-12">
                     <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
@@ -158,20 +232,17 @@
                  <div class="col-md-4 col-sm-4 col-xs-12">
                  <div class="panel panel-primary ">
                         <div class="panel-heading">
-                               城市景点
+                            Recent Chat History
                         </div>
                         <div class="panel-body chat-widget-main" style="background-color: #dff0d8;">
                             <div class="chat-widget-left">
-                            白云山是南粤名山之一，被称为羊城第一秀、南越第一山。
-·由30多座山峰组成，登高可俯览全市，遥望珠江，是知名的踏青胜地。
-·每当雨后天晴或暮春时节，山间白云缭绕，白云山名由此而来。
-·分为明珠楼、摩星岭、鸣春谷、三台岭、麓湖、飞鹅岭及荷依岭七个游览区。
-·景区内还能体验滑草、滑道、小型蹦极等娱乐项目。
+                               作为广州本地人来说，的确是不错的一个运动的好地方。当然，对于外地游客，白云山也是必去的一个打卡签到的好地方。
+                          记得，一定要到摩星岭那边去，那里看到的风景才最美
                             </div>
                             <div class="chat-widget-name-left">
                                 <img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-                                <h4> 白云山</h4>
-                                <h5>广州白云区</h5>
+                                <h4>  Amanna Seiar</h4>
+                                <h5>Time 2:00 pm at 25th july</h5>
                             </div>
                             <hr />
                             <div class="chat-widget-right">
@@ -201,15 +272,13 @@
                             </div>
                             <hr />
                         </div>
-
                     </div>
              </div>
-             
                  </div>
 
              <div class="row">
                  <div class="col-md-4 col-sm-4 col-xs-12">
- <div class="panel panel-default" style="background-color: transparent;">
+ 	<div class="panel panel-default" style="background-color: transparent;">
                         <div class="panel-heading panel-success" style="background-color: #dff0d8;" >
                         	评价雷达
                         </div>
@@ -219,7 +288,7 @@
  <div class="col-md-8 col-sm-8 col-xs-12" style="background-color: transparent;" >
                       <div class="panel panel-success" >
                         <div class="panel-heading">
-                           实时定位数据
+                           实时客流量
                         </div>
                         	<div  id ="scence" ></div>
                         	
@@ -227,7 +296,12 @@
              </div>
 </div>
 
-
+<div class="panel panel-success">
+                        <div class="panel-heading">
+                           景区关键词搜索频率
+                        </div>
+                        <div  id ="search-index"></div>
+</div>
 <div class="panel panel-success">
                         <div class="panel-heading">
                         	景区人流密度分布图
@@ -1358,7 +1432,8 @@
     ];
     
 new map(lineArr);
- 
+
+
 </script>
 
     <script src="assets/js/bootstrap.js"></script>
