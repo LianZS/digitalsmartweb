@@ -230,7 +230,7 @@ height: 60px;
         color:#000;
     }
 
-#search-index{
+#search-index,#trend{
 	width: auto;
 	min-height: 500px;
 }

@@ -117,7 +117,7 @@
      <!-- MENU SECTION END-->
     <div class="content-wrapper">
          <div class="container">
-             <div class="row" style="margin-bottom: 50px;">
+  <div class="row" style="margin-bottom: 50px;">
              	<div style="margin-left:10px;display: block;">
              	
 				<div class="field prov_field" style="float: left;margin-left: 5%;" ><label style="color: white;">省份</label><div class="ui search selection dropdown w140">
@@ -158,8 +158,7 @@
               	</div>
               
      
-			<div class="field interval_field" style="float: left;margin-left: 5%;">
-              		<label style="color: white;">粒度</label>
+			<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
              
 					<div class="ui compact search selection dropdown">
 				<select id="range_select0">
@@ -171,23 +170,26 @@
 			              </div>
 			        </div>
 
-		<div class="field date_field" style="float: left;margin-left: 5%;">
-	
-              		<label style="color: white;">日期</label>
+		<div class="field date_field" style="float: left;margin-left: 5%;"><label style="color: white;">日期</label>
              
 					<div class="ui compact search selection dropdown" >
 							<input type="text" id="datepicker" style=" width:100px">
 
 			              </div>
 		</div>
-
+		<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
+		<div class="ui compact search selection dropdown">
+			<span style="color: yellow;">
+				<i class="fa fa-search fa-2x " ></i>
+			</span>
+		
+		  <!--<button  class="sumit" >查看 </button>-->
+		  </div>
+			</div>
            </div>              
-             
-             
-             
+ 
              
              </div>
-
         <div class="row pad-botm">
 
         </div>
@@ -282,7 +284,7 @@
 
              <div class="row">
                  <div class="col-md-4 col-sm-4 col-xs-12">
- <div class="panel panel-default" style="background-color: transparent;">
+ 			<div class="panel panel-default" style="background-color: transparent;">
                         <div class="panel-heading panel-success" style="background-color: #dff0d8;" >
                         	评价雷达
                         </div>
@@ -300,14 +302,36 @@
              </div>
 </div>
 
+<div class="row" >
+<div class="panel panel-success" >
+                        <div class="panel-heading" >
+                           位置趋势
+                        </div>
+                        <div  id ="trend"></div>
+</div>
 
+</div>
+
+<div class="row" >
+<div class="panel panel-success" >
+                        <div class="panel-heading" >
+                           地区搜索热度
+                        </div>
+                        <div  id ="search-index"></div>
+</div>
+
+</div>
+
+
+<div class="row" style="clear: both;">
 <div class="panel panel-success">
-                        <div class="panel-heading">
+                        <div class="panel">
                         	景区人流密度分布图
                         </div>
 <div id='container' style="width: auto;height: 700px;">
 </div>
 	
+</div>
 </div>
   <script>
      	
@@ -321,7 +345,12 @@
   	"13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", 
   	"21:00", "21:30"]};
              new drawAreaChart(json);
-             new LineChart(json);
+              trend = new LineChart("trend");
+              trend.drawtrend(json);
+			search= new LineChart("search-index");
+			search.drawsearch(json);
+            
+            
     });
     
                  </script>
