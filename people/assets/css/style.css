@@ -8,6 +8,19 @@ body {
     line-height:28px;
    background-color: #011a33;   
 }
+#btn #JingQuList {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: none;
+    background-color: #003468;
+}
+#JingQuList li {
+	padding-right: 4%;
+    text-align: left;
+    display: inline;
+}
+
 .set-radius-zero {
     border-radius:0px;
     -moz-border-radius:0px;
