@@ -8,6 +8,7 @@ body {
     line-height:28px;
    background-color: #011a33;   
 }
+
 #btn #JingQuList {
     width: 100%;
     height: auto;
@@ -25,6 +26,54 @@ body {
     border-radius:0px;
     -moz-border-radius:0px;
     -webkit-border-radius:0px;
+}
+
+table {
+    width: 55%;
+    height: 100%;
+    /*border: 2px solid gray;*/
+    float: left;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table thead {
+    padding: 0px;
+    background: #003468;
+
+    color: white;
+
+}
+
+table thead tr th {
+    text-align: left;
+    /*height: 70px;*/
+}
+
+.paiming, .speed, .route, .exp {
+    text-align: left;
+    color: white;
+    /*height: 70px;*/
+
+}
+
+.dir {
+    color: gray;
+    font-size: 10px;
+}
+#map {
+
+    height: 70%;
+    background-color: red;
+    margin-top: 1%;
+}
+
+#roadData {
+    height: 30%;
+    width: 100%;
+    background-color: transparent;
+
 }
 .content-wrapper {
     margin-top: 40px;
