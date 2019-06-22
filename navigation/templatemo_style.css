@@ -96,9 +96,9 @@ em { color: #000; font-weight: 700 }
 
 #templatemo_menu ul li a:hover, #templatemo_menu ul .current { color: #ffa200; background: url(images/templatemo_menu_hover.jpg) left center no-repeat }
 
-#templatemo_content { width: 1200px; padding: 30px 20px 0 100px; }
+#templatemo_content { float:center; width: 1600px; padding: 30px 20px 0px 400px; }
 
-.content_box { clear: both; margin-bottom: 50px }
+.content_box {clear: both; margin-bottom: 50px }
 .col_w210 { float: left; width: 210px; margin-right: 20px; }
 
 
