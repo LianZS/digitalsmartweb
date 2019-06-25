@@ -66,7 +66,7 @@ function CityChart(IdName,cityName) {
 CityChart.prototype.setData = function dealData(json, num = -1) {
     var time = '';
     var data = '';
-    if (this.IdName == 'Citytraffic') {
+    if (this.IdName == 'realtime-traffic') {
         json = json.Citytraffic;
         this.option.xAxis.data = json.time;
         this.option.series[0].data = json.data;
@@ -79,7 +79,7 @@ CityChart.prototype.setData = function dealData(json, num = -1) {
         }
 
         // this.mychart.setOption(this.option);
-    } else if (this.IdName == 'yearData') {
+    } else if (this.IdName == 'year-traffic') {
         this.option.xAxis.data = json.time;
         this.option.series[0].data = json.data;
         // this.mychart.setOption(this.option);

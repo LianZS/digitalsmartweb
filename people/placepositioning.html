@@ -1,43 +1,54 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!--[if IE]>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+		<!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>数智</title>
-    <script src="assets/js/echarts.min.js"></script>
-        <script src="assets/js/radarChart.js"></script>
-        <script src="assets/js/jquery-3.3.1.min.js"></script>
-        <script src="assets/js/AreaChart.js"></script>
-        <script src="assets/js/linecharts.js"></script>
-        <script src="../js/jquery.fancybox.pack.js"></script>
-<script language="javascript"
-        src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
+		<title>数智</title>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/cityradarChart.js"></script>
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="assets/js/AreaChart.js"></script>
+		<script src="assets/js/linecharts.js"></script>
+		<script src="assets/js/hotmap.js"></script>
 
-  <script src="assets/js/map.js"></script>
-<script src="//a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>
-    <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME STYLE  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-		
-		
+		<script src="../js/jquery.fancybox.pack.js"></script>
+		<script language="javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
 
-        <link rel="stylesheet" href="../css/main.css">
+		<script src="assets/js/map.js"></script>
+		<!-- BOOTSTRAP CORE STYLE  -->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONT AWESOME STYLE  -->
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<!-- CUSTOM STYLE  -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+		<link rel="stylesheet" href="../css/main.css">
+		<script>
+			$(function() {
+				$("#datepicker").datepicker();
+			});
+		</script>
 
-</head>
-<body style="background-color: #011a33;">
-	  <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
-            <div class="container">
-                <div class="navbar-header">
-                    <!-- responsive nav button -->
+	</head>
+
+	<body style="background-color: #011a33;">
+		<header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- responsive nav button -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
@@ -45,7 +56,7 @@
 						<span class="icon-bar"></span>
                     </button>
 					<!-- /responsive nav button -->
-					
+
 					<!-- logo -->
 					<h1 class="navbar-brand">
 						<a href="#body">数智
@@ -53,1424 +64,5827 @@
 </a>
 					</h1>
 					<!-- /logo -->
-                </div>
+				</div>
 
 				<!-- main nav -->
-                <nav class="collapse navbar-collapse navbar-right" role="navigation">
-                    <ul id="nav" class="nav navbar-nav">
-                        <li><a href="#body">首页</a></li>
-                        <li><a href="#service">产品介绍</a></li>
-                        <li><a href="#portfolio">数据导航</a></li>
-                        <li><a href="#testimonials">开发作者</a></li>
-                        <li><a href="#contact">联系我们</a></li>
-                        <li><a href="#social"> 注册/登陆</a></li>
+				<nav class="collapse navbar-collapse navbar-right" role="navigation">
+					<ul id="nav" class="nav navbar-nav">
+						<li>
+							<a href="#body">首页</a>
+						</li>
+						<li>
+							<a href="#service">产品介绍</a>
+						</li>
+						<li>
+							<a href="#portfolio">数据导航</a>
+						</li>
+						<li>
+							<a href="#testimonials">开发作者</a>
+						</li>
+						<li>
+							<a href="#contact">联系我们</a>
+						</li>
+						<li>
+							<a href="#social"> 注册/登陆</a>
+						</li>
 
-                    </ul>
-                </nav>
+					</ul>
+				</nav>
 				<!-- /main nav -->
-				
-            </div>
-        </header>
-        
-    <div class="navbar navbar-inverse set-radius-zero" style="margin-top: 50px;background-color: black;" >
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+
+			</div>
+		</header>
+
+		<div class="navbar navbar-inverse set-radius-zero" style="margin-top: 50px;background-color: black;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-          
 
-            </div>
+				</div>
 
-         
-        </div>
-    </div>
-    <!-- LOGO HEADER END-->
-    <section class="menu-section">
-    	 <div style="float: left; margin-top: 20px;margin-left: 60px;">
-    	        	               	  <span style="color: Mediumslateblue;font-size: 10px;">
+			</div>
+		</div>
+		<!-- LOGO HEADER END-->
+		<section class="menu-section">
+			<div style="float: left; margin-top: 20px;margin-left: 60px;">
+				<span style="color: Mediumslateblue;font-size: 10px;">
 
     	        	             <i class="fa fa-map-marker fa-2x">地区人流实况</i>
     	        	               </span>
 
-                            </div>
-        <div class="container">
+			</div>
+			<div class="container">
 
-            <div class="row ">
-                <div class="col-md-12">
-                    <div class="navbar-collapse collapse ">
- 
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
-                       
-                            <li><a href="realtimeScence.html" >景区客流实时监测</a></li>
-                           
-                            <li><a href="placepositioning.html" class="menu-top-active">地区人口实时定位</a></li>
-                            <li><a href="trend.html">地区实时人流趋势</a></li>
+				<div class="row ">
+					<div class="col-md-12">
+						<div class="navbar-collapse collapse ">
 
-                          
-                            
+							<ul id="menu-top" class="nav navbar-nav navbar-right">
 
-                        </ul>
-                    </div>
-                </div>
+								<li>
+									<a href="realtimeScence.html">景区客流实时监测</a>
+								</li>
 
-            </div>
-       
-        
-        </div>
-    </section>
-     <!-- MENU SECTION END-->
-    <div class="content-wrapper">
-         <div class="container">
-  <div class="row" style="margin-bottom: 50px;">
-             	<div style="margin-left:10px;display: block;">
-             	
-				<div class="field prov_field" style="float: left;margin-left: 5%;" ><label style="color: white;">省份</label><div class="ui search selection dropdown w140">
-					<select id="prov_select0"><option value="北京市">北京市</option><option value="天津市">天津市</option><option value="河北省">河北省</option><option value="山西省">山西省</option>
-						<option value="内蒙古自治区">内蒙古自治区</option><option value="辽宁省">辽宁省</option>
-						<option value="吉林省">吉林省</option><option value="黑龙江省">黑龙江省</option>
-						<option value="上海市">上海市</option><option value="江苏省">江苏省</option>
-						<option value="浙江省">浙江省</option><option value="安徽省">安徽省</option>
-						<option value="福建省">福建省</option><option value="江西省">江西省</option>
-						<option value="山东省">山东省</option><option value="河南省">河南省</option>
-						<option value="湖北省">湖北省</option><option value="湖南省">湖南省</option>
-						<option value="广东省">广东省</option><option value="广西壮族自治区">广西壮族自治区</option>
-						<option value="海南省">海南省</option><option value="重庆市">重庆市</option>
-						<option value="四川省">四川省</option><option value="贵州省">贵州省</option>
-						<option value="云南省">云南省</option><option value="西藏自治区">西藏自治区</option>
-						<option value="陕西省">陕西省</option><option value="甘肃省">甘肃省</option>
-						<option value="青海省">青海省</option><option value="宁夏回族自治区">宁夏回族自治区</option>
-						<option value="新疆维吾尔自治区">新疆维吾尔自治区</option></select>
-             	</div>
-                     </div>
-              	<div class="field city_field" style="float: left;margin-left: 5%;"><label style="color: white;">城市</label>
-              		<div class="ui search selection dropdown">
-              			<select id="city_select0">
-              				<option value="汕头市">汕头市</option>
-              				<option value="深圳市">深圳市</option>
+								<li>
+									<a href="placepositioning.html" class="menu-top-active">地区人口实时定位</a>
+								</li>
 
-              			</select>
-              				</div>
-              	</div>
-              <div class=" field area_field" style="float:left ;margin-left: 5%;" ><label style="color: white;">区域</label>
-              		<div class="ui search selection dropdown">
-              			<select id="city_select0">
-              				<option value="公园">公园</option>
-              				<option value="游乐场">游乐场</option>
+							</ul>
+						</div>
+					</div>
 
-              			</select>
-              				</div>
-              	</div>
-              
-     
-			<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
-             
-					<div class="ui compact search selection dropdown">
-				<select id="range_select0">
-					<option value="60">60分钟</option>
-					<option value="30">30分钟</option>
-					<option value="10">10分钟</option>
-			              	<option value="5">5分钟</option>
-				</select>
-			              </div>
-			        </div>
+				</div>
 
-		<div class="field date_field" style="float: left;margin-left: 5%;"><label style="color: white;">日期</label>
-             
-					<div class="ui compact search selection dropdown" >
-							<input type="text" id="datepicker" style=" width:100px">
+			</div>
+		</section>
+		<!-- MENU SECTION END-->
+		<div class="content-wrapper">
+			<div class="container">
+				<div class="row" style="margin-bottom: 50px;">
+					<div style="margin-left:10px;display: block;">
 
-			              </div>
-		</div>
-		<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
-		<div class="ui compact search selection dropdown">
-			<span style="color: yellow;">
+						<div class="field prov_field" style="float: left;margin-left: 5%;"><label style="color: white;">省份</label>
+							<div class="ui search selection dropdown w140">
+								<select id="prov_select0">
+									<option value="北京市">北京市</option>
+									<option value="天津市">天津市</option>
+									<option value="河北省">河北省</option>
+									<option value="山西省">山西省</option>
+									<option value="内蒙古自治区">内蒙古自治区</option>
+									<option value="辽宁省">辽宁省</option>
+									<option value="吉林省">吉林省</option>
+									<option value="黑龙江省">黑龙江省</option>
+									<option value="上海市">上海市</option>
+									<option value="江苏省">江苏省</option>
+									<option value="浙江省">浙江省</option>
+									<option value="安徽省">安徽省</option>
+									<option value="福建省">福建省</option>
+									<option value="江西省">江西省</option>
+									<option value="山东省">山东省</option>
+									<option value="河南省">河南省</option>
+									<option value="湖北省">湖北省</option>
+									<option value="湖南省">湖南省</option>
+									<option value="广东省">广东省</option>
+									<option value="广西壮族自治区">广西壮族自治区</option>
+									<option value="海南省">海南省</option>
+									<option value="重庆市">重庆市</option>
+									<option value="四川省">四川省</option>
+									<option value="贵州省">贵州省</option>
+									<option value="云南省">云南省</option>
+									<option value="西藏自治区">西藏自治区</option>
+									<option value="陕西省">陕西省</option>
+									<option value="甘肃省">甘肃省</option>
+									<option value="青海省">青海省</option>
+									<option value="宁夏回族自治区">宁夏回族自治区</option>
+									<option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+								</select>
+							</div>
+						</div>
+						<div class="field city_field" style="float: left;margin-left: 5%;"><label style="color: white;">城市</label>
+							<div class="ui search selection dropdown">
+								<select id="city_select0">
+									<option value="汕头市">汕头市</option>
+									<option value="深圳市">深圳市</option>
+
+								</select>
+							</div>
+						</div>
+						<div class=" field area_field" style="float:left ;margin-left: 5%;"><label style="color: white;">区域</label>
+							<div class="ui search selection dropdown">
+								<select id="city_select0">
+									<option value="公园">公园</option>
+									<option value="游乐场">游乐场</option>
+
+								</select>
+							</div>
+						</div>
+
+						<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
+
+							<div class="ui compact search selection dropdown">
+								<select id="range_select0">
+									<option value="60">60分钟</option>
+									<option value="30">30分钟</option>
+									<option value="10">10分钟</option>
+									<option value="5">5分钟</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="field date_field" style="float: left;margin-left: 5%;"><label style="color: white;">日期</label>
+
+							<div class="ui compact search selection dropdown">
+								<input type="text" id="datepicker" style=" width:100px">
+
+							</div>
+						</div>
+						<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
+							<div class="ui compact search selection dropdown">
+								<span style="color: yellow;">
 				<i class="fa fa-search fa-2x " ></i>
 			</span>
-		
-		  <!--<button  class="sumit" >查看 </button>-->
-		  </div>
-			</div>
-           </div>              
- 
-             
-             </div>
-        <div class="row pad-botm">
 
-        </div>
-             
-             <div class="row">
+								<!--<button  class="sumit" >查看 </button>-->
+							</div>
+						</div>
+					</div>
 
-              <div class="col-md-8 col-sm-8 col-xs-12">
-                    <div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel" >
-                   
-                    <div class="carousel-inner">
-                        <div class="item active">
+				</div>
+				<div class="row pad-botm">
 
-                            <img src="assets/img/1.jpg" alt="" />
-                           
-                        </div>
-                        <div class="item">
-                            <img src="assets/img/2.jpg" alt="" />
-                          
-                        </div>
-                        <div class="item">
-                            <img src="assets/img/3.jpg" alt="" />
-                           
-                        </div>
-                    </div>
-                    <!--INDICATORS-->
-                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example" data-slide-to="1"></li>
-                        <li data-target="#carousel-example" data-slide-to="2"></li>
-                    </ol>
-                    <!--PREVIUS-NEXT BUTTONS-->
-                     <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-                </div>
-              </div>
-                 
-                 <div class="col-md-4 col-sm-4 col-xs-12">
-                 <div class="panel panel-primary ">
-                        <div class="panel-heading">
-                               城市景点
-                        </div>
-                        <div class="panel-body chat-widget-main" style="background-color: #dff0d8;">
-                            <div class="chat-widget-left">
-                            白云山是南粤名山之一，被称为羊城第一秀、南越第一山。
-·由30多座山峰组成，登高可俯览全市，遥望珠江，是知名的踏青胜地。
-·每当雨后天晴或暮春时节，山间白云缭绕，白云山名由此而来。
-·分为明珠楼、摩星岭、鸣春谷、三台岭、麓湖、飞鹅岭及荷依岭七个游览区。
-·景区内还能体验滑草、滑道、小型蹦极等娱乐项目。
-                            </div>
-                            <div class="chat-widget-name-left">
-                                <img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-                                <h4> 白云山</h4>
-                                <h5>广州白云区</h5>
-                            </div>
-                            <hr />
-                            <div class="chat-widget-right">
-                                白云山绿化面积很大，温暖湿润，空气很好，主峰摩星岭高382米，不算高，爬起来不太累
-                            </div>
-                            <div class="chat-widget-name-right">
-                                 <img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
-                                <h4>  Amanna Seiar</h4>
-                                <h5>Time 2:00 pm at 25th july</h5>
-                            </div>
-                            <hr />
-                            <div class="chat-widget-left">
-我们从山脚乘电频车到山顶广场，然后从广场往上爬到最高峰—摩星岭，再从摩星岭下山，就这样回去腿酸了整整两天，丢人啊！风景还是不错，就是玩得有点累，但是很尽兴，里面小景点也都买票进去了，一般票价都是5元。                            </div>
-                            <div class="chat-widget-name-left">
-                                 <img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-                                <h4>  Amanna Seiar</h4>
-                                <h5>Time 2:00 pm at 25th july</h5>
-                            </div>
-                            <hr />
-                            <div class="chat-widget-right">
-不愧是本地人最爱，人从众人从众人从众
-人多到上山缆车因为排队而停运，人多到景区电瓶车因为运力不足而暂停售票！好吧，爬！                            </div>
-                            <div class="chat-widget-name-right">
-                               <img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
-                                <h4>  Amanna Seiar</h4>
-                                <h5>Time 2:00 pm at 25th july</h5>
-                            </div>
-                            <hr />
-                        </div>
+				</div>
 
-                    </div>
-             </div>
-             
-                 </div>
+				<div class="row">
 
-             <div class="row">
-                 <div class="col-md-4 col-sm-4 col-xs-12">
- 			<div class="panel panel-default" style="background-color: transparent;">
-                        <div class="panel-heading panel-success" style="background-color: #dff0d8;" >
-                        	评价雷达
-                        </div>
-                        	<div  id='evaluate'></div>
-     </div>
- </div>
- <div class="col-md-8 col-sm-8 col-xs-12" style="background-color: transparent;" >
-                      <div class="panel panel-success" >
-                        <div class="panel-heading">
-                           实时定位数据
-                        </div>
-                        	<div  id ="scence" ></div>
-                        	
-                    </div>
-             </div>
-</div>
+					<div class="col-md-8 col-sm-8 col-xs-12">
+						<div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel">
 
-<div class="row" >
-<div class="panel panel-success" >
-                        <div class="panel-heading" >
-                           位置趋势
-                        </div>
-                        <div  id ="trend"></div>
-</div>
+							<div class="carousel-inner">
+								<div class="item active">
 
-</div>
+									<img src="assets/img/1.jpg" alt="" />
 
-<div class="row" >
-<div class="panel panel-success" >
-                        <div class="panel-heading" >
-                           地区搜索热度
-                        </div>
-                        <div  id ="search-index"></div>
-</div>
+								</div>
+								<div class="item">
+									<img src="assets/img/2.jpg" alt="" />
 
-</div>
+								</div>
+								<div class="item">
+									<img src="assets/img/3.jpg" alt="" />
 
+								</div>
+							</div>
+							<!--INDICATORS-->
+							<ol class="carousel-indicators">
+								<li data-target="#carousel-example" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel-example" data-slide-to="1"></li>
+								<li data-target="#carousel-example" data-slide-to="2"></li>
+							</ol>
+							<!--PREVIUS-NEXT BUTTONS-->
+							<a class="left carousel-control" href="#carousel-example" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#carousel-example" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+					</div>
 
-<div class="row" style="clear: both;">
-<div class="panel panel-success">
-                        <div class="panel">
-                        	景区人流密度分布图
-                        </div>
-<div id='container' style="width: auto;height: 700px;">
-</div>
-	
-</div>
-</div>
-  <script>
-     	
-    $(document).ready(() => {
-    	
-        new drawRadar();
-  	json ={"data": [1568, 1305, 1036, 884, 822, 766, 730, 665, 681, 624, 795, 973, 1306, 1749, 2003, 2061, 2132, 2138, 2328, 2541, 2577, 2716, 2619, 2696, 2681, 2631, 2677, 2581, 2506, 2496, 2500, 2604,
-  	2446, 2586, 2817, 2728, 2587, 2621, 2601, 2530, 2535, 2635, 2889, 2656], 
-  	"time": ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30", 
-  	"05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", 
-  	"13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", 
-  	"21:00", "21:30"]};
-             new drawAreaChart(json);
-              trend = new LineChart("trend");
-              trend.drawtrend(json);
-			search= new LineChart("search-index");
-			search.drawsearch(json);
-            
-            
-    });
-    
-                 </script>
-                 
-                 
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="panel panel-primary ">
+							<div class="panel-heading">
+								城市景点
+							</div>
+							<div class="panel-body chat-widget-main" style="background-color: #dff0d8;">
+								<div class="chat-widget-left">
+									白云山是南粤名山之一，被称为羊城第一秀、南越第一山。 ·由30多座山峰组成，登高可俯览全市，遥望珠江，是知名的踏青胜地。 ·每当雨后天晴或暮春时节，山间白云缭绕，白云山名由此而来。 ·分为明珠楼、摩星岭、鸣春谷、三台岭、麓湖、飞鹅岭及荷依岭七个游览区。 ·景区内还能体验滑草、滑道、小型蹦极等娱乐项目。
+								</div>
+								<div class="chat-widget-name-left">
+									<img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
+									<h4> 白云山</h4>
+									<h5>广州白云区</h5>
+								</div>
+								<hr />
+								<div class="chat-widget-right">
+									白云山绿化面积很大，温暖湿润，空气很好，主峰摩星岭高382米，不算高，爬起来不太累
+								</div>
+								<div class="chat-widget-name-right">
+									<img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
+									<h4>  Amanna Seiar</h4>
+									<h5>Time 2:00 pm at 25th july</h5>
+								</div>
+								<hr />
+								<div class="chat-widget-left">
+									我们从山脚乘电频车到山顶广场，然后从广场往上爬到最高峰—摩星岭，再从摩星岭下山，就这样回去腿酸了整整两天，丢人啊！风景还是不错，就是玩得有点累，但是很尽兴，里面小景点也都买票进去了，一般票价都是5元。 </div>
+								<div class="chat-widget-name-left">
+									<img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
+									<h4>  Amanna Seiar</h4>
+									<h5>Time 2:00 pm at 25th july</h5>
+								</div>
+								<hr />
+								<div class="chat-widget-right">
+									不愧是本地人最爱，人从众人从众人从众 人多到上山缆车因为排队而停运，人多到景区电瓶车因为运力不足而暂停售票！好吧，爬！ </div>
+								<div class="chat-widget-name-right">
+									<img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
+									<h4>  Amanna Seiar</h4>
+									<h5>Time 2:00 pm at 25th july</h5>
+								</div>
+								<hr />
+							</div>
 
-     <script type="text/javascript">
+						</div>
+					</div>
 
- var lineArr = [
-[106.766066,26.820708],
-[106.769319,26.819468],
-[106.770251,26.819872],
-[106.770938,26.820556],
-[106.771903,26.820457],
-[106.772172,26.819153],
-[106.772254,26.818198],
-[106.772731,26.817758],
-[106.774758,26.817645],
-[106.77689,26.818136],
-[106.780485,26.819475],
-[106.782963,26.819858],
-[106.783583,26.819954],
-[106.783855,26.81995],
-[106.784513,26.819659],
-[106.788678,26.816371],
-[106.790755,26.814521],
-[106.793015,26.811994],
-[106.794638,26.809764],
-[106.796016,26.807655],
-[106.797511,26.806605],
-[106.797706,26.806319],
-[106.798947,26.805434],
-[106.800289,26.804895],
-[106.801531,26.804097],
-[106.801511,26.802797],
-[106.802265,26.801659],
-[106.80633,26.802381],
-[106.807768,26.80184],
-[106.809102,26.800781],
-[106.810357,26.800762],
-[106.815218,26.803119],
-[106.817251,26.803523],
-[106.818502,26.803331],
-[106.819651,26.802794],
-[106.820784,26.801217],
-[106.822307,26.799981],
-[106.822969,26.799104],
-[106.822954,26.798151],
-[106.822142,26.795648],
-[106.822605,26.794428],
-[106.82348,26.792974],
-[106.823354,26.792667],
-[106.821462,26.792364],
-[106.821356,26.791759],
-[106.820867,26.791332],
-[106.819706,26.791089],
-[106.818162,26.791112],
-[106.817483,26.790862],
-[106.817475,26.790342],
-[106.817942,26.789381],
-[106.818448,26.788737],
-[106.816179,26.787247],
-[106.813645,26.786863],
-[106.808803,26.787037],
-[106.807071,26.786855],
-[106.805434,26.785531],
-[106.803412,26.781621],
-[106.802905,26.778727],
-[106.801715,26.776463],
-[106.799607,26.774421],
-[106.798194,26.772575],
-[106.797006,26.770415],
-[106.796612,26.767415],
-[106.796418,26.762339],
-[106.795566,26.759552],
-[106.795008,26.758031],
-[106.794574,26.757626],
-[106.791951,26.752039],
-[106.791409,26.750449],
-[106.79125,26.748736],
-[106.79083,26.74714],
-[106.789793,26.74647],
-[106.788055,26.745984],
-[106.786316,26.74584],
-[106.777081,26.745748],
-[106.774632,26.745216],
-[106.772763,26.744556],
-[106.771001,26.743039],
-[106.76962,26.741459],
-[106.767163,26.740351],
-[106.761699,26.739974],
-[106.761257,26.740379],
-[106.760019,26.740623],
-[106.757622,26.740329],
-[106.756026,26.739754],
-[106.753796,26.738602],
-[106.750452,26.736157],
-[106.748856,26.735284],
-[106.747894,26.734998],
-[106.747741,26.734712],
-[106.744236,26.731402],
-[106.741939,26.730324],
-[106.741541,26.728653],
-[106.743329,26.7276],
-[106.743887,26.726846],
-[106.744726,26.725235],
-[106.744756,26.72352],
-[106.745191,26.722886],
-[106.746711,26.721607],
-[106.748421,26.720326],
-[106.749995,26.718645],
-[106.748704,26.718606],
-[106.746589,26.718806],
-[106.745871,26.717844],
-[106.745458,26.716536],
-[106.745038,26.714655],
-[106.746634,26.714289],
-[106.748437,26.714379],
-[106.749376,26.713337],
-[106.750567,26.711547],
-[106.752621,26.711519],
-[106.753548,26.711597],
-[106.754934,26.711714],
-[106.75711,26.711571],
-[106.75401,26.707155],
-[106.753139,26.705281],
-[106.75304,26.703394],
-[106.75333,26.701904],
-[106.754842,26.700341],
-[106.756109,26.699236],
-[106.755498,26.697759],
-[106.754765,26.696339],
-[106.755139,26.695419],
-[106.7562,26.694201],
-[106.755222,26.693473],
-[106.754665,26.69091],
-[106.753016,26.688588],
-[106.753322,26.687842],
-[106.755108,26.687185],
-[106.755467,26.685981],
-[106.755504,26.684721],
-[106.755863,26.683289],
-[106.756855,26.681445],
-[106.757336,26.679779],
-[106.757054,26.678411],
-[106.757038,26.677326],
-[106.756336,26.677508],
-[106.755771,26.678259],
-[106.754237,26.678794],
-[106.752763,26.678931],
-[106.749274,26.67795],
-[106.747602,26.677743],
-[106.746151,26.678965],
-[106.744501,26.68013],
-[106.743302,26.681177],
-[106.741713,26.682172],
-[106.741552,26.682227],
-[106.739483,26.682943],
-[106.736656,26.682926],
-[106.735236,26.682831],
-[106.734571,26.681694],
-[106.733073,26.680515],
-[106.730796,26.678945],
-[106.728136,26.677665],
-[106.727678,26.677156],
-[106.728847,26.674511],
-[106.729145,26.672763],
-[106.722281,26.675447],
-[106.714063,26.677142],
-[106.708772,26.676244],
-[106.706753,26.671248],
-[106.705185,26.664362],
-[106.705268,26.662179],
-[106.705612,26.660001],
-[106.705161,26.660008],
-[106.704137,26.660364],
-[106.703173,26.660544],
-[106.703056,26.660457],
-[106.702653,26.660153],
-[106.702974,26.656662],
-[106.702737,26.654377],
-[106.702247,26.652496],
-[106.701926,26.652215],
-[106.701038,26.652968],
-[106.700159,26.654238],
-[106.699333,26.654649],
-[106.699073,26.654481],
-[106.699111,26.652994],
-[106.699753,26.649897],
-[106.699853,26.648296],
-[106.699325,26.647444],
-[106.697917,26.647269],
-[106.696715,26.646494],
-[106.695457,26.644856],
-[106.694688,26.643591],
-[106.694559,26.643256],
-[106.694442,26.641789],
-[106.694026,26.641107],
-[106.694016,26.640365],
-[106.694101,26.639746],
-[106.694052,26.639504],
-[106.693587,26.639395],
-[106.692612,26.639321],
-[106.69238,26.639239],
-[106.691943,26.638864],
-[106.691875,26.638442],
-[106.692044,26.637508],
-[106.691901,26.637314],
-[106.691545,26.637279],
-[106.691154,26.637071],
-[106.690523,26.636902],
-[106.689072,26.637517],
-[106.688944,26.637484],
-[106.688932,26.63706],
-[106.688507,26.636602],
-[106.688203,26.636353],
-[106.687471,26.636201],
-[106.687455,26.636065],
-[106.687703,26.635649],
-[106.687656,26.635485],
-[106.686541,26.635078],
-[106.686476,26.634891],
-[106.686511,26.634536],
-[106.686011,26.634127],
-[106.685908,26.633715],
-[106.685747,26.633613],
-[106.685465,26.634524],
-[106.685268,26.634582],
-[106.684835,26.634917],
-[106.684478,26.635314],
-[106.683998,26.636071],
-[106.68395,26.636287],
-[106.684025,26.63673],
-[106.683711,26.636771],
-[106.683623,26.637108],
-[106.683246,26.637242],
-[106.683413,26.637756],
-[106.683118,26.638483],
-[106.683104,26.63943],
-[106.683028,26.639698],
-[106.682812,26.639826],
-[106.682257,26.639743],
-[106.681694,26.639759],
-[106.681681,26.639889],
-[106.682075,26.640666],
-[106.682084,26.640865],
-[106.681608,26.641001],
-[106.681277,26.641479],
-[106.680516,26.641012],
-[106.680344,26.641017],
-[106.679896,26.641215],
-[106.678986,26.641854],
-[106.678822,26.642055],
-[106.678825,26.642154],
-[106.679053,26.642373],
-[106.678696,26.642352],
-[106.678878,26.642579],
-[106.678564,26.642639],
-[106.678526,26.642977],
-[106.678598,26.643607],
-[106.678484,26.643643],
-[106.678013,26.643555],
-[106.677824,26.644006],
-[106.677634,26.644233],
-[106.677262,26.644532],
-[106.676703,26.644616],
-[106.676488,26.645028],
-[106.675804,26.64581],
-[106.675106,26.647018],
-[106.675094,26.647714],
-[106.674869,26.647956],
-[106.674473,26.648059],
-[106.674051,26.647824],
-[106.673305,26.648044],
-[106.672176,26.647589],
-[106.671356,26.647555],
-[106.670505,26.647641],
-[106.670276,26.647883],
-[106.669834,26.648014],
-[106.66872,26.648645],
-[106.668637,26.648677],
-[106.668595,26.64887],
-[106.668598,26.648949],
-[106.668722,26.649136],
-[106.668954,26.649354],
-[106.669426,26.649586],
-[106.669543,26.649749],
-[106.669518,26.649988],
-[106.669214,26.650418],
-[106.668968,26.650511],
-[106.668202,26.650474],
-[106.668147,26.650604],
-[106.668286,26.650856],
-[106.668173,26.651062],
-[106.667374,26.650894],
-[106.666641,26.651031],
-[106.666532,26.65077],
-[106.666509,26.649762],
-[106.666381,26.649526],
-[106.666121,26.649559],
-[106.665678,26.650029],
-[106.664876,26.651367],
-[106.664857,26.651913],
-[106.66479,26.652059],
-[106.664319,26.652354],
-[106.664017,26.652682],
-[106.663682,26.653519],
-[106.663562,26.654338],
-[106.663734,26.654406],
-[106.664088,26.654198],
-[106.664464,26.654151],
-[106.664556,26.65423],
-[106.664269,26.654498],
-[106.664206,26.654669],
-[106.66425,26.654804],
-[106.664433,26.65485],
-[106.665462,26.654674],
-[106.665542,26.65474],
-[106.665603,26.65507],
-[106.665561,26.65546],
-[106.665368,26.655596],
-[106.665279,26.655969],
-[106.664551,26.656376],
-[106.664658,26.656776],
-[106.664434,26.656853],
-[106.664403,26.657919],
-[106.664264,26.658365],
-[106.664279,26.658766],
-[106.664209,26.658862],
-[106.663412,26.658842],
-[106.663311,26.658912],
-[106.663248,26.659169],
-[106.662772,26.659189],
-[106.662201,26.658833],
-[106.661249,26.659054],
-[106.660706,26.658646],
-[106.660167,26.658809],
-[106.66007,26.658953],
-[106.660135,26.659973],
-[106.660038,26.660123],
-[106.659842,26.660127],
-[106.659805,26.660406],
-[106.659489,26.660257],
-[106.659213,26.660321],
-[106.65919,26.660939],
-[106.658933,26.660968],
-[106.658914,26.660894],
-[106.658779,26.6609],
-[106.65826,26.661004],
-[106.657933,26.660823],
-[106.657511,26.660819],
-[106.657385,26.660883],
-[106.657345,26.661046],
-[106.656935,26.661228],
-[106.656776,26.660999],
-[106.656516,26.660941],
-[106.656049,26.660582],
-[106.656022,26.660792],
-[106.656154,26.660984],
-[106.656065,26.661244],
-[106.65626,26.66165],
-[106.656194,26.661719],
-[106.65623,26.661782],
-[106.656659,26.661789],
-[106.656732,26.661845],
-[106.656601,26.662117],
-[106.656688,26.662509],
-[106.657276,26.662604],
-[106.657635,26.662537],
-[106.65789,26.662383],
-[106.65811,26.662872],
-[106.658347,26.66281],
-[106.658601,26.662909],
-[106.658908,26.662882],
-[106.658891,26.663518],
-[106.659214,26.66356],
-[106.659034,26.664548],
-[106.658775,26.665045],
-[106.658343,26.664852],
-[106.658232,26.664611],
-[106.656663,26.664926],
-[106.656336,26.665053],
-[106.655921,26.664973],
-[106.654973,26.665418],
-[106.654624,26.665204],
-[106.654531,26.664901],
-[106.654096,26.664521],
-[106.653488,26.664273],
-[106.653397,26.664333],
-[106.653584,26.664606],
-[106.653579,26.664723],
-[106.653325,26.66458],
-[106.653117,26.664199],
-[106.65256,26.663937],
-[106.652072,26.664045],
-[106.651467,26.663941],
-[106.651089,26.663959],
-[106.651046,26.663814],
-[106.651257,26.663514],
-[106.651747,26.663464],
-[106.651947,26.663321],
-[106.652114,26.662724],
-[106.652537,26.663019],
-[106.652885,26.663104],
-[106.652998,26.662995],
-[106.652381,26.662192],
-[106.652261,26.661649],
-[106.652116,26.661377],
-[106.651941,26.661232],
-[106.651296,26.660984],
-[106.651027,26.660525],
-[106.650897,26.660499],
-[106.649869,26.661663],
-[106.649734,26.662162],
-[106.64988,26.662714],
-[106.647295,26.662202],
-[106.647436,26.662991],
-[106.647687,26.663697],
-[106.647676,26.663895],
-[106.64757,26.664041],
-[106.646989,26.66419],
-[106.646945,26.664548],
-[106.646519,26.664656],
-[106.646392,26.664781],
-[106.646291,26.665245],
-[106.645972,26.665696],
-[106.646206,26.666478],
-[106.646168,26.666953],
-[106.645699,26.667094],
-[106.645419,26.667067],
-[106.644678,26.666666],
-[106.644466,26.666466],
-[106.644396,26.666256],
-[106.644271,26.666246],
-[106.644191,26.666379],
-[106.644198,26.666602],
-[106.644458,26.666925],
-[106.644322,26.667172],
-[106.644421,26.667533],
-[106.645122,26.668094],
-[106.645332,26.668408],
-[106.645344,26.668592],
-[106.645244,26.668642],
-[106.64501,26.668535],
-[106.644518,26.667881],
-[106.644478,26.667961],
-[106.644659,26.668371],
-[106.644641,26.668494],
-[106.644433,26.668515],
-[106.643809,26.66831],
-[106.643407,26.668302],
-[106.643208,26.667896],
-[106.642785,26.667592],
-[106.642312,26.666766],
-[106.641933,26.66647],
-[106.641757,26.666504],
-[106.641782,26.666791],
-[106.641617,26.666828],
-[106.640781,26.666482],
-[106.64077,26.666257],
-[106.640576,26.666238],
-[106.640408,26.666356],
-[106.640263,26.666716],
-[106.64011,26.666847],
-[106.639607,26.666907],
-[106.639296,26.666713],
-[106.63897,26.666913],
-[106.638712,26.6668],
-[106.63856,26.666505],
-[106.638353,26.666399],
-[106.638181,26.666469],
-[106.637772,26.666858],
-[106.637149,26.666944],
-[106.637009,26.666872],
-[106.637044,26.666756],
-[106.63674,26.666869],
-[106.636374,26.667011],
-[106.635639,26.66618],
-[106.635479,26.666402],
-[106.635252,26.666472],
-[106.634275,26.665765],
-[106.634063,26.66583],
-[106.633762,26.666093],
-[106.633232,26.666399],
-[106.632942,26.666396],
-[106.632778,26.666248],
-[106.632426,26.665377],
-[106.632412,26.665173],
-[106.630705,26.665367],
-[106.62661,26.665069],
-[106.625169,26.665053],
-[106.624898,26.66499],
-[106.624368,26.665029],
-[106.62434,26.665562],
-[106.624284,26.666606],
-[106.61012,26.66657],
-[106.609798,26.666551],
-[106.609779,26.666431],
-[106.609182,26.66257],
-[106.608995,26.662268],
-[106.60917,26.661807],
-[106.609079,26.661642],
-[106.608654,26.661444],
-[106.608053,26.660868],
-[106.607898,26.660877],
-[106.607449,26.661177],
-[106.607039,26.661346],
-[106.606898,26.661277],
-[106.606795,26.661057],
-[106.606556,26.660836],
-[106.606239,26.660636],
-[106.60597,26.660587],
-[106.6058,26.660601],
-[106.605499,26.660841],
-[106.605047,26.660843],
-[106.605026,26.661474],
-[106.604816,26.661646],
-[106.602896,26.661796],
-[106.602806,26.661966],
-[106.602891,26.662285],
-[106.602992,26.662394],
-[106.603552,26.662603],
-[106.603759,26.662867],
-[106.603743,26.663494],
-[106.60385,26.664298],
-[106.603981,26.664692],
-[106.603873,26.664745],
-[106.603442,26.66479],
-[106.603028,26.664734],
-[106.602025,26.664201],
-[106.601669,26.664098],
-[106.60083,26.664137],
-[106.600517,26.664077],
-[106.600332,26.663942],
-[106.600249,26.663454],
-[106.600141,26.663354],
-[106.599896,26.663816],
-[106.599861,26.664233],
-[106.599976,26.664478],
-[106.599902,26.664603],
-[106.599718,26.664624],
-[106.598715,26.664334],
-[106.598435,26.66448],
-[106.598185,26.664498],
-[106.597896,26.664376],
-[106.597603,26.664356],
-[106.597281,26.664115],
-[106.597288,26.663729],
-[106.597496,26.663327],
-[106.597415,26.663214],
-[106.596852,26.66321],
-[106.596443,26.663424],
-[106.596075,26.663432],
-[106.595864,26.663637],
-[106.595413,26.663731],
-[106.595046,26.664325],
-[106.594744,26.664417],
-[106.59463,26.664542],
-[106.594474,26.664836],
-[106.594356,26.665381],
-[106.594278,26.665518],
-[106.594172,26.665544],
-[106.594065,26.665471],
-[106.593692,26.664161],
-[106.593555,26.663918],
-[106.593429,26.663878],
-[106.5933,26.664167],
-[106.59323,26.664639],
-[106.593307,26.665667],
-[106.593151,26.665879],
-[106.592999,26.66566],
-[106.593023,26.665391],
-[106.592838,26.664833],
-[106.592699,26.664756],
-[106.592631,26.664805],
-[106.592624,26.665261],
-[106.592877,26.666016],
-[106.592816,26.666208],
-[106.592542,26.666462],
-[106.592671,26.666964],
-[106.592591,26.667151],
-[106.592252,26.667088],
-[106.591983,26.666799],
-[106.591886,26.666787],
-[106.591288,26.667539],
-[106.591059,26.667954],
-[106.590663,26.668346],
-[106.590366,26.668524],
-[106.589288,26.668487],
-[106.589156,26.66854],
-[106.58912,26.668758],
-[106.589004,26.668786],
-[106.588502,26.668611],
-[106.587422,26.668566],
-[106.587468,26.670279],
-[106.587761,26.671856],
-[106.58779,26.672465],
-[106.587729,26.672814],
-[106.587418,26.673405],
-[106.587262,26.674204],
-[106.587249,26.674702],
-[106.587167,26.674784],
-[106.586632,26.674704],
-[106.586509,26.674928],
-[106.586617,26.675073],
-[106.586979,26.675178],
-[106.587051,26.675307],
-[106.587098,26.676231],
-[106.587034,26.676943],
-[106.587414,26.677334],
-[106.587422,26.677853],
-[106.587074,26.678403],
-[106.586748,26.678634],
-[106.586164,26.678806],
-[106.586119,26.678921],
-[106.58653,26.679619],
-[106.586554,26.681204],
-[106.586839,26.681768],
-[106.586733,26.682683],
-[106.587753,26.684504],
-[106.588365,26.686122],
-[106.58635,26.687197],
-[106.584697,26.688436],
-[106.584404,26.688972],
-[106.583041,26.690948],
-[106.582848,26.691885],
-[106.582899,26.692068],
-[106.58317,26.692226],
-[106.583214,26.692434],
-[106.583027,26.692778],
-[106.582723,26.692847],
-[106.582683,26.692847],
-[106.582444,26.693052],
-[106.582481,26.693682],
-[106.582127,26.694351],
-[106.582122,26.69456],
-[106.582717,26.694712],
-[106.582897,26.694865],
-[106.582948,26.695071],
-[106.582485,26.695654],
-[106.582317,26.695668],
-[106.582136,26.695542],
-[106.581963,26.695628],
-[106.581906,26.695828],
-[106.581939,26.696293],
-[106.581856,26.696386],
-[106.581749,26.696271],
-[106.581711,26.695973],
-[106.581577,26.69576],
-[106.581772,26.695219],
-[106.581395,26.695515],
-[106.581341,26.696214],
-[106.581453,26.696476],
-[106.581467,26.697023],
-[106.581271,26.697487],
-[106.581049,26.697591],
-[106.580589,26.697621],
-[106.580524,26.697895],
-[106.580394,26.697951],
-[106.579913,26.697955],
-[106.57918,26.697777],
-[106.578486,26.698218],
-[106.577985,26.698355],
-[106.577732,26.699054],
-[106.577381,26.699259],
-[106.576831,26.69944],
-[106.576751,26.699875],
-[106.576539,26.700342],
-[106.576389,26.700425],
-[106.575969,26.700384],
-[106.575741,26.700464],
-[106.575707,26.700742],
-[106.575849,26.701529],
-[106.575801,26.701718],
-[106.574744,26.702088],
-[106.574542,26.702314],
-[106.574542,26.702465],
-[106.574944,26.702732],
-[106.575541,26.702952],
-[106.575896,26.703508],
-[106.57678,26.704315],
-[106.576868,26.704459],
-[106.576872,26.704782],
-[106.577363,26.705656],
-[106.579023,26.707498],
-[106.578962,26.708066],
-[106.579056,26.708387],
-[106.579456,26.709149],
-[106.579702,26.709381],
-[106.581796,26.710294],
-[106.582018,26.710208],
-[106.582179,26.709852],
-[106.582446,26.709817],
-[106.582791,26.71026],
-[106.582759,26.710352],
-[106.582413,26.710451],
-[106.582431,26.710589],
-[106.582617,26.710827],
-[106.582737,26.710916],
-[106.582742,26.710697],
-[106.582956,26.710696],
-[106.583191,26.710836],
-[106.583638,26.711296],
-[106.583974,26.711431],
-[106.584282,26.711393],
-[106.584425,26.711189],
-[106.584139,26.710525],
-[106.584146,26.710167],
-[106.584537,26.709933],
-[106.585123,26.709892],
-[106.585948,26.710437],
-[106.586504,26.711064],
-[106.587083,26.711117],
-[106.587588,26.711277],
-[106.58807,26.712072],
-[106.58893,26.712667],
-[106.589078,26.712972],
-[106.589012,26.713541],
-[106.588912,26.713747],
-[106.588524,26.713892],
-[106.588568,26.714276],
-[106.58852,26.714472],
-[106.588135,26.714635],
-[106.587451,26.714507],
-[106.5869,26.714589],
-[106.58607,26.714939],
-[106.585817,26.714949],
-[106.585835,26.71525],
-[106.585839,26.715274],
-[106.585717,26.716085],
-[106.585761,26.716733],
-[106.586156,26.717301],
-[106.586377,26.717452],
-[106.586984,26.717665],
-[106.587152,26.717836],
-[106.587211,26.718014],
-[106.587125,26.718257],
-[106.586923,26.718467],
-[106.586481,26.718657],
-[106.585763,26.719122],
-[106.585064,26.719278],
-[106.584759,26.719514],
-[106.584535,26.719588],
-[106.585121,26.720161],
-[106.58546,26.720614],
-[106.585472,26.721092],
-[106.585647,26.721592],
-[106.585674,26.721649],
-[106.586466,26.72246],
-[106.586912,26.723048],
-[106.588104,26.725071],
-[106.589621,26.726601],
-[106.590574,26.727416],
-[106.590924,26.727798],
-[106.591231,26.728312],
-[106.591462,26.728533],
-[106.591825,26.728722],
-[106.593259,26.730084],
-[106.594071,26.730203],
-[106.594603,26.730477],
-[106.594691,26.730708],
-[106.594627,26.73082],
-[106.593954,26.731264],
-[106.592836,26.731705],
-[106.593272,26.732127],
-[106.593401,26.732467],
-[106.593018,26.73281],
-[106.592787,26.733212],
-[106.59252,26.733286],
-[106.592189,26.733174],
-[106.591952,26.733217],
-[106.591009,26.733783],
-[106.590834,26.733971],
-[106.590718,26.735082],
-[106.590492,26.735673],
-[106.590035,26.7363],
-[106.589403,26.736749],
-[106.589226,26.737186],
-[106.589319,26.737779],
-[106.589856,26.737906],
-[106.590214,26.738124],
-[106.590343,26.738304],
-[106.590297,26.739584],
-[106.590164,26.740576],
-[106.58984,26.741194],
-[106.589466,26.741487],
-[106.589239,26.741528],
-[106.588806,26.741385],
-[106.588368,26.741341],
-[106.58795,26.740979],
-[106.587238,26.740931],
-[106.586869,26.740768],
-[106.584998,26.740624],
-[106.584696,26.740693],
-[106.58448,26.740903],
-[106.583866,26.741049],
-[106.583168,26.740631],
-[106.582666,26.741158],
-[106.582339,26.741395],
-[106.58151,26.741408],
-[106.580643,26.741866],
-[106.579526,26.741894],
-[106.579342,26.741791],
-[106.579056,26.741337],
-[106.578593,26.741184],
-[106.578351,26.740554],
-[106.577469,26.740278],
-[106.576951,26.740003],
-[106.574996,26.740761],
-[106.574064,26.74045],
-[106.573896,26.740083],
-[106.573898,26.739351],
-[106.573386,26.737857],
-[106.573095,26.737606],
-[106.572318,26.737377],
-[106.572158,26.73751],
-[106.572068,26.738194],
-[106.572122,26.738371],
-[106.572552,26.738954],
-[106.572674,26.739695],
-[106.572547,26.740021],
-[106.572257,26.740008],
-[106.572036,26.739728],
-[106.571794,26.738882],
-[106.571581,26.737563],
-[106.571588,26.736825],
-[106.571522,26.736696],
-[106.571393,26.736954],
-[106.571355,26.737544],
-[106.571378,26.737827],
-[106.571542,26.738221],
-[106.571119,26.738529],
-[106.570908,26.7385],
-[106.570796,26.738284],
-[106.570804,26.737903],
-[106.570696,26.737437],
-[106.570743,26.736964],
-[106.570689,26.736894],
-[106.570443,26.737483],
-[106.570325,26.737412],
-[106.570058,26.736951],
-[106.569877,26.736877],
-[106.56895,26.737179],
-[106.568353,26.737476],
-[106.568098,26.73734],
-[106.56781,26.737294],
-[106.567264,26.737378],
-[106.56725,26.737477],
-[106.567362,26.737512],
-[106.567987,26.737488],
-[106.568028,26.73754],
-[106.567802,26.737746],
-[106.56685,26.738218],
-[106.566659,26.738514],
-[106.566484,26.738271],
-[106.566259,26.738161],
-[106.565529,26.73817],
-[106.564618,26.738004],
-[106.564012,26.738071],
-[106.563257,26.73802],
-[106.562994,26.737913],
-[106.562823,26.737646],
-[106.562694,26.73711],
-[106.562423,26.736614],
-[106.562445,26.736176],
-[106.56239,26.73611],
-[106.562225,26.736109],
-[106.561979,26.736247],
-[106.561768,26.7365],
-[106.561096,26.736719],
-[106.560901,26.736707],
-[106.56082,26.736562],
-[106.560716,26.736529],
-[106.56045,26.736606],
-[106.560431,26.736393],
-[106.56065,26.735493],
-[106.560601,26.734965],
-[106.560417,26.734686],
-[106.56024,26.734576],
-[106.560156,26.734359],
-[106.557846,26.734587],
-[106.55705,26.735044],
-[106.555938,26.735442],
-[106.555941,26.735534],
-[106.556788,26.736234],
-[106.556856,26.736358],
-[106.556815,26.736511],
-[106.556627,26.73662],
-[106.555746,26.736851],
-[106.554811,26.737371],
-[106.554593,26.737372],
-[106.554395,26.737281],
-[106.554046,26.737337],
-[106.552985,26.737113],
-[106.552577,26.737117],
-[106.552495,26.737057],
-[106.552501,26.736848],
-[106.55243,26.73673],
-[106.551804,26.736388],
-[106.551432,26.736279],
-[106.550066,26.736753],
-[106.549919,26.737008],
-[106.549775,26.737531],
-[106.549421,26.73772],
-[106.5492,26.738],
-[106.548822,26.739064],
-[106.548876,26.739694],
-[106.548821,26.74025],
-[106.548914,26.74105],
-[106.549038,26.741376],
-[106.549474,26.741871],
-[106.55052,26.74266],
-[106.551139,26.743236],
-[106.551998,26.744385],
-[106.55194,26.744474],
-[106.551458,26.744458],
-[106.551361,26.744587],
-[106.551412,26.745045],
-[106.551182,26.745605],
-[106.551218,26.745934],
-[106.551331,26.746373],
-[106.5516,26.746679],
-[106.551631,26.747027],
-[106.551861,26.747386],
-[106.551422,26.747748],
-[106.551237,26.747996],
-[106.551205,26.748125],
-[106.551296,26.748525],
-[106.551196,26.748871],
-[106.550893,26.749065],
-[106.550164,26.749357],
-[106.549923,26.749612],
-[106.549542,26.750227],
-[106.548809,26.750122],
-[106.547942,26.75037],
-[106.547604,26.750249],
-[106.547458,26.75012],
-[106.547201,26.749463],
-[106.547265,26.748821],
-[106.547201,26.748453],
-[106.546797,26.748055],
-[106.546178,26.747853],
-[106.545471,26.7478],
-[106.544762,26.747154],
-[106.544498,26.74714],
-[106.544114,26.74725],
-[106.543463,26.746882],
-[106.542816,26.746886],
-[106.54232,26.747357],
-[106.542283,26.748244],
-[106.541967,26.749612],
-[106.541599,26.750542],
-[106.541442,26.751305],
-[106.541242,26.751681],
-[106.540992,26.751872],
-[106.541383,26.752333],
-[106.541855,26.75318],
-[106.542428,26.754324],
-[106.542771,26.755353],
-[106.542727,26.75571],
-[106.543707,26.756153],
-[106.543757,26.756176],
-[106.545166,26.756395],
-[106.545572,26.756463],
-[106.547232,26.756319],
-[106.548884,26.755551],
-[106.550079,26.754559],
-[106.551472,26.753736],
-[106.553132,26.75348],
-[106.555629,26.753498],
-[106.558204,26.753797],
-[106.560969,26.754439],
-[106.561617,26.754713],
-[106.561716,26.75637],
-[106.56212,26.757562],
-[106.563355,26.758402],
-[106.567918,26.759211],
-[106.570118,26.759183],
-[106.571363,26.758553],
-[106.573295,26.75812],
-[106.576014,26.75696],
-[106.576687,26.756132],
-[106.576622,26.751422],
-[106.57684,26.750703],
-[106.579343,26.750365],
-[106.585052,26.750912],
-[106.586987,26.750684],
-[106.587791,26.751084],
-[106.588581,26.751937],
-[106.589685,26.756909],
-[106.590541,26.75798],
-[106.591327,26.758657],
-[106.593006,26.759089],
-[106.593838,26.759021],
-[106.595739,26.757679],
-[106.597002,26.757608],
-[106.597811,26.757981],
-[106.599083,26.759196],
-[106.599097,26.760219],
-[106.599676,26.760827],
-[106.600816,26.760712],
-[106.602756,26.76069],
-[106.604362,26.761287],
-[106.605168,26.761687],
-[106.605195,26.763633],
-[106.606237,26.764645],
-[106.608294,26.764827],
-[106.611516,26.766533],
-[106.613374,26.768766],
-[106.613634,26.771016],
-[106.614788,26.771823],
-[106.615932,26.771913],
-[106.616514,26.772726],
-[106.617059,26.774241],
-[106.617516,26.774121],
-[106.618603,26.774962],
-[106.619406,26.775256],
-[106.620338,26.776475],
-[106.621166,26.778412],
-[106.621861,26.779121],
-[106.623926,26.779714],
-[106.628496,26.779564],
-[106.629407,26.77935],
-[106.630421,26.778315],
-[106.631675,26.778098],
-[106.632714,26.778803],
-[106.634217,26.780017],
-[106.636048,26.780101],
-[106.63764,26.779572],
-[106.639812,26.77955],
-[106.641765,26.780145],
-[106.643379,26.781051],
-[106.6442,26.782476],
-[106.644106,26.783911],
-[106.642996,26.786175],
-[106.642451,26.788024],
-[106.642814,26.789454],
-[106.644774,26.790561],
-[106.647859,26.790325],
-[106.651618,26.789264],
-[106.654226,26.787702],
-[106.656246,26.785019],
-[106.657018,26.783066],
-[106.658826,26.781512],
-[106.662597,26.78127],
-[106.667517,26.781324],
-[106.672678,26.782195],
-[106.678304,26.783573],
-[106.682216,26.78507],
-[106.68396,26.786451],
-[106.685851,26.787949],
-[106.688327,26.787801],
-[106.690154,26.788266],
-[106.690395,26.788234],
-[106.691135,26.788136],
-[106.694565,26.786748],
-[106.695861,26.786976],
-[106.69656,26.787485],
-[106.697994,26.791056],
-[106.698764,26.791728],
-[106.700949,26.792551],
-[106.702148,26.792452],
-[106.702325,26.791997],
-[106.701978,26.791159],
-[106.700606,26.788659],
-[106.700572,26.787959],
-[106.700772,26.787462],
-[106.70104,26.787259],
-[106.701505,26.787202],
-[106.704899,26.787514],
-[106.707044,26.788532],
-[106.708036,26.790082],
-[106.709775,26.796306],
-[106.709898,26.798039],
-[106.710882,26.799156],
-[106.712532,26.799398],
-[106.714468,26.799377],
-[106.716033,26.800401],
-[106.716629,26.801435],
-[106.718088,26.801853],
-[106.719539,26.801837],
-[106.719728,26.801488],
-[106.720211,26.801483],
-[106.721377,26.801731],
-[106.723232,26.802837],
-[106.725463,26.803159],
-[106.729046,26.803292],
-[106.733519,26.804716],
-[106.737007,26.805109],
-[106.742518,26.804871],
-[106.744556,26.805367],
-[106.747766,26.806629],
-[106.750798,26.808847],
-[106.751805,26.811435],
-[106.753466,26.812542],
-[106.75482,26.812612],
-[106.755683,26.812168],
-[106.756346,26.811292],
-[106.758192,26.811876],
-[106.760538,26.813581],
-[106.762019,26.815556],
-[106.762048,26.817463],
-[106.762723,26.818416],
-[106.764783,26.819911],
-[106.766066,26.820708]
+				</div>
 
-    ];
-    
-new map(lineArr);
- 
-</script>
+				<div class="row">
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="panel panel-default" style="background-color: transparent;">
+							<div class="panel-heading panel-success" style="background-color: #dff0d8;">
+								评价雷达
+							</div>
+							<div id='evaluate'></div>
+						</div>
+					</div>
+					<div class="col-md-8 col-sm-8 col-xs-12" style="background-color: transparent;">
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								实时定位数据
+							</div>
+							<div id="scence"></div>
 
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/custom.js"></script>
-</body>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							位置趋势
+						</div>
+						<div id="trend"></div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							地区搜索热度
+						</div>
+						<div id="search-index"></div>
+					</div>
+
+				</div>
+
+				<div class="row" style="clear: both;">
+					<div class="panel panel-success">
+						<div class="panel">
+							景区人流密度分布图
+						</div>
+						<div id='container' style="width: auto;height: 700px;">
+						</div>
+
+					</div>
+				</div>
+				<script>
+					$(document).ready(() => {
+
+						new cityradar();
+						json = {
+							"data": [1568, 1305, 1036, 884, 822, 766, 730, 665, 681, 624, 795, 973, 1306, 1749, 2003, 2061, 2132, 2138, 2328, 2541, 2577, 2716, 2619, 2696, 2681, 2631, 2677, 2581, 2506, 2496, 2500, 2604,
+								2446, 2586, 2817, 2728, 2587, 2621, 2601, 2530, 2535, 2635, 2889, 2656
+							],
+							"time": ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30",
+								"05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
+								"13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
+								"21:00", "21:30"
+							]
+						};
+						new drawAreaChart(json);
+						trend = new LineChart("trend");
+						trend.drawtrend(json);
+						search = new LineChart("search-index");
+						search.drawsearch(json);
+
+					});
+				</script>
+
+				<script type="text/javascript">
+					var lineArr = [
+						[106.766066, 26.820708],
+						[106.769319, 26.819468],
+						[106.770251, 26.819872],
+						[106.770938, 26.820556],
+						[106.771903, 26.820457],
+						[106.772172, 26.819153],
+						[106.772254, 26.818198],
+						[106.772731, 26.817758],
+						[106.774758, 26.817645],
+						[106.77689, 26.818136],
+						[106.780485, 26.819475],
+						[106.782963, 26.819858],
+						[106.783583, 26.819954],
+						[106.783855, 26.81995],
+						[106.784513, 26.819659],
+						[106.788678, 26.816371],
+						[106.790755, 26.814521],
+						[106.793015, 26.811994],
+						[106.794638, 26.809764],
+						[106.796016, 26.807655],
+						[106.797511, 26.806605],
+						[106.797706, 26.806319],
+						[106.798947, 26.805434],
+						[106.800289, 26.804895],
+						[106.801531, 26.804097],
+						[106.801511, 26.802797],
+						[106.802265, 26.801659],
+						[106.80633, 26.802381],
+						[106.807768, 26.80184],
+						[106.809102, 26.800781],
+						[106.810357, 26.800762],
+						[106.815218, 26.803119],
+						[106.817251, 26.803523],
+						[106.818502, 26.803331],
+						[106.819651, 26.802794],
+						[106.820784, 26.801217],
+						[106.822307, 26.799981],
+						[106.822969, 26.799104],
+						[106.822954, 26.798151],
+						[106.822142, 26.795648],
+						[106.822605, 26.794428],
+						[106.82348, 26.792974],
+						[106.823354, 26.792667],
+						[106.821462, 26.792364],
+						[106.821356, 26.791759],
+						[106.820867, 26.791332],
+						[106.819706, 26.791089],
+						[106.818162, 26.791112],
+						[106.817483, 26.790862],
+						[106.817475, 26.790342],
+						[106.817942, 26.789381],
+						[106.818448, 26.788737],
+						[106.816179, 26.787247],
+						[106.813645, 26.786863],
+						[106.808803, 26.787037],
+						[106.807071, 26.786855],
+						[106.805434, 26.785531],
+						[106.803412, 26.781621],
+						[106.802905, 26.778727],
+						[106.801715, 26.776463],
+						[106.799607, 26.774421],
+						[106.798194, 26.772575],
+						[106.797006, 26.770415],
+						[106.796612, 26.767415],
+						[106.796418, 26.762339],
+						[106.795566, 26.759552],
+						[106.795008, 26.758031],
+						[106.794574, 26.757626],
+						[106.791951, 26.752039],
+						[106.791409, 26.750449],
+						[106.79125, 26.748736],
+						[106.79083, 26.74714],
+						[106.789793, 26.74647],
+						[106.788055, 26.745984],
+						[106.786316, 26.74584],
+						[106.777081, 26.745748],
+						[106.774632, 26.745216],
+						[106.772763, 26.744556],
+						[106.771001, 26.743039],
+						[106.76962, 26.741459],
+						[106.767163, 26.740351],
+						[106.761699, 26.739974],
+						[106.761257, 26.740379],
+						[106.760019, 26.740623],
+						[106.757622, 26.740329],
+						[106.756026, 26.739754],
+						[106.753796, 26.738602],
+						[106.750452, 26.736157],
+						[106.748856, 26.735284],
+						[106.747894, 26.734998],
+						[106.747741, 26.734712],
+						[106.744236, 26.731402],
+						[106.741939, 26.730324],
+						[106.741541, 26.728653],
+						[106.743329, 26.7276],
+						[106.743887, 26.726846],
+						[106.744726, 26.725235],
+						[106.744756, 26.72352],
+						[106.745191, 26.722886],
+						[106.746711, 26.721607],
+						[106.748421, 26.720326],
+						[106.749995, 26.718645],
+						[106.748704, 26.718606],
+						[106.746589, 26.718806],
+						[106.745871, 26.717844],
+						[106.745458, 26.716536],
+						[106.745038, 26.714655],
+						[106.746634, 26.714289],
+						[106.748437, 26.714379],
+						[106.749376, 26.713337],
+						[106.750567, 26.711547],
+						[106.752621, 26.711519],
+						[106.753548, 26.711597],
+						[106.754934, 26.711714],
+						[106.75711, 26.711571],
+						[106.75401, 26.707155],
+						[106.753139, 26.705281],
+						[106.75304, 26.703394],
+						[106.75333, 26.701904],
+						[106.754842, 26.700341],
+						[106.756109, 26.699236],
+						[106.755498, 26.697759],
+						[106.754765, 26.696339],
+						[106.755139, 26.695419],
+						[106.7562, 26.694201],
+						[106.755222, 26.693473],
+						[106.754665, 26.69091],
+						[106.753016, 26.688588],
+						[106.753322, 26.687842],
+						[106.755108, 26.687185],
+						[106.755467, 26.685981],
+						[106.755504, 26.684721],
+						[106.755863, 26.683289],
+						[106.756855, 26.681445],
+						[106.757336, 26.679779],
+						[106.757054, 26.678411],
+						[106.757038, 26.677326],
+						[106.756336, 26.677508],
+						[106.755771, 26.678259],
+						[106.754237, 26.678794],
+						[106.752763, 26.678931],
+						[106.749274, 26.67795],
+						[106.747602, 26.677743],
+						[106.746151, 26.678965],
+						[106.744501, 26.68013],
+						[106.743302, 26.681177],
+						[106.741713, 26.682172],
+						[106.741552, 26.682227],
+						[106.739483, 26.682943],
+						[106.736656, 26.682926],
+						[106.735236, 26.682831],
+						[106.734571, 26.681694],
+						[106.733073, 26.680515],
+						[106.730796, 26.678945],
+						[106.728136, 26.677665],
+						[106.727678, 26.677156],
+						[106.728847, 26.674511],
+						[106.729145, 26.672763],
+						[106.722281, 26.675447],
+						[106.714063, 26.677142],
+						[106.708772, 26.676244],
+						[106.706753, 26.671248],
+						[106.705185, 26.664362],
+						[106.705268, 26.662179],
+						[106.705612, 26.660001],
+						[106.705161, 26.660008],
+						[106.704137, 26.660364],
+						[106.703173, 26.660544],
+						[106.703056, 26.660457],
+						[106.702653, 26.660153],
+						[106.702974, 26.656662],
+						[106.702737, 26.654377],
+						[106.702247, 26.652496],
+						[106.701926, 26.652215],
+						[106.701038, 26.652968],
+						[106.700159, 26.654238],
+						[106.699333, 26.654649],
+						[106.699073, 26.654481],
+						[106.699111, 26.652994],
+						[106.699753, 26.649897],
+						[106.699853, 26.648296],
+						[106.699325, 26.647444],
+						[106.697917, 26.647269],
+						[106.696715, 26.646494],
+						[106.695457, 26.644856],
+						[106.694688, 26.643591],
+						[106.694559, 26.643256],
+						[106.694442, 26.641789],
+						[106.694026, 26.641107],
+						[106.694016, 26.640365],
+						[106.694101, 26.639746],
+						[106.694052, 26.639504],
+						[106.693587, 26.639395],
+						[106.692612, 26.639321],
+						[106.69238, 26.639239],
+						[106.691943, 26.638864],
+						[106.691875, 26.638442],
+						[106.692044, 26.637508],
+						[106.691901, 26.637314],
+						[106.691545, 26.637279],
+						[106.691154, 26.637071],
+						[106.690523, 26.636902],
+						[106.689072, 26.637517],
+						[106.688944, 26.637484],
+						[106.688932, 26.63706],
+						[106.688507, 26.636602],
+						[106.688203, 26.636353],
+						[106.687471, 26.636201],
+						[106.687455, 26.636065],
+						[106.687703, 26.635649],
+						[106.687656, 26.635485],
+						[106.686541, 26.635078],
+						[106.686476, 26.634891],
+						[106.686511, 26.634536],
+						[106.686011, 26.634127],
+						[106.685908, 26.633715],
+						[106.685747, 26.633613],
+						[106.685465, 26.634524],
+						[106.685268, 26.634582],
+						[106.684835, 26.634917],
+						[106.684478, 26.635314],
+						[106.683998, 26.636071],
+						[106.68395, 26.636287],
+						[106.684025, 26.63673],
+						[106.683711, 26.636771],
+						[106.683623, 26.637108],
+						[106.683246, 26.637242],
+						[106.683413, 26.637756],
+						[106.683118, 26.638483],
+						[106.683104, 26.63943],
+						[106.683028, 26.639698],
+						[106.682812, 26.639826],
+						[106.682257, 26.639743],
+						[106.681694, 26.639759],
+						[106.681681, 26.639889],
+						[106.682075, 26.640666],
+						[106.682084, 26.640865],
+						[106.681608, 26.641001],
+						[106.681277, 26.641479],
+						[106.680516, 26.641012],
+						[106.680344, 26.641017],
+						[106.679896, 26.641215],
+						[106.678986, 26.641854],
+						[106.678822, 26.642055],
+						[106.678825, 26.642154],
+						[106.679053, 26.642373],
+						[106.678696, 26.642352],
+						[106.678878, 26.642579],
+						[106.678564, 26.642639],
+						[106.678526, 26.642977],
+						[106.678598, 26.643607],
+						[106.678484, 26.643643],
+						[106.678013, 26.643555],
+						[106.677824, 26.644006],
+						[106.677634, 26.644233],
+						[106.677262, 26.644532],
+						[106.676703, 26.644616],
+						[106.676488, 26.645028],
+						[106.675804, 26.64581],
+						[106.675106, 26.647018],
+						[106.675094, 26.647714],
+						[106.674869, 26.647956],
+						[106.674473, 26.648059],
+						[106.674051, 26.647824],
+						[106.673305, 26.648044],
+						[106.672176, 26.647589],
+						[106.671356, 26.647555],
+						[106.670505, 26.647641],
+						[106.670276, 26.647883],
+						[106.669834, 26.648014],
+						[106.66872, 26.648645],
+						[106.668637, 26.648677],
+						[106.668595, 26.64887],
+						[106.668598, 26.648949],
+						[106.668722, 26.649136],
+						[106.668954, 26.649354],
+						[106.669426, 26.649586],
+						[106.669543, 26.649749],
+						[106.669518, 26.649988],
+						[106.669214, 26.650418],
+						[106.668968, 26.650511],
+						[106.668202, 26.650474],
+						[106.668147, 26.650604],
+						[106.668286, 26.650856],
+						[106.668173, 26.651062],
+						[106.667374, 26.650894],
+						[106.666641, 26.651031],
+						[106.666532, 26.65077],
+						[106.666509, 26.649762],
+						[106.666381, 26.649526],
+						[106.666121, 26.649559],
+						[106.665678, 26.650029],
+						[106.664876, 26.651367],
+						[106.664857, 26.651913],
+						[106.66479, 26.652059],
+						[106.664319, 26.652354],
+						[106.664017, 26.652682],
+						[106.663682, 26.653519],
+						[106.663562, 26.654338],
+						[106.663734, 26.654406],
+						[106.664088, 26.654198],
+						[106.664464, 26.654151],
+						[106.664556, 26.65423],
+						[106.664269, 26.654498],
+						[106.664206, 26.654669],
+						[106.66425, 26.654804],
+						[106.664433, 26.65485],
+						[106.665462, 26.654674],
+						[106.665542, 26.65474],
+						[106.665603, 26.65507],
+						[106.665561, 26.65546],
+						[106.665368, 26.655596],
+						[106.665279, 26.655969],
+						[106.664551, 26.656376],
+						[106.664658, 26.656776],
+						[106.664434, 26.656853],
+						[106.664403, 26.657919],
+						[106.664264, 26.658365],
+						[106.664279, 26.658766],
+						[106.664209, 26.658862],
+						[106.663412, 26.658842],
+						[106.663311, 26.658912],
+						[106.663248, 26.659169],
+						[106.662772, 26.659189],
+						[106.662201, 26.658833],
+						[106.661249, 26.659054],
+						[106.660706, 26.658646],
+						[106.660167, 26.658809],
+						[106.66007, 26.658953],
+						[106.660135, 26.659973],
+						[106.660038, 26.660123],
+						[106.659842, 26.660127],
+						[106.659805, 26.660406],
+						[106.659489, 26.660257],
+						[106.659213, 26.660321],
+						[106.65919, 26.660939],
+						[106.658933, 26.660968],
+						[106.658914, 26.660894],
+						[106.658779, 26.6609],
+						[106.65826, 26.661004],
+						[106.657933, 26.660823],
+						[106.657511, 26.660819],
+						[106.657385, 26.660883],
+						[106.657345, 26.661046],
+						[106.656935, 26.661228],
+						[106.656776, 26.660999],
+						[106.656516, 26.660941],
+						[106.656049, 26.660582],
+						[106.656022, 26.660792],
+						[106.656154, 26.660984],
+						[106.656065, 26.661244],
+						[106.65626, 26.66165],
+						[106.656194, 26.661719],
+						[106.65623, 26.661782],
+						[106.656659, 26.661789],
+						[106.656732, 26.661845],
+						[106.656601, 26.662117],
+						[106.656688, 26.662509],
+						[106.657276, 26.662604],
+						[106.657635, 26.662537],
+						[106.65789, 26.662383],
+						[106.65811, 26.662872],
+						[106.658347, 26.66281],
+						[106.658601, 26.662909],
+						[106.658908, 26.662882],
+						[106.658891, 26.663518],
+						[106.659214, 26.66356],
+						[106.659034, 26.664548],
+						[106.658775, 26.665045],
+						[106.658343, 26.664852],
+						[106.658232, 26.664611],
+						[106.656663, 26.664926],
+						[106.656336, 26.665053],
+						[106.655921, 26.664973],
+						[106.654973, 26.665418],
+						[106.654624, 26.665204],
+						[106.654531, 26.664901],
+						[106.654096, 26.664521],
+						[106.653488, 26.664273],
+						[106.653397, 26.664333],
+						[106.653584, 26.664606],
+						[106.653579, 26.664723],
+						[106.653325, 26.66458],
+						[106.653117, 26.664199],
+						[106.65256, 26.663937],
+						[106.652072, 26.664045],
+						[106.651467, 26.663941],
+						[106.651089, 26.663959],
+						[106.651046, 26.663814],
+						[106.651257, 26.663514],
+						[106.651747, 26.663464],
+						[106.651947, 26.663321],
+						[106.652114, 26.662724],
+						[106.652537, 26.663019],
+						[106.652885, 26.663104],
+						[106.652998, 26.662995],
+						[106.652381, 26.662192],
+						[106.652261, 26.661649],
+						[106.652116, 26.661377],
+						[106.651941, 26.661232],
+						[106.651296, 26.660984],
+						[106.651027, 26.660525],
+						[106.650897, 26.660499],
+						[106.649869, 26.661663],
+						[106.649734, 26.662162],
+						[106.64988, 26.662714],
+						[106.647295, 26.662202],
+						[106.647436, 26.662991],
+						[106.647687, 26.663697],
+						[106.647676, 26.663895],
+						[106.64757, 26.664041],
+						[106.646989, 26.66419],
+						[106.646945, 26.664548],
+						[106.646519, 26.664656],
+						[106.646392, 26.664781],
+						[106.646291, 26.665245],
+						[106.645972, 26.665696],
+						[106.646206, 26.666478],
+						[106.646168, 26.666953],
+						[106.645699, 26.667094],
+						[106.645419, 26.667067],
+						[106.644678, 26.666666],
+						[106.644466, 26.666466],
+						[106.644396, 26.666256],
+						[106.644271, 26.666246],
+						[106.644191, 26.666379],
+						[106.644198, 26.666602],
+						[106.644458, 26.666925],
+						[106.644322, 26.667172],
+						[106.644421, 26.667533],
+						[106.645122, 26.668094],
+						[106.645332, 26.668408],
+						[106.645344, 26.668592],
+						[106.645244, 26.668642],
+						[106.64501, 26.668535],
+						[106.644518, 26.667881],
+						[106.644478, 26.667961],
+						[106.644659, 26.668371],
+						[106.644641, 26.668494],
+						[106.644433, 26.668515],
+						[106.643809, 26.66831],
+						[106.643407, 26.668302],
+						[106.643208, 26.667896],
+						[106.642785, 26.667592],
+						[106.642312, 26.666766],
+						[106.641933, 26.66647],
+						[106.641757, 26.666504],
+						[106.641782, 26.666791],
+						[106.641617, 26.666828],
+						[106.640781, 26.666482],
+						[106.64077, 26.666257],
+						[106.640576, 26.666238],
+						[106.640408, 26.666356],
+						[106.640263, 26.666716],
+						[106.64011, 26.666847],
+						[106.639607, 26.666907],
+						[106.639296, 26.666713],
+						[106.63897, 26.666913],
+						[106.638712, 26.6668],
+						[106.63856, 26.666505],
+						[106.638353, 26.666399],
+						[106.638181, 26.666469],
+						[106.637772, 26.666858],
+						[106.637149, 26.666944],
+						[106.637009, 26.666872],
+						[106.637044, 26.666756],
+						[106.63674, 26.666869],
+						[106.636374, 26.667011],
+						[106.635639, 26.66618],
+						[106.635479, 26.666402],
+						[106.635252, 26.666472],
+						[106.634275, 26.665765],
+						[106.634063, 26.66583],
+						[106.633762, 26.666093],
+						[106.633232, 26.666399],
+						[106.632942, 26.666396],
+						[106.632778, 26.666248],
+						[106.632426, 26.665377],
+						[106.632412, 26.665173],
+						[106.630705, 26.665367],
+						[106.62661, 26.665069],
+						[106.625169, 26.665053],
+						[106.624898, 26.66499],
+						[106.624368, 26.665029],
+						[106.62434, 26.665562],
+						[106.624284, 26.666606],
+						[106.61012, 26.66657],
+						[106.609798, 26.666551],
+						[106.609779, 26.666431],
+						[106.609182, 26.66257],
+						[106.608995, 26.662268],
+						[106.60917, 26.661807],
+						[106.609079, 26.661642],
+						[106.608654, 26.661444],
+						[106.608053, 26.660868],
+						[106.607898, 26.660877],
+						[106.607449, 26.661177],
+						[106.607039, 26.661346],
+						[106.606898, 26.661277],
+						[106.606795, 26.661057],
+						[106.606556, 26.660836],
+						[106.606239, 26.660636],
+						[106.60597, 26.660587],
+						[106.6058, 26.660601],
+						[106.605499, 26.660841],
+						[106.605047, 26.660843],
+						[106.605026, 26.661474],
+						[106.604816, 26.661646],
+						[106.602896, 26.661796],
+						[106.602806, 26.661966],
+						[106.602891, 26.662285],
+						[106.602992, 26.662394],
+						[106.603552, 26.662603],
+						[106.603759, 26.662867],
+						[106.603743, 26.663494],
+						[106.60385, 26.664298],
+						[106.603981, 26.664692],
+						[106.603873, 26.664745],
+						[106.603442, 26.66479],
+						[106.603028, 26.664734],
+						[106.602025, 26.664201],
+						[106.601669, 26.664098],
+						[106.60083, 26.664137],
+						[106.600517, 26.664077],
+						[106.600332, 26.663942],
+						[106.600249, 26.663454],
+						[106.600141, 26.663354],
+						[106.599896, 26.663816],
+						[106.599861, 26.664233],
+						[106.599976, 26.664478],
+						[106.599902, 26.664603],
+						[106.599718, 26.664624],
+						[106.598715, 26.664334],
+						[106.598435, 26.66448],
+						[106.598185, 26.664498],
+						[106.597896, 26.664376],
+						[106.597603, 26.664356],
+						[106.597281, 26.664115],
+						[106.597288, 26.663729],
+						[106.597496, 26.663327],
+						[106.597415, 26.663214],
+						[106.596852, 26.66321],
+						[106.596443, 26.663424],
+						[106.596075, 26.663432],
+						[106.595864, 26.663637],
+						[106.595413, 26.663731],
+						[106.595046, 26.664325],
+						[106.594744, 26.664417],
+						[106.59463, 26.664542],
+						[106.594474, 26.664836],
+						[106.594356, 26.665381],
+						[106.594278, 26.665518],
+						[106.594172, 26.665544],
+						[106.594065, 26.665471],
+						[106.593692, 26.664161],
+						[106.593555, 26.663918],
+						[106.593429, 26.663878],
+						[106.5933, 26.664167],
+						[106.59323, 26.664639],
+						[106.593307, 26.665667],
+						[106.593151, 26.665879],
+						[106.592999, 26.66566],
+						[106.593023, 26.665391],
+						[106.592838, 26.664833],
+						[106.592699, 26.664756],
+						[106.592631, 26.664805],
+						[106.592624, 26.665261],
+						[106.592877, 26.666016],
+						[106.592816, 26.666208],
+						[106.592542, 26.666462],
+						[106.592671, 26.666964],
+						[106.592591, 26.667151],
+						[106.592252, 26.667088],
+						[106.591983, 26.666799],
+						[106.591886, 26.666787],
+						[106.591288, 26.667539],
+						[106.591059, 26.667954],
+						[106.590663, 26.668346],
+						[106.590366, 26.668524],
+						[106.589288, 26.668487],
+						[106.589156, 26.66854],
+						[106.58912, 26.668758],
+						[106.589004, 26.668786],
+						[106.588502, 26.668611],
+						[106.587422, 26.668566],
+						[106.587468, 26.670279],
+						[106.587761, 26.671856],
+						[106.58779, 26.672465],
+						[106.587729, 26.672814],
+						[106.587418, 26.673405],
+						[106.587262, 26.674204],
+						[106.587249, 26.674702],
+						[106.587167, 26.674784],
+						[106.586632, 26.674704],
+						[106.586509, 26.674928],
+						[106.586617, 26.675073],
+						[106.586979, 26.675178],
+						[106.587051, 26.675307],
+						[106.587098, 26.676231],
+						[106.587034, 26.676943],
+						[106.587414, 26.677334],
+						[106.587422, 26.677853],
+						[106.587074, 26.678403],
+						[106.586748, 26.678634],
+						[106.586164, 26.678806],
+						[106.586119, 26.678921],
+						[106.58653, 26.679619],
+						[106.586554, 26.681204],
+						[106.586839, 26.681768],
+						[106.586733, 26.682683],
+						[106.587753, 26.684504],
+						[106.588365, 26.686122],
+						[106.58635, 26.687197],
+						[106.584697, 26.688436],
+						[106.584404, 26.688972],
+						[106.583041, 26.690948],
+						[106.582848, 26.691885],
+						[106.582899, 26.692068],
+						[106.58317, 26.692226],
+						[106.583214, 26.692434],
+						[106.583027, 26.692778],
+						[106.582723, 26.692847],
+						[106.582683, 26.692847],
+						[106.582444, 26.693052],
+						[106.582481, 26.693682],
+						[106.582127, 26.694351],
+						[106.582122, 26.69456],
+						[106.582717, 26.694712],
+						[106.582897, 26.694865],
+						[106.582948, 26.695071],
+						[106.582485, 26.695654],
+						[106.582317, 26.695668],
+						[106.582136, 26.695542],
+						[106.581963, 26.695628],
+						[106.581906, 26.695828],
+						[106.581939, 26.696293],
+						[106.581856, 26.696386],
+						[106.581749, 26.696271],
+						[106.581711, 26.695973],
+						[106.581577, 26.69576],
+						[106.581772, 26.695219],
+						[106.581395, 26.695515],
+						[106.581341, 26.696214],
+						[106.581453, 26.696476],
+						[106.581467, 26.697023],
+						[106.581271, 26.697487],
+						[106.581049, 26.697591],
+						[106.580589, 26.697621],
+						[106.580524, 26.697895],
+						[106.580394, 26.697951],
+						[106.579913, 26.697955],
+						[106.57918, 26.697777],
+						[106.578486, 26.698218],
+						[106.577985, 26.698355],
+						[106.577732, 26.699054],
+						[106.577381, 26.699259],
+						[106.576831, 26.69944],
+						[106.576751, 26.699875],
+						[106.576539, 26.700342],
+						[106.576389, 26.700425],
+						[106.575969, 26.700384],
+						[106.575741, 26.700464],
+						[106.575707, 26.700742],
+						[106.575849, 26.701529],
+						[106.575801, 26.701718],
+						[106.574744, 26.702088],
+						[106.574542, 26.702314],
+						[106.574542, 26.702465],
+						[106.574944, 26.702732],
+						[106.575541, 26.702952],
+						[106.575896, 26.703508],
+						[106.57678, 26.704315],
+						[106.576868, 26.704459],
+						[106.576872, 26.704782],
+						[106.577363, 26.705656],
+						[106.579023, 26.707498],
+						[106.578962, 26.708066],
+						[106.579056, 26.708387],
+						[106.579456, 26.709149],
+						[106.579702, 26.709381],
+						[106.581796, 26.710294],
+						[106.582018, 26.710208],
+						[106.582179, 26.709852],
+						[106.582446, 26.709817],
+						[106.582791, 26.71026],
+						[106.582759, 26.710352],
+						[106.582413, 26.710451],
+						[106.582431, 26.710589],
+						[106.582617, 26.710827],
+						[106.582737, 26.710916],
+						[106.582742, 26.710697],
+						[106.582956, 26.710696],
+						[106.583191, 26.710836],
+						[106.583638, 26.711296],
+						[106.583974, 26.711431],
+						[106.584282, 26.711393],
+						[106.584425, 26.711189],
+						[106.584139, 26.710525],
+						[106.584146, 26.710167],
+						[106.584537, 26.709933],
+						[106.585123, 26.709892],
+						[106.585948, 26.710437],
+						[106.586504, 26.711064],
+						[106.587083, 26.711117],
+						[106.587588, 26.711277],
+						[106.58807, 26.712072],
+						[106.58893, 26.712667],
+						[106.589078, 26.712972],
+						[106.589012, 26.713541],
+						[106.588912, 26.713747],
+						[106.588524, 26.713892],
+						[106.588568, 26.714276],
+						[106.58852, 26.714472],
+						[106.588135, 26.714635],
+						[106.587451, 26.714507],
+						[106.5869, 26.714589],
+						[106.58607, 26.714939],
+						[106.585817, 26.714949],
+						[106.585835, 26.71525],
+						[106.585839, 26.715274],
+						[106.585717, 26.716085],
+						[106.585761, 26.716733],
+						[106.586156, 26.717301],
+						[106.586377, 26.717452],
+						[106.586984, 26.717665],
+						[106.587152, 26.717836],
+						[106.587211, 26.718014],
+						[106.587125, 26.718257],
+						[106.586923, 26.718467],
+						[106.586481, 26.718657],
+						[106.585763, 26.719122],
+						[106.585064, 26.719278],
+						[106.584759, 26.719514],
+						[106.584535, 26.719588],
+						[106.585121, 26.720161],
+						[106.58546, 26.720614],
+						[106.585472, 26.721092],
+						[106.585647, 26.721592],
+						[106.585674, 26.721649],
+						[106.586466, 26.72246],
+						[106.586912, 26.723048],
+						[106.588104, 26.725071],
+						[106.589621, 26.726601],
+						[106.590574, 26.727416],
+						[106.590924, 26.727798],
+						[106.591231, 26.728312],
+						[106.591462, 26.728533],
+						[106.591825, 26.728722],
+						[106.593259, 26.730084],
+						[106.594071, 26.730203],
+						[106.594603, 26.730477],
+						[106.594691, 26.730708],
+						[106.594627, 26.73082],
+						[106.593954, 26.731264],
+						[106.592836, 26.731705],
+						[106.593272, 26.732127],
+						[106.593401, 26.732467],
+						[106.593018, 26.73281],
+						[106.592787, 26.733212],
+						[106.59252, 26.733286],
+						[106.592189, 26.733174],
+						[106.591952, 26.733217],
+						[106.591009, 26.733783],
+						[106.590834, 26.733971],
+						[106.590718, 26.735082],
+						[106.590492, 26.735673],
+						[106.590035, 26.7363],
+						[106.589403, 26.736749],
+						[106.589226, 26.737186],
+						[106.589319, 26.737779],
+						[106.589856, 26.737906],
+						[106.590214, 26.738124],
+						[106.590343, 26.738304],
+						[106.590297, 26.739584],
+						[106.590164, 26.740576],
+						[106.58984, 26.741194],
+						[106.589466, 26.741487],
+						[106.589239, 26.741528],
+						[106.588806, 26.741385],
+						[106.588368, 26.741341],
+						[106.58795, 26.740979],
+						[106.587238, 26.740931],
+						[106.586869, 26.740768],
+						[106.584998, 26.740624],
+						[106.584696, 26.740693],
+						[106.58448, 26.740903],
+						[106.583866, 26.741049],
+						[106.583168, 26.740631],
+						[106.582666, 26.741158],
+						[106.582339, 26.741395],
+						[106.58151, 26.741408],
+						[106.580643, 26.741866],
+						[106.579526, 26.741894],
+						[106.579342, 26.741791],
+						[106.579056, 26.741337],
+						[106.578593, 26.741184],
+						[106.578351, 26.740554],
+						[106.577469, 26.740278],
+						[106.576951, 26.740003],
+						[106.574996, 26.740761],
+						[106.574064, 26.74045],
+						[106.573896, 26.740083],
+						[106.573898, 26.739351],
+						[106.573386, 26.737857],
+						[106.573095, 26.737606],
+						[106.572318, 26.737377],
+						[106.572158, 26.73751],
+						[106.572068, 26.738194],
+						[106.572122, 26.738371],
+						[106.572552, 26.738954],
+						[106.572674, 26.739695],
+						[106.572547, 26.740021],
+						[106.572257, 26.740008],
+						[106.572036, 26.739728],
+						[106.571794, 26.738882],
+						[106.571581, 26.737563],
+						[106.571588, 26.736825],
+						[106.571522, 26.736696],
+						[106.571393, 26.736954],
+						[106.571355, 26.737544],
+						[106.571378, 26.737827],
+						[106.571542, 26.738221],
+						[106.571119, 26.738529],
+						[106.570908, 26.7385],
+						[106.570796, 26.738284],
+						[106.570804, 26.737903],
+						[106.570696, 26.737437],
+						[106.570743, 26.736964],
+						[106.570689, 26.736894],
+						[106.570443, 26.737483],
+						[106.570325, 26.737412],
+						[106.570058, 26.736951],
+						[106.569877, 26.736877],
+						[106.56895, 26.737179],
+						[106.568353, 26.737476],
+						[106.568098, 26.73734],
+						[106.56781, 26.737294],
+						[106.567264, 26.737378],
+						[106.56725, 26.737477],
+						[106.567362, 26.737512],
+						[106.567987, 26.737488],
+						[106.568028, 26.73754],
+						[106.567802, 26.737746],
+						[106.56685, 26.738218],
+						[106.566659, 26.738514],
+						[106.566484, 26.738271],
+						[106.566259, 26.738161],
+						[106.565529, 26.73817],
+						[106.564618, 26.738004],
+						[106.564012, 26.738071],
+						[106.563257, 26.73802],
+						[106.562994, 26.737913],
+						[106.562823, 26.737646],
+						[106.562694, 26.73711],
+						[106.562423, 26.736614],
+						[106.562445, 26.736176],
+						[106.56239, 26.73611],
+						[106.562225, 26.736109],
+						[106.561979, 26.736247],
+						[106.561768, 26.7365],
+						[106.561096, 26.736719],
+						[106.560901, 26.736707],
+						[106.56082, 26.736562],
+						[106.560716, 26.736529],
+						[106.56045, 26.736606],
+						[106.560431, 26.736393],
+						[106.56065, 26.735493],
+						[106.560601, 26.734965],
+						[106.560417, 26.734686],
+						[106.56024, 26.734576],
+						[106.560156, 26.734359],
+						[106.557846, 26.734587],
+						[106.55705, 26.735044],
+						[106.555938, 26.735442],
+						[106.555941, 26.735534],
+						[106.556788, 26.736234],
+						[106.556856, 26.736358],
+						[106.556815, 26.736511],
+						[106.556627, 26.73662],
+						[106.555746, 26.736851],
+						[106.554811, 26.737371],
+						[106.554593, 26.737372],
+						[106.554395, 26.737281],
+						[106.554046, 26.737337],
+						[106.552985, 26.737113],
+						[106.552577, 26.737117],
+						[106.552495, 26.737057],
+						[106.552501, 26.736848],
+						[106.55243, 26.73673],
+						[106.551804, 26.736388],
+						[106.551432, 26.736279],
+						[106.550066, 26.736753],
+						[106.549919, 26.737008],
+						[106.549775, 26.737531],
+						[106.549421, 26.73772],
+						[106.5492, 26.738],
+						[106.548822, 26.739064],
+						[106.548876, 26.739694],
+						[106.548821, 26.74025],
+						[106.548914, 26.74105],
+						[106.549038, 26.741376],
+						[106.549474, 26.741871],
+						[106.55052, 26.74266],
+						[106.551139, 26.743236],
+						[106.551998, 26.744385],
+						[106.55194, 26.744474],
+						[106.551458, 26.744458],
+						[106.551361, 26.744587],
+						[106.551412, 26.745045],
+						[106.551182, 26.745605],
+						[106.551218, 26.745934],
+						[106.551331, 26.746373],
+						[106.5516, 26.746679],
+						[106.551631, 26.747027],
+						[106.551861, 26.747386],
+						[106.551422, 26.747748],
+						[106.551237, 26.747996],
+						[106.551205, 26.748125],
+						[106.551296, 26.748525],
+						[106.551196, 26.748871],
+						[106.550893, 26.749065],
+						[106.550164, 26.749357],
+						[106.549923, 26.749612],
+						[106.549542, 26.750227],
+						[106.548809, 26.750122],
+						[106.547942, 26.75037],
+						[106.547604, 26.750249],
+						[106.547458, 26.75012],
+						[106.547201, 26.749463],
+						[106.547265, 26.748821],
+						[106.547201, 26.748453],
+						[106.546797, 26.748055],
+						[106.546178, 26.747853],
+						[106.545471, 26.7478],
+						[106.544762, 26.747154],
+						[106.544498, 26.74714],
+						[106.544114, 26.74725],
+						[106.543463, 26.746882],
+						[106.542816, 26.746886],
+						[106.54232, 26.747357],
+						[106.542283, 26.748244],
+						[106.541967, 26.749612],
+						[106.541599, 26.750542],
+						[106.541442, 26.751305],
+						[106.541242, 26.751681],
+						[106.540992, 26.751872],
+						[106.541383, 26.752333],
+						[106.541855, 26.75318],
+						[106.542428, 26.754324],
+						[106.542771, 26.755353],
+						[106.542727, 26.75571],
+						[106.543707, 26.756153],
+						[106.543757, 26.756176],
+						[106.545166, 26.756395],
+						[106.545572, 26.756463],
+						[106.547232, 26.756319],
+						[106.548884, 26.755551],
+						[106.550079, 26.754559],
+						[106.551472, 26.753736],
+						[106.553132, 26.75348],
+						[106.555629, 26.753498],
+						[106.558204, 26.753797],
+						[106.560969, 26.754439],
+						[106.561617, 26.754713],
+						[106.561716, 26.75637],
+						[106.56212, 26.757562],
+						[106.563355, 26.758402],
+						[106.567918, 26.759211],
+						[106.570118, 26.759183],
+						[106.571363, 26.758553],
+						[106.573295, 26.75812],
+						[106.576014, 26.75696],
+						[106.576687, 26.756132],
+						[106.576622, 26.751422],
+						[106.57684, 26.750703],
+						[106.579343, 26.750365],
+						[106.585052, 26.750912],
+						[106.586987, 26.750684],
+						[106.587791, 26.751084],
+						[106.588581, 26.751937],
+						[106.589685, 26.756909],
+						[106.590541, 26.75798],
+						[106.591327, 26.758657],
+						[106.593006, 26.759089],
+						[106.593838, 26.759021],
+						[106.595739, 26.757679],
+						[106.597002, 26.757608],
+						[106.597811, 26.757981],
+						[106.599083, 26.759196],
+						[106.599097, 26.760219],
+						[106.599676, 26.760827],
+						[106.600816, 26.760712],
+						[106.602756, 26.76069],
+						[106.604362, 26.761287],
+						[106.605168, 26.761687],
+						[106.605195, 26.763633],
+						[106.606237, 26.764645],
+						[106.608294, 26.764827],
+						[106.611516, 26.766533],
+						[106.613374, 26.768766],
+						[106.613634, 26.771016],
+						[106.614788, 26.771823],
+						[106.615932, 26.771913],
+						[106.616514, 26.772726],
+						[106.617059, 26.774241],
+						[106.617516, 26.774121],
+						[106.618603, 26.774962],
+						[106.619406, 26.775256],
+						[106.620338, 26.776475],
+						[106.621166, 26.778412],
+						[106.621861, 26.779121],
+						[106.623926, 26.779714],
+						[106.628496, 26.779564],
+						[106.629407, 26.77935],
+						[106.630421, 26.778315],
+						[106.631675, 26.778098],
+						[106.632714, 26.778803],
+						[106.634217, 26.780017],
+						[106.636048, 26.780101],
+						[106.63764, 26.779572],
+						[106.639812, 26.77955],
+						[106.641765, 26.780145],
+						[106.643379, 26.781051],
+						[106.6442, 26.782476],
+						[106.644106, 26.783911],
+						[106.642996, 26.786175],
+						[106.642451, 26.788024],
+						[106.642814, 26.789454],
+						[106.644774, 26.790561],
+						[106.647859, 26.790325],
+						[106.651618, 26.789264],
+						[106.654226, 26.787702],
+						[106.656246, 26.785019],
+						[106.657018, 26.783066],
+						[106.658826, 26.781512],
+						[106.662597, 26.78127],
+						[106.667517, 26.781324],
+						[106.672678, 26.782195],
+						[106.678304, 26.783573],
+						[106.682216, 26.78507],
+						[106.68396, 26.786451],
+						[106.685851, 26.787949],
+						[106.688327, 26.787801],
+						[106.690154, 26.788266],
+						[106.690395, 26.788234],
+						[106.691135, 26.788136],
+						[106.694565, 26.786748],
+						[106.695861, 26.786976],
+						[106.69656, 26.787485],
+						[106.697994, 26.791056],
+						[106.698764, 26.791728],
+						[106.700949, 26.792551],
+						[106.702148, 26.792452],
+						[106.702325, 26.791997],
+						[106.701978, 26.791159],
+						[106.700606, 26.788659],
+						[106.700572, 26.787959],
+						[106.700772, 26.787462],
+						[106.70104, 26.787259],
+						[106.701505, 26.787202],
+						[106.704899, 26.787514],
+						[106.707044, 26.788532],
+						[106.708036, 26.790082],
+						[106.709775, 26.796306],
+						[106.709898, 26.798039],
+						[106.710882, 26.799156],
+						[106.712532, 26.799398],
+						[106.714468, 26.799377],
+						[106.716033, 26.800401],
+						[106.716629, 26.801435],
+						[106.718088, 26.801853],
+						[106.719539, 26.801837],
+						[106.719728, 26.801488],
+						[106.720211, 26.801483],
+						[106.721377, 26.801731],
+						[106.723232, 26.802837],
+						[106.725463, 26.803159],
+						[106.729046, 26.803292],
+						[106.733519, 26.804716],
+						[106.737007, 26.805109],
+						[106.742518, 26.804871],
+						[106.744556, 26.805367],
+						[106.747766, 26.806629],
+						[106.750798, 26.808847],
+						[106.751805, 26.811435],
+						[106.753466, 26.812542],
+						[106.75482, 26.812612],
+						[106.755683, 26.812168],
+						[106.756346, 26.811292],
+						[106.758192, 26.811876],
+						[106.760538, 26.813581],
+						[106.762019, 26.815556],
+						[106.762048, 26.817463],
+						[106.762723, 26.818416],
+						[106.764783, 26.819911],
+						[106.766066, 26.820708]
+					];
+					var heatmapData = [{
+						'lng': 107.66520382915787,
+						'lat': 27.44253794163024,
+						'count': 15
+					}, {
+						'lng': 107.28413714473439,
+						'lat': 27.639463025984654,
+						'count': 9
+					}, {
+						'lng': 107.29244671237555,
+						'lat': 26.913556077671295,
+						'count': 20
+					}, {
+						'lng': 107.17178937587126,
+						'lat': 27.21629182766638,
+						'count': 17
+					}, {
+						'lng': 106.95590184626676,
+						'lat': 27.609964247219438,
+						'count': 14
+					}, {
+						'lng': 107.00112709256484,
+						'lat': 27.280785794427853,
+						'count': 14
+					}, {
+						'lng': 107.67904793213263,
+						'lat': 27.2825211110131,
+						'count': 18
+					}, {
+						'lng': 106.90998954112764,
+						'lat': 27.72183062016186,
+						'count': 1
+					}, {
+						'lng': 107.08055277145974,
+						'lat': 27.742445208325098,
+						'count': 10
+					}, {
+						'lng': 107.13804105015731,
+						'lat': 27.68948728756414,
+						'count': 7
+					}, {
+						'lng': 107.17314152621312,
+						'lat': 27.377945997123206,
+						'count': 3
+					}, {
+						'lng': 107.33845128750141,
+						'lat': 27.11081628862682,
+						'count': 20
+					}, {
+						'lng': 107.08779665850776,
+						'lat': 27.305086844893832,
+						'count': 14
+					}, {
+						'lng': 107.3659174870717,
+						'lat': 26.830642727436313,
+						'count': 9
+					}, {
+						'lng': 107.45042638277187,
+						'lat': 27.640834834035708,
+						'count': 17
+					}, {
+						'lng': 107.65907214798538,
+						'lat': 27.442258410234672,
+						'count': 18
+					}, {
+						'lng': 107.56716463906909,
+						'lat': 27.712881354162693,
+						'count': 5
+					}, {
+						'lng': 107.38035613877732,
+						'lat': 27.13190913953247,
+						'count': 2
+					}, {
+						'lng': 107.28751308325015,
+						'lat': 27.681188371935427,
+						'count': 2
+					}, {
+						'lng': 107.58571340775767,
+						'lat': 26.981624428548617,
+						'count': 9
+					}, {
+						'lng': 107.39135008475805,
+						'lat': 26.877560820499767,
+						'count': 3
+					}, {
+						'lng': 107.20141480464795,
+						'lat': 26.84801686398879,
+						'count': 6
+					}, {
+						'lng': 107.71323719729287,
+						'lat': 26.858091971550387,
+						'count': 4
+					}, {
+						'lng': 106.81840176663296,
+						'lat': 27.079131570030498,
+						'count': 17
+					}, {
+						'lng': 107.71966899539233,
+						'lat': 27.49970317764441,
+						'count': 6
+					}, {
+						'lng': 107.75744942078542,
+						'lat': 26.963986539803745,
+						'count': 12
+					}, {
+						'lng': 107.5577063049276,
+						'lat': 27.342832037760154,
+						'count': 4
+					}, {
+						'lng': 107.2890689500727,
+						'lat': 26.93109895229073,
+						'count': 14
+					}, {
+						'lng': 106.93209343766893,
+						'lat': 27.68257240065373,
+						'count': 7
+					}, {
+						'lng': 107.36831772231405,
+						'lat': 27.361559570794157,
+						'count': 2
+					}, {
+						'lng': 106.96467988368016,
+						'lat': 27.1845943554104,
+						'count': 6
+					}, {
+						'lng': 107.3459455714883,
+						'lat': 27.1983241491372,
+						'count': 6
+					}, {
+						'lng': 107.32373443696189,
+						'lat': 27.02783677966676,
+						'count': 11
+					}, {
+						'lng': 107.4953997073598,
+						'lat': 26.948951893986226,
+						'count': 20
+					}, {
+						'lng': 107.79072481430322,
+						'lat': 27.731548827689856,
+						'count': 12
+					}, {
+						'lng': 107.65601084076725,
+						'lat': 27.413299633561596,
+						'count': 19
+					}, {
+						'lng': 107.08647470093355,
+						'lat': 27.085240044847545,
+						'count': 14
+					}, {
+						'lng': 107.59304720372201,
+						'lat': 27.771123780246874,
+						'count': 18
+					}, {
+						'lng': 107.35880571242737,
+						'lat': 27.35869499311832,
+						'count': 19
+					}, {
+						'lng': 107.42457120477745,
+						'lat': 26.8155051356641,
+						'count': 5
+					}, {
+						'lng': 107.30660796567747,
+						'lat': 27.337672215880044,
+						'count': 17
+					}, {
+						'lng': 107.44789652680828,
+						'lat': 27.4396171883886,
+						'count': 13
+					}, {
+						'lng': 107.68474195858697,
+						'lat': 27.191795010748834,
+						'count': 6
+					}, {
+						'lng': 107.3817018953324,
+						'lat': 27.284402404677344,
+						'count': 14
+					}, {
+						'lng': 107.77979385413221,
+						'lat': 27.645802935818505,
+						'count': 4
+					}, {
+						'lng': 107.03466945024641,
+						'lat': 27.277630015857557,
+						'count': 16
+					}, {
+						'lng': 107.09041005178673,
+						'lat': 27.331032624941134,
+						'count': 15
+					}, {
+						'lng': 107.80666324958636,
+						'lat': 27.601542762534017,
+						'count': 8
+					}, {
+						'lng': 107.5708802956204,
+						'lat': 27.18662644706857,
+						'count': 13
+					}, {
+						'lng': 107.01794104255096,
+						'lat': 27.66599330286099,
+						'count': 16
+					}, {
+						'lng': 107.77649634647796,
+						'lat': 27.112257359087664,
+						'count': 20
+					}, {
+						'lng': 106.95147901210152,
+						'lat': 27.0969301974692,
+						'count': 8
+					}, {
+						'lng': 107.44965971548646,
+						'lat': 27.31426077935695,
+						'count': 15
+					}, {
+						'lng': 107.68493908596425,
+						'lat': 27.776057738923697,
+						'count': 17
+					}, {
+						'lng': 107.08149785316898,
+						'lat': 27.588594612916197,
+						'count': 19
+					}, {
+						'lng': 107.03932944086539,
+						'lat': 27.525522219070595,
+						'count': 16
+					}, {
+						'lng': 107.5414735170295,
+						'lat': 27.136960388480727,
+						'count': 19
+					}, {
+						'lng': 107.19762750698642,
+						'lat': 27.735956713665544,
+						'count': 9
+					}, {
+						'lng': 107.39405388176345,
+						'lat': 27.53690461344887,
+						'count': 11
+					}, {
+						'lng': 107.61503700085507,
+						'lat': 27.51166731113226,
+						'count': 14
+					}, {
+						'lng': 107.40415618540192,
+						'lat': 27.08703544413637,
+						'count': 18
+					}, {
+						'lng': 107.6955741680252,
+						'lat': 27.36919225550916,
+						'count': 12
+					}, {
+						'lng': 107.79327434245913,
+						'lat': 27.087368878981284,
+						'count': 12
+					}, {
+						'lng': 107.0851349563824,
+						'lat': 27.401473031565327,
+						'count': 20
+					}, {
+						'lng': 107.41457850608387,
+						'lat': 27.318878798090324,
+						'count': 11
+					}, {
+						'lng': 107.54639624941902,
+						'lat': 26.983017470713815,
+						'count': 14
+					}, {
+						'lng': 107.31320157890929,
+						'lat': 26.877139382872727,
+						'count': 10
+					}, {
+						'lng': 107.31910795900747,
+						'lat': 27.087198305630668,
+						'count': 12
+					}, {
+						'lng': 107.70942823177676,
+						'lat': 27.223214827159403,
+						'count': 15
+					}, {
+						'lng': 106.8725339942998,
+						'lat': 27.447346599646174,
+						'count': 11
+					}, {
+						'lng': 107.01831288361669,
+						'lat': 27.331032465477893,
+						'count': 19
+					}, {
+						'lng': 107.54521273669661,
+						'lat': 26.930602501750048,
+						'count': 4
+					}, {
+						'lng': 106.8947836341774,
+						'lat': 27.005556656367588,
+						'count': 8
+					}, {
+						'lng': 107.6272190610803,
+						'lat': 27.58499483704636,
+						'count': 19
+					}, {
+						'lng': 107.28472034820085,
+						'lat': 26.828266358244925,
+						'count': 7
+					}, {
+						'lng': 107.68008862094281,
+						'lat': 26.978827330116452,
+						'count': 11
+					}, {
+						'lng': 107.70951885245725,
+						'lat': 27.582284891539913,
+						'count': 19
+					}, {
+						'lng': 107.10803521922654,
+						'lat': 27.000974434769567,
+						'count': 1
+					}, {
+						'lng': 106.89731202502898,
+						'lat': 27.086454698714213,
+						'count': 17
+					}, {
+						'lng': 107.76626335575322,
+						'lat': 27.528502846190737,
+						'count': 14
+					}, {
+						'lng': 107.01247143059229,
+						'lat': 27.685446900265998,
+						'count': 19
+					}, {
+						'lng': 107.2304604807782,
+						'lat': 27.31612567999831,
+						'count': 19
+					}, {
+						'lng': 107.03915839263226,
+						'lat': 27.46146829032395,
+						'count': 12
+					}, {
+						'lng': 107.4660374818609,
+						'lat': 27.064247111557002,
+						'count': 18
+					}, {
+						'lng': 107.1607640000264,
+						'lat': 27.48975731172827,
+						'count': 1
+					}, {
+						'lng': 106.81888217898077,
+						'lat': 27.711637480573902,
+						'count': 2
+					}, {
+						'lng': 106.98701421211557,
+						'lat': 27.46004121632475,
+						'count': 4
+					}, {
+						'lng': 107.65381411087493,
+						'lat': 27.067525600951765,
+						'count': 14
+					}, {
+						'lng': 107.5982605374256,
+						'lat': 27.03436821273312,
+						'count': 8
+					}, {
+						'lng': 107.70755406199592,
+						'lat': 27.618822539858606,
+						'count': 15
+					}, {
+						'lng': 106.92145107226365,
+						'lat': 27.64488357069022,
+						'count': 6
+					}, {
+						'lng': 107.03094700626377,
+						'lat': 27.39672063572154,
+						'count': 2
+					}, {
+						'lng': 106.76065020274261,
+						'lat': 27.68315877682802,
+						'count': 8
+					}, {
+						'lng': 106.96953750862154,
+						'lat': 26.77527395061447,
+						'count': 2
+					}, {
+						'lng': 107.3151441725409,
+						'lat': 27.140683325289743,
+						'count': 18
+					}, {
+						'lng': 107.28520115059048,
+						'lat': 27.22831582349854,
+						'count': 19
+					}, {
+						'lng': 107.45954947479648,
+						'lat': 26.903011998603787,
+						'count': 9
+					}, {
+						'lng': 106.78296102008976,
+						'lat': 26.98661158512203,
+						'count': 10
+					}, {
+						'lng': 107.3835306269556,
+						'lat': 27.31663003269356,
+						'count': 14
+					}, {
+						'lng': 107.0330230150949,
+						'lat': 26.81747832118951,
+						'count': 1
+					}, {
+						'lng': 107.27041302934205,
+						'lat': 27.54404130762604,
+						'count': 19
+					}, {
+						'lng': 107.7390899474016,
+						'lat': 27.084469218793785,
+						'count': 12
+					}, {
+						'lng': 107.36414535698009,
+						'lat': 27.548414288243013,
+						'count': 13
+					}, {
+						'lng': 107.47527081788287,
+						'lat': 27.265789709714547,
+						'count': 16
+					}, {
+						'lng': 107.02933997371264,
+						'lat': 26.99374444021844,
+						'count': 6
+					}, {
+						'lng': 107.57191623583321,
+						'lat': 27.030737328315592,
+						'count': 5
+					}, {
+						'lng': 107.56352330677589,
+						'lat': 27.105772070416045,
+						'count': 11
+					}, {
+						'lng': 107.58275433925014,
+						'lat': 27.47584980830633,
+						'count': 15
+					}, {
+						'lng': 107.30238480534194,
+						'lat': 27.672673242799316,
+						'count': 5
+					}, {
+						'lng': 106.90703073393261,
+						'lat': 27.07062242817783,
+						'count': 10
+					}, {
+						'lng': 107.16483812855401,
+						'lat': 27.3211321170072,
+						'count': 3
+					}, {
+						'lng': 107.74605544859637,
+						'lat': 27.289293629393782,
+						'count': 15
+					}, {
+						'lng': 106.97285608157827,
+						'lat': 27.607508317225122,
+						'count': 5
+					}, {
+						'lng': 107.20107699781578,
+						'lat': 27.41466673851646,
+						'count': 8
+					}, {
+						'lng': 107.0800709671057,
+						'lat': 27.04400825683234,
+						'count': 7
+					}, {
+						'lng': 107.36036411828056,
+						'lat': 27.180138334774377,
+						'count': 9
+					}, {
+						'lng': 107.32663452217986,
+						'lat': 27.169371913849467,
+						'count': 2
+					}, {
+						'lng': 107.73322511750727,
+						'lat': 27.6974528439106,
+						'count': 6
+					}, {
+						'lng': 107.4602269927239,
+						'lat': 27.64996704181145,
+						'count': 13
+					}, {
+						'lng': 107.39738444487111,
+						'lat': 27.466757409939355,
+						'count': 19
+					}, {
+						'lng': 107.1612473051082,
+						'lat': 27.003898489680488,
+						'count': 5
+					}, {
+						'lng': 107.57704708876226,
+						'lat': 27.6134570655973,
+						'count': 10
+					}, {
+						'lng': 107.04960150975964,
+						'lat': 26.767099504412005,
+						'count': 16
+					}, {
+						'lng': 107.59220536956676,
+						'lat': 26.919549830259452,
+						'count': 14
+					}, {
+						'lng': 106.95163400670478,
+						'lat': 27.250712543357775,
+						'count': 6
+					}, {
+						'lng': 106.88149826133743,
+						'lat': 27.48364646429387,
+						'count': 18
+					}, {
+						'lng': 107.13679683063086,
+						'lat': 27.570346082168328,
+						'count': 19
+					}, {
+						'lng': 107.17051198079805,
+						'lat': 26.888904129908656,
+						'count': 11
+					}, {
+						'lng': 106.92963325761296,
+						'lat': 26.729653998573383,
+						'count': 1
+					}, {
+						'lng': 107.38977703765653,
+						'lat': 27.417822040777516,
+						'count': 12
+					}, {
+						'lng': 107.19670386235705,
+						'lat': 27.223920527427925,
+						'count': 5
+					}, {
+						'lng': 106.84913253419812,
+						'lat': 27.344166557903282,
+						'count': 16
+					}, {
+						'lng': 107.64062586277662,
+						'lat': 27.29384996047726,
+						'count': 18
+					}, {
+						'lng': 107.35423690141194,
+						'lat': 26.81434963751132,
+						'count': 2
+					}, {
+						'lng': 107.17719431579306,
+						'lat': 27.555190513337653,
+						'count': 12
+					}, {
+						'lng': 107.71487149416515,
+						'lat': 26.96367442042085,
+						'count': 5
+					}, {
+						'lng': 107.10087205620134,
+						'lat': 26.880875780774776,
+						'count': 20
+					}, {
+						'lng': 107.51053855232779,
+						'lat': 26.860963728572738,
+						'count': 18
+					}, {
+						'lng': 107.1708307729089,
+						'lat': 27.676796181112046,
+						'count': 8
+					}, {
+						'lng': 107.37908383307851,
+						'lat': 27.29708481491827,
+						'count': 17
+					}, {
+						'lng': 107.08038365013707,
+						'lat': 26.867223440403063,
+						'count': 18
+					}, {
+						'lng': 106.75708229626434,
+						'lat': 26.78604915516333,
+						'count': 4
+					}, {
+						'lng': 106.97611572657742,
+						'lat': 27.187433106894947,
+						'count': 1
+					}, {
+						'lng': 107.17982441329013,
+						'lat': 26.74302070924774,
+						'count': 10
+					}, {
+						'lng': 106.90814390399642,
+						'lat': 27.334246936573447,
+						'count': 7
+					}, {
+						'lng': 107.7419135696635,
+						'lat': 27.548673119531838,
+						'count': 9
+					}, {
+						'lng': 107.12620321444788,
+						'lat': 26.708140192295883,
+						'count': 3
+					}, {
+						'lng': 107.54600266868474,
+						'lat': 26.779626995266824,
+						'count': 13
+					}, {
+						'lng': 107.25967921972898,
+						'lat': 27.340683566682927,
+						'count': 19
+					}, {
+						'lng': 106.87642798931363,
+						'lat': 27.34304734280438,
+						'count': 12
+					}, {
+						'lng': 106.8098594274344,
+						'lat': 27.308450344561354,
+						'count': 9
+					}, {
+						'lng': 106.91885940547084,
+						'lat': 27.38545297342096,
+						'count': 13
+					}, {
+						'lng': 107.63320229374871,
+						'lat': 27.369223467090197,
+						'count': 7
+					}, {
+						'lng': 107.32195053551382,
+						'lat': 27.325221060261928,
+						'count': 6
+					}, {
+						'lng': 107.05202614417823,
+						'lat': 27.05821048233632,
+						'count': 9
+					}, {
+						'lng': 107.29971210874781,
+						'lat': 27.084069495607316,
+						'count': 13
+					}, {
+						'lng': 106.82810755084664,
+						'lat': 27.668861860138218,
+						'count': 19
+					}, {
+						'lng': 107.4205521556285,
+						'lat': 27.27535043671808,
+						'count': 10
+					}, {
+						'lng': 107.65724059133653,
+						'lat': 26.726294256759985,
+						'count': 2
+					}, {
+						'lng': 107.59781736494931,
+						'lat': 26.79784616770225,
+						'count': 4
+					}, {
+						'lng': 107.30830510272136,
+						'lat': 26.74102017369802,
+						'count': 8
+					}, {
+						'lng': 107.42778809991148,
+						'lat': 27.025180290571406,
+						'count': 3
+					}, {
+						'lng': 107.6207287480598,
+						'lat': 26.963252688880342,
+						'count': 5
+					}, {
+						'lng': 107.48198565389286,
+						'lat': 26.841963240158016,
+						'count': 8
+					}, {
+						'lng': 107.45179527032971,
+						'lat': 26.72861393258711,
+						'count': 17
+					}, {
+						'lng': 107.29368609042815,
+						'lat': 27.521345360395816,
+						'count': 11
+					}, {
+						'lng': 107.64210533231683,
+						'lat': 26.891909014578715,
+						'count': 15
+					}, {
+						'lng': 107.62907847673209,
+						'lat': 27.07088625921169,
+						'count': 20
+					}, {
+						'lng': 106.79926914511168,
+						'lat': 27.545168407069376,
+						'count': 6
+					}, {
+						'lng': 107.56456469621119,
+						'lat': 27.547463941720615,
+						'count': 3
+					}, {
+						'lng': 107.60817283137835,
+						'lat': 27.32795832401129,
+						'count': 14
+					}, {
+						'lng': 106.94979546574365,
+						'lat': 26.67502683665145,
+						'count': 20
+					}, {
+						'lng': 107.07883278429996,
+						'lat': 27.357187955815775,
+						'count': 6
+					}, {
+						'lng': 107.41148307975918,
+						'lat': 27.034838120965816,
+						'count': 10
+					}, {
+						'lng': 107.14541097606642,
+						'lat': 27.302642369304237,
+						'count': 11
+					}, {
+						'lng': 107.6748464674825,
+						'lat': 27.50613345951612,
+						'count': 6
+					}, {
+						'lng': 106.93926710469896,
+						'lat': 27.610658897304035,
+						'count': 8
+					}, {
+						'lng': 107.30119520642414,
+						'lat': 26.77939097149188,
+						'count': 17
+					}, {
+						'lng': 107.05557647642483,
+						'lat': 27.211703728525592,
+						'count': 5
+					}, {
+						'lng': 106.96789531454519,
+						'lat': 27.004850370111683,
+						'count': 12
+					}, {
+						'lng': 107.43897765354619,
+						'lat': 26.86388381293059,
+						'count': 3
+					}, {
+						'lng': 107.09527536406952,
+						'lat': 27.05539128761188,
+						'count': 11
+					}, {
+						'lng': 107.2612160771432,
+						'lat': 27.34727804104666,
+						'count': 19
+					}, {
+						'lng': 107.19656127181449,
+						'lat': 27.083320786899577,
+						'count': 14
+					}, {
+						'lng': 107.24705864918059,
+						'lat': 27.458155541339828,
+						'count': 1
+					}, {
+						'lng': 107.5298809945258,
+						'lat': 26.815055191934754,
+						'count': 1
+					}, {
+						'lng': 106.97611923205788,
+						'lat': 27.53687069829495,
+						'count': 1
+					}, {
+						'lng': 107.4928960556798,
+						'lat': 27.41063105432233,
+						'count': 3
+					}, {
+						'lng': 107.4835411902794,
+						'lat': 26.661509407200814,
+						'count': 9
+					}, {
+						'lng': 106.87863623601315,
+						'lat': 27.135478911349562,
+						'count': 11
+					}, {
+						'lng': 107.11727628629312,
+						'lat': 27.50801093338763,
+						'count': 18
+					}, {
+						'lng': 107.64133674831835,
+						'lat': 26.647040054596232,
+						'count': 9
+					}, {
+						'lng': 107.49730235828763,
+						'lat': 27.609527173543015,
+						'count': 7
+					}, {
+						'lng': 106.79207153673568,
+						'lat': 26.787781970445018,
+						'count': 4
+					}, {
+						'lng': 107.43862345990131,
+						'lat': 27.451278482856345,
+						'count': 4
+					}, {
+						'lng': 107.4371405118698,
+						'lat': 27.13764025903347,
+						'count': 17
+					}, {
+						'lng': 107.11088982721355,
+						'lat': 26.961415254792083,
+						'count': 13
+					}, {
+						'lng': 107.67725235709473,
+						'lat': 27.59173196431743,
+						'count': 20
+					}, {
+						'lng': 107.34780572977957,
+						'lat': 26.752497148767738,
+						'count': 16
+					}, {
+						'lng': 107.14105842684772,
+						'lat': 26.647205359835215,
+						'count': 3
+					}, {
+						'lng': 106.84052502766967,
+						'lat': 26.87192321446513,
+						'count': 20
+					}, {
+						'lng': 107.33128936158252,
+						'lat': 26.766067677387746,
+						'count': 6
+					}, {
+						'lng': 107.23412430554339,
+						'lat': 27.61511082127824,
+						'count': 9
+					}, {
+						'lng': 107.43750910224922,
+						'lat': 26.80806319154642,
+						'count': 13
+					}, {
+						'lng': 107.01463048763122,
+						'lat': 27.545442646211765,
+						'count': 20
+					}, {
+						'lng': 107.41550123280415,
+						'lat': 27.50032297589896,
+						'count': 3
+					}, {
+						'lng': 107.45013972193227,
+						'lat': 26.785099289774646,
+						'count': 16
+					}, {
+						'lng': 107.51344581472928,
+						'lat': 26.68706877869384,
+						'count': 12
+					}, {
+						'lng': 107.07968372765572,
+						'lat': 26.645908564321577,
+						'count': 10
+					}, {
+						'lng': 107.13905303022162,
+						'lat': 27.342376100612423,
+						'count': 20
+					}, {
+						'lng': 107.181992615003,
+						'lat': 27.52899465045902,
+						'count': 12
+					}, {
+						'lng': 106.74633028597962,
+						'lat': 26.934753482513162,
+						'count': 16
+					}, {
+						'lng': 106.85692620740416,
+						'lat': 26.750234286952317,
+						'count': 2
+					}, {
+						'lng': 107.63902467334307,
+						'lat': 27.466564630092133,
+						'count': 14
+					}, {
+						'lng': 106.76525784210216,
+						'lat': 27.173651805884496,
+						'count': 9
+					}, {
+						'lng': 107.17531808046874,
+						'lat': 27.605455979988523,
+						'count': 14
+					}, {
+						'lng': 107.579368773748,
+						'lat': 26.807663227037462,
+						'count': 8
+					}, {
+						'lng': 107.48999929943537,
+						'lat': 27.473791058111463,
+						'count': 13
+					}, {
+						'lng': 107.24824009814488,
+						'lat': 26.739280079969447,
+						'count': 20
+					}, {
+						'lng': 106.80024911962701,
+						'lat': 27.58603932197876,
+						'count': 2
+					}, {
+						'lng': 107.10328961742653,
+						'lat': 27.37353291524707,
+						'count': 17
+					}, {
+						'lng': 106.92660385300728,
+						'lat': 26.884037699636625,
+						'count': 9
+					}, {
+						'lng': 107.14189479751865,
+						'lat': 26.719951949762983,
+						'count': 6
+					}, {
+						'lng': 106.88238107149861,
+						'lat': 27.15234312440649,
+						'count': 16
+					}, {
+						'lng': 107.3382195539386,
+						'lat': 26.694996967324403,
+						'count': 13
+					}, {
+						'lng': 107.56838757892446,
+						'lat': 26.73495452201215,
+						'count': 13
+					}, {
+						'lng': 107.13897900815783,
+						'lat': 26.765020279226025,
+						'count': 2
+					}, {
+						'lng': 107.58776317183612,
+						'lat': 27.4986391057673,
+						'count': 11
+					}, {
+						'lng': 107.31662476993446,
+						'lat': 27.234134094113944,
+						'count': 1
+					}, {
+						'lng': 106.69799305855877,
+						'lat': 27.627016029873914,
+						'count': 4
+					}, {
+						'lng': 106.93486186524358,
+						'lat': 26.68482297750199,
+						'count': 20
+					}, {
+						'lng': 107.39845784842602,
+						'lat': 27.534780361768696,
+						'count': 11
+					}, {
+						'lng': 107.15604986156926,
+						'lat': 26.792597004085096,
+						'count': 19
+					}, {
+						'lng': 106.86287194421,
+						'lat': 27.2091417538692,
+						'count': 2
+					}, {
+						'lng': 107.38613042261585,
+						'lat': 27.162853940515006,
+						'count': 10
+					}, {
+						'lng': 106.70128416889312,
+						'lat': 27.15101641828351,
+						'count': 6
+					}, {
+						'lng': 106.81818926471986,
+						'lat': 27.508409445868345,
+						'count': 15
+					}, {
+						'lng': 106.70351257264045,
+						'lat': 26.75347536126263,
+						'count': 13
+					}, {
+						'lng': 106.68978069423342,
+						'lat': 27.31151162799476,
+						'count': 1
+					}, {
+						'lng': 106.72939516818126,
+						'lat': 27.283255982460343,
+						'count': 6
+					}, {
+						'lng': 107.2012493914579,
+						'lat': 26.807672577450862,
+						'count': 11
+					}, {
+						'lng': 107.42758698276903,
+						'lat': 26.66013912688672,
+						'count': 6
+					}, {
+						'lng': 107.3998870137856,
+						'lat': 27.377479071737863,
+						'count': 16
+					}, {
+						'lng': 107.67008737129748,
+						'lat': 27.361188166439355,
+						'count': 11
+					}, {
+						'lng': 107.58328979378435,
+						'lat': 27.519970912205054,
+						'count': 11
+					}, {
+						'lng': 107.43799769834779,
+						'lat': 26.882478102620706,
+						'count': 12
+					}, {
+						'lng': 107.17097576052343,
+						'lat': 27.08166775823059,
+						'count': 11
+					}, {
+						'lng': 107.58421714728946,
+						'lat': 27.327245187504754,
+						'count': 13
+					}, {
+						'lng': 107.50014692674122,
+						'lat': 26.81075775203447,
+						'count': 18
+					}, {
+						'lng': 107.22198456351279,
+						'lat': 27.07098613203312,
+						'count': 6
+					}, {
+						'lng': 106.82640314850185,
+						'lat': 26.655178827867548,
+						'count': 14
+					}, {
+						'lng': 106.70936980311177,
+						'lat': 27.236616494589356,
+						'count': 18
+					}, {
+						'lng': 106.83599649017675,
+						'lat': 26.899060804707986,
+						'count': 19
+					}, {
+						'lng': 106.89757937497018,
+						'lat': 27.608640202633925,
+						'count': 13
+					}, {
+						'lng': 106.93722479671096,
+						'lat': 27.5721701509686,
+						'count': 10
+					}, {
+						'lng': 107.20421252706032,
+						'lat': 27.11376050486341,
+						'count': 12
+					}, {
+						'lng': 106.915235840888,
+						'lat': 27.238346405877515,
+						'count': 13
+					}, {
+						'lng': 107.14346992500379,
+						'lat': 27.47819710949169,
+						'count': 19
+					}, {
+						'lng': 107.53003270676305,
+						'lat': 27.26906492111295,
+						'count': 1
+					}, {
+						'lng': 106.77003805589797,
+						'lat': 27.554507788124063,
+						'count': 17
+					}, {
+						'lng': 106.78159049799739,
+						'lat': 27.279615833477678,
+						'count': 13
+					}, {
+						'lng': 107.44947958528229,
+						'lat': 26.654942950491005,
+						'count': 2
+					}, {
+						'lng': 107.40620486744045,
+						'lat': 27.250304132028408,
+						'count': 10
+					}, {
+						'lng': 107.00505144664886,
+						'lat': 27.372860468736693,
+						'count': 1
+					}, {
+						'lng': 107.46074278606427,
+						'lat': 26.685692059814187,
+						'count': 6
+					}, {
+						'lng': 106.87134853649194,
+						'lat': 27.23002338531012,
+						'count': 13
+					}, {
+						'lng': 107.41987165269893,
+						'lat': 26.788297445390725,
+						'count': 1
+					}, {
+						'lng': 106.79391666262244,
+						'lat': 26.97465050249495,
+						'count': 4
+					}, {
+						'lng': 107.09898917483905,
+						'lat': 27.19740073543485,
+						'count': 10
+					}, {
+						'lng': 107.13594673934864,
+						'lat': 26.852527880082214,
+						'count': 20
+					}, {
+						'lng': 107.50432171122617,
+						'lat': 27.074801642979214,
+						'count': 18
+					}, {
+						'lng': 106.70573386804213,
+						'lat': 26.85225825789591,
+						'count': 2
+					}, {
+						'lng': 107.5375784923796,
+						'lat': 26.983751380236523,
+						'count': 10
+					}, {
+						'lng': 107.59815109817471,
+						'lat': 27.6062259645166,
+						'count': 3
+					}, {
+						'lng': 107.50784073189507,
+						'lat': 26.692287822133903,
+						'count': 16
+					}, {
+						'lng': 107.10442581519483,
+						'lat': 27.63160304331524,
+						'count': 5
+					}, {
+						'lng': 106.83907334137166,
+						'lat': 27.606043244928586,
+						'count': 2
+					}, {
+						'lng': 106.77841804351095,
+						'lat': 27.542297262303723,
+						'count': 14
+					}, {
+						'lng': 106.75796390365913,
+						'lat': 27.255853306698405,
+						'count': 14
+					}, {
+						'lng': 107.60570958818141,
+						'lat': 26.867388205933633,
+						'count': 12
+					}, {
+						'lng': 107.44829865807434,
+						'lat': 26.93753946992744,
+						'count': 4
+					}, {
+						'lng': 107.54696780347754,
+						'lat': 26.758554243407506,
+						'count': 2
+					}, {
+						'lng': 107.4522637687894,
+						'lat': 27.51169281381433,
+						'count': 16
+					}, {
+						'lng': 106.96472702976727,
+						'lat': 26.768776282766368,
+						'count': 3
+					}, {
+						'lng': 107.52168120477036,
+						'lat': 27.569439790505083,
+						'count': 19
+					}, {
+						'lng': 107.12038012573991,
+						'lat': 26.858126041898267,
+						'count': 3
+					}, {
+						'lng': 107.47047190559557,
+						'lat': 27.545924535966012,
+						'count': 5
+					}, {
+						'lng': 106.74542608298185,
+						'lat': 26.73511662847368,
+						'count': 1
+					}, {
+						'lng': 106.90594359867396,
+						'lat': 27.63600343157781,
+						'count': 18
+					}, {
+						'lng': 107.25570559743194,
+						'lat': 27.0047630132325,
+						'count': 13
+					}, {
+						'lng': 107.24123487646848,
+						'lat': 27.001550258741013,
+						'count': 6
+					}, {
+						'lng': 107.01374996929155,
+						'lat': 26.94415148256068,
+						'count': 3
+					}, {
+						'lng': 107.06650118520433,
+						'lat': 27.35449929646355,
+						'count': 19
+					}, {
+						'lng': 106.9138108312149,
+						'lat': 26.676227163190756,
+						'count': 14
+					}, {
+						'lng': 106.70323173089072,
+						'lat': 27.628945548349154,
+						'count': 12
+					}, {
+						'lng': 107.48473669761263,
+						'lat': 27.051547057986365,
+						'count': 14
+					}, {
+						'lng': 107.08055996888086,
+						'lat': 27.312677801458147,
+						'count': 7
+					}, {
+						'lng': 106.91158005245924,
+						'lat': 27.27975360748913,
+						'count': 16
+					}, {
+						'lng': 106.84912345552749,
+						'lat': 27.619286702258197,
+						'count': 10
+					}, {
+						'lng': 106.88247993774522,
+						'lat': 27.464536689662488,
+						'count': 15
+					}, {
+						'lng': 107.34106695839138,
+						'lat': 27.015357176071507,
+						'count': 15
+					}, {
+						'lng': 107.36476475862352,
+						'lat': 27.189835176596564,
+						'count': 5
+					}, {
+						'lng': 107.64801791277037,
+						'lat': 27.567697945693027,
+						'count': 18
+					}, {
+						'lng': 106.69764053605496,
+						'lat': 26.90562161354199,
+						'count': 17
+					}, {
+						'lng': 106.94286114811943,
+						'lat': 26.70503124634414,
+						'count': 20
+					}, {
+						'lng': 107.57827615019568,
+						'lat': 27.281578498857563,
+						'count': 4
+					}, {
+						'lng': 106.68871859915042,
+						'lat': 27.037515627367924,
+						'count': 7
+					}, {
+						'lng': 107.3261770085548,
+						'lat': 27.57014613971954,
+						'count': 3
+					}, {
+						'lng': 107.57657066621641,
+						'lat': 27.563226373727222,
+						'count': 8
+					}, {
+						'lng': 107.10608576505521,
+						'lat': 27.064030578241987,
+						'count': 18
+					}, {
+						'lng': 107.28615619817644,
+						'lat': 27.133713886036762,
+						'count': 19
+					}, {
+						'lng': 107.23881447396546,
+						'lat': 27.052521802062394,
+						'count': 12
+					}, {
+						'lng': 107.45941875039222,
+						'lat': 26.71801821014733,
+						'count': 13
+					}, {
+						'lng': 107.4300579807841,
+						'lat': 27.025267377845662,
+						'count': 12
+					}, {
+						'lng': 106.9408361183097,
+						'lat': 27.646396851774924,
+						'count': 3
+					}, {
+						'lng': 107.64691974999121,
+						'lat': 27.132796003614917,
+						'count': 4
+					}, {
+						'lng': 107.45733960939202,
+						'lat': 27.408205207919835,
+						'count': 6
+					}, {
+						'lng': 107.04442194787474,
+						'lat': 27.20567784080229,
+						'count': 13
+					}, {
+						'lng': 107.4721764694759,
+						'lat': 26.66952781984698,
+						'count': 14
+					}, {
+						'lng': 107.61822236007752,
+						'lat': 27.027310296063852,
+						'count': 13
+					}, {
+						'lng': 106.70283318042958,
+						'lat': 26.856014243348568,
+						'count': 15
+					}, {
+						'lng': 107.03874461261721,
+						'lat': 27.438745002131565,
+						'count': 19
+					}, {
+						'lng': 107.50750759366913,
+						'lat': 27.139429749947848,
+						'count': 18
+					}, {
+						'lng': 107.4097215601411,
+						'lat': 27.606681905579904,
+						'count': 14
+					}, {
+						'lng': 107.11065724369429,
+						'lat': 27.32452916890367,
+						'count': 2
+					}, {
+						'lng': 107.14664332719204,
+						'lat': 26.889624409292445,
+						'count': 17
+					}, {
+						'lng': 106.90302536197726,
+						'lat': 27.361299836242548,
+						'count': 15
+					}, {
+						'lng': 107.55799961072319,
+						'lat': 27.654495788742427,
+						'count': 4
+					}, {
+						'lng': 106.82328667247397,
+						'lat': 27.106921326533687,
+						'count': 14
+					}, {
+						'lng': 106.88095287904392,
+						'lat': 27.442294583629756,
+						'count': 5
+					}, {
+						'lng': 107.13884108226554,
+						'lat': 27.289967304673983,
+						'count': 6
+					}, {
+						'lng': 106.74937550801215,
+						'lat': 27.237292976326998,
+						'count': 19
+					}, {
+						'lng': 107.03501718359746,
+						'lat': 27.57101140127353,
+						'count': 16
+					}, {
+						'lng': 107.58689936243788,
+						'lat': 26.788686509731534,
+						'count': 2
+					}, {
+						'lng': 107.1770179540699,
+						'lat': 27.16028042160551,
+						'count': 1
+					}, {
+						'lng': 106.66596570490677,
+						'lat': 27.20844724118476,
+						'count': 14
+					}, {
+						'lng': 107.46566207345059,
+						'lat': 27.12778200902432,
+						'count': 19
+					}, {
+						'lng': 106.89671139179032,
+						'lat': 26.86761180644772,
+						'count': 17
+					}, {
+						'lng': 106.91578939548276,
+						'lat': 26.803308305064,
+						'count': 8
+					}, {
+						'lng': 107.0771140543752,
+						'lat': 27.362125645608373,
+						'count': 4
+					}, {
+						'lng': 106.84132058674206,
+						'lat': 26.68471487025542,
+						'count': 12
+					}, {
+						'lng': 107.12115171664576,
+						'lat': 26.772381024320055,
+						'count': 5
+					}, {
+						'lng': 106.93935808099215,
+						'lat': 27.201300847349213,
+						'count': 13
+					}, {
+						'lng': 107.2306768445489,
+						'lat': 26.90232407615981,
+						'count': 16
+					}, {
+						'lng': 106.73407420539245,
+						'lat': 27.08145124411541,
+						'count': 10
+					}, {
+						'lng': 107.15547648548304,
+						'lat': 27.50483042726519,
+						'count': 10
+					}, {
+						'lng': 107.45403121182278,
+						'lat': 27.151244597465997,
+						'count': 3
+					}, {
+						'lng': 107.19474372493107,
+						'lat': 27.51050836688467,
+						'count': 1
+					}, {
+						'lng': 107.08478017526969,
+						'lat': 26.822115352253128,
+						'count': 13
+					}, {
+						'lng': 106.75475190689755,
+						'lat': 26.70190065888032,
+						'count': 11
+					}, {
+						'lng': 107.11856904318996,
+						'lat': 26.967273949272148,
+						'count': 8
+					}, {
+						'lng': 106.7495091473588,
+						'lat': 26.884083164621174,
+						'count': 11
+					}, {
+						'lng': 106.68366017011414,
+						'lat': 27.022980917168606,
+						'count': 2
+					}, {
+						'lng': 106.82974377707639,
+						'lat': 26.831795613733156,
+						'count': 10
+					}, {
+						'lng': 106.94792033803279,
+						'lat': 26.83166110549484,
+						'count': 10
+					}, {
+						'lng': 107.64983929403569,
+						'lat': 27.059380552783562,
+						'count': 2
+					}, {
+						'lng': 107.23599328016094,
+						'lat': 26.71069811036782,
+						'count': 9
+					}, {
+						'lng': 106.66836259114636,
+						'lat': 27.430171256723874,
+						'count': 14
+					}, {
+						'lng': 107.6332350728952,
+						'lat': 26.88502567623263,
+						'count': 2
+					}, {
+						'lng': 107.33412760412533,
+						'lat': 26.88147142350135,
+						'count': 13
+					}, {
+						'lng': 107.44762097191375,
+						'lat': 26.96998741776979,
+						'count': 16
+					}, {
+						'lng': 106.88437587310696,
+						'lat': 27.21802998178611,
+						'count': 14
+					}, {
+						'lng': 107.25237344612917,
+						'lat': 27.22694027122069,
+						'count': 3
+					}, {
+						'lng': 107.6444886599849,
+						'lat': 27.592502993037485,
+						'count': 13
+					}, {
+						'lng': 107.23655936995357,
+						'lat': 26.975024786855396,
+						'count': 20
+					}, {
+						'lng': 107.53798610588223,
+						'lat': 27.510161642219067,
+						'count': 16
+					}, {
+						'lng': 106.80851546995414,
+						'lat': 27.632934298111444,
+						'count': 20
+					}, {
+						'lng': 106.8539194918666,
+						'lat': 27.32838659720367,
+						'count': 7
+					}, {
+						'lng': 107.37222844098258,
+						'lat': 27.466987460250948,
+						'count': 4
+					}, {
+						'lng': 106.67251805916217,
+						'lat': 27.512724459086016,
+						'count': 6
+					}, {
+						'lng': 106.7412614218576,
+						'lat': 26.980754981833403,
+						'count': 7
+					}, {
+						'lng': 107.27453044766872,
+						'lat': 27.129785215628697,
+						'count': 3
+					}, {
+						'lng': 107.12998742057101,
+						'lat': 27.650807955034757,
+						'count': 10
+					}, {
+						'lng': 107.33999024990811,
+						'lat': 27.153521759508347,
+						'count': 5
+					}, {
+						'lng': 106.895706133596,
+						'lat': 27.613336430176624,
+						'count': 4
+					}, {
+						'lng': 106.838342507957,
+						'lat': 27.328264168251057,
+						'count': 6
+					}, {
+						'lng': 106.86523277433636,
+						'lat': 27.119466978810014,
+						'count': 18
+					}, {
+						'lng': 106.68913350495049,
+						'lat': 26.929940484306975,
+						'count': 17
+					}, {
+						'lng': 107.10470874601135,
+						'lat': 27.42731941908021,
+						'count': 11
+					}, {
+						'lng': 106.9289927619741,
+						'lat': 27.648689804857387,
+						'count': 3
+					}, {
+						'lng': 106.89148392082929,
+						'lat': 27.460885165815334,
+						'count': 13
+					}, {
+						'lng': 107.64880992432869,
+						'lat': 27.124559174911845,
+						'count': 7
+					}, {
+						'lng': 107.16108574313596,
+						'lat': 26.894596896276468,
+						'count': 17
+					}, {
+						'lng': 107.3534270678901,
+						'lat': 27.431594347056883,
+						'count': 11
+					}, {
+						'lng': 106.7826285409904,
+						'lat': 27.08777681436688,
+						'count': 12
+					}, {
+						'lng': 107.15264834934199,
+						'lat': 27.626838764196503,
+						'count': 13
+					}, {
+						'lng': 106.65197479309296,
+						'lat': 26.736390110765576,
+						'count': 6
+					}, {
+						'lng': 106.99968234336946,
+						'lat': 26.69922891403719,
+						'count': 6
+					}, {
+						'lng': 107.25535227686724,
+						'lat': 27.33279444506745,
+						'count': 6
+					}, {
+						'lng': 107.17161045127345,
+						'lat': 27.142813805416534,
+						'count': 2
+					}, {
+						'lng': 107.30001110362035,
+						'lat': 27.274231891838205,
+						'count': 17
+					}, {
+						'lng': 107.43377643159187,
+						'lat': 27.0816047116978,
+						'count': 5
+					}, {
+						'lng': 106.97160814174345,
+						'lat': 27.073426120202974,
+						'count': 11
+					}, {
+						'lng': 106.85807262559925,
+						'lat': 27.39793540660245,
+						'count': 20
+					}, {
+						'lng': 107.51598349401621,
+						'lat': 27.46610037642405,
+						'count': 20
+					}, {
+						'lng': 106.90475708812643,
+						'lat': 27.187535884091538,
+						'count': 14
+					}, {
+						'lng': 106.91352050116295,
+						'lat': 27.091784510422894,
+						'count': 16
+					}, {
+						'lng': 107.10837814758479,
+						'lat': 27.657612431484168,
+						'count': 3
+					}, {
+						'lng': 106.83598630968481,
+						'lat': 27.06362630207063,
+						'count': 19
+					}, {
+						'lng': 106.80321789834277,
+						'lat': 27.601400637121976,
+						'count': 13
+					}, {
+						'lng': 107.1027054718043,
+						'lat': 26.664725328484778,
+						'count': 10
+					}, {
+						'lng': 107.45193679829626,
+						'lat': 27.061771953407558,
+						'count': 12
+					}, {
+						'lng': 107.16799545386348,
+						'lat': 27.406565967866246,
+						'count': 4
+					}, {
+						'lng': 107.12899887776894,
+						'lat': 27.045842811030056,
+						'count': 17
+					}, {
+						'lng': 107.0087290441201,
+						'lat': 27.049444023506837,
+						'count': 11
+					}, {
+						'lng': 107.07800527117278,
+						'lat': 27.608606544494634,
+						'count': 11
+					}, {
+						'lng': 106.69496666057871,
+						'lat': 27.18575537502645,
+						'count': 1
+					}, {
+						'lng': 107.36276377745214,
+						'lat': 27.109748479778403,
+						'count': 19
+					}, {
+						'lng': 107.53959971486928,
+						'lat': 27.209963021270866,
+						'count': 17
+					}, {
+						'lng': 106.7170171405851,
+						'lat': 27.498249784156098,
+						'count': 20
+					}, {
+						'lng': 107.52480411901153,
+						'lat': 27.641875727296267,
+						'count': 5
+					}, {
+						'lng': 107.14109067861497,
+						'lat': 27.305110519007222,
+						'count': 3
+					}, {
+						'lng': 106.8472156279084,
+						'lat': 27.1943592462209,
+						'count': 17
+					}, {
+						'lng': 107.2763729447225,
+						'lat': 26.70548537263622,
+						'count': 3
+					}, {
+						'lng': 106.92322677045873,
+						'lat': 26.80062263948531,
+						'count': 11
+					}, {
+						'lng': 107.15420422201925,
+						'lat': 27.29899381210329,
+						'count': 2
+					}, {
+						'lng': 106.86272829902649,
+						'lat': 27.32273710169957,
+						'count': 15
+					}, {
+						'lng': 107.21263658560183,
+						'lat': 26.78389953545857,
+						'count': 10
+					}, {
+						'lng': 107.15757660810435,
+						'lat': 27.55905878405612,
+						'count': 2
+					}, {
+						'lng': 106.84840173514867,
+						'lat': 26.70694697289733,
+						'count': 14
+					}, {
+						'lng': 107.197196310833,
+						'lat': 27.48043377752474,
+						'count': 17
+					}, {
+						'lng': 106.73637980235664,
+						'lat': 26.983116784561137,
+						'count': 3
+					}, {
+						'lng': 107.62205640148609,
+						'lat': 27.601690313094565,
+						'count': 19
+					}, {
+						'lng': 107.51769703818458,
+						'lat': 27.16408979514669,
+						'count': 18
+					}, {
+						'lng': 106.75739106954865,
+						'lat': 27.286147235637497,
+						'count': 18
+					}, {
+						'lng': 106.71161836759157,
+						'lat': 26.6859408758331,
+						'count': 14
+					}, {
+						'lng': 106.66016955212626,
+						'lat': 26.86977309642057,
+						'count': 13
+					}, {
+						'lng': 107.30261341913125,
+						'lat': 27.66503687592054,
+						'count': 10
+					}, {
+						'lng': 107.61670450000628,
+						'lat': 26.77187027801821,
+						'count': 18
+					}, {
+						'lng': 107.60643614126121,
+						'lat': 26.91710144942458,
+						'count': 18
+					}, {
+						'lng': 107.04249971697604,
+						'lat': 27.367695322995974,
+						'count': 16
+					}, {
+						'lng': 107.46379243420185,
+						'lat': 27.667409319019846,
+						'count': 9
+					}, {
+						'lng': 107.07128038166557,
+						'lat': 27.199080399261206,
+						'count': 2
+					}, {
+						'lng': 107.63611609898028,
+						'lat': 27.566767879322946,
+						'count': 6
+					}, {
+						'lng': 107.11987437118462,
+						'lat': 27.549900023043254,
+						'count': 3
+					}, {
+						'lng': 107.45809979785015,
+						'lat': 26.829403275009916,
+						'count': 6
+					}, {
+						'lng': 107.28392129057592,
+						'lat': 26.848275277241605,
+						'count': 16
+					}, {
+						'lng': 107.17915876291035,
+						'lat': 26.92817958930305,
+						'count': 8
+					}, {
+						'lng': 106.7556725131252,
+						'lat': 27.478016383131415,
+						'count': 20
+					}, {
+						'lng': 107.34377548480774,
+						'lat': 26.679519663424696,
+						'count': 6
+					}, {
+						'lng': 107.58586247348786,
+						'lat': 27.57528141067618,
+						'count': 5
+					}, {
+						'lng': 107.0421481308303,
+						'lat': 27.091684653046997,
+						'count': 15
+					}, {
+						'lng': 107.4848531858366,
+						'lat': 26.98896583619026,
+						'count': 12
+					}, {
+						'lng': 107.39349859247042,
+						'lat': 26.84778567487845,
+						'count': 15
+					}, {
+						'lng': 107.32240754892882,
+						'lat': 26.77258742791268,
+						'count': 20
+					}, {
+						'lng': 107.06791512991349,
+						'lat': 27.171742394505884,
+						'count': 17
+					}, {
+						'lng': 107.13101317362663,
+						'lat': 27.287773168327057,
+						'count': 13
+					}, {
+						'lng': 107.4110870961157,
+						'lat': 27.349714246199373,
+						'count': 8
+					}, {
+						'lng': 107.2062099231771,
+						'lat': 26.738122400080854,
+						'count': 7
+					}, {
+						'lng': 106.73420382930264,
+						'lat': 27.344358339674354,
+						'count': 20
+					}, {
+						'lng': 107.52706006509813,
+						'lat': 27.53867180931183,
+						'count': 2
+					}, {
+						'lng': 107.33408170780804,
+						'lat': 27.65198287703407,
+						'count': 14
+					}, {
+						'lng': 107.22617936980431,
+						'lat': 26.769749199882146,
+						'count': 1
+					}, {
+						'lng': 107.00151785401984,
+						'lat': 26.90823242496596,
+						'count': 11
+					}, {
+						'lng': 106.96242783869516,
+						'lat': 26.919093228131622,
+						'count': 1
+					}, {
+						'lng': 107.36794744858356,
+						'lat': 27.63684833683042,
+						'count': 16
+					}, {
+						'lng': 106.97059885795755,
+						'lat': 27.584892221810108,
+						'count': 12
+					}, {
+						'lng': 106.83858037022858,
+						'lat': 27.081224402761446,
+						'count': 7
+					}, {
+						'lng': 107.14163629927565,
+						'lat': 26.678046619326242,
+						'count': 12
+					}, {
+						'lng': 106.75429436913394,
+						'lat': 27.65379512143821,
+						'count': 7
+					}, {
+						'lng': 107.58959675570792,
+						'lat': 27.52704719366278,
+						'count': 14
+					}, {
+						'lng': 106.65194369703188,
+						'lat': 27.559269343989705,
+						'count': 9
+					}, {
+						'lng': 107.59493747206913,
+						'lat': 27.581180399074082,
+						'count': 19
+					}, {
+						'lng': 106.91121845923396,
+						'lat': 27.426025231390057,
+						'count': 11
+					}, {
+						'lng': 106.72961845254424,
+						'lat': 27.230999652052343,
+						'count': 2
+					}, {
+						'lng': 106.94998446264086,
+						'lat': 27.617480637996948,
+						'count': 7
+					}, {
+						'lng': 106.88574852093922,
+						'lat': 27.37487047543272,
+						'count': 5
+					}, {
+						'lng': 107.06922959158165,
+						'lat': 26.770749231667665,
+						'count': 20
+					}, {
+						'lng': 106.68208712559878,
+						'lat': 27.33187586443988,
+						'count': 18
+					}, {
+						'lng': 106.81489892393557,
+						'lat': 26.87729080923227,
+						'count': 3
+					}, {
+						'lng': 106.83556111160573,
+						'lat': 27.66627885394894,
+						'count': 2
+					}, {
+						'lng': 107.57710697324988,
+						'lat': 27.331993093547737,
+						'count': 1
+					}, {
+						'lng': 106.65535173796144,
+						'lat': 26.72084428902398,
+						'count': 7
+					}, {
+						'lng': 106.7404932506893,
+						'lat': 27.329647297120943,
+						'count': 9
+					}, {
+						'lng': 106.70046849481432,
+						'lat': 27.191281157058835,
+						'count': 12
+					}, {
+						'lng': 107.45905052661573,
+						'lat': 27.45735323980931,
+						'count': 1
+					}, {
+						'lng': 106.65856277451138,
+						'lat': 27.119668734937523,
+						'count': 3
+					}, {
+						'lng': 106.76246134880175,
+						'lat': 27.416823933886395,
+						'count': 8
+					}, {
+						'lng': 107.60686853461449,
+						'lat': 27.007348195688532,
+						'count': 19
+					}, {
+						'lng': 107.32145507833995,
+						'lat': 26.81576245105958,
+						'count': 14
+					}, {
+						'lng': 106.76735433997426,
+						'lat': 26.9863674849673,
+						'count': 17
+					}, {
+						'lng': 107.23279986517217,
+						'lat': 27.042206108405907,
+						'count': 19
+					}, {
+						'lng': 106.68559575794191,
+						'lat': 26.820318581506886,
+						'count': 4
+					}, {
+						'lng': 106.75363061370898,
+						'lat': 27.411345916826864,
+						'count': 2
+					}, {
+						'lng': 106.87993136732666,
+						'lat': 26.99553376616971,
+						'count': 13
+					}, {
+						'lng': 107.35074854323469,
+						'lat': 26.847530163409598,
+						'count': 17
+					}, {
+						'lng': 107.14533627775916,
+						'lat': 26.995241894748652,
+						'count': 18
+					}, {
+						'lng': 107.3382866075171,
+						'lat': 26.891233706511592,
+						'count': 20
+					}, {
+						'lng': 107.12360239929569,
+						'lat': 26.69431987313472,
+						'count': 18
+					}, {
+						'lng': 107.23458760939792,
+						'lat': 26.85822618859466,
+						'count': 20
+					}, {
+						'lng': 106.77658823493303,
+						'lat': 27.263172917387177,
+						'count': 16
+					}, {
+						'lng': 106.8897924502096,
+						'lat': 26.970049689131912,
+						'count': 20
+					}, {
+						'lng': 106.75752478622377,
+						'lat': 26.845767616882032,
+						'count': 14
+					}, {
+						'lng': 107.50085432639813,
+						'lat': 26.70142732970485,
+						'count': 3
+					}, {
+						'lng': 106.68554642612344,
+						'lat': 27.37127016366244,
+						'count': 17
+					}, {
+						'lng': 107.56006045830902,
+						'lat': 27.587787291915074,
+						'count': 19
+					}, {
+						'lng': 106.70892469827213,
+						'lat': 27.51267714727072,
+						'count': 4
+					}, {
+						'lng': 107.21263358265139,
+						'lat': 27.38371717389559,
+						'count': 14
+					}, {
+						'lng': 106.63569189530878,
+						'lat': 27.28125618548877,
+						'count': 18
+					}, {
+						'lng': 107.1431839474312,
+						'lat': 26.908833561347997,
+						'count': 16
+					}, {
+						'lng': 107.069787225622,
+						'lat': 26.875078135216683,
+						'count': 9
+					}, {
+						'lng': 107.50609427191512,
+						'lat': 27.349464016685754,
+						'count': 8
+					}, {
+						'lng': 106.94260218386535,
+						'lat': 26.86562257064818,
+						'count': 17
+					}, {
+						'lng': 107.3396168211111,
+						'lat': 27.34723542172918,
+						'count': 8
+					}, {
+						'lng': 107.01235110828759,
+						'lat': 26.9801936945712,
+						'count': 20
+					}, {
+						'lng': 107.41218224793623,
+						'lat': 27.19107007165053,
+						'count': 17
+					}, {
+						'lng': 107.23004250698455,
+						'lat': 26.666422808720466,
+						'count': 5
+					}, {
+						'lng': 107.45212118642846,
+						'lat': 26.922392060802057,
+						'count': 10
+					}, {
+						'lng': 107.59729894841257,
+						'lat': 27.587716322773996,
+						'count': 5
+					}, {
+						'lng': 106.91953509736562,
+						'lat': 26.728353402266283,
+						'count': 19
+					}, {
+						'lng': 106.96548527250975,
+						'lat': 27.6123439879974,
+						'count': 16
+					}, {
+						'lng': 107.54284395427577,
+						'lat': 27.252160551073818,
+						'count': 18
+					}, {
+						'lng': 107.39310337164349,
+						'lat': 26.73725765088288,
+						'count': 2
+					}, {
+						'lng': 107.50053947558386,
+						'lat': 26.818565782256474,
+						'count': 11
+					}, {
+						'lng': 107.19418752941844,
+						'lat': 26.78870236128506,
+						'count': 4
+					}, {
+						'lng': 106.80123779352475,
+						'lat': 27.10941573504419,
+						'count': 19
+					}, {
+						'lng': 107.58184755541508,
+						'lat': 26.688655826215253,
+						'count': 8
+					}, {
+						'lng': 107.24241179930468,
+						'lat': 27.16034561873694,
+						'count': 5
+					}, {
+						'lng': 107.07195118524545,
+						'lat': 26.89493630316275,
+						'count': 17
+					}, {
+						'lng': 107.11965373232331,
+						'lat': 27.035150060547455,
+						'count': 10
+					}, {
+						'lng': 106.93750570955838,
+						'lat': 26.954021834172462,
+						'count': 8
+					}, {
+						'lng': 107.38260904222477,
+						'lat': 27.184880947534694,
+						'count': 18
+					}, {
+						'lng': 107.40207250329955,
+						'lat': 26.75763094358862,
+						'count': 9
+					}, {
+						'lng': 107.22649479953245,
+						'lat': 27.39220165880219,
+						'count': 17
+					}, {
+						'lng': 107.2494154733296,
+						'lat': 26.697498700298013,
+						'count': 1
+					}, {
+						'lng': 106.72899593794563,
+						'lat': 27.491262800602573,
+						'count': 15
+					}, {
+						'lng': 106.86785928457635,
+						'lat': 26.672446445310268,
+						'count': 16
+					}, {
+						'lng': 106.62139309170186,
+						'lat': 26.664243128237278,
+						'count': 12
+					}, {
+						'lng': 107.43973226235192,
+						'lat': 27.35799960711575,
+						'count': 14
+					}, {
+						'lng': 106.69217859627403,
+						'lat': 27.652666601028212,
+						'count': 9
+					}, {
+						'lng': 107.58274802983172,
+						'lat': 27.04443527221727,
+						'count': 2
+					}, {
+						'lng': 107.48577322975204,
+						'lat': 27.02152159888892,
+						'count': 4
+					}, {
+						'lng': 107.38906810006841,
+						'lat': 26.84314647322118,
+						'count': 15
+					}, {
+						'lng': 107.12857382652827,
+						'lat': 27.097133554704257,
+						'count': 9
+					}, {
+						'lng': 107.14646243084361,
+						'lat': 26.73152264596656,
+						'count': 2
+					}, {
+						'lng': 106.87362162627781,
+						'lat': 26.921258249767362,
+						'count': 3
+					}, {
+						'lng': 107.56314324882625,
+						'lat': 26.753887951594468,
+						'count': 14
+					}, {
+						'lng': 107.34925293559422,
+						'lat': 26.861331204317572,
+						'count': 6
+					}, {
+						'lng': 107.38744805683078,
+						'lat': 26.753338728540957,
+						'count': 15
+					}, {
+						'lng': 107.08008569085843,
+						'lat': 27.109262870749046,
+						'count': 17
+					}, {
+						'lng': 106.91648838081214,
+						'lat': 27.57503377911194,
+						'count': 2
+					}, {
+						'lng': 107.31320982526843,
+						'lat': 27.45351702822705,
+						'count': 19
+					}, {
+						'lng': 107.27422095540776,
+						'lat': 26.921063767540094,
+						'count': 20
+					}, {
+						'lng': 107.42501631314835,
+						'lat': 26.808083933932394,
+						'count': 4
+					}, {
+						'lng': 107.18746008223206,
+						'lat': 27.02253763964127,
+						'count': 15
+					}, {
+						'lng': 107.47690920183749,
+						'lat': 27.32066980698238,
+						'count': 6
+					}, {
+						'lng': 106.9351828773581,
+						'lat': 26.68306888804754,
+						'count': 6
+					}, {
+						'lng': 106.65277941369442,
+						'lat': 26.771839036736313,
+						'count': 13
+					}, {
+						'lng': 106.75556737651365,
+						'lat': 27.172581033342656,
+						'count': 19
+					}, {
+						'lng': 106.97273097945609,
+						'lat': 27.334789869567395,
+						'count': 4
+					}, {
+						'lng': 107.42730388943835,
+						'lat': 27.110326995168062,
+						'count': 6
+					}, {
+						'lng': 106.80030715842732,
+						'lat': 26.827048031971657,
+						'count': 20
+					}, {
+						'lng': 107.24614764446774,
+						'lat': 26.76740078002276,
+						'count': 3
+					}, {
+						'lng': 107.36161829763813,
+						'lat': 27.3080860258058,
+						'count': 2
+					}, {
+						'lng': 107.59211406926052,
+						'lat': 27.29316175525589,
+						'count': 13
+					}, {
+						'lng': 106.91430129095515,
+						'lat': 27.083752737677493,
+						'count': 6
+					}, {
+						'lng': 106.82497490383264,
+						'lat': 27.62442194588681,
+						'count': 13
+					}, {
+						'lng': 107.51740728701486,
+						'lat': 26.688611272621372,
+						'count': 6
+					}, {
+						'lng': 107.42582610096683,
+						'lat': 27.04562951193081,
+						'count': 2
+					}, {
+						'lng': 106.68510626995224,
+						'lat': 27.649668911064037,
+						'count': 20
+					}, {
+						'lng': 107.45557961120332,
+						'lat': 27.075675621742125,
+						'count': 2
+					}, {
+						'lng': 107.02367265103638,
+						'lat': 27.519309754637902,
+						'count': 5
+					}, {
+						'lng': 106.73193199537702,
+						'lat': 27.059080759658027,
+						'count': 16
+					}, {
+						'lng': 106.73898182227808,
+						'lat': 26.8031024065653,
+						'count': 14
+					}, {
+						'lng': 106.7207171649129,
+						'lat': 27.34406276058251,
+						'count': 4
+					}, {
+						'lng': 107.48476174335306,
+						'lat': 27.149830866933684,
+						'count': 3
+					}, {
+						'lng': 106.73776489147862,
+						'lat': 27.453275257847917,
+						'count': 13
+					}, {
+						'lng': 106.7574233814373,
+						'lat': 27.62352899553458,
+						'count': 12
+					}, {
+						'lng': 107.01003542853789,
+						'lat': 27.019277043046632,
+						'count': 17
+					}, {
+						'lng': 107.33480176019532,
+						'lat': 26.940234604644488,
+						'count': 2
+					}, {
+						'lng': 106.74815954932515,
+						'lat': 26.681735059035166,
+						'count': 4
+					}, {
+						'lng': 106.79541759709795,
+						'lat': 27.554016168074547,
+						'count': 15
+					}, {
+						'lng': 106.6713534350779,
+						'lat': 27.592956895530953,
+						'count': 12
+					}, {
+						'lng': 107.25750164816829,
+						'lat': 27.423698942252425,
+						'count': 2
+					}, {
+						'lng': 107.4987512536303,
+						'lat': 26.77646169476384,
+						'count': 19
+					}, {
+						'lng': 106.83552661815439,
+						'lat': 26.758703761563954,
+						'count': 1
+					}, {
+						'lng': 107.54726561244239,
+						'lat': 26.929630431614253,
+						'count': 7
+					}, {
+						'lng': 107.3613392387862,
+						'lat': 26.682958789571263,
+						'count': 2
+					}, {
+						'lng': 107.42789059184888,
+						'lat': 26.948096891462058,
+						'count': 19
+					}, {
+						'lng': 107.26372274516855,
+						'lat': 27.062675982048013,
+						'count': 2
+					}, {
+						'lng': 106.8460517588874,
+						'lat': 26.96384702958441,
+						'count': 10
+					}, {
+						'lng': 107.58077306334332,
+						'lat': 27.53256490406289,
+						'count': 9
+					}, {
+						'lng': 106.86385040448268,
+						'lat': 26.97175925909541,
+						'count': 5
+					}, {
+						'lng': 106.92918634889355,
+						'lat': 27.349720644274655,
+						'count': 19
+					}, {
+						'lng': 107.56931095820158,
+						'lat': 27.079135427199247,
+						'count': 2
+					}, {
+						'lng': 106.6571015197301,
+						'lat': 27.0117991022513,
+						'count': 3
+					}, {
+						'lng': 106.59913445437827,
+						'lat': 27.571539466546113,
+						'count': 3
+					}, {
+						'lng': 107.35498557470869,
+						'lat': 26.725555760549593,
+						'count': 16
+					}, {
+						'lng': 107.21645892364413,
+						'lat': 27.67035823742111,
+						'count': 12
+					}, {
+						'lng': 106.94219655266568,
+						'lat': 27.518070842345548,
+						'count': 1
+					}, {
+						'lng': 107.33106732245228,
+						'lat': 26.689963319356092,
+						'count': 19
+					}, {
+						'lng': 107.20388571096031,
+						'lat': 27.22825927751179,
+						'count': 5
+					}, {
+						'lng': 107.20766327923943,
+						'lat': 27.057837338808095,
+						'count': 11
+					}, {
+						'lng': 106.82679681715625,
+						'lat': 27.196988798157395,
+						'count': 6
+					}, {
+						'lng': 106.6294165093583,
+						'lat': 27.192330480454153,
+						'count': 4
+					}, {
+						'lng': 107.01476093263786,
+						'lat': 26.873148499278166,
+						'count': 7
+					}, {
+						'lng': 106.8225464451976,
+						'lat': 27.637809844246696,
+						'count': 11
+					}, {
+						'lng': 107.45438316764326,
+						'lat': 27.4188335955754,
+						'count': 7
+					}, {
+						'lng': 106.89021720777629,
+						'lat': 27.07772804026827,
+						'count': 7
+					}, {
+						'lng': 106.58830041368647,
+						'lat': 27.252248546247003,
+						'count': 3
+					}, {
+						'lng': 107.09843972384857,
+						'lat': 27.417810968128844,
+						'count': 15
+					}, {
+						'lng': 106.95270304048547,
+						'lat': 27.67423876984749,
+						'count': 12
+					}, {
+						'lng': 107.0863923083038,
+						'lat': 27.192470799556993,
+						'count': 14
+					}, {
+						'lng': 107.09566180939221,
+						'lat': 27.550742132941796,
+						'count': 8
+					}, {
+						'lng': 107.56253061292007,
+						'lat': 27.460456674379078,
+						'count': 2
+					}, {
+						'lng': 106.67699590480458,
+						'lat': 27.479469511951994,
+						'count': 11
+					}, {
+						'lng': 107.01031499580984,
+						'lat': 27.594866925857705,
+						'count': 8
+					}, {
+						'lng': 106.94154349620882,
+						'lat': 27.39343080812368,
+						'count': 2
+					}, {
+						'lng': 107.53434724905397,
+						'lat': 26.738432866162285,
+						'count': 7
+					}, {
+						'lng': 106.90023034471331,
+						'lat': 27.152084967714234,
+						'count': 10
+					}, {
+						'lng': 106.77593633553381,
+						'lat': 26.965907013928312,
+						'count': 18
+					}, {
+						'lng': 107.38838973441732,
+						'lat': 27.030778799845596,
+						'count': 13
+					}, {
+						'lng': 107.40999608804137,
+						'lat': 27.296996539680066,
+						'count': 3
+					}, {
+						'lng': 106.79588945682647,
+						'lat': 26.70742069289058,
+						'count': 17
+					}, {
+						'lng': 106.70447961333349,
+						'lat': 27.66583548634313,
+						'count': 15
+					}, {
+						'lng': 107.17627531830955,
+						'lat': 26.917453798452918,
+						'count': 20
+					}, {
+						'lng': 106.87694143178202,
+						'lat': 27.265444612328515,
+						'count': 9
+					}, {
+						'lng': 106.82703038209259,
+						'lat': 27.518773644578772,
+						'count': 1
+					}, {
+						'lng': 106.6546642199887,
+						'lat': 26.711373119664437,
+						'count': 6
+					}, {
+						'lng': 106.76949773252579,
+						'lat': 27.062579067906018,
+						'count': 12
+					}, {
+						'lng': 106.70000225710425,
+						'lat': 26.986972351626026,
+						'count': 10
+					}, {
+						'lng': 106.80669374619674,
+						'lat': 27.43587073613955,
+						'count': 10
+					}, {
+						'lng': 107.17362184457899,
+						'lat': 27.670330293103017,
+						'count': 1
+					}, {
+						'lng': 107.58236685210106,
+						'lat': 27.309216009961254,
+						'count': 3
+					}, {
+						'lng': 106.96217760407139,
+						'lat': 27.353912034548177,
+						'count': 13
+					}, {
+						'lng': 107.23110325787641,
+						'lat': 27.128001196543075,
+						'count': 18
+					}, {
+						'lng': 106.70774180049244,
+						'lat': 26.866084379477623,
+						'count': 1
+					}, {
+						'lng': 107.114768725113,
+						'lat': 26.96033828848213,
+						'count': 13
+					}, {
+						'lng': 107.05414559884612,
+						'lat': 26.772036850033015,
+						'count': 9
+					}, {
+						'lng': 106.92841808557745,
+						'lat': 26.99266968862921,
+						'count': 17
+					}, {
+						'lng': 106.79090862274123,
+						'lat': 27.05487243398905,
+						'count': 20
+					}, {
+						'lng': 107.09588158726889,
+						'lat': 27.259414982860452,
+						'count': 14
+					}, {
+						'lng': 107.39287354552687,
+						'lat': 27.452043605891866,
+						'count': 7
+					}, {
+						'lng': 107.34874672876187,
+						'lat': 27.286830135050945,
+						'count': 18
+					}, {
+						'lng': 106.6131110749919,
+						'lat': 27.531422615863747,
+						'count': 3
+					}, {
+						'lng': 107.50834098663871,
+						'lat': 27.48988753159816,
+						'count': 20
+					}, {
+						'lng': 107.48341789331404,
+						'lat': 27.02320155661885,
+						'count': 10
+					}, {
+						'lng': 107.34757834778452,
+						'lat': 27.660512541655518,
+						'count': 18
+					}, {
+						'lng': 106.9986790254927,
+						'lat': 27.544273122432585,
+						'count': 15
+					}, {
+						'lng': 106.73523910213592,
+						'lat': 26.89836345473633,
+						'count': 15
+					}, {
+						'lng': 107.14452867183059,
+						'lat': 27.202374969105147,
+						'count': 18
+					}, {
+						'lng': 106.71452315732586,
+						'lat': 27.223245451082292,
+						'count': 18
+					}, {
+						'lng': 107.16288821000948,
+						'lat': 26.84562548440313,
+						'count': 18
+					}, {
+						'lng': 107.03015311921777,
+						'lat': 27.4486424828355,
+						'count': 7
+					}, {
+						'lng': 107.03209177382728,
+						'lat': 26.879189317820458,
+						'count': 3
+					}, {
+						'lng': 107.31983212066676,
+						'lat': 26.702561554517807,
+						'count': 10
+					}, {
+						'lng': 107.23488467322763,
+						'lat': 27.52115300666671,
+						'count': 8
+					}, {
+						'lng': 106.69016472715319,
+						'lat': 27.11694003609222,
+						'count': 16
+					}, {
+						'lng': 106.74145863919497,
+						'lat': 27.140738944857503,
+						'count': 9
+					}, {
+						'lng': 106.86056611769028,
+						'lat': 27.22196901225183,
+						'count': 15
+					}, {
+						'lng': 106.6919109072021,
+						'lat': 27.444030126381772,
+						'count': 9
+					}, {
+						'lng': 106.63818266063625,
+						'lat': 27.648752809392718,
+						'count': 9
+					}, {
+						'lng': 106.7430199787952,
+						'lat': 27.580604921965353,
+						'count': 10
+					}, {
+						'lng': 107.5045124525044,
+						'lat': 27.58547099312326,
+						'count': 20
+					}, {
+						'lng': 107.1866598674964,
+						'lat': 27.324494890383665,
+						'count': 19
+					}, {
+						'lng': 106.73050240213816,
+						'lat': 27.02010973654605,
+						'count': 18
+					}, {
+						'lng': 107.52689878897809,
+						'lat': 26.90781948169505,
+						'count': 12
+					}, {
+						'lng': 107.05403393218806,
+						'lat': 26.788377680973333,
+						'count': 7
+					}, {
+						'lng': 107.42222720701078,
+						'lat': 27.688413675697028,
+						'count': 13
+					}, {
+						'lng': 107.11472358346845,
+						'lat': 27.595195889897234,
+						'count': 13
+					}, {
+						'lng': 107.41103260239024,
+						'lat': 27.6664205284004,
+						'count': 10
+					}, {
+						'lng': 106.58504947403692,
+						'lat': 26.82888263423908,
+						'count': 8
+					}, {
+						'lng': 107.26673616394814,
+						'lat': 26.806506914584343,
+						'count': 20
+					}, {
+						'lng': 107.19718075626098,
+						'lat': 27.055898779834656,
+						'count': 16
+					}, {
+						'lng': 106.79917050824722,
+						'lat': 26.762382842643312,
+						'count': 13
+					}, {
+						'lng': 106.62538595460094,
+						'lat': 27.47852215645337,
+						'count': 1
+					}, {
+						'lng': 107.13906689536955,
+						'lat': 27.4650927388356,
+						'count': 14
+					}, {
+						'lng': 106.68215959745369,
+						'lat': 27.17016828722155,
+						'count': 1
+					}, {
+						'lng': 107.41615638897206,
+						'lat': 27.58803258250747,
+						'count': 14
+					}, {
+						'lng': 107.24459072256037,
+						'lat': 27.087780969856926,
+						'count': 12
+					}, {
+						'lng': 106.66427241330854,
+						'lat': 27.3573230820218,
+						'count': 16
+					}, {
+						'lng': 106.7530006185331,
+						'lat': 27.256007372978864,
+						'count': 10
+					}, {
+						'lng': 107.07814430688289,
+						'lat': 27.61509339444723,
+						'count': 6
+					}, {
+						'lng': 106.72209941754251,
+						'lat': 27.231769990619487,
+						'count': 19
+					}, {
+						'lng': 107.56373494731683,
+						'lat': 27.6083878413261,
+						'count': 20
+					}, {
+						'lng': 107.43586653762235,
+						'lat': 27.3548765885739,
+						'count': 16
+					}, {
+						'lng': 107.42188036789538,
+						'lat': 26.72800493377399,
+						'count': 17
+					}, {
+						'lng': 107.24809330919201,
+						'lat': 27.311202255782607,
+						'count': 14
+					}, {
+						'lng': 106.95423479172189,
+						'lat': 27.589976479343044,
+						'count': 6
+					}, {
+						'lng': 107.03407814512217,
+						'lat': 26.99020910355864,
+						'count': 6
+					}, {
+						'lng': 107.53359624004874,
+						'lat': 26.899102075725928,
+						'count': 16
+					}, {
+						'lng': 107.28654848647388,
+						'lat': 27.510382165600053,
+						'count': 7
+					}, {
+						'lng': 107.385377332645,
+						'lat': 27.583760008705543,
+						'count': 8
+					}, {
+						'lng': 106.93773545772376,
+						'lat': 27.143292946401818,
+						'count': 10
+					}, {
+						'lng': 107.42922377383631,
+						'lat': 27.32194689688085,
+						'count': 18
+					}, {
+						'lng': 106.85096367310703,
+						'lat': 27.24768956466386,
+						'count': 17
+					}, {
+						'lng': 106.92356709100392,
+						'lat': 27.477453043075307,
+						'count': 16
+					}, {
+						'lng': 107.43324838277361,
+						'lat': 27.537282785497432,
+						'count': 18
+					}, {
+						'lng': 106.93221595448671,
+						'lat': 27.01993877018888,
+						'count': 19
+					}, {
+						'lng': 106.75579782036436,
+						'lat': 26.854489845468127,
+						'count': 18
+					}, {
+						'lng': 107.48576147585882,
+						'lat': 27.388786371600137,
+						'count': 13
+					}, {
+						'lng': 107.07456340562842,
+						'lat': 26.97851164835875,
+						'count': 8
+					}, {
+						'lng': 107.55380608424134,
+						'lat': 27.669359248112393,
+						'count': 1
+					}, {
+						'lng': 107.39055676353709,
+						'lat': 27.400663813179005,
+						'count': 6
+					}, {
+						'lng': 106.87951128184606,
+						'lat': 27.41101916527102,
+						'count': 15
+					}, {
+						'lng': 107.0101763069528,
+						'lat': 26.936683935469905,
+						'count': 18
+					}, {
+						'lng': 107.48207802922673,
+						'lat': 26.8992159625935,
+						'count': 6
+					}, {
+						'lng': 106.89599736712469,
+						'lat': 27.11267282824053,
+						'count': 1
+					}, {
+						'lng': 106.80410110972839,
+						'lat': 27.41772754114238,
+						'count': 14
+					}, {
+						'lng': 107.36501813079363,
+						'lat': 26.811820095879018,
+						'count': 8
+					}, {
+						'lng': 106.74542180118698,
+						'lat': 26.77048587613552,
+						'count': 19
+					}, {
+						'lng': 107.23034211967169,
+						'lat': 27.238057814721987,
+						'count': 14
+					}, {
+						'lng': 107.29668671835475,
+						'lat': 26.804572648680946,
+						'count': 5
+					}, {
+						'lng': 107.3123020401447,
+						'lat': 27.143995654362282,
+						'count': 14
+					}, {
+						'lng': 106.93448354535309,
+						'lat': 27.09369711440753,
+						'count': 12
+					}, {
+						'lng': 107.57826930443412,
+						'lat': 27.088449427490698,
+						'count': 7
+					}, {
+						'lng': 107.58444736471357,
+						'lat': 27.51306729660808,
+						'count': 16
+					}, {
+						'lng': 106.91805327671939,
+						'lat': 27.272803392824983,
+						'count': 11
+					}, {
+						'lng': 107.02207599316989,
+						'lat': 26.933680791940404,
+						'count': 6
+					}, {
+						'lng': 107.02542076657151,
+						'lat': 27.26621326801227,
+						'count': 6
+					}, {
+						'lng': 107.04585896371768,
+						'lat': 27.52336618490717,
+						'count': 20
+					}, {
+						'lng': 106.6507879831287,
+						'lat': 27.17134006438292,
+						'count': 12
+					}, {
+						'lng': 106.79500072373582,
+						'lat': 27.06293292111193,
+						'count': 8
+					}, {
+						'lng': 107.29964213252185,
+						'lat': 27.4508492500501,
+						'count': 14
+					}, {
+						'lng': 106.84875306680274,
+						'lat': 27.675842702098006,
+						'count': 1
+					}, {
+						'lng': 106.66968714304845,
+						'lat': 27.71084685301207,
+						'count': 20
+					}, {
+						'lng': 107.01029001538129,
+						'lat': 27.257621883210717,
+						'count': 17
+					}, {
+						'lng': 107.42348414648079,
+						'lat': 26.766527567460415,
+						'count': 17
+					}, {
+						'lng': 107.53340790475733,
+						'lat': 27.387637620966256,
+						'count': 8
+					}, {
+						'lng': 106.6083188946976,
+						'lat': 26.86252927963769,
+						'count': 13
+					}, {
+						'lng': 106.93785470132028,
+						'lat': 27.431578019423288,
+						'count': 6
+					}, {
+						'lng': 107.0567415058158,
+						'lat': 26.931133050356973,
+						'count': 9
+					}, {
+						'lng': 107.54178749895539,
+						'lat': 27.23236372092682,
+						'count': 5
+					}, {
+						'lng': 107.20889129909838,
+						'lat': 27.043853670955905,
+						'count': 1
+					}, {
+						'lng': 107.21948182292047,
+						'lat': 27.56415247644548,
+						'count': 8
+					}, {
+						'lng': 107.29983736686977,
+						'lat': 27.658784132889,
+						'count': 12
+					}, {
+						'lng': 107.45645556495967,
+						'lat': 26.87815178830433,
+						'count': 8
+					}, {
+						'lng': 106.74637671214406,
+						'lat': 27.699494239432948,
+						'count': 20
+					}, {
+						'lng': 107.14531900145829,
+						'lat': 27.237202242500715,
+						'count': 3
+					}, {
+						'lng': 106.77709380293216,
+						'lat': 27.05879588766298,
+						'count': 14
+					}, {
+						'lng': 107.54047889151958,
+						'lat': 26.74759851548835,
+						'count': 20
+					}, {
+						'lng': 107.4745408566232,
+						'lat': 27.218779111028706,
+						'count': 16
+					}, {
+						'lng': 107.00335854318388,
+						'lat': 26.73597416751377,
+						'count': 20
+					}, {
+						'lng': 107.4996687244584,
+						'lat': 27.25009482494672,
+						'count': 5
+					}, {
+						'lng': 107.13971520851774,
+						'lat': 27.147030708776676,
+						'count': 15
+					}, {
+						'lng': 107.19779708187555,
+						'lat': 26.90504842586746,
+						'count': 16
+					}, {
+						'lng': 106.66120065767504,
+						'lat': 27.429093346130493,
+						'count': 8
+					}, {
+						'lng': 107.20606690090995,
+						'lat': 27.690263450082746,
+						'count': 14
+					}, {
+						'lng': 107.14966817227982,
+						'lat': 27.097539301558385,
+						'count': 16
+					}, {
+						'lng': 107.5033714700219,
+						'lat': 27.44146798570014,
+						'count': 4
+					}, {
+						'lng': 107.23847026824936,
+						'lat': 27.31199726630083,
+						'count': 13
+					}, {
+						'lng': 107.25288425838232,
+						'lat': 26.765176898182972,
+						'count': 11
+					}, {
+						'lng': 106.7120181477718,
+						'lat': 27.26450395865453,
+						'count': 16
+					}, {
+						'lng': 107.39755552575032,
+						'lat': 27.041432538040542,
+						'count': 5
+					}, {
+						'lng': 106.75520738382892,
+						'lat': 27.429270871696563,
+						'count': 1
+					}, {
+						'lng': 107.5501853790826,
+						'lat': 26.85054618734519,
+						'count': 10
+					}, {
+						'lng': 107.26613681061174,
+						'lat': 27.36689368007935,
+						'count': 19
+					}, {
+						'lng': 107.21763719005675,
+						'lat': 27.328968860393072,
+						'count': 12
+					}, {
+						'lng': 107.45760720217973,
+						'lat': 27.043375533343657,
+						'count': 19
+					}, {
+						'lng': 107.38038852337212,
+						'lat': 27.718335617808087,
+						'count': 16
+					}, {
+						'lng': 107.10514959023126,
+						'lat': 27.292630093003872,
+						'count': 9
+					}, {
+						'lng': 107.51061549621478,
+						'lat': 26.81306488543696,
+						'count': 2
+					}, {
+						'lng': 107.21380856665188,
+						'lat': 26.950154340594352,
+						'count': 16
+					}, {
+						'lng': 107.37859198252812,
+						'lat': 27.30504701534067,
+						'count': 6
+					}, {
+						'lng': 106.70551130233113,
+						'lat': 27.638174246371,
+						'count': 10
+					}, {
+						'lng': 107.51596206474272,
+						'lat': 27.19181760562242,
+						'count': 18
+					}, {
+						'lng': 106.99047902088657,
+						'lat': 27.467472850250193,
+						'count': 11
+					}, {
+						'lng': 107.27136874186515,
+						'lat': 27.466805280340647,
+						'count': 11
+					}, {
+						'lng': 106.76106094724757,
+						'lat': 26.765850215950802,
+						'count': 10
+					}, {
+						'lng': 106.86258513608001,
+						'lat': 27.52980882477838,
+						'count': 10
+					}, {
+						'lng': 107.32600539974463,
+						'lat': 27.633647930990254,
+						'count': 13
+					}, {
+						'lng': 107.09878578752777,
+						'lat': 27.62071324574204,
+						'count': 4
+					}, {
+						'lng': 107.52171957298413,
+						'lat': 27.708168529417257,
+						'count': 17
+					}, {
+						'lng': 107.05728708445571,
+						'lat': 27.045233070134298,
+						'count': 2
+					}, {
+						'lng': 107.1791815431525,
+						'lat': 27.40867795597068,
+						'count': 11
+					}, {
+						'lng': 106.90147550731685,
+						'lat': 27.163168711106312,
+						'count': 2
+					}, {
+						'lng': 106.6682694590869,
+						'lat': 27.571917000740076,
+						'count': 19
+					}, {
+						'lng': 107.08332079783544,
+						'lat': 27.46264286771015,
+						'count': 10
+					}, {
+						'lng': 107.31636826342645,
+						'lat': 27.550725392397958,
+						'count': 3
+					}, {
+						'lng': 106.639525679548,
+						'lat': 27.736770281142544,
+						'count': 20
+					}, {
+						'lng': 106.68974229988657,
+						'lat': 26.78130436063687,
+						'count': 18
+					}, {
+						'lng': 107.10683232764525,
+						'lat': 27.012360936143722,
+						'count': 16
+					}, {
+						'lng': 107.05159992361767,
+						'lat': 27.293257651645778,
+						'count': 8
+					}, {
+						'lng': 106.74192202791879,
+						'lat': 27.0927715899092,
+						'count': 9
+					}, {
+						'lng': 107.26879508863546,
+						'lat': 26.92261283148557,
+						'count': 8
+					}, {
+						'lng': 107.46636611624886,
+						'lat': 26.859691237988617,
+						'count': 11
+					}, {
+						'lng': 107.25218203668157,
+						'lat': 27.327034020856974,
+						'count': 13
+					}, {
+						'lng': 107.05594122047592,
+						'lat': 26.93571116640605,
+						'count': 20
+					}, {
+						'lng': 106.87828195302012,
+						'lat': 27.34843342089154,
+						'count': 16
+					}, {
+						'lng': 106.70172897064249,
+						'lat': 27.25679733443675,
+						'count': 14
+					}, {
+						'lng': 106.94375889020993,
+						'lat': 26.926460776375393,
+						'count': 3
+					}, {
+						'lng': 107.24530529303301,
+						'lat': 27.685885281787233,
+						'count': 2
+					}, {
+						'lng': 107.32624335345216,
+						'lat': 27.52614539118967,
+						'count': 10
+					}, {
+						'lng': 107.12858824598231,
+						'lat': 26.745241676591768,
+						'count': 5
+					}, {
+						'lng': 106.62720931723749,
+						'lat': 27.419435664222814,
+						'count': 16
+					}, {
+						'lng': 107.57455061446964,
+						'lat': 27.374777387370834,
+						'count': 4
+					}, {
+						'lng': 106.81603102286063,
+						'lat': 27.12704087028326,
+						'count': 16
+					}, {
+						'lng': 107.06072625077911,
+						'lat': 27.266580232975787,
+						'count': 12
+					}, {
+						'lng': 106.6908971062871,
+						'lat': 27.10963144268814,
+						'count': 1
+					}, {
+						'lng': 107.42104307866292,
+						'lat': 27.188248388180412,
+						'count': 17
+					}, {
+						'lng': 106.92296296884108,
+						'lat': 27.62830097694772,
+						'count': 5
+					}, {
+						'lng': 107.56809868358671,
+						'lat': 27.427866555560332,
+						'count': 6
+					}, {
+						'lng': 107.41432523896029,
+						'lat': 27.353345771864454,
+						'count': 17
+					}, {
+						'lng': 107.40413154906153,
+						'lat': 27.286042351751657,
+						'count': 4
+					}, {
+						'lng': 106.60220468084432,
+						'lat': 26.91017885806845,
+						'count': 14
+					}, {
+						'lng': 106.84276365964216,
+						'lat': 27.11861118672974,
+						'count': 19
+					}, {
+						'lng': 107.15712230937676,
+						'lat': 27.27499184522137,
+						'count': 7
+					}, {
+						'lng': 107.00037105550896,
+						'lat': 27.367727728756936,
+						'count': 19
+					}, {
+						'lng': 107.24682758937638,
+						'lat': 27.68120249326321,
+						'count': 4
+					}, {
+						'lng': 107.29928157527664,
+						'lat': 27.491194693815164,
+						'count': 18
+					}, {
+						'lng': 106.60308094517617,
+						'lat': 26.941396611032367,
+						'count': 9
+					}, {
+						'lng': 106.60925522796606,
+						'lat': 27.188255548147733,
+						'count': 9
+					}, {
+						'lng': 106.84214563814008,
+						'lat': 27.084994763504383,
+						'count': 20
+					}, {
+						'lng': 107.32694765331193,
+						'lat': 26.883367549517786,
+						'count': 11
+					}, {
+						'lng': 107.19544080512398,
+						'lat': 27.132092724357328,
+						'count': 16
+					}, {
+						'lng': 107.33659842290692,
+						'lat': 27.39914119435578,
+						'count': 1
+					}, {
+						'lng': 106.935111827169,
+						'lat': 26.887080954099964,
+						'count': 4
+					}, {
+						'lng': 106.67215981473821,
+						'lat': 27.466258053995848,
+						'count': 14
+					}, {
+						'lng': 106.9987328703631,
+						'lat': 27.004051009588306,
+						'count': 10
+					}, {
+						'lng': 107.01512917009876,
+						'lat': 27.170227523131487,
+						'count': 17
+					}, {
+						'lng': 106.60715708688005,
+						'lat': 26.80064788858083,
+						'count': 13
+					}, {
+						'lng': 107.2411132168343,
+						'lat': 27.329032642223876,
+						'count': 1
+					}, {
+						'lng': 107.3316585117288,
+						'lat': 26.909817916381623,
+						'count': 13
+					}, {
+						'lng': 106.79883043142921,
+						'lat': 27.010710293175645,
+						'count': 7
+					}, {
+						'lng': 106.67065925947895,
+						'lat': 27.6603981533652,
+						'count': 9
+					}, {
+						'lng': 107.24904240094745,
+						'lat': 27.331616521516235,
+						'count': 18
+					}, {
+						'lng': 106.93234059513073,
+						'lat': 26.993937036831902,
+						'count': 10
+					}, {
+						'lng': 106.70996368029691,
+						'lat': 27.371790414468173,
+						'count': 2
+					}, {
+						'lng': 106.94088903442874,
+						'lat': 27.21695095115488,
+						'count': 11
+					}, {
+						'lng': 106.81582826141539,
+						'lat': 27.581858971199328,
+						'count': 5
+					}, {
+						'lng': 107.09504240366826,
+						'lat': 26.750195285968104,
+						'count': 8
+					}, {
+						'lng': 106.70027683241203,
+						'lat': 27.6663510718524,
+						'count': 4
+					}, {
+						'lng': 106.73067936829703,
+						'lat': 27.715531507347812,
+						'count': 7
+					}, {
+						'lng': 106.5892939524199,
+						'lat': 27.346425438987477,
+						'count': 8
+					}, {
+						'lng': 107.219037315545,
+						'lat': 26.79987285394086,
+						'count': 19
+					}, {
+						'lng': 106.62053064652576,
+						'lat': 26.797638346453347,
+						'count': 14
+					}, {
+						'lng': 106.95164734980298,
+						'lat': 26.808113532057973,
+						'count': 9
+					}, {
+						'lng': 106.94227114334895,
+						'lat': 27.706052155223112,
+						'count': 6
+					}, {
+						'lng': 106.61166941990153,
+						'lat': 27.128810896893693,
+						'count': 14
+					}, {
+						'lng': 107.07699075606392,
+						'lat': 26.931434617516746,
+						'count': 6
+					}, {
+						'lng': 107.4820995381092,
+						'lat': 27.07918890658399,
+						'count': 19
+					}, {
+						'lng': 106.63463394190923,
+						'lat': 27.21593206871313,
+						'count': 5
+					}, {
+						'lng': 106.6403418851139,
+						'lat': 26.94363817240929,
+						'count': 7
+					}, {
+						'lng': 107.3222893549658,
+						'lat': 27.221510008927503,
+						'count': 15
+					}, {
+						'lng': 107.49049902492568,
+						'lat': 27.685023326438092,
+						'count': 6
+					}, {
+						'lng': 107.37224013195932,
+						'lat': 26.76165754377761,
+						'count': 20
+					}, {
+						'lng': 106.95103458095572,
+						'lat': 27.197781047695834,
+						'count': 7
+					}, {
+						'lng': 106.8929373821708,
+						'lat': 27.704395290263303,
+						'count': 7
+					}, {
+						'lng': 107.26820474646888,
+						'lat': 27.442091086126574,
+						'count': 11
+					}, {
+						'lng': 106.97181238905841,
+						'lat': 27.186554990846485,
+						'count': 16
+					}, {
+						'lng': 107.2590272104111,
+						'lat': 27.052726643715044,
+						'count': 20
+					}, {
+						'lng': 107.32608760564585,
+						'lat': 27.221854499061,
+						'count': 16
+					}, {
+						'lng': 107.3122803542715,
+						'lat': 27.093680455643963,
+						'count': 8
+					}, {
+						'lng': 107.27196311888295,
+						'lat': 27.58768123385965,
+						'count': 13
+					}, {
+						'lng': 106.88270659026985,
+						'lat': 26.820321159588573,
+						'count': 14
+					}, {
+						'lng': 106.83028817632317,
+						'lat': 26.92478805264201,
+						'count': 15
+					}, {
+						'lng': 107.39061036046134,
+						'lat': 27.703727983661427,
+						'count': 4
+					}, {
+						'lng': 107.53685289243167,
+						'lat': 27.682630373811424,
+						'count': 4
+					}, {
+						'lng': 106.8044230661883,
+						'lat': 26.815555877627236,
+						'count': 4
+					}, {
+						'lng': 107.36756959271344,
+						'lat': 27.102521605010185,
+						'count': 7
+					}, {
+						'lng': 106.84953460097107,
+						'lat': 27.52746878544366,
+						'count': 12
+					}, {
+						'lng': 106.86808328135865,
+						'lat': 27.71046947512952,
+						'count': 18
+					}, {
+						'lng': 107.01625672600352,
+						'lat': 26.76770245992528,
+						'count': 7
+					}, {
+						'lng': 106.6625690012952,
+						'lat': 26.934351083539983,
+						'count': 17
+					}, {
+						'lng': 107.48937664455663,
+						'lat': 26.848875604509363,
+						'count': 6
+					}, {
+						'lng': 106.89074021871234,
+						'lat': 27.14816474517004,
+						'count': 5
+					}, {
+						'lng': 106.73640709682452,
+						'lat': 26.83910605727987,
+						'count': 11
+					}, {
+						'lng': 106.99699351573045,
+						'lat': 27.02951539249812,
+						'count': 10
+					}, {
+						'lng': 106.8686488373444,
+						'lat': 27.11241404149907,
+						'count': 8
+					}, {
+						'lng': 106.830424677842,
+						'lat': 26.844731525896304,
+						'count': 9
+					}, {
+						'lng': 107.11830314826038,
+						'lat': 27.511954829182905,
+						'count': 16
+					}, {
+						'lng': 106.72223226299249,
+						'lat': 27.494897057365055,
+						'count': 2
+					}, {
+						'lng': 106.78908620019234,
+						'lat': 27.16885796016711,
+						'count': 10
+					}, {
+						'lng': 106.56267828256226,
+						'lat': 26.868482892586048,
+						'count': 3
+					}, {
+						'lng': 107.21272498529682,
+						'lat': 27.37412469205691,
+						'count': 16
+					}, {
+						'lng': 106.80968199274652,
+						'lat': 27.231417391463424,
+						'count': 11
+					}, {
+						'lng': 106.67502504118973,
+						'lat': 26.994452367067463,
+						'count': 12
+					}, {
+						'lng': 107.34877711980015,
+						'lat': 27.014218371313866,
+						'count': 5
+					}, {
+						'lng': 107.22472428365448,
+						'lat': 26.967305902182357,
+						'count': 4
+					}, {
+						'lng': 107.41215361584473,
+						'lat': 27.321280501368093,
+						'count': 8
+					}, {
+						'lng': 107.33940460675883,
+						'lat': 27.463974491083682,
+						'count': 13
+					}, {
+						'lng': 107.10939804307154,
+						'lat': 27.59847593262809,
+						'count': 14
+					}, {
+						'lng': 106.78519259967156,
+						'lat': 27.092821022229444,
+						'count': 10
+					}, {
+						'lng': 106.89652639947175,
+						'lat': 27.03366174643009,
+						'count': 13
+					}, {
+						'lng': 106.95327193258487,
+						'lat': 27.54537194387976,
+						'count': 19
+					}, {
+						'lng': 106.9068404755918,
+						'lat': 26.974225100033866,
+						'count': 18
+					}, {
+						'lng': 107.35295562956632,
+						'lat': 27.647135952883172,
+						'count': 2
+					}, {
+						'lng': 107.11777118174933,
+						'lat': 27.277283135173686,
+						'count': 13
+					}, {
+						'lng': 106.73573053171015,
+						'lat': 27.28096283152341,
+						'count': 4
+					}, {
+						'lng': 107.48939511996338,
+						'lat': 27.2552082265787,
+						'count': 9
+					}, {
+						'lng': 107.33152104665253,
+						'lat': 27.284377880495956,
+						'count': 11
+					}, {
+						'lng': 107.08350601850927,
+						'lat': 27.632182767280828,
+						'count': 12
+					}, {
+						'lng': 106.95857496347983,
+						'lat': 27.17818523619118,
+						'count': 16
+					}, {
+						'lng': 106.62150681955353,
+						'lat': 27.02675680472903,
+						'count': 13
+					}, {
+						'lng': 107.07935978015043,
+						'lat': 27.22713837744441,
+						'count': 11
+					}, {
+						'lng': 107.27068735625546,
+						'lat': 26.821889220907057,
+						'count': 16
+					}, {
+						'lng': 106.55854315938186,
+						'lat': 27.421043320328234,
+						'count': 8
+					}, {
+						'lng': 106.85725811143601,
+						'lat': 27.681695956697002,
+						'count': 15
+					}, {
+						'lng': 107.04710651488614,
+						'lat': 27.443022452113333,
+						'count': 18
+					}, {
+						'lng': 107.44908907984102,
+						'lat': 26.854665249599957,
+						'count': 17
+					}, {
+						'lng': 107.11242492722043,
+						'lat': 27.568639068345842,
+						'count': 13
+					}, {
+						'lng': 106.92312193866513,
+						'lat': 27.40067767006731,
+						'count': 2
+					}, {
+						'lng': 107.30420747598357,
+						'lat': 26.782665688543467,
+						'count': 19
+					}, {
+						'lng': 106.85729237870089,
+						'lat': 27.364056188146233,
+						'count': 8
+					}, {
+						'lng': 106.84374609397123,
+						'lat': 27.60706685011169,
+						'count': 13
+					}, {
+						'lng': 106.59006824583747,
+						'lat': 27.465605585188005,
+						'count': 18
+					}, {
+						'lng': 106.79816578305837,
+						'lat': 27.535979444110353,
+						'count': 19
+					}, {
+						'lng': 107.43384297643676,
+						'lat': 27.363045205652952,
+						'count': 5
+					}, {
+						'lng': 107.52704085703867,
+						'lat': 26.880547749302256,
+						'count': 1
+					}, {
+						'lng': 107.09767514311463,
+						'lat': 27.416875721572133,
+						'count': 1
+					}, {
+						'lng': 107.08053960556815,
+						'lat': 26.932329091055625,
+						'count': 7
+					}, {
+						'lng': 106.79720845111306,
+						'lat': 27.05898964307583,
+						'count': 9
+					}, {
+						'lng': 107.54456575545332,
+						'lat': 26.985730364423205,
+						'count': 11
+					}, {
+						'lng': 107.27299188261297,
+						'lat': 26.856197268838546,
+						'count': 5
+					}, {
+						'lng': 107.25431527816032,
+						'lat': 27.327702531482704,
+						'count': 6
+					}, {
+						'lng': 107.37452177347483,
+						'lat': 26.87966759520481,
+						'count': 2
+					}, {
+						'lng': 106.6315927616843,
+						'lat': 27.45265510879796,
+						'count': 16
+					}, {
+						'lng': 107.38699429997125,
+						'lat': 27.487469898189556,
+						'count': 15
+					}, {
+						'lng': 107.1877267312589,
+						'lat': 27.342516917630686,
+						'count': 10
+					}, {
+						'lng': 107.54148016051403,
+						'lat': 27.376544134070603,
+						'count': 9
+					}, {
+						'lng': 107.45673673164866,
+						'lat': 26.93560448490084,
+						'count': 17
+					}, {
+						'lng': 106.75599905186826,
+						'lat': 27.4751184069168,
+						'count': 11
+					}, {
+						'lng': 107.43180866670642,
+						'lat': 27.29590343208274,
+						'count': 2
+					}, {
+						'lng': 106.87472134943579,
+						'lat': 27.01604994873697,
+						'count': 16
+					}, {
+						'lng': 106.8304727268099,
+						'lat': 27.406134262837394,
+						'count': 3
+					}, {
+						'lng': 107.37956367877068,
+						'lat': 27.429866624925264,
+						'count': 10
+					}, {
+						'lng': 106.91642300392986,
+						'lat': 27.10212792695145,
+						'count': 3
+					}, {
+						'lng': 106.75783874845864,
+						'lat': 27.651152168530754,
+						'count': 1
+					}, {
+						'lng': 106.84422876486654,
+						'lat': 27.11414658385591,
+						'count': 12
+					}, {
+						'lng': 106.71291900011612,
+						'lat': 27.086037299611764,
+						'count': 11
+					}, {
+						'lng': 106.73394967059967,
+						'lat': 27.290362919398262,
+						'count': 14
+					}, {
+						'lng': 107.32380283436586,
+						'lat': 27.0657921836542,
+						'count': 15
+					}, {
+						'lng': 107.24750419094883,
+						'lat': 27.303196738123958,
+						'count': 20
+					}, {
+						'lng': 107.35054577742879,
+						'lat': 26.875397177315932,
+						'count': 14
+					}, {
+						'lng': 107.08575164308863,
+						'lat': 27.181149062753263,
+						'count': 13
+					}, {
+						'lng': 106.7208405356837,
+						'lat': 26.9727457693114,
+						'count': 16
+					}, {
+						'lng': 106.57518293856353,
+						'lat': 27.03946030404552,
+						'count': 16
+					}, {
+						'lng': 106.89380985153892,
+						'lat': 27.168883853934442,
+						'count': 17
+					}, {
+						'lng': 106.57657705221865,
+						'lat': 27.673932076206988,
+						'count': 5
+					}, {
+						'lng': 107.03688592133199,
+						'lat': 26.94278041743764,
+						'count': 1
+					}, {
+						'lng': 107.22812201613743,
+						'lat': 27.40649302636638,
+						'count': 10
+					}, {
+						'lng': 107.41881302986829,
+						'lat': 27.326714319533384,
+						'count': 12
+					}, {
+						'lng': 107.1591673271117,
+						'lat': 27.143972503527586,
+						'count': 17
+					}, {
+						'lng': 106.81183360541726,
+						'lat': 27.31801499110318,
+						'count': 9
+					}, {
+						'lng': 107.09480296715225,
+						'lat': 27.117636258265176,
+						'count': 20
+					}, {
+						'lng': 106.71646460396438,
+						'lat': 27.181974189458092,
+						'count': 20
+					}, {
+						'lng': 107.15670029757958,
+						'lat': 27.393448670677117,
+						'count': 9
+					}, {
+						'lng': 107.22835050295356,
+						'lat': 27.13420470274489,
+						'count': 18
+					}, {
+						'lng': 106.8361882591049,
+						'lat': 27.196983500071273,
+						'count': 3
+					}, {
+						'lng': 106.99005025697456,
+						'lat': 27.07094530898153,
+						'count': 8
+					}, {
+						'lng': 106.99398057159621,
+						'lat': 27.553801007140507,
+						'count': 10
+					}, {
+						'lng': 106.83249546452471,
+						'lat': 27.176015910790753,
+						'count': 3
+					}, {
+						'lng': 106.61848906238964,
+						'lat': 26.855099290864175,
+						'count': 2
+					}, {
+						'lng': 106.56644238855407,
+						'lat': 26.840627932479347,
+						'count': 5
+					}, {
+						'lng': 107.25229597896359,
+						'lat': 27.09943836359279,
+						'count': 6
+					}, {
+						'lng': 106.85218965896057,
+						'lat': 26.826368057908315,
+						'count': 15
+					}, {
+						'lng': 107.30976152740855,
+						'lat': 26.82024158452522,
+						'count': 7
+					}, {
+						'lng': 107.3910098398358,
+						'lat': 26.80308054027984,
+						'count': 15
+					}, {
+						'lng': 107.07048649028849,
+						'lat': 26.917321736920417,
+						'count': 11
+					}, {
+						'lng': 106.77247285488737,
+						'lat': 26.85063807785235,
+						'count': 9
+					}, {
+						'lng': 107.22831314579979,
+						'lat': 27.08923003557362,
+						'count': 2
+					}, {
+						'lng': 106.94196270830857,
+						'lat': 26.842315262032738,
+						'count': 14
+					}, {
+						'lng': 106.74196183315517,
+						'lat': 27.346997872394407,
+						'count': 4
+					}, {
+						'lng': 107.44886756047161,
+						'lat': 27.62263808627287,
+						'count': 4
+					}, {
+						'lng': 107.07554475370137,
+						'lat': 27.387478542994124,
+						'count': 4
+					}, {
+						'lng': 106.62764112104378,
+						'lat': 27.23415559403083,
+						'count': 7
+					}, {
+						'lng': 107.34013716986804,
+						'lat': 26.997624525713917,
+						'count': 3
+					}, {
+						'lng': 107.34612134003844,
+						'lat': 26.912703601924484,
+						'count': 5
+					}, {
+						'lng': 106.74701240325608,
+						'lat': 27.526102015713246,
+						'count': 12
+					}, {
+						'lng': 106.95185903575171,
+						'lat': 27.632035507015498,
+						'count': 12
+					}, {
+						'lng': 106.58093738131437,
+						'lat': 27.63904570536801,
+						'count': 3
+					}, {
+						'lng': 107.4140687770027,
+						'lat': 27.60940279791298,
+						'count': 20
+					}, {
+						'lng': 106.66044163672748,
+						'lat': 27.49373159003182,
+						'count': 11
+					}, {
+						'lng': 107.40515803936245,
+						'lat': 27.687262532772504,
+						'count': 3
+					}, {
+						'lng': 107.23392440895307,
+						'lat': 27.14644879791683,
+						'count': 17
+					}, {
+						'lng': 106.90380364679433,
+						'lat': 27.493419383456246,
+						'count': 15
+					}, {
+						'lng': 106.67449852509917,
+						'lat': 27.25862787451808,
+						'count': 13
+					}, {
+						'lng': 107.28493817978794,
+						'lat': 27.400291417990605,
+						'count': 9
+					}, {
+						'lng': 106.6253499078897,
+						'lat': 27.08858381569978,
+						'count': 10
+					}, {
+						'lng': 106.86371519116656,
+						'lat': 27.489072924096316,
+						'count': 4
+					}, {
+						'lng': 106.93907833918783,
+						'lat': 26.793694676677944,
+						'count': 3
+					}, {
+						'lng': 107.54913014199076,
+						'lat': 27.33528030262084,
+						'count': 15
+					}, {
+						'lng': 107.1978955419395,
+						'lat': 26.776715301313054,
+						'count': 6
+					}, {
+						'lng': 107.15760615925039,
+						'lat': 27.13134579992371,
+						'count': 18
+					}, {
+						'lng': 106.74227496752725,
+						'lat': 27.53619313124872,
+						'count': 10
+					}, {
+						'lng': 106.75141537903718,
+						'lat': 27.455157318891597,
+						'count': 13
+					}, {
+						'lng': 106.64641435797333,
+						'lat': 27.63259524858456,
+						'count': 20
+					}, {
+						'lng': 106.7186790109049,
+						'lat': 27.19329425713444,
+						'count': 5
+					}, {
+						'lng': 107.24947766673235,
+						'lat': 27.41145078505107,
+						'count': 4
+					}, {
+						'lng': 106.77966968395145,
+						'lat': 27.32060387435096,
+						'count': 8
+					}, {
+						'lng': 107.00674991725306,
+						'lat': 27.66182575100731,
+						'count': 5
+					}, {
+						'lng': 107.04707065291699,
+						'lat': 27.70325325992525,
+						'count': 15
+					}, {
+						'lng': 106.65495707007398,
+						'lat': 26.896241528465506,
+						'count': 3
+					}, {
+						'lng': 107.02009752094399,
+						'lat': 26.90920677805607,
+						'count': 3
+					}, {
+						'lng': 106.99486339842943,
+						'lat': 26.88860114475246,
+						'count': 20
+					}, {
+						'lng': 106.8640584216388,
+						'lat': 27.231285122021028,
+						'count': 3
+					}, {
+						'lng': 106.63494032497618,
+						'lat': 27.416617692527915,
+						'count': 8
+					}, {
+						'lng': 107.07417661483731,
+						'lat': 26.981213499999836,
+						'count': 18
+					}, {
+						'lng': 107.50223800108706,
+						'lat': 27.295338188695236,
+						'count': 7
+					}, {
+						'lng': 107.03541905307867,
+						'lat': 26.980424137620403,
+						'count': 1
+					}, {
+						'lng': 107.4504617288498,
+						'lat': 27.11435450870992,
+						'count': 8
+					}, {
+						'lng': 106.63186201481574,
+						'lat': 27.677990484319995,
+						'count': 12
+					}, {
+						'lng': 107.19559465911158,
+						'lat': 27.43122241380577,
+						'count': 11
+					}, {
+						'lng': 107.33384709068591,
+						'lat': 27.030444615716412,
+						'count': 6
+					}, {
+						'lng': 107.5444583390949,
+						'lat': 26.993249004393682,
+						'count': 4
+					}, {
+						'lng': 107.0722702268368,
+						'lat': 27.500676476989913,
+						'count': 17
+					}, {
+						'lng': 106.78064391561915,
+						'lat': 26.788108152667952,
+						'count': 5
+					}, {
+						'lng': 106.96173776811753,
+						'lat': 27.6618254056538,
+						'count': 20
+					}, {
+						'lng': 106.94615739495678,
+						'lat': 27.521817469265176,
+						'count': 2
+					}, {
+						'lng': 106.69997139948597,
+						'lat': 27.5198541273609,
+						'count': 2
+					}, {
+						'lng': 107.51502605298558,
+						'lat': 26.9588626128351,
+						'count': 6
+					}, {
+						'lng': 106.93741037927822,
+						'lat': 27.520298919338654,
+						'count': 4
+					}, {
+						'lng': 106.63388889094549,
+						'lat': 27.264449741859565,
+						'count': 9
+					}, {
+						'lng': 107.04513371661496,
+						'lat': 27.729332970131132,
+						'count': 1
+					}, {
+						'lng': 106.90606266664678,
+						'lat': 26.830309402278978,
+						'count': 13
+					}, {
+						'lng': 107.0989459092496,
+						'lat': 27.735011178236714,
+						'count': 18
+					}, {
+						'lng': 106.7630554276012,
+						'lat': 27.59442729836414,
+						'count': 10
+					}, {
+						'lng': 106.92032306606568,
+						'lat': 27.67939236372211,
+						'count': 10
+					}, {
+						'lng': 106.97858612543637,
+						'lat': 27.511167927628986,
+						'count': 18
+					}, {
+						'lng': 107.29955379009208,
+						'lat': 27.581685204173162,
+						'count': 16
+					}, {
+						'lng': 107.3330420394603,
+						'lat': 27.186377808282643,
+						'count': 9
+					}, {
+						'lng': 106.79393578898022,
+						'lat': 27.2369070733094,
+						'count': 9
+					}, {
+						'lng': 107.1273832905162,
+						'lat': 27.38026612548984,
+						'count': 17
+					}, {
+						'lng': 106.94492301416714,
+						'lat': 27.379576423033715,
+						'count': 2
+					}, {
+						'lng': 107.34076051665572,
+						'lat': 27.014486712054904,
+						'count': 11
+					}, {
+						'lng': 107.4620341275117,
+						'lat': 27.664020503730416,
+						'count': 3
+					}, {
+						'lng': 107.20407068727746,
+						'lat': 26.85596491955032,
+						'count': 16
+					}, {
+						'lng': 107.31517185744943,
+						'lat': 26.914156638652006,
+						'count': 7
+					}, {
+						'lng': 106.83019406350303,
+						'lat': 27.446931208255002,
+						'count': 2
+					}, {
+						'lng': 106.65573404394942,
+						'lat': 27.480853915490947,
+						'count': 5
+					}, {
+						'lng': 107.16557130411123,
+						'lat': 27.75825912801044,
+						'count': 11
+					}, {
+						'lng': 107.13165081272672,
+						'lat': 27.477379501989528,
+						'count': 8
+					}, {
+						'lng': 107.30073599777606,
+						'lat': 26.84329450969005,
+						'count': 12
+					}, {
+						'lng': 107.2519278439393,
+						'lat': 27.06585939405156,
+						'count': 12
+					}, {
+						'lng': 107.15385395370807,
+						'lat': 27.176208355385143,
+						'count': 4
+					}, {
+						'lng': 106.9398752438632,
+						'lat': 27.779609107210174,
+						'count': 16
+					}, {
+						'lng': 107.21170161226334,
+						'lat': 27.159562913474925,
+						'count': 14
+					}, {
+						'lng': 106.73454876990186,
+						'lat': 27.523175424842897,
+						'count': 20
+					}, {
+						'lng': 107.09704934433194,
+						'lat': 27.13611666004928,
+						'count': 18
+					}, {
+						'lng': 107.61656936050548,
+						'lat': 27.082431344064368,
+						'count': 8
+					}, {
+						'lng': 106.81500026812155,
+						'lat': 27.535394060727608,
+						'count': 3
+					}, {
+						'lng': 106.85981554285314,
+						'lat': 27.366454473788316,
+						'count': 6
+					}, {
+						'lng': 107.41142038908642,
+						'lat': 26.962326415698985,
+						'count': 16
+					}, {
+						'lng': 106.99640746993997,
+						'lat': 27.006813793284188,
+						'count': 8
+					}, {
+						'lng': 107.37589705977592,
+						'lat': 27.760932254165347,
+						'count': 2
+					}, {
+						'lng': 107.30352843955292,
+						'lat': 27.67912008880241,
+						'count': 12
+					}, {
+						'lng': 106.70200822796521,
+						'lat': 27.481296161848675,
+						'count': 3
+					}, {
+						'lng': 106.82180589898627,
+						'lat': 27.247572518149653,
+						'count': 13
+					}, {
+						'lng': 107.12164748455847,
+						'lat': 27.052962473979974,
+						'count': 19
+					}, {
+						'lng': 107.5611893304813,
+						'lat': 27.335692646660227,
+						'count': 13
+					}, {
+						'lng': 107.4452681226131,
+						'lat': 27.240808470911038,
+						'count': 9
+					}, {
+						'lng': 107.23690589478547,
+						'lat': 26.88348997374441,
+						'count': 4
+					}, {
+						'lng': 106.95470133773188,
+						'lat': 27.51409127831148,
+						'count': 5
+					}, {
+						'lng': 107.58407435880952,
+						'lat': 27.210214243006114,
+						'count': 2
+					}, {
+						'lng': 106.711872374936,
+						'lat': 27.405772599066587,
+						'count': 4
+					}, {
+						'lng': 106.95213959951242,
+						'lat': 27.407403017263675,
+						'count': 15
+					}, {
+						'lng': 107.37121195235069,
+						'lat': 27.285554233483687,
+						'count': 18
+					}, {
+						'lng': 106.72732799654179,
+						'lat': 27.45739296921812,
+						'count': 2
+					}, {
+						'lng': 106.9818457645669,
+						'lat': 27.521544348156855,
+						'count': 14
+					}, {
+						'lng': 107.36185415406018,
+						'lat': 27.7299140646199,
+						'count': 6
+					}, {
+						'lng': 107.27198050963945,
+						'lat': 26.82483550677331,
+						'count': 17
+					}, {
+						'lng': 107.20879255465994,
+						'lat': 27.611523994182328,
+						'count': 13
+					}, {
+						'lng': 106.93035035383556,
+						'lat': 27.75789628773515,
+						'count': 16
+					}, {
+						'lng': 106.77433394332824,
+						'lat': 27.560188809212075,
+						'count': 18
+					}, {
+						'lng': 106.86861187111717,
+						'lat': 27.582309706745185,
+						'count': 14
+					}, {
+						'lng': 106.80655372651594,
+						'lat': 26.93012367681876,
+						'count': 14
+					}, {
+						'lng': 106.92620964134657,
+						'lat': 26.813199192435928,
+						'count': 10
+					}, {
+						'lng': 106.74324912824295,
+						'lat': 27.101226061230314,
+						'count': 10
+					}, {
+						'lng': 107.07364371978645,
+						'lat': 27.279070519205217,
+						'count': 1
+					}, {
+						'lng': 107.31436745726917,
+						'lat': 26.958351584097112,
+						'count': 19
+					}, {
+						'lng': 107.15244004853402,
+						'lat': 27.764602964055353,
+						'count': 11
+					}, {
+						'lng': 106.88732521647877,
+						'lat': 27.77147381334252,
+						'count': 14
+					}, {
+						'lng': 107.4285021752125,
+						'lat': 27.474864584831963,
+						'count': 10
+					}, {
+						'lng': 107.50501424145001,
+						'lat': 27.044836980651528,
+						'count': 9
+					}, {
+						'lng': 107.59752734661566,
+						'lat': 27.314503788987675,
+						'count': 17
+					}, {
+						'lng': 107.4789112342214,
+						'lat': 27.19838668983277,
+						'count': 20
+					}, {
+						'lng': 107.45767807761177,
+						'lat': 27.24630589496022,
+						'count': 8
+					}, {
+						'lng': 107.16922819265096,
+						'lat': 27.258333504059873,
+						'count': 1
+					}, {
+						'lng': 106.72067586335197,
+						'lat': 27.029993412693536,
+						'count': 14
+					}, {
+						'lng': 107.19466782978135,
+						'lat': 26.810970643556892,
+						'count': 2
+					}, {
+						'lng': 106.72163649930722,
+						'lat': 27.65115342670382,
+						'count': 5
+					}, {
+						'lng': 107.64830827592964,
+						'lat': 27.49090459233646,
+						'count': 8
+					}, {
+						'lng': 107.37769361256792,
+						'lat': 27.26325857060075,
+						'count': 2
+					}, {
+						'lng': 106.92999188256852,
+						'lat': 27.45524311647288,
+						'count': 10
+					}, {
+						'lng': 106.87196809856908,
+						'lat': 27.404104609517013,
+						'count': 16
+					}, {
+						'lng': 106.8549326035848,
+						'lat': 27.594952470322152,
+						'count': 18
+					}, {
+						'lng': 107.21447273354632,
+						'lat': 27.629831532252243,
+						'count': 20
+					}, {
+						'lng': 107.01537976187298,
+						'lat': 27.741993964480272,
+						'count': 12
+					}, {
+						'lng': 107.11701938898173,
+						'lat': 27.69580011585408,
+						'count': 19
+					}, {
+						'lng': 107.47216409161192,
+						'lat': 27.154654130131217,
+						'count': 7
+					}, {
+						'lng': 107.22867990008676,
+						'lat': 27.233051503087214,
+						'count': 20
+					}, {
+						'lng': 107.34465761706937,
+						'lat': 27.060797964167918,
+						'count': 19
+					}, {
+						'lng': 107.13909742052107,
+						'lat': 27.60649334309196,
+						'count': 18
+					}, {
+						'lng': 107.15387687804258,
+						'lat': 27.205760732203967,
+						'count': 11
+					}, {
+						'lng': 107.39896893456292,
+						'lat': 27.085851590816038,
+						'count': 18
+					}, {
+						'lng': 106.81467303418675,
+						'lat': 27.082100414807872,
+						'count': 6
+					}, {
+						'lng': 107.72193449102987,
+						'lat': 26.910156533410035,
+						'count': 1
+					}, {
+						'lng': 107.15709643213019,
+						'lat': 27.394166370973267,
+						'count': 8
+					}, {
+						'lng': 107.12134849731385,
+						'lat': 27.7043334984206,
+						'count': 19
+					}, {
+						'lng': 106.77054712876836,
+						'lat': 27.05913091812008,
+						'count': 5
+					}, {
+						'lng': 107.29872027133298,
+						'lat': 27.47092234288201,
+						'count': 12
+					}, {
+						'lng': 107.27159410039414,
+						'lat': 27.02316115125287,
+						'count': 12
+					}, {
+						'lng': 107.15478799462433,
+						'lat': 27.21320391806234,
+						'count': 18
+					}, {
+						'lng': 107.38224907802883,
+						'lat': 27.55188805165173,
+						'count': 14
+					}, {
+						'lng': 107.60141648021155,
+						'lat': 27.09354069453983,
+						'count': 12
+					}, {
+						'lng': 106.9891552105658,
+						'lat': 27.171249006809195,
+						'count': 20
+					}]
+
+					new map(lineArr, "container");
+					new hotmap(heatmapData, "container");
+				</script>
+
+				<script src="assets/js/bootstrap.js"></script>
+				<script src="assets/js/custom.js"></script>
+	</body>
+
 </html>
