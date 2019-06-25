@@ -1,4 +1,4 @@
-function drawRadar() {
+function cityradar() {
 
     var mychart = echarts.init(document.getElementById("evaluate"));
     var option = {
@@ -12,11 +12,11 @@ function drawRadar() {
                 max: 100
             },
                 {
-                    name: '设备齐全',
+                    name: '治安水平',
                     max: 100
                 },
                 {
-                    name: '性价比高',
+                    name: '生活幸福',
                     max: 100
                 },
                 {
