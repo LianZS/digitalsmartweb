@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>数智</title>
+		<script src="http://sdk.talkingdata.com/app/h5/v1?appid=2D37E10F4E75439083FE19804875EA55&vn=正式版1.0.9"></script>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/public.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/font.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/iconfont.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/main.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/header.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/footer.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/results.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/loading.css?v=1.2.10" rel="stylesheet" />
+		<link href="http://jic2.talkingdata.com/observatory/mi/css/app-detail.css?v=1.2.10" rel="stylesheet" />
+		<link href="asset/css/style.css" rel="stylesheet" />
+
+		<script src="asset/js/linecharts.js"></script>
+		<script src="asset/js/echarts.min.js"></script>
+
+		<script>
+			window.dateLimit = {
+				"minDay": "",
+				"maxDay": "",
+				"minWeek": "",
+				"maxWeek": "",
+				"minMonth": "2016-01-01",
+				"maxMonth": "2017-05-01",
+				"minQ": "",
+				"maxQ": ""
+			}
+			var appName = '',
+				appId = '',
+				curpage = 'marketprofile', //app, wxpub
+				application = '应用';
+		</script>
+	</head>
+
+	<body class="">
+		<div class="header  clearfix">
+			<!--logo-->
+			<div class="logo l" style="color: white;font-size: 20px;">
+				数智
+			</div>
+
+			<div class="top-menu trans l">
+				<ul>
+					<li>
+						<a href="">首页</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)">数据服务<i class="icon-arrow-right"></i></a>
+						<div class="describe-content clearfix" style="height: auto;">
+							<div class="service-contents">
+								<div class="service-contents-header">
+									<img class="img-pay" src="http://jic2.talkingdata.com/observatory/mi/images/Free.png" height="16px" width="16px" /><label>免费服务</label>
+								</div>
+								<div class="service-contents-a">
+									<a href="" title="APP用户画像">
+										<div class="describe-list trans">
+											<div class="describe-list-describe trans">
+												<span>
+                        <i class="icon-apply-ranking"></i>
+                      </span>
+												<label>APP用户画像</label>
+												<b>洞悉市场动态，提供最新移动应用排行，针对单款应用绘制人群画像</b>
+											</div>
+										</div>
+									</a>
+									<a href="" title="公众号分析">
+										<div class="describe-list trans">
+											<div class="describe-list-describe trans">
+												<span>
+                    <i class="icon-public"></i>
+                  </span>
+												<label>公众号分析</label>
+												<b>通过对自媒体人的账号和文章进行甄别分析，获悉微信公众号画像</b>
+											</div>
+										</div>
+									</a>
+									<a href="" title="终端指数">
+										<div class="describe-list trans">
+											<div class="describe-list-describe trans">
+												<span>
+                    <i class="icon-phone"></i>
+                  </span>
+												<label>终端指数</label>
+												<b>呈现移动设备趋势，提供最受欢迎的设备品牌、分辨率、操作系统等</b>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+
+					</li>
+				</ul>
+			</div>
+			<div class="search r trans">
+				<i class="icon-search trans"></i>
+				<input type="text" name="keyword" autocomplete="off" placeholder="请输入需查找的内容">
+				<i class="icon-close trans"></i>
+			</div>
+			<div class="r header-operate-container">
+				<div class="operate-right">
+					<a class="icon-question" href="http://doc.talkingdata.com/posts/498"></a>
+				</div>
+				<div class="operate-right account-container to-login">
+					<a href="" title="登录">登录</a>
+					<b class="line"></b>
+					<a href="" title="注册">注册</a>
+				</div>
+
+			</div>
+
+		</div>
+		</div>
+		<div class="main-container">
+			<!-- 时间导航 -->
+			<div class="content-timeline">
+				<div class="main-box">
+				</div>
+
+			</div>
+
+			<!-- 主要内容 -->
+			<div class="bg-appDetailTop">
+				<div class="appDetail-container draw clearfix">
+					<div class="ranking-sec-menu">
+						<div class="data-menu ">
+							<a href=""><span class="trans active"><i class="icon-throng"></i>公众号画像</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mainDatas-container">
+				<div class="data-menu l">
+					<!--<a href="http://mi.talkingdata.com/market-profile.html"><span class="trans active"><i class="icon-throng"></i>用户画像</span></a>-->
+					<!--<a href="http://mi.talkingdata.com/market-behavior.html"><span class="trans"><i class="icon-behavior"></i>用户行为</span></a>-->
+				</div>
+				<div class="dataPic-container ">
+					<div class="datas-container col12">
+						<div class="read">
+							<div class="title orgBg"><span>阅读及在看</span></div>
+							<div class="msgInfo">
+								<div class="info">
+									<div class="infoTitle middle">在看数</div>
+									<div class="infoContent">
+										<div class=" readInfo">
+											<h3>头条平均在看数</h3>
+											<div>
+												<div class="num-font" style="padding-bottom: 8px;">13113</div><span class="nearlyDate">最近30天</span></div>
+										</div>
+										<div class=" readInfo">
+											<h3>最高在看数</h3>
+											<div>
+												<div class="num-font" style="padding-bottom: 8px;">79380</div><span class="nearlyDate">最近30天</span></div>
+										</div>
+									</div>
+								</div>
+								<div class="info ">
+									<div class="infoTitle ">阅读数</div>
+									<div class="infoContent readNum">
+										<div class=" readInfo">
+											<h3>头条平均阅读数</h3>
+											<div>
+												<div class="num-font" style="padding-bottom: 8px;">10万+</div><span class="nearlyDate">最近30天</span></div>
+										</div>
+										<div class=" readInfo">
+											<h3>非头条平均阅读数</h3>
+											<div>
+												<div class="num-font" style="padding-bottom: 8px;">10万+</div><span class="nearlyDate">最近30天</span></div>
+										</div>
+										<div class=" readInfo" style="border-right: none;">
+											<h3>最高阅读数</h3>
+											<div>
+												<div class="num-font" style="padding-bottom: 8px;">10万+</div><span class="nearlyDate">最近30天</span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="datas-container col12">
+						<div class="trend-ope clearfix">
+							<ul class="l">
+								<li class="trans active" td-data="allRanking">排名</li>
+								<li class="trans" td-data="activeRate">活跃率</li>
+							</ul>
+
+						</div>
+						<div class="active-activenum" id="activenum" style="height: 500px;"></div>
+
+						<div class="trend-ope trend clearfix">
+							<h5>关键词
+                            <i class="icon-explain throng">
+                            <div class="help">
+                                <h5>关键词：</h5>
+							<p>该公众号文章关键词热度分布。</p>
+						</div>
+						</i>
+						</h5>
+					</div>
+					<div class="data-container">
+						<div class="brand-content clearfix">
+							<div class="bubble">
+								<div class="bubble_min ani_auto ani_top_top ani_time_8"></div>
+								<div class="bubble_min ani_auto ani_top_top ani_time_10"></div>
+								<div class="bubble_min ani_auto ani_top_top ani_time_12"></div>
+								<div class="bubble_min ani_auto ani_top_top ani_time_10"></div>
+								<div class="bubble_min ani_auto ani_top_top ani_time_12"></div>
+								<div class="bubble_min ani_auto ani_top_top ani_time_10"></div>
+								<div class="bubble_min ani_auto ani_top_top ani_time_8"></div>
+								<div class="bubble_list">
+									<div class="bubble_item ani_auto ani_time_10 ani_top_bottom">
+										<p><span></span> <i></i></p>
+									</div>
+									<div class="bubble_item ani_auto ani_time_8 ani_bottom_top">
+										<p><span></span> <i></i></p>
+									</div>
+									<div class="bubble_item ani_auto ani_time_12 ani_top_bottom">
+										<p><span></span> <i></i></p>
+									</div>
+									<div class="bubble_item ani_auto ani_time_8 ani_top_bottom">
+										<p><span></span> <i></i></p>
+									</div>
+									<div class="bubble_item ani_auto ani_time_10 ani_bottom_top">
+										<p><span></span> <i></i></p>
+									</div>
+									<div class="bubble_item ani_auto ani_time_12 ani_top_bottom">
+										<p><span></span> <i></i></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- 底部 -->
+	</body>
+	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/sea-jQuery.js"></script>
+	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/moment.min.js"></script>
+	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/ui/ui.js"></script>
+	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/echarts.throng.js"></script>
+	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/userDraw/index.js?v=1.2.10"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?4194ddf8a829d68afa312684b382079d";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+
+		// auto push
+		(function() {
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if(curProtocol === 'https') {
+				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+			} else {
+				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+			}
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+	</script>
+	<script type="text/javascript">
+		(function(win, doc, s, i) {
+			x = doc.getElementById(i);
+			if(x) return;
+
+			win.xn = win.xn || function() {
+				win.xn.todoList = win.xn.todoList || [];
+				win.xn.todoList.push(arguments);
+			}
+
+			j = doc.createElement(s),
+				s = doc.getElementsByTagName(s)[0];
+			j.async = true;
+			j.charset = 'UTF-8';
+			j.id = 'xiaonengjs'
+			j.src = 'https://visitor-pro.ntalker.com/visitor/js/bundle.min.js?siteid=kf_9488';
+			s.parentNode.insertBefore(j, s);
+
+			xn('setCustomerInfo', {
+				uname: '',
+				uid: ''
+			})
+		})(window, document, 'script', 'xiaonengjs');
+	</script>
+	<div class="xiao-neng-kf">
+		<a onclick="NTKF.im_openInPageChat('kf_9488_1484277746774')">
+			<img src="http://jic2.talkingdata.com/observatory/mi/images/CustomFileDownloadServer.png">
+			<label><img src="http://jic2.talkingdata.com/observatory/mi/images/CustomFileDownloadServer_hover.png"></label>
+		</a>
+	</div>
+	<div class="xiao-neng-kf QR-code-container">
+		<a>
+			<img src="http://jic2.talkingdata.com/observatory/mi/images/contact-QR-code.png">
+			<label><img src="http://jic2.talkingdata.com/observatory/mi/images/contact-QR-code-hover.png"></label>
+		</a>
+	</div>
+	<script>
+		lin = new LineChart("activenum");
+		lin.drawactive('');
+	</script>
+	</body>
+
+</html>
