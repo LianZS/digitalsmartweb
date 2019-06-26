@@ -3,7 +3,7 @@ function LineChart(idname) {
 }
 
 LineChart.prototype.drawactive = function(jsondata) {
-	
+
 	option = {
 		title: {
 			textStyle: {
