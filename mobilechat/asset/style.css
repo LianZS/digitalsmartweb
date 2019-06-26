@@ -1,4 +1,3 @@
-
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
@@ -8,8 +7,6 @@ html {
 body {
 	margin: 0
 }
-
-
 
 :focus {
 	outline: 0
@@ -31,7 +28,6 @@ body {
 	background: rgba(0, 0, 0, .1)
 }
 
-
 * {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
@@ -42,8 +38,6 @@ body {
 	background-color: #e8eaec
 }
 
-
-
 h1,
 h2,
 h3,
@@ -52,15 +46,13 @@ h5,
 h6,
 p,
 ul {
-	margin: 0,;
+	margin: 0, ;
 	color: white;
 }
 
 h4 {
 	font-weight: 500
 }
-
-
 
 .read {
 	height: 200px;
@@ -128,8 +120,7 @@ h4 {
 	-webkit-box-flex: 10;
 	-ms-flex: 10;
 	flex: 10;
-		color: white;
-
+	color: white;
 }
 
 .read .msgInfo .info:last-child {
@@ -169,17 +160,15 @@ h4 {
 .read .msgInfo .info .infoContent .readInfo span {
 	font-size: 14px;
 	display: block;
-		color: white
-
+	color: white
 }
 
 .read .msgInfo .info .infoContent .readInfo div {
 	font-size: 24px;
 	text-align: center;
-		color: white
-
+	color: white
 }
 
 .orgBg {
-    background-color: #ff6300
+	background-color: #ff6300
 }
