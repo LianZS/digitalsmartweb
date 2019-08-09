@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 	<head>
 		<meta charset="utf-8" />
@@ -15,7 +15,7 @@
 		<script src="assets/js/jquery-3.3.1.min.js"></script>
 		<script src="assets/js/AreaChart.js"></script>
 		<script src="assets/js/linecharts.js"></script>
-				<script src="assets/js/hotmap.js"></script>
+		<script src="assets/js/hotmap.js"></script>
 
 		<script src="../js/jquery.fancybox.pack.js"></script>
 		<script language="javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
@@ -39,7 +39,7 @@
 				<div class="navbar-header">
 					<!-- responsive nav button -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
+						<span class="sr-only"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -62,19 +62,20 @@
 							<a href="../index.html">首页</a>
 						</li>
 						<li>
-							<a href="../index.html">产品介绍</a>
+							<a href="placepositioning.html">人口定位</a>
 						</li>
 						<li>
-							<a href="#portfolio">数据导航</a>
+							<a href="../traffic/traffic.html">实时交通</a>
 						</li>
 						<li>
-							<a href="#testimonials">开发作者</a>
+							<a href="../mobilechat/userhabit.html">互联网数据</a>
 						</li>
 						<li>
-							<a href="#contact">联系我们</a>
+							<a href="../traffic/firstpage.html">天气数据</a>
 						</li>
+
 						<li>
-							<a href="#social"> 注册/登陆</a>
+							<a href="../login.html"> 注册/登陆</a>
 						</li>
 
 					</ul>
@@ -99,13 +100,6 @@
 		</div>
 		<!-- LOGO HEADER END-->
 		<section class="menu-section">
-			<div style="float: left; margin-top: 20px;margin-left: 60px;">
-				<span style="color: Mediumslateblue;font-size: 10px;">
-
-    	        	             <i class="fa fa-map-marker fa-2x">景区实况</i>
-    	        	               </span>
-
-			</div>
 			<div class="container">
 
 				<div class="row ">
@@ -121,7 +115,9 @@
 								<li>
 									<a href="placepositioning.html">地区人口实时定位</a>
 								</li>
-								
+								<li>
+									<a href="../traffic/traffic.html">城市实时交通</a>
+								</li>
 
 							</ul>
 						</div>
@@ -141,331 +137,329 @@
     			</button>
 					<div class="row " id="JingQuList" style="display:none;">
 						<ul class="row">
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
 							</ul>
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
 							</ul>
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
 							</ul>
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
-							</ul>
-
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
-							</ul>
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
 							</ul>
 
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
 							</ul>
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
-							</ul>
-
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
-							</ul>
-							<ul class="itemlist" >
-							<li>
-								<a href="{% url  'Scence'  1378 %}">嵩山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1174 %}">平遥古城</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1376 %}">五台山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1343 %}">西湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  402 %}">千岛湖</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1375 %}">泰山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1356 %}">崂山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1352 %}">庐山</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
-							</li>
-							<li>
-								<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
-							</li>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
 							</ul>
 
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
+							</ul>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
+							</ul>
 
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
+							</ul>
+							<ul class="itemlist">
+								<li>
+									<a href="{% url  'Scence'  1378 %}">嵩山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1174 %}">平遥古城</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1376 %}">五台山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1343 %}">西湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  402 %}">千岛湖</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1375 %}">泰山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1356 %}">崂山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1352 %}">庐山</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1364 %}">汕头南澳岛</a>
+								</li>
+								<li>
+									<a href="{% url  'Scence'  1377 %}">张家界武陵源</a>
+								</li>
+							</ul>
 
 						</ul>
 
@@ -548,8 +542,8 @@
 								</div>
 								<div class="chat-widget-name-left">
 									<img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-									<h4>  Amanna Seiar</h4>
-									<h5>Time 2:00 pm at 25th july</h5>
+									<h4> 游客</h4>
+									<h5>评价时间：2019年5月12号</h5>
 								</div>
 								<hr />
 								<div class="chat-widget-right">
@@ -557,24 +551,24 @@
 								</div>
 								<div class="chat-widget-name-right">
 									<img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
-									<h4>  Amanna Seiar</h4>
-									<h5>Time 2:00 pm at 25th july</h5>
+									<h4>  游客</h4>
+									<h5>评价时间</h5>
 								</div>
 								<hr />
 								<div class="chat-widget-left">
 									我们从山脚乘电频车到山顶广场，然后从广场往上爬到最高峰—摩星岭，再从摩星岭下山，就这样回去腿酸了整整两天，丢人啊！风景还是不错，就是玩得有点累，但是很尽兴，里面小景点也都买票进去了，一般票价都是5元。 </div>
 								<div class="chat-widget-name-left">
 									<img class="media-object img-circle img-left-chat" src="assets/img/user2.png" />
-									<h4>  Amanna Seiar</h4>
-									<h5>Time 2:00 pm at 25th july</h5>
+									<h4>  游客</h4>
+									<h5>评价时间：2019年5月12号</h5>
 								</div>
 								<hr />
 								<div class="chat-widget-right">
 									不愧是本地人最爱，人从众人从众人从众 人多到上山缆车因为排队而停运，人多到景区电瓶车因为运力不足而暂停售票！好吧，爬！ </div>
 								<div class="chat-widget-name-right">
 									<img class="media-object img-circle img-right-chat" src="assets/img/user2.png" />
-									<h4>  Amanna Seiar</h4>
-									<h5>Time 2:00 pm at 25th july</h5>
+									<h4> 游客</h4>
+									<h5>评价时间：2019年5月12号</h5>
 								</div>
 								<hr />
 							</div>
@@ -1745,7 +1739,7 @@
 						[106.766066, 26.820708]
 
 					];
-	var heatmapData = [{
+					var heatmapData = [{
 						'lng': 107.66520382915787,
 						'lat': 27.44253794163024,
 						'count': 15
@@ -6133,7 +6127,7 @@
 
 					new map(lineArr, "container");
 					new hotmap(heatmapData, "container");
-					</script>
+				</script>
 
 				<script src="assets/js/bootstrap.js"></script>
 				<script src="assets/js/custom.js"></script>
