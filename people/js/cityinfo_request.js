@@ -1,10 +1,12 @@
 function CityInfoRequest() {
 	this.city_url = "http://127.0.0.1:8000/attractions/api/getCitysByProvince";
+	this.area_url ="http://127.0.0.1:8000/attractions/api/getRegionsByCity"
 	//	var objs = document.getElementById("prov_select0");
 	//					var grade = objs.options[objs.selectedIndex].value;
-	this.pro = $("#prov_select0").val();
+	var pro = $("#prov_select0 option:first").val();
+	var area_list_url=this.area_url
 	$.get(this.city_url, {
-		province: this.pro
+		province: pro
 	}, function(data, state) {
 		//这里显示从服务器返回的数据
 
@@ -20,18 +22,18 @@ function CityInfoRequest() {
 
 		}
 		
-		
-		start_Add_Element_Of_area();
+		start_Add_Element_Of_area(pro,area_list_url);
 		
 	}, 'json');
+	this.listen();
 	
 
 }
-CityInfoRequest.prototype.start_Add_Element_Of_area=function(){
-	var city = $("#city_select0").text();
+function start_Add_Element_Of_area(pro,area_url){
+	var city = $("#city_select0 option:first").text();
 	var citypid = $("#city_select0").val();
-	$.get("http://127.0.0.1:8000/attractions/api/getRegionsByCity", {
-		province: this.pro,
+	$.get(area_url, {
+		province: pro,
 		location: city,
 		citypid: citypid
 	}, function(data, state) {
@@ -50,11 +52,14 @@ CityInfoRequest.prototype.start_Add_Element_Of_area=function(){
 	}, 'json');
 }
 CityInfoRequest.prototype.listen = function() {
+	var pro;
+	url = this.city_url
+	area_url =this.area_url
 	$("#prov_select0").change(function() {
-		this.pro = $(this).children('option:selected').val();
-
-		$.get(this.city_url, {
-			province: this.pro
+		 pro = $(this).children('option:selected').val();
+		
+		$.get(url, {
+			province: pro
 		}, function(data, state) {
 			//这里显示从服务器返回的数据
 
@@ -68,14 +73,15 @@ CityInfoRequest.prototype.listen = function() {
 				$('#city_select0').append(newElement);
 
 			}
+		start_Add_Element_Of_area(pro,area_url);
 
 		}, 'json');
 	});
 	$("#city_select0").change(function() {
 		var city = $(this).children('option:selected').text();
 		var citypid = $(this).children('option:selected').val();
-		$.get("http://127.0.0.1:8000/attractions/api/getRegionsByCity", {
-			province: this.pro,
+		$.get(area_url, {
+			province: pro,
 			location: city,
 			citypid: citypid
 		}, function(data, state) {
