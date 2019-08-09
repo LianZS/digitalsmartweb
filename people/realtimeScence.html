@@ -19,7 +19,10 @@
 
 		<script src="../js/jquery.fancybox.pack.js"></script>
 		<script language="javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 		<script src="assets/js/map.js"></script>
 
 		<!-- BOOTSTRAP CORE STYLE  -->
@@ -130,7 +133,88 @@
 		<div class="content-wrapper">
 
 			<div class="container">
-				<div class="row">
+				<div style="margin-left:10px;display: block;">
+
+					<div class="field prov_field" style="float: left;margin-left: 5%;"><label style="color: white;">省份</label>
+						<div class="ui search selection dropdown w140">
+							<select id="prov_select0">
+								<option value="广东省" name="province">广东省</option>
+								<option value="北京市" name="province">北京市</option>
+								<option value="天津市">天津市</option>
+								<option value="河北省">河北省</option>
+								<option value="山西省">山西省</option>
+								<option value="内蒙古自治区">内蒙古自治区</option>
+								<option value="辽宁省">辽宁省</option>
+								<option value="吉林省">吉林省</option>
+								<option value="黑龙江省">黑龙江省</option>
+								<option value="上海市">上海市</option>
+								<option value="江苏省">江苏省</option>
+								<option value="浙江省">浙江省</option>
+								<option value="安徽省">安徽省</option>
+								<option value="福建省">福建省</option>
+								<option value="江西省">江西省</option>
+								<option value="山东省">山东省</option>
+								<option value="河南省">河南省</option>
+								<option value="湖北省">湖北省</option>
+								<option value="湖南省">湖南省</option>
+
+								<option value="广西壮族自治区">广西壮族自治区</option>
+								<option value="海南省">海南省</option>
+								<option value="重庆市">重庆市</option>
+								<option value="四川省">四川省</option>
+								<option value="贵州省">贵州省</option>
+								<option value="云南省">云南省</option>
+								<option value="西藏自治区">西藏自治区</option>
+								<option value="陕西省">陕西省</option>
+								<option value="甘肃省">甘肃省</option>
+								<option value="青海省">青海省</option>
+								<option value="宁夏回族自治区">宁夏回族自治区</option>
+								<option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
+							</select>
+						</div>
+					</div>
+					<div class="field city_field" style="float: left;margin-left: 5%;"><label style="color: white;">城市</label>
+						<div class="ui search selection dropdown">
+							<select id="city_select0">
+								<option value="广州市">广州市</option>
+								<option value="深圳市">深圳市</option>
+
+							</select>
+						</div>
+					</div>
+					<div class=" field area_field" style="float:left ;margin-left: 5%;"><label style="color: white;">区域</label>
+						<div class="ui search selection dropdown">
+							<select id="city_select0">
+								<option value="公园">公园</option>
+								<option value="游乐场">游乐场</option>
+
+							</select>
+						</div>
+					</div>
+
+					<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
+
+						<div class="ui compact search selection dropdown">
+							<select id="range_select0">
+								<option value="60">60分钟</option>
+								<option value="30">30分钟</option>
+								<option value="10">10分钟</option>
+								<option value="5">5分钟</option>
+							</select>
+						</div>
+					</div>
+
+					<!--<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
+							<div class="ui compact search selection dropdown">
+								<span style="color: yellow;">
+				<i class="fa fa-search fa-2x " ></i>
+			</span>
+
+							</div>
+						</div>-->
+				</div>
+
+				<!--<div class="row">
 					<button id="btn" style=" width: 50px;height: 50px;border-radius: 50%;background-color: aqua;">
         景区导航
   
@@ -464,7 +548,7 @@
 						</ul>
 
 					</div>
-				</div>
+				</div>-->
 				<div class="row pad-botm">
 				</div>
 				<div class="row">
@@ -6128,7 +6212,31 @@
 					new map(lineArr, "container");
 					new hotmap(heatmapData, "container");
 				</script>
+				<script type="text/javascript">
+					var objs = document.getElementById("prov_select0");
+					var grade = objs.options[objs.selectedIndex].value;
+					$("#prov_select0").change(function() {
+						var pro = $(this).children('option:selected').val();
+						$.get("http://127.0.0.1:8000/attractions/api/getCitysByProvince", {
+								province: pro
+							}, function(data, state) {
+								//这里显示从服务器返回的数据
 
+								citylist =data['city'];
+								
+								for(let i=0;i<citylist.length;i++){
+									city = citylist[i]['loaction'];
+									pid =citylist[i]['citypid'];
+									var newElement="	<option value={0}>{1}</option>".format(pid,city);
+									$('#city_select0').append(newElement);
+									
+								}
+						
+
+							
+						},'json');
+					});
+				</script>
 				<script src="assets/js/bootstrap.js"></script>
 				<script src="assets/js/custom.js"></script>
 	</body>
