@@ -1,12 +1,19 @@
-function map(lineArr,elementid){
+function map(bounds,elementid,center_lon,center_lat){
+	if(bounds.length>200){
+			zoom_size=15
 
+	}
+	else{
+		zoom_size=16
+	}
  var map = new AMap.Map(elementid, {
     	        resizeEnable: true,
 
-        zooms: [4, 15],
-        center: [106.633037,26.676849],
+        zooms: [4, 20],
+        center: [center_lon,center_lat],
+       
         showIndoorMap: false,
-        zoom: 9,
+        zoom: zoom_size,
 		
         isHotspot: false,
         defaultCursor: 'pointer',
@@ -18,7 +25,7 @@ function map(lineArr,elementid){
     });
      
 	 var polyline = new AMap.Polyline({
-        path: lineArr,          //设置线覆盖物路径
+        path: bounds,          //设置线覆盖物路径
         strokeColor: "red", //线颜色
         strokeWeight: 5,        //线宽
         strokeStyle: "solid",   //线样式

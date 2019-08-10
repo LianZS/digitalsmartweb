@@ -89,16 +89,17 @@ function SearchRate(area_pid) {
 
 }
 
-function Geographic_bounds(area_pid,flag_id){
-	this.url = "http://127.0.0.1:8000/attractions/api/getLocation_pn_percent_new"
+function Geographic_bounds(area_pid,flag_id,lon,lat){
+	this.url = "http://127.0.0.1:8000/attractions/api/getLocation_geographic_bounds"
 	$.get(this.url, {
 		pid: area_pid,
 		flag:flag_id,
 		sub_domain: ''
 
 	}, function(data, state) {
-		bounds = data['bounds']
-		
+		var bounds = data['bounds']
+	
 
+		new map(bounds,"container",lon,lat)
 	}, 'json');
 }

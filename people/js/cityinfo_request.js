@@ -45,16 +45,22 @@ function start_Add_Element_Of_area(pro, area_url) {
 			area = areaList[i]['area'];
 			pid = areaList[i]['pid'];
 			flag = areaList[i]['flag'];
-
-			var newElement = "<option value=" + pid + " flag=" + flag + " >" + area + "</option>";
+			lon = areaList[i]['longitude'];
+			lat = areaList[i]['latitude'];
+			var newElement = "<option value=" + pid + " flag=" + flag + " lon=" + lon + " lat=" + lat + " >" + area + "</option>";
 			$('#scence_select0').append(newElement);
 
 		}
-		first_area = $('#scence_select0 option:selected').val();
+		pid = $('#scence_select0 option:selected').val();
+		flag = $('#scence_select0 option:selected').attr("flag");
+		lon = $('#scence_select0 option:selected').attr("lon");
+		lat = $('#scence_select0 option:selected').attr("lat");
+
 		date_begin = new Date().format("yyyyMMdd");
 		date_end = parseInt(date_begin) + 1;
-		new realtimeFlow(first_area, date_begin, date_end);
-		new SearchRate(first_area);
+		new realtimeFlow(pid, date_begin, date_end);
+		new SearchRate(pid);
+		new Geographic_bounds(pid, flag,lon,lat);
 
 	}, 'json');
 }
@@ -100,7 +106,9 @@ CityInfoRequest.prototype.listen = function() {
 				area = areaList[i]['area'];
 				pid = areaList[i]['pid'];
 				flag = areaList[i]['flag'];
-				var newElement = "<option value=" + pid + " flag=" + flag + " >" + area + "</option>";
+				lon = areaList[i]['longitude'];
+				lat = areaList[i]['latitude'];
+				var newElement = "<option value=" + pid + " flag=" + flag + " lon=" + lon + " lat=" + lat + " >" + area + "</option>";
 				$('#scence_select0').append(newElement);
 
 			}
@@ -110,10 +118,14 @@ CityInfoRequest.prototype.listen = function() {
 	});
 	$("#scence_select0").change(function() {
 		var pid = $(this).children('option:selected').val();
+		lon = $('#scence_select0 option:selected').attr("lon");
+		lat = $('#scence_select0 option:selected').attr("lat");
 		date_begin = new Date().format("yyyyMMdd");
 		date_end = parseInt(date_begin) + 1;
+		flag = $('#scence_select0 option:selected').attr("flag");
 		new realtimeFlow(pid, date_begin, date_end);
 		new SearchRate(pid);
+		new Geographic_bounds(pid, flag,lon,lat);
 
 	});
 }
