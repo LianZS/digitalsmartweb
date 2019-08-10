@@ -53,7 +53,7 @@ function start_Add_Element_Of_area(pro, area_url) {
 		date_begin = new Date().format("yyyyMMdd");
 		date_end = parseInt(date_begin) + 1;
 		new realtimeFlow(first_area, date_begin, date_end);
-		new SearchRate(first_area)
+		new SearchRate(first_area);
 
 	}, 'json');
 }
@@ -112,7 +112,7 @@ CityInfoRequest.prototype.listen = function() {
 		date_begin = new Date().format("yyyyMMdd");
 		date_end = parseInt(date_begin) + 1;
 		new realtimeFlow(pid, date_begin, date_end);
-		
+		new SearchRate(pid);
 
 	});
 }

@@ -84,7 +84,7 @@ LineChart.prototype.drawsearch=function(jsondata){
         trigger: 'axis'
     },
     legend: {
-        data:['整体','PC端','移动端'],
+        data:['百度','微信','搜狗'],
         textStyle:{
         	color:"white"
         },
@@ -104,7 +104,7 @@ LineChart.prototype.drawsearch=function(jsondata){
     		name:"日期",
         type: 'category',
         boundaryGap: false,
-        data: ["2019-06-01","2019-06-02","2019-06-03","2019-06-04","2019-06-05","2019-06-06",],
+        data: json.time,
         axisLabel:{
         	color:'white',
         },
@@ -128,22 +128,22 @@ LineChart.prototype.drawsearch=function(jsondata){
     },
     series: [
         {
-            name:'整体',
+            name:'百度',
             type:'line',
             stack: '总量',
-            data:[120, 132, 101, 134, 90, 230, 210]
+            data:json.data.baidu
         },
         {
-            name:'PC端',
+            name:'微信',
             type:'line',
             stack: '总量',
-            data:[220, 182, 191, 234, 290, 330, 310]
+            data:json.data.wechat
         },
         {
-            name:'移动端',
+            name:'搜狗',
             type:'line',
             stack: '总量',
-            data:[150, 232, 201, 154, 190, 330, 410]
+            data:json.data.sougou
         },
         
     ]
