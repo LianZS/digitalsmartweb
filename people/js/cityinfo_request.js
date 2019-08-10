@@ -44,8 +44,9 @@ function start_Add_Element_Of_area(pro, area_url) {
 		for(let i = 0; i < areaList.length; i++) {
 			area = areaList[i]['area'];
 			pid = areaList[i]['pid'];
+			flag = areaList[i]['flag'];
 
-			var newElement = "<option value=" + pid + ">" + area + "</option>";
+			var newElement = "<option value=" + pid + " flag=" + flag + " >" + area + "</option>";
 			$('#scence_select0').append(newElement);
 
 		}
@@ -98,8 +99,8 @@ CityInfoRequest.prototype.listen = function() {
 			for(let i = 0; i < areaList.length; i++) {
 				area = areaList[i]['area'];
 				pid = areaList[i]['pid'];
-
-				var newElement = "<option value=" + pid + ">" + area + "</option>";
+				flag = areaList[i]['flag'];
+				var newElement = "<option value=" + pid + " flag=" + flag + " >" + area + "</option>";
 				$('#scence_select0').append(newElement);
 
 			}
