@@ -4,7 +4,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 		center: [center_lon,center_lat],
 		showIndoorMap: false,
         zoom: 16,
-		zooms: [1, 17],
+		zooms: [15, 17],
         isHotspot: false,
         defaultCursor: 'pointer',
         touchZoomCenter: 1,

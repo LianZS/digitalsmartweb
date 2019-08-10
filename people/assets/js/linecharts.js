@@ -130,18 +130,21 @@ LineChart.prototype.drawsearch=function(jsondata){
         {
             name:'百度',
             type:'line',
+             color:"#33FF74",
             stack: '总量',
             data:json.data.baidu
         },
         {
             name:'微信',
             type:'line',
+            color:"#33FFFF",
             stack: '总量',
             data:json.data.wechat
         },
         {
             name:'搜狗',
             type:'line',
+            color:"#D733FF",
             stack: '总量',
             data:json.data.sougou
         },
