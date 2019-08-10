@@ -3,7 +3,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 		resizeEnable: true,
 		center: [center_lon,center_lat],
 		showIndoorMap: false,
-        zoom: 16,
+        zoom: 15,
 		
         isHotspot: false,
         defaultCursor: 'pointer',
@@ -30,7 +30,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 	map.plugin(["AMap.Heatmap"], function() {
 		//初始化heatmap对象
 		heatmap = new AMap.Heatmap(map, {
-			radius: 25, //给定半径
+			radius: 40, //给定半径
 			opacity: [0, 0.8]
 			/*,
 			gradient:{
