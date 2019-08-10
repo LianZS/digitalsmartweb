@@ -61,6 +61,8 @@ function start_Add_Element_Of_area(pro, area_url) {
 		new realtimeFlow(pid, date_begin, date_end);
 		new SearchRate(pid);
 		new Geographic_bounds(pid, flag, lon, lat);
+		new Image_reuqest(pid)
+
 		if(flag == 0)
 			new People_Distribution_rate(pid,lon,lat);
 
@@ -128,7 +130,6 @@ CityInfoRequest.prototype.listen = function() {
 		new realtimeFlow(pid, date_begin, date_end);
 		new SearchRate(pid);
 		new Geographic_bounds(pid, flag, lon, lat);
-		
 		if(flag == 0)
 		
 			new People_Distribution_rate(pid,lon,lat);
