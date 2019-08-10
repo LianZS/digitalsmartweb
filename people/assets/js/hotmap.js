@@ -1,9 +1,9 @@
-function hotmap(heatmapData,elementid) {
+function hotmap(heatmapData,elementid,center_lon,center_lat) {
 	var map = new AMap.Map(elementid, {
 		resizeEnable: true,
-		center: [106.633037,26.676849],
+		center: [center_lon,center_lat],
 		showIndoorMap: false,
-        zoom: 9,
+        zoom: 16,
 		
         isHotspot: false,
         defaultCursor: 'pointer',

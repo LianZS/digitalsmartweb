@@ -52,7 +52,7 @@ function start_Add_Element_Of_area(pro, area_url) {
 
 		}
 		pid = $('#scence_select0 option:selected').val();
-		flag = $('#scence_select0 option:selected').attr("flag");
+		flag = parseInt($('#scence_select0 option:selected').attr("flag"));
 		lon = $('#scence_select0 option:selected').attr("lon");
 		lat = $('#scence_select0 option:selected').attr("lat");
 
@@ -60,7 +60,9 @@ function start_Add_Element_Of_area(pro, area_url) {
 		date_end = parseInt(date_begin) + 1;
 		new realtimeFlow(pid, date_begin, date_end);
 		new SearchRate(pid);
-		new Geographic_bounds(pid, flag,lon,lat);
+		new Geographic_bounds(pid, flag, lon, lat);
+		if(flag == 0)
+			new People_Distribution_rate(pid,lon,lat);
 
 	}, 'json');
 }
@@ -122,11 +124,14 @@ CityInfoRequest.prototype.listen = function() {
 		lat = $('#scence_select0 option:selected').attr("lat");
 		date_begin = new Date().format("yyyyMMdd");
 		date_end = parseInt(date_begin) + 1;
-		flag = $('#scence_select0 option:selected').attr("flag");
+		flag = parseInt($('#scence_select0 option:selected').attr("flag"));
 		new realtimeFlow(pid, date_begin, date_end);
 		new SearchRate(pid);
-		new Geographic_bounds(pid, flag,lon,lat);
-
+		new Geographic_bounds(pid, flag, lon, lat);
+		
+		if(flag == 0)
+		
+			new People_Distribution_rate(pid,lon,lat);
 	});
 }
 

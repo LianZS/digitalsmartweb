@@ -90,6 +90,7 @@ function SearchRate(area_pid) {
 }
 
 function Geographic_bounds(area_pid,flag_id,lon,lat){
+	//  地区地图范围
 	this.url = "http://127.0.0.1:8000/attractions/api/getLocation_geographic_bounds"
 	$.get(this.url, {
 		pid: area_pid,
@@ -102,4 +103,21 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 
 		new map(bounds,"container",lon,lat)
 	}, 'json');
+}
+
+function People_Distribution_rate(area_pid,lon,lat){
+		//  人口分布
+	this.url = "http://127.0.0.1:8000/attractions/api/getLocation_distribution_rate"
+	$.get(this.url, {
+		pid: area_pid,
+		flag:0,
+		sub_domain: ''
+
+	}, function(data, state) {
+		var heatmapData = data['data']
+		
+		new hotmap(heatmapData, "container",lon,lat);
+	
+	}, 'json');
+	
 }
