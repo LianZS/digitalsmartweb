@@ -16,7 +16,7 @@
 		<script src="assets/js/AreaChart.js"></script>
 		<script src="assets/js/linecharts.js"></script>
 		<script src="assets/js/hotmap.js"></script>
-<script src="js/cityinfo_request.js"></script>
+		<script src="js/cityinfo_request.js"></script>
 		<script src="../js/jquery.fancybox.pack.js"></script>
 		<script language="javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
 		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
@@ -24,13 +24,14 @@
 
 		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 		<script src="assets/js/map.js"></script>
-				<script src="assets/js/bootstrap.js"></script>
-				<script src="assets/js/custom.js"></script>
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/custom.js"></script>
 		<!-- BOOTSTRAP CORE STYLE  -->
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<!-- FONT AWESOME STYLE  -->
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- CUSTOM STYLE  -->
+		<script src="js/data_request.js"></script>
 		<link href="assets/css/style.css" rel="stylesheet" />
 
 		<link rel="stylesheet" href="../css/main.css">
@@ -139,8 +140,8 @@
 					<div class="field prov_field" style="float: left;margin-left: 5%;"><label style="color: white;">省份</label>
 						<div class="ui search selection dropdown w140">
 							<select id="prov_select0">
-								<option value="广东省" >广东省</option>
-								<option value="北京市" >北京市</option>
+								<option value="广东省">广东省</option>
+								<option value="北京市">北京市</option>
 								<option value="天津市">天津市</option>
 								<option value="河北省">河北省</option>
 								<option value="山西省">山西省</option>
@@ -183,7 +184,6 @@
 					<div class=" field area_field" style="float:left ;margin-left: 5%;"><label style="color: white;">区域</label>
 						<div class="ui search selection dropdown">
 							<select id="scence_select0">
-						
 
 							</select>
 						</div>
@@ -358,32 +358,6 @@
 					</div>
 
 				</div>
-				<script>
-					$(document).ready(() => {
-						function Animate() {
-
-							$("#btn").click(function() {
-								$("#JingQuList").slideToggle();
-
-							});
-						}
-						Animate();
-						new drawRadar();
-						json = {
-							"data": [1568, 1305, 1036, 884, 822, 766, 730, 665, 681, 624, 795, 973, 1306, 1749, 2003, 2061, 2132, 2138, 2328, 2541, 2577, 2716, 2619, 2696, 2681, 2631, 2677, 2581, 2506, 2496, 2500, 2604,
-								2446, 2586, 2817, 2728, 2587, 2621, 2601, 2530, 2535, 2635, 2889, 2656
-							],
-							"time": ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30",
-								"05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
-								"13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
-								"21:00", "21:30"
-							]
-						};
-						new drawAreaChart(json);
-						search = new LineChart("search-index");
-						search.drawsearch(json);
-					});
-				</script>
 
 				<script type="text/javascript">
 					var lineArr = [
@@ -413,7 +387,6 @@
 						[106.800289, 26.804895],
 						[106.801531, 26.804097],
 						[106.801511, 26.802797],
-					
 
 					];
 					var heatmapData = [{
@@ -441,14 +414,28 @@
 					new map(lineArr, "container");
 					new hotmap(heatmapData, "container");
 				</script>
-				
-<script language=javascript type="text/javascript">
-//固定写法
-window.onload = function(){
-    new CityInfoRequest();
-}
-</script>
 
+				<script language=javascript type="text/javascript">
+					//固定写法
+					window.onload = function() {
+						new CityInfoRequest();
+//						new drawRadar();
+//						json = {
+//							"data": [1568, 1305, 1036, 884, 822, 766, 730, 665, 681, 624, 795, 973, 1306, 1749, 2003, 2061, 2132, 2138, 2328, 2541, 2577, 2716, 2619, 2696, 2681, 2631, 2677, 2581, 2506, 2496, 2500, 2604,
+//								2446, 2586, 2817, 2728, 2587, 2621, 2601, 2530, 2535, 2635, 2889, 2656
+//							],
+//							"time": ["00:00", "00:30", "01:00", "01:30", "02:00", "02:30", "03:00", "03:30", "04:00", "04:30",
+//								"05:00", "05:30", "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30",
+//								"13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
+//								"21:00", "21:30"
+//							]
+//						};
+//						alert("hello");
+//						new drawAreaChart(json);
+//						search = new LineChart("search-index");
+//						search.drawsearch(json);
+					}
+				</script>
 
 	</body>
 
