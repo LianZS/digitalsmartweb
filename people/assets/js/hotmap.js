@@ -3,8 +3,8 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 		resizeEnable: true,
 		center: [center_lon,center_lat],
 		showIndoorMap: false,
-        zoom: 15,
-		
+        zoom: 16,
+		zooms: [1, 17],
         isHotspot: false,
         defaultCursor: 'pointer',
         touchZoomCenter: 1,
@@ -30,7 +30,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 	map.plugin(["AMap.Heatmap"], function() {
 		//初始化heatmap对象
 		heatmap = new AMap.Heatmap(map, {
-			radius: 40, //给定半径
+			radius: 50, //给定半径
 			opacity: [0, 0.8]
 			/*,
 			gradient:{
@@ -45,7 +45,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 		//设置数据集：该数据为北京部分“公园”数据
 		heatmap.setDataSet({
 			data: heatmapData,
-			max: 100
+			max: 800
 		});
 	});
 }
