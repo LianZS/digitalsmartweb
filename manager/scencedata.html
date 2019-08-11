@@ -302,7 +302,9 @@
 						<li>
 							<a href="#">景区资料管理</a>
 						</li>
-						<!--<li class="active">图片</li>-->
+						<li class="#">
+							<a href="#">景区</a>
+						</li>
 					</ol>
 
 				</div>
@@ -318,18 +320,31 @@
 						<div class="col-md-4 col-sm-12 col-xs-12">
 							<div class="card">
 								<div class="card-action">
-									<b>Tasks Panel</b>
+									<h3>评价指数</h3>
 								</div>
 								<div class="card-image">
 									<div class="collection">
-										<a href="#!" class="collection-item">Red<span class="new badge red" data-badge-caption="red">4</span></a>
-										<a href="#!" class="collection-item">Blue<span class="new badge blue" data-badge-caption="blue">4</span></a>
-										<a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-										<a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
-										<a href="#!" class="collection-item">Alan<span class="new badge blue" data-badge-caption="blue">4</span></a>
-										<a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
-										<a href="#!" class="collection-item">Custom Badge Captions<span class="new badge" data-badge-caption="custom caption">4</span></a>
-										<a href="#!" class="collection-item">Custom Badge Captions<span class="badge" data-badge-caption="custom caption">4</span></a>
+										<table border="1">
+											<tr class="collection-item">
+												<th class="collection-item" >关键词</th>
+												<th class="collection-item">评分</th>
+											</tr>
+											<tr class="collection-item">
+												<td class="collection-item">漂亮</td>
+												<td class="collection-item" contenteditable="true">5</td>
+
+											</tr>
+													<tr class="collection-item">
+												<td class="collection-item">漂亮</td>
+												<td class="collection-item">5</td>
+
+											</tr>
+										</table>
+
+										<!--<a class="collection-item" style="margin-left: 6%;">Alan
+											<span class="badge" style="background: transparent;">								
+												<li class="fa fa-edit fa-2x"></li>
+										</span></a>-->
 									</div>
 								</div>
 
@@ -377,26 +392,6 @@
 
 						</div>
 					</div>
-					<!-- /. ROW  -->
-					<div class="fixed-action-btn horizontal click-to-toggle">
-						<a class="btn-floating btn-large red">
-							<i class="material-icons">menu</i>
-						</a>
-						<ul>
-							<li>
-								<a class="btn-floating red"><i class="material-icons">insert_chart</i></a>
-							</li>
-							<li>
-								<a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a>
-							</li>
-							<li>
-								<a class="btn-floating green"><i class="material-icons">publish</i></a>
-							</li>
-							<li>
-								<a class="btn-floating blue"><i class="material-icons">attach_file</i></a>
-							</li>
-						</ul>
-					</div>
 
 				</div>
 				<!-- /. PAGE INNER  -->
@@ -422,7 +417,17 @@
 		<script src="assets/js/custom-scripts.js"></script>
 		<script src="assets/js/city_request.js"></script>
 		<script>
-	
+			function getParams(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if(r != null) return decodeURI(r[2]);
+				return null;
+
+			};
+			area = getParams("area")
+			pid = getParams("pid")
+			newLi = "<li  class='active'><a href='#'>" + area + "</a></li>"
+			$('.breadcrumb').append(newLi)
 		</script>
 
 	</body>
