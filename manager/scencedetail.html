@@ -18,8 +18,9 @@
 		<link href="assets/css/custom-styles.css" rel="stylesheet" />
 		<!-- Google Fonts-->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css">
 		<script type="text/javascript" src="assets/js/city_request.js"></script>
+		<script type="text/javascript" src="assets/js/image_request.js"></script>
+
 	</head>
 
 	<body>
@@ -301,7 +302,7 @@
 						<li>
 							<a href="#">景区资料管理</a>
 						</li>
-						<!--<li class="active">图片</li>-->
+						<li class="active">景区</li>
 					</ol>
 
 				</div>
@@ -313,80 +314,11 @@
 
 				<div id="page-inner">
 					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-3">
-							<div class="card-panel">
-
-								<img src="../img/author.jpg" style="width: 100%;" />
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="row">
-						<div class="col-md-4 col-sm-12 col-xs-12">
-							<div class="card">
-								<div class="card-action">
-									<b>Tasks Panel</b>
-								</div>
-								<div class="card-image">
-									<div class="collection">
-										<a href="#!" class="collection-item">Red<span class="new badge red" data-badge-caption="red">4</span></a>
-										<a href="#!" class="collection-item">Blue<span class="new badge blue" data-badge-caption="blue">4</span></a>
-										<a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
-										<a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
-										<a href="#!" class="collection-item">Alan<span class="new badge blue" data-badge-caption="blue">4</span></a>
-										<a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
-										<a href="#!" class="collection-item">Custom Badge Captions<span class="new badge" data-badge-caption="custom caption">4</span></a>
-										<a href="#!" class="collection-item">Custom Badge Captions<span class="badge" data-badge-caption="custom caption">4</span></a>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-						<div class="col-md-8 col-sm-12 col-xs-12">
-							<div class="card">
-								<div class="card-action">
-									<b>User List</b>
-								</div>
-								<div class="card-image">
-									<ul class="collection">
-										<li class="collection-item avatar">
-											<i class="material-icons circle green">insert_chart</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-										<li class="collection-item avatar">
-											<i class="material-icons circle">folder</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-										<li class="collection-item avatar">
-											<i class="material-icons circle green">insert_chart</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-										<li class="collection-item avatar">
-											<i class="material-icons circle red">play_arrow</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
-
+						<div class='col-xs-12 col-sm-6 col-md-3' style='width: 25%;'>
+							<div class='card-panel' ><img src="../img/author.jpg" style='width: 100%;' /></a></div>
 						</div>
 					</div>
-					<!-- /. ROW  -->
+
 					<div class="fixed-action-btn horizontal click-to-toggle">
 						<a class="btn-floating btn-large red">
 							<i class="material-icons">menu</i>
@@ -438,8 +370,12 @@
 				return null;
 
 			};
+			province = getParams("province")
+			city = getParams("location")
+			citypid = getParams("citypid")
+			new load_area_pic(province, city, citypid)
 		</script>
-		
+
 	</body>
 
 </html>

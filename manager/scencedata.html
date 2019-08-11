@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
@@ -13,11 +13,14 @@
 		<!-- FontAwesome Styles-->
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- Morris Chart Styles-->
+		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
 		<!-- Custom Styles-->
 		<link href="assets/css/custom-styles.css" rel="stylesheet" />
 		<!-- Google Fonts-->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<script type="text/javascript" src="assets/js/city_request.js" ></script>
+		<script type="text/javascript" src="assets/js/city_request.js"></script>
+		<script type="text/javascript" src="assets/js/image_request.js"></script>
+
 	</head>
 
 	<body>
@@ -304,12 +307,99 @@
 
 				</div>
 				<div>
-					<ul id="province" >
-
+					<ul id="area">
 
 					</ul>
 				</div>
 
+				<div id="page-inner">
+
+					<div class="row">
+						<div class="col-md-4 col-sm-12 col-xs-12">
+							<div class="card">
+								<div class="card-action">
+									<b>Tasks Panel</b>
+								</div>
+								<div class="card-image">
+									<div class="collection">
+										<a href="#!" class="collection-item">Red<span class="new badge red" data-badge-caption="red">4</span></a>
+										<a href="#!" class="collection-item">Blue<span class="new badge blue" data-badge-caption="blue">4</span></a>
+										<a href="#!" class="collection-item"><span class="badge">1</span>Alan</a>
+										<a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
+										<a href="#!" class="collection-item">Alan<span class="new badge blue" data-badge-caption="blue">4</span></a>
+										<a href="#!" class="collection-item"><span class="badge">14</span>Alan</a>
+										<a href="#!" class="collection-item">Custom Badge Captions<span class="new badge" data-badge-caption="custom caption">4</span></a>
+										<a href="#!" class="collection-item">Custom Badge Captions<span class="badge" data-badge-caption="custom caption">4</span></a>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="col-md-8 col-sm-12 col-xs-12">
+							<div class="card">
+								<div class="card-action">
+									<b>User List</b>
+								</div>
+								<div class="card-image">
+									<ul class="collection">
+										<li class="collection-item avatar">
+											<i class="material-icons circle green">insert_chart</i>
+											<span class="title">Title</span>
+											<p>First Line <br> Second Line
+											</p>
+											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+										</li>
+										<li class="collection-item avatar">
+											<i class="material-icons circle">folder</i>
+											<span class="title">Title</span>
+											<p>First Line <br> Second Line
+											</p>
+											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+										</li>
+										<li class="collection-item avatar">
+											<i class="material-icons circle green">insert_chart</i>
+											<span class="title">Title</span>
+											<p>First Line <br> Second Line
+											</p>
+											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+										</li>
+										<li class="collection-item avatar">
+											<i class="material-icons circle red">play_arrow</i>
+											<span class="title">Title</span>
+											<p>First Line <br> Second Line
+											</p>
+											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<!-- /. ROW  -->
+					<div class="fixed-action-btn horizontal click-to-toggle">
+						<a class="btn-floating btn-large red">
+							<i class="material-icons">menu</i>
+						</a>
+						<ul>
+							<li>
+								<a class="btn-floating red"><i class="material-icons">insert_chart</i></a>
+							</li>
+							<li>
+								<a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a>
+							</li>
+							<li>
+								<a class="btn-floating green"><i class="material-icons">publish</i></a>
+							</li>
+							<li>
+								<a class="btn-floating blue"><i class="material-icons">attach_file</i></a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<!-- /. PAGE INNER  -->
 			</div>
 			<!-- /. PAGE WRAPPER  -->
 		</div>
@@ -325,19 +415,16 @@
 		<script src="assets/js/jquery.metisMenu.js"></script>
 		<!-- Morris Chart Js -->
 
-
 		<script src="assets/js/easypiechart.js"></script>
 		<script src="assets/js/easypiechart-data.js"></script>
-
 
 		<!-- Custom Js -->
 		<script src="assets/js/custom-scripts.js"></script>
 		<script src="assets/js/city_request.js"></script>
 		<script>
-			window.onload=function(){
-				new Get_province_city()
-			}
+	
 		</script>
+
 	</body>
 
 </html>
