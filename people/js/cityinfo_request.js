@@ -30,6 +30,7 @@ function CityInfoRequest() {
 }
 
 function start_Add_Element_Of_area(pro, area_url) {
+	//切换省份时自动加载第一个城市以及第一个景区
 	//页面城市地区初始化
 	var city = $("#city_select0 option:first").text();
 	var citypid = $("#city_select0").val();
@@ -51,20 +52,7 @@ function start_Add_Element_Of_area(pro, area_url) {
 			$('#scence_select0').append(newElement);
 
 		}
-		pid = $('#scence_select0 option:selected').val();
-		flag = parseInt($('#scence_select0 option:selected').attr("flag"));
-		lon = $('#scence_select0 option:selected').attr("lon");
-		lat = $('#scence_select0 option:selected').attr("lat");
-
-		date_begin = new Date().format("yyyyMMdd");
-		date_end = parseInt(date_begin) + 1;
-		new realtimeFlow(pid, date_begin, date_end);
-		new SearchRate(pid);
-		new Geographic_bounds(pid, flag, lon, lat);
-		new Image_reuqest(pid)
-
-		if(flag == 0)
-			new People_Distribution_rate(pid,lon,lat);
+	new load_data()
 
 	}, 'json');
 }
@@ -95,6 +83,7 @@ CityInfoRequest.prototype.listen = function() {
 
 		}, 'json');
 	});
+
 	$("#city_select0").change(function() {
 		var city = $(this).children('option:selected').text();
 		var citypid = $(this).children('option:selected').val();
@@ -116,26 +105,28 @@ CityInfoRequest.prototype.listen = function() {
 				$('#scence_select0').append(newElement);
 
 			}
-
+new load_data()
 		}, 'json');
 
 	});
 	$("#scence_select0").change(function() {
-		var pid = $(this).children('option:selected').val();
+		new load_data()
+	});
+}
+function load_data(){
+		pid = $('#scence_select0 option:selected').val();
 		lon = $('#scence_select0 option:selected').attr("lon");
 		lat = $('#scence_select0 option:selected').attr("lat");
 		date_begin = new Date().format("yyyyMMdd");
 		date_end = parseInt(date_begin) + 1;
 		flag = parseInt($('#scence_select0 option:selected').attr("flag"));
 		new realtimeFlow(pid, date_begin, date_end);
-		new SearchRate(pid);
+		new SearchRate(pid, flag);
 		new Geographic_bounds(pid, flag, lon, lat);
 		if(flag == 0)
-		
-			new People_Distribution_rate(pid,lon,lat);
-	});
-}
 
+			new People_Distribution_rate(pid, lon, lat);
+}
 Date.prototype.format = function(fmt) {
 	var o = {
 		"M+": this.getMonth() + 1, //月份 

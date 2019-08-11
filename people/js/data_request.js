@@ -27,11 +27,12 @@ function realtimeFlow(area_pid, dbegin, dend) {
 
 }
 
-function SearchRate(area_pid) {
+function SearchRate(area_pid,fla) {
 	//关键词热度
 	this.url = "http://127.0.0.1:8000/attractions/api/getLocation_search_rate"
 	$.get(this.url, {
 		pid: area_pid,
+		flag:fla,
 		sub_domain: ''
 
 	}, function(data, state) {

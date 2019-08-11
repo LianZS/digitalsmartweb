@@ -1,6 +1,6 @@
-function drawRadar() {
+function drawRadar(idname,jsondata) {
 
-    var mychart = echarts.init(document.getElementById("evaluate"));
+    var mychart = echarts.init(document.getElementById(idname));
     var option = {
 
 
