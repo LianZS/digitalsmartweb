@@ -64,11 +64,11 @@ function CommentRate(pid) {
 			tr_count += 1
 
 			let i = j;
-			tr = "<tr class=\"collection-item\" id=\"tr" + j + "\"><td flag=\"1\" class=\"collection-item\" id=\"comment-key" + j + "\"></td><td flag=\"1\" class=\"collection-item\" id=\"comment-grade" + j + "\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del" + j + "\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit" + j + "\"></li></a></td></tr>"
+			tr = "<tr pk='NaN' class=\"collection-item\" id=\"tr" + j + "\"><td flag=\"1\" class=\"collection-item\" id=\"comment-key" + j + "\"></td><td flag=\"1\" class=\"collection-item\" id=\"comment-grade" + j + "\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del" + j + "\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit" + j + "\"></li></a></td></tr>"
 			$("#comment-rate").append(tr)
 			$('#edit' + i).click(function() {
-//				$("#comment-key" + i).attr("flag", "1")
-//				$("#comment-grade" + i).attr("flag", "1")
+						$("#comment-key" + i).attr("flag", "1")
+				$("#comment-grade" + i).attr("flag", "1")
 				var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
 				document.getElementById("comment-key" + i).focus()
 				var grade = document.getElementById("comment-grade" + i).setAttribute("contenteditable", "true");
@@ -79,7 +79,91 @@ function CommentRate(pid) {
 			});
 		});
 		$("#send").click(function() {
-  //搜索出flag=1的td，再传上去
+			var array = new Array()
+			var index = 0
+
+			$("tr[pk]").each(function() {
+				var count = 0
+				var pk = $(this).attr("pk")
+				var adjectives = null
+				var rate = 0
+				var adj=1
+				$(this).children().each(function() {
+					if($(this).attr("flag") == 0) {
+						return
+					}
+					if(adj>=2){
+						alert("不能有空")
+					}
+					txt = $(this).text()
+							
+					if(txt != '' & count % 2 == 0) { //关键词
+						adjectives = txt
+						$(this).attr("flag", 0)
+
+					} else if(txt != '' & count % 2 == 1) { //评分
+						rate = txt
+
+						array[index] = {
+							"pk": parseInt(pk),
+							"adjectives": adjectives,
+							"rate": parseInt(rate)
+						}
+						$(this).attr("flag", 0)
+						count=0
+						index += 1
+					} else {
+						adj+=1
+						return
+					}
+					count += 1
+	
+				})
+			})
+console.log(array)
+
 		})
 	}, "json")
+}
+
+class Stack {
+
+	constructor() {
+		this.items = []
+	}
+
+	// 入栈
+	push(element) {
+		this.items.push(element)
+	}
+
+	// 出栈
+	pop() {
+		return this.items.pop()
+	}
+
+	// 末位
+	get peek() {
+		return this.items[this.items.length - 1]
+	}
+
+	// 是否为空栈
+	get isEmpty() {
+		return !this.items.length
+	}
+
+	// 尺寸
+	get size() {
+		return this.items.length
+	}
+
+	// 清空栈
+	clear() {
+		this.items = []
+	}
+
+	// 打印栈数据
+	print() {
+		console.log(this.items.toString())
+	}
 }
