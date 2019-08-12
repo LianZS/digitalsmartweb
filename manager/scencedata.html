@@ -13,13 +13,13 @@
 		<!-- FontAwesome Styles-->
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
 		<!-- Morris Chart Styles-->
-		<link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
 		<!-- Custom Styles-->
 		<link href="assets/css/custom-styles.css" rel="stylesheet" />
 		<!-- Google Fonts-->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-		<script type="text/javascript" src="assets/js/city_request.js"></script>
-		<script type="text/javascript" src="assets/js/image_request.js"></script>
+		<script type="text/javascript" src="js/city_request.js"></script>
+		<script type="text/javascript" src="js/image_request.js"></script>
+		<script type="text/javascript" src="js/comment.js"></script>
 
 	</head>
 
@@ -237,53 +237,7 @@
 						<li>
 							<a class="active-menu waves-effect waves-dark" href="scencemanager.html"><i class="fa fa-dashboard"></i>景区资料管理</a>
 						</li>
-						<li>
-							<a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> UI Elements</a>
-						</li>
-						<li>
-							<a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Charts</a>
-						</li>
-						<li>
-							<a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
-						</li>
-
-						<li>
-							<a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> Responsive Tables</a>
-						</li>
-						<li>
-							<a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
-						</li>
-
-						<li>
-							<a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
-							<ul class="nav nav-second-level">
-								<li>
-									<a href="#">Second Level Link</a>
-								</li>
-								<li>
-									<a href="#">Second Level Link</a>
-								</li>
-								<li>
-									<a href="#">Second Level Link<span class="fa arrow"></span></a>
-									<ul class="nav nav-third-level">
-										<li>
-											<a href="#">Third Level Link</a>
-										</li>
-										<li>
-											<a href="#">Third Level Link</a>
-										</li>
-										<li>
-											<a href="#">Third Level Link</a>
-										</li>
-
-									</ul>
-
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty Page</a>
-						</li>
+						
 					</ul>
 
 				</div>
@@ -324,27 +278,15 @@
 								</div>
 								<div class="card-image">
 									<div class="collection">
-										<table border="1">
+										<table border="1" id="comment-rate">
 											<tr class="collection-item">
 												<th class="collection-item" >关键词</th>
 												<th class="collection-item">评分</th>
-											</tr>
-											<tr class="collection-item">
-												<td class="collection-item">漂亮</td>
-												<td class="collection-item" contenteditable="true">5</td>
+												<th class="collection-item" contenteditable="true">编辑</td>
 
-											</tr>
-													<tr class="collection-item">
-												<td class="collection-item">漂亮</td>
-												<td class="collection-item">5</td>
-						
 											</tr>
 										</table>
 
-										<!--<a class="collection-item" style="margin-left: 6%;">Alan
-											<span class="badge" style="background: transparent;">								
-												<li class="fa fa-edit fa-2x"></li>
-										</span></a>-->
 									</div>
 								</div>
 
@@ -414,20 +356,23 @@
 		<script src="assets/js/easypiechart-data.js"></script>
 
 		<!-- Custom Js -->
-		<script src="assets/js/custom-scripts.js"></script>
-		<script src="assets/js/city_request.js"></script>
+	
 		<script>
-			function getParams(name) {
+			window.onload=function(){
+				function getParams(name) {
 				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 				var r = window.location.search.substr(1).match(reg);
 				if(r != null) return decodeURI(r[2]);
 				return null;
-
 			};
 			area = getParams("area")
 			pid = getParams("pid")
 			newLi = "<li  class='active'><a href='#'>" + area + "</a></li>"
+			new CommentRate(pid)
 			$('.breadcrumb').append(newLi)
+			}
+			
+			
 		</script>
 
 	</body>
