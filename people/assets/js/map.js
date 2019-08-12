@@ -9,7 +9,7 @@ function map(bounds,elementid,center_lon,center_lat){
  var map = new AMap.Map(elementid, {
     	        resizeEnable: true,
 
-        zooms: [4, 20],
+        zooms: [10, 20],
         center: [center_lon,center_lat],
        
         showIndoorMap: false,

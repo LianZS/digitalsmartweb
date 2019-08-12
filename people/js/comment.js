@@ -1,5 +1,6 @@
 function Comment(pid) {
 	this.url = "http://127.0.0.1:8000/attractions/api/getComment?"
+	var img_url = "http://127.0.0.1:8000/media/"
 	$.get(this.url, {
 		"pid": pid
 	}, function(data, state) {
@@ -10,10 +11,11 @@ function Comment(pid) {
 			comment = item["comment"]
 			commenttime = item['commenttime']
 			commentlike = item['commentlike']
+			userphoto=item['userphoto']
 			commentElement = "<div class='chat-widget-left'>" + comment + "</div>"
 			$("#comment").append(commentElement)
-			src = 'assets/img/user2.png'
-			infoElement = "<div class='chat-widget-name-left'><img class='media-object img-circle img-left-chat' src=" + src + " /><h4> " + commentuser + "</h4><h5>评价时间：" + commenttime + "</h5></div><hr />"
+			src =img_url+userphoto
+			infoElement = "<div class='chat-widget-name-left'><img class='media-object img-circle img-left-chat' style='width:25%' src=" + src + "  /><h4> " + commentuser + "</h4><h5>评价时间：" + commenttime + "</h5></div><hr />"
 			$("#comment").append(infoElement)
 			
 		}
@@ -28,3 +30,4 @@ function CommentRate(pid,idname){
 		new CommentRadar(idname,comment)
 	},"json")
 }
+

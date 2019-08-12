@@ -31,7 +31,7 @@
 		<script src="js/data_request.js"></script>
 		<script src="js/image_request.js"></script>
 		<script src="js/comment.js"></script>
-
+		<script src="js/state.js"></script>
 		<link href="assets/css/style.css" rel="stylesheet" />
 
 		<link rel="stylesheet" href="../css/main.css">
@@ -139,7 +139,7 @@
 
 					<div class="field prov_field" style="float: left;margin-left: 5%;"><label style="color: white;">省份</label>
 						<div class="ui search selection dropdown w140">
-							<select id="prov_select0" style="background-color: #14FDFD;">
+							<select id="prov_select0" style="background-color: aquamarine;">
 								<option value="广东省">广东省</option>
 								<option value="北京市">北京市</option>
 								<option value="天津市">天津市</option>
@@ -177,13 +177,13 @@
 					</div>
 					<div class="field city_field" style="float: left;margin-left: 5%;"><label style="color: white;">城市</label>
 						<div class="ui search selection dropdown">
-							<select id="city_select0" style="background-color: #14FDFD;">
+							<select id="city_select0" style="background-color: aquamarine;">
 							</select>
 						</div>
 					</div>
 					<div class=" field area_field" style="float:left ;margin-left: 5%;"><label style="color: white;">区域</label>
 						<div class="ui search selection dropdown">
-							<select id="scence_select0" style="background-color: #14FDFD;">
+							<select id="scence_select0" style="background-color: aquamarine;">
 
 							</select>
 						</div>
@@ -192,7 +192,7 @@
 					<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
 
 						<div class="ui compact search selection dropdown">
-							<select id="range_select0" style="background-color: #14FDFD;">
+							<select id="range_select0" style="background-color: aquamarine;">
 								<option value="60">60分钟</option>
 								<option value="30">30分钟</option>
 								<option value="10">10分钟</option>
@@ -203,7 +203,7 @@
 
 					<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
 						<div class="ui compact search selection dropdown">
-							<button id="load" style="background-color: #14FDFD;">查看</button>
+							<button id="load" style="background-color: aquamarine;">查看</button>
 
 						</div>
 					</div>
@@ -216,25 +216,25 @@
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="alert alert-info back-widget-set text-center">
 							<i class="fa fa-car fa-5x"></i>
-							<h3 style="color: aquamarine;">良好 </h3> 交通状况
+							<h3 style="color: aquamarine;" id="traffic"> </h3> 交通状况
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="alert alert-success back-widget-set text-center">
 							<i class="fa fa-cloud fa-5x"></i>
-							<h3 style="color: aquamarine;">晴朗</h3> 天气情况
+							<h3 style="color: aquamarine;" id="weather"></h3> 天气情况
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="alert alert-warning back-widget-set text-center">
 							<i class="fa fa-yen fa-5x"></i>
-							<h3 style="color: aquamarine;">高</h3> 性价比
+							<h3 style="color: aquamarine;" id="cost"></h3> 性价比
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-3 col-xs-6">
 						<div class="alert alert-danger back-widget-set text-center">
 							<i class="fa fa-tree fa-5x"></i>
-							<h3 style="color: aquamarine;">优良 </h3> 环境指数
+							<h3 style="color: aquamarine;" id="environment"> </h3> 环境指数
 						</div>
 					</div>
 

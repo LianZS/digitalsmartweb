@@ -3,7 +3,7 @@ function Image_reuqest(pid){
 	var image_url="http://127.0.0.1:8000/media/"
 	$.get(this.url,{"pid":pid},function(data,state){
 		urls = data['url']
-		
+//		$(".carousel-inner").remove()
 		for(let i=0;i<urls.length;i++){
 			photo_url = image_url+urls[i].photo
 			if(i==0){

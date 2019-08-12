@@ -6,16 +6,15 @@ function CityInfoRequest() {
 	//	var objs = document.getElementById("prov_select0");
 	//					var grade = objs.options[objs.selectedIndex].value;\n
 	var pro = getParams("province")
-	if(pro==null){
+	if(pro == null) {
 		pro = $("#prov_select0 option:first").val();
-	}
-	else{
-		$("#prov_select0 option:contains("+pro+")").attr("selected", true);
+	} else {
+		$("#prov_select0 option:contains(" + pro + ")").attr("selected", true);
 
 	}
 
 	var area_list_url = this.area_url
-	
+
 	$.get(this.city_url, {
 		province: pro
 	}, function(data, state) {
@@ -32,18 +31,13 @@ function CityInfoRequest() {
 
 		}
 		city = getParams("location")
-		if(city==null){
+		if(city == null) {
 			start_Add_Element_Of_area(pro, area_list_url);
-			return 
-
-
-		}
-		else{
-			$("#city_select0 option:contains("+city+")").attr("selected", true);
+			return
+		} else {
+			$("#city_select0 option:contains(" + city + ")").attr("selected", true);
 			start_Add_Element_Of_area(pro, area_list_url);
 		}
-
-
 
 	}, 'json');
 	this.listen();
@@ -73,7 +67,16 @@ function start_Add_Element_Of_area(pro, area_url) {
 			$('#scence_select0').append(newElement);
 
 		}
-		new load_data()
+		area = getParams("area")
+		range=getParams("range")
+		if(area == null&range==null) {
+			new load_data()
+		} else {
+			$("#scence_select0  option:contains(" + area + ")").attr("selected", true);
+			 $("#range_select0 option:contains(" + range + ")").attr("selected", true);
+				new load_data()
+
+		}
 
 	}, 'json');
 }
@@ -133,7 +136,7 @@ CityInfoRequest.prototype.listen = function() {
 	$("#load").click(function() {
 		//更新页面数据
 		children_page()
-		 load_data()
+		load_data()
 	})
 }
 
@@ -148,7 +151,7 @@ function children_page() {
 	range = $('#range_select0 option:selected').val();
 	href = "realtimeScence.html?province=" + province + "&location=" + city + "&citypid=" + citypid + "&area=" + area + "&pid=" + pid + "&flag=" + flag + "&range=" + range
 	var url = window.location.href;
-	var valiable = url.split("?")[0] + "?province=" + province + "&location=" + city + "&citypid=" + citypid + "&area=" + area + "&pid=" + pid + "&flag=" + flag + "&range=" + range
+	var valiable = url.split("?")[0] + "?province=" + province + "&location=" + city + "&area=" + area + "&range=" + range
 	window.history.pushState({}, 0, valiable);
 
 }
@@ -160,7 +163,9 @@ function load_data() {
 	date_begin = new Date().format("yyyyMMdd");
 	date_end = parseInt(date_begin) + 1;
 	flag = parseInt($('#scence_select0 option:selected').attr("flag"));
-	new realtimeFlow(pid, date_begin, date_end);
+	range = $('#range_select0 option:selected').val();
+
+	new realtimeFlow(pid, date_begin, date_end,range);
 	new SearchRate(pid, flag);
 	new Geographic_bounds(pid, flag, lon, lat);
 	if(flag == 0)
@@ -168,8 +173,9 @@ function load_data() {
 		new People_Distribution_rate(pid, lon, lat);
 	new Image_reuqest(pid)
 	new Comment(pid)
-	new CommentRate(pid,"evaluate")
-	
+	new CommentRate(pid, "evaluate")
+	new ScenceState(pid)
+
 }
 Date.prototype.format = function(fmt) {
 	var o = {

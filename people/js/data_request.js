@@ -1,10 +1,11 @@
-function realtimeFlow(area_pid, dbegin, dend) {
+function realtimeFlow(area_pid, dbegin, dend,range) {
 	//人流热度
 	this.url = "http://127.0.0.1:8000/attractions/api/getLocation_pn_percent_new"
 	$.get(this.url, {
 		pid: area_pid,
 		date_begin: dbegin,
 		date_end: dend,
+		range:range,
 		predict: true,
 		sub_domain: ''
 
