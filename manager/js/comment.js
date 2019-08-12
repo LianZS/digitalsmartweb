@@ -25,7 +25,7 @@ function Comment(pid) {
 function CommentRate(pid) {
 	//评论指数
 	this.url = "http://127.0.0.1:8000/attractions/api/getCommentRate?"
-	var tr_count=0;
+	var tr_count = 0;
 	$.get(this.url, {
 		"pid": pid
 	}, function(data) {
@@ -36,45 +36,50 @@ function CommentRate(pid) {
 			item = comments[i]
 			adjectives = item['adjectives']
 			rate = item['rate']
-			pk=item['pk']
+			pk = item['pk']
 			//flag属性0标识未修改过，1表示修改过
-			tr = "<tr  pk="+pk+" class='collection-item' id='tr" + i + "'><td flag=\"0\" class='collection-item' id='comment-key" + i + "'>" + adjectives + "</td><td flag=\"0\" class=' collection-item' id='comment-grade" + i + "'>" + rate + "</td> <td style='text-align:right;'><a style='padding-right: 20%;'><li  class='fa fa-minus-circle fa-2x' id='del" + i + "'></li></a><a><li class='fa fa-edit fa-2x' id='edit" + i + "'></li></a></td></tr>"
+			tr = "<tr  pk=" + pk + " class='collection-item' id='tr" + i + "'><td flag=\"0\" class='collection-item' id='comment-key" + i + "'>" + adjectives + "</td><td flag=\"0\" class=' collection-item' id='comment-grade" + i + "'>" + rate + "</td> <td style='text-align:right;'><a style='padding-right: 20%;'><li  class='fa fa-minus-circle fa-2x' id='del" + i + "'></li></a><a><li class='fa fa-edit fa-2x' id='edit" + i + "'></li></a></td></tr>"
 			$("#comment-rate").append(tr)
 			j = i;
 			$('#edit' + i).click(function() {
+				$("#comment-key" + i).attr("flag", "1")
+				$("#comment-grade" + i).attr("flag", "1")
+
 				var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
 				document.getElementById("comment-key" + i).focus()
 				var grade = document.getElementById("comment-grade" + i).setAttribute("contenteditable", "true");
 			});
 			$('#del' + i).click(function() {
-				tr_count-=1
+				tr_count -= 1
 				$("#tr" + i).remove()
 			})
-			tr_count+=1
+			tr_count += 1
 		}
 		$("#add-tr").click(function() {
-			if(tr_count>=10){
+			if(tr_count >= 10) {
 				alert("最大只能拥有十条数据")
 				return
 			}
 			j += 1;
-			tr_count+=1
+			tr_count += 1
 
-			let i=j;
-			tr="<tr class=\"collection-item\" id=\"tr"+j+"\"><td flag=\"0\" class=\"collection-item\" id=\"comment-key"+j+"\"></td><td flag=\"0\" class=\"collection-item\" id=\"comment-grade"+j+"\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del"+j+"\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit"+j+"\"></li></a></td></tr>"
+			let i = j;
+			tr = "<tr class=\"collection-item\" id=\"tr" + j + "\"><td flag=\"1\" class=\"collection-item\" id=\"comment-key" + j + "\"></td><td flag=\"1\" class=\"collection-item\" id=\"comment-grade" + j + "\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del" + j + "\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit" + j + "\"></li></a></td></tr>"
 			$("#comment-rate").append(tr)
 			$('#edit' + i).click(function() {
+//				$("#comment-key" + i).attr("flag", "1")
+//				$("#comment-grade" + i).attr("flag", "1")
 				var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
 				document.getElementById("comment-key" + i).focus()
 				var grade = document.getElementById("comment-grade" + i).setAttribute("contenteditable", "true");
 			});
-			$("#del"+i).click(function() {
-				tr_count-=1
+			$("#del" + i).click(function() {
+				tr_count -= 1
 				$("#tr" + i).remove()
 			});
 		});
-		$("#send").click(function(){
-			
+		$("#send").click(function() {
+  //搜索出flag=1的td，再传上去
 		})
 	}, "json")
 }
