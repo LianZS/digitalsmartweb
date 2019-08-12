@@ -165,6 +165,7 @@ function load_data() {
 
 		new People_Distribution_rate(pid, lon, lat);
 	new Image_reuqest(pid)
+	
 }
 Date.prototype.format = function(fmt) {
 	var o = {
