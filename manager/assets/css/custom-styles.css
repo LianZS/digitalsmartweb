@@ -670,3 +670,6 @@ font-size: 19px;
 			left: -69px !important;
 		}
  }
+.collection .collection-item{
+	border:1px solid #e0e0e0
+}
