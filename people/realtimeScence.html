@@ -138,8 +138,8 @@
 
 					<div class="field prov_field" style="float: left;margin-left: 5%;"><label style="color: white;">省份</label>
 						<div class="ui search selection dropdown w140">
-							<select id="prov_select0">
-								<option value="广东省">广东省</option>
+							<select id="prov_select0" style="background-color: #14FDFD;">
+								<option value="广东省" >广东省</option>
 								<option value="北京市">北京市</option>
 								<option value="天津市">天津市</option>
 								<option value="河北省">河北省</option>
@@ -176,13 +176,13 @@
 					</div>
 					<div class="field city_field" style="float: left;margin-left: 5%;"><label style="color: white;">城市</label>
 						<div class="ui search selection dropdown">
-							<select id="city_select0">
+							<select id="city_select0" style="background-color: #14FDFD;">
 							</select>
 						</div>
 					</div>
 					<div class=" field area_field" style="float:left ;margin-left: 5%;"><label style="color: white;">区域</label>
 						<div class="ui search selection dropdown">
-							<select id="scence_select0">
+							<select id="scence_select0" style="background-color: #14FDFD;">
 
 							</select>
 						</div>
@@ -191,7 +191,7 @@
 					<div class="field interval_field" style="float: left;margin-left: 5%;"><label style="color: white;">粒度</label>
 
 						<div class="ui compact search selection dropdown">
-							<select id="range_select0">
+							<select id="range_select0" style="background-color: #14FDFD;">
 								<option value="60">60分钟</option>
 								<option value="30">30分钟</option>
 								<option value="10">10分钟</option>
@@ -200,14 +200,12 @@
 						</div>
 					</div>
 
-					<!--<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
+					<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
 							<div class="ui compact search selection dropdown">
-								<span style="color: yellow;">
-				<i class="fa fa-search fa-2x " ></i>
-			</span>
+							<button id="load" style="background-color: #14FDFD;">查看</button>
 
 							</div>
-						</div>-->
+						</div>
 				</div>
 
 				<div class="row pad-botm">
@@ -345,10 +343,11 @@
 					</div>
 
 				</div>
-
+		
 				<script language=javascript type="text/javascript">
 					//固定写法
 					window.onload = function() {
+						
 						new CityInfoRequest();
 
 					}

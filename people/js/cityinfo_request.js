@@ -1,11 +1,21 @@
 function CityInfoRequest() {
+	//刚进入该页面时进行的初始化
 	//页面省份城市初始化
 	this.city_url = "http://127.0.0.1:8000/attractions/api/getCitysByProvince";
 	this.area_url = "http://127.0.0.1:8000/attractions/api/getRegionsByCity"
 	//	var objs = document.getElementById("prov_select0");
-	//					var grade = objs.options[objs.selectedIndex].value;
-	var pro = $("#prov_select0 option:first").val();
+	//					var grade = objs.options[objs.selectedIndex].value;\n
+	var pro = getParams("province")
+	if(pro==null){
+		pro = $("#prov_select0 option:first").val();
+	}
+	else{
+		$("#prov_select0 option:contains("+pro+")").attr("selected", true);
+
+	}
+
 	var area_list_url = this.area_url
+	
 	$.get(this.city_url, {
 		province: pro
 	}, function(data, state) {
@@ -21,8 +31,19 @@ function CityInfoRequest() {
 			$('#city_select0').append(newElement);
 
 		}
+		city = getParams("location")
+		if(city==null){
+			start_Add_Element_Of_area(pro, area_list_url);
+			return 
 
-		start_Add_Element_Of_area(pro, area_list_url);
+
+		}
+		else{
+			$("#city_select0 option:contains("+city+")").attr("selected", true);
+			start_Add_Element_Of_area(pro, area_list_url);
+		}
+
+
 
 	}, 'json');
 	this.listen();
@@ -32,7 +53,7 @@ function CityInfoRequest() {
 function start_Add_Element_Of_area(pro, area_url) {
 	//切换省份时自动加载第一个城市以及第一个景区
 	//页面城市地区初始化
-	var city = $("#city_select0 option:first").text();
+	var city = $("#city_select0 option:selected").text();
 	var citypid = $("#city_select0").val();
 	$.get(area_url, {
 		province: pro,
@@ -52,7 +73,7 @@ function start_Add_Element_Of_area(pro, area_url) {
 			$('#scence_select0').append(newElement);
 
 		}
-	new load_data()
+		new load_data()
 
 	}, 'json');
 }
@@ -105,27 +126,45 @@ CityInfoRequest.prototype.listen = function() {
 				$('#scence_select0').append(newElement);
 
 			}
-new load_data()
 		}, 'json');
 
 	});
-	$("#scence_select0").change(function() {
-		new load_data()
-	});
-}
-function load_data(){
-		pid = $('#scence_select0 option:selected').val();
-		lon = $('#scence_select0 option:selected').attr("lon");
-		lat = $('#scence_select0 option:selected').attr("lat");
-		date_begin = new Date().format("yyyyMMdd");
-		date_end = parseInt(date_begin) + 1;
-		flag = parseInt($('#scence_select0 option:selected').attr("flag"));
-		new realtimeFlow(pid, date_begin, date_end);
-		new SearchRate(pid, flag);
-		new Geographic_bounds(pid, flag, lon, lat);
-		if(flag == 0)
 
-			new People_Distribution_rate(pid, lon, lat);
+	$("#load").click(function() {
+		children_page()
+		 load_data()
+	})
+}
+
+function children_page() {
+	province = $('#prov_select0 option:selected').val();
+	city = $('#city_select0 option:selected').text();
+	citypid = $('#city_select0 option:selected').val();
+	area = $('#scence_select0 option:selected').text();
+	pid = $('#scence_select0 option:selected').val();
+	flag = parseInt($('#scence_select0 option:selected').attr("flag"));
+	range = $('#range_select0 option:selected').val();
+	href = "realtimeScence.html?province=" + province + "&location=" + city + "&citypid=" + citypid + "&area=" + area + "&pid=" + pid + "&flag=" + flag + "&range=" + range
+	var url = window.location.href;
+	var valiable = url.split("?")[0] + "?province=" + province + "&location=" + city + "&citypid=" + citypid + "&area=" + area + "&pid=" + pid + "&flag=" + flag + "&range=" + range
+	window.history.pushState({}, 0, valiable);
+
+}
+
+function load_data() {
+	pid = $('#scence_select0 option:selected').val();
+	lon = $('#scence_select0 option:selected').attr("lon");
+	lat = $('#scence_select0 option:selected').attr("lat");
+	date_begin = new Date().format("yyyyMMdd");
+	date_end = parseInt(date_begin) + 1;
+	flag = parseInt($('#scence_select0 option:selected').attr("flag"));
+	new realtimeFlow(pid, date_begin, date_end);
+	new SearchRate(pid, flag);
+	new Geographic_bounds(pid, flag, lon, lat);
+	if(flag == 0)
+
+		new People_Distribution_rate(pid, lon, lat);
+	new Image_reuqest(pid)
 }
 Date.prototype.format = function(fmt) {
 	var o = {
@@ -147,3 +186,11 @@ Date.prototype.format = function(fmt) {
 	}
 	return fmt;
 }
+
+function getParams(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if(r != null) return decodeURI(r[2]);
+	return null;
+
+};
