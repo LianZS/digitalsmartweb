@@ -36,7 +36,9 @@ function CommentRate(pid) {
 			item = comments[i]
 			adjectives = item['adjectives']
 			rate = item['rate']
-			tr = "<tr  class='collection-item' id='tr" + i + "'><td class='collection-item' id='comment-key" + i + "'>" + adjectives + "</td><td class=' collection-item' id='comment-grade" + i + "'>" + rate + "</td> <td style='text-align:right;'><a style='padding-right: 20%;'><li  class='fa fa-minus-circle fa-2x' id='del" + i + "'></li></a><a><li class='fa fa-edit fa-2x' id='edit" + i + "'></li></a></td></tr>"
+			pk=item['pk']
+			//flag属性0标识未修改过，1表示修改过
+			tr = "<tr  pk="+pk+" class='collection-item' id='tr" + i + "'><td flag=\"0\" class='collection-item' id='comment-key" + i + "'>" + adjectives + "</td><td flag=\"0\" class=' collection-item' id='comment-grade" + i + "'>" + rate + "</td> <td style='text-align:right;'><a style='padding-right: 20%;'><li  class='fa fa-minus-circle fa-2x' id='del" + i + "'></li></a><a><li class='fa fa-edit fa-2x' id='edit" + i + "'></li></a></td></tr>"
 			$("#comment-rate").append(tr)
 			j = i;
 			$('#edit' + i).click(function() {
@@ -50,7 +52,6 @@ function CommentRate(pid) {
 			})
 			tr_count+=1
 		}
-		$("#comment-rate").append("<tr class='collection-item'><td></td><td></td><td></td></tr>")
 		$("#add-tr").click(function() {
 			if(tr_count>=10){
 				alert("最大只能拥有十条数据")
@@ -60,7 +61,7 @@ function CommentRate(pid) {
 			tr_count+=1
 
 			let i=j;
-			tr="<tr class=\"collection-item\" id=\"tr"+j+"\"><td class=\"collection-item\" id=\"comment-key"+j+"\"></td><td class=\"collection-item\" id=\"comment-grade"+j+"\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del"+j+"\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit"+j+"\"></li></a></td></tr>"
+			tr="<tr class=\"collection-item\" id=\"tr"+j+"\"><td flag=\"0\" class=\"collection-item\" id=\"comment-key"+j+"\"></td><td flag=\"0\" class=\"collection-item\" id=\"comment-grade"+j+"\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del"+j+"\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit"+j+"\"></li></a></td></tr>"
 			$("#comment-rate").append(tr)
 			$('#edit' + i).click(function() {
 				var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
