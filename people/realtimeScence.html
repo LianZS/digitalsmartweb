@@ -29,7 +29,8 @@
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
 		<script src="js/data_request.js"></script>
-				<script src="js/image_request.js"></script>
+		<script src="js/image_request.js"></script>
+		<script src="js/comment.js"></script>
 
 		<link href="assets/css/style.css" rel="stylesheet" />
 
@@ -139,7 +140,7 @@
 					<div class="field prov_field" style="float: left;margin-left: 5%;"><label style="color: white;">省份</label>
 						<div class="ui search selection dropdown w140">
 							<select id="prov_select0" style="background-color: #14FDFD;">
-								<option value="广东省" >广东省</option>
+								<option value="广东省">广东省</option>
 								<option value="北京市">北京市</option>
 								<option value="天津市">天津市</option>
 								<option value="河北省">河北省</option>
@@ -201,11 +202,11 @@
 					</div>
 
 					<div class="field date_field" style="float: left;margin-left: 5%; padding: 30px;">
-							<div class="ui compact search selection dropdown">
+						<div class="ui compact search selection dropdown">
 							<button id="load" style="background-color: #14FDFD;">查看</button>
 
-							</div>
 						</div>
+					</div>
 				</div>
 
 				<div class="row pad-botm">
@@ -244,7 +245,7 @@
 						<div id="carousel-example" class="carousel slide slide-bdr" data-ride="carousel">
 
 							<div class="carousel-inner">
-						
+
 							</div>
 							<!--INDICATORS-->
 							<ol class="carousel-indicators">
@@ -268,7 +269,6 @@
 								景区评价
 							</div>
 							<div class="panel-body chat-widget-main" id="comment" style="background-color: #dff0d8;">
-					
 
 							</div>
 
@@ -311,11 +311,11 @@
 					</div>
 
 				</div>
-		
+
 				<script language=javascript type="text/javascript">
 					//固定写法
 					window.onload = function() {
-						
+
 						new CityInfoRequest();
 
 					}

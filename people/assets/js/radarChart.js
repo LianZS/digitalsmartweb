@@ -1,5 +1,15 @@
-function drawRadar(idname,jsondata) {
-
+function CommentRadar(idname,jsondata) {
+	len=jsondata.length
+	indicatorList=new Array(len)
+	valueList=new Array(len)
+	for(let i=0;i<len;i++){
+		item =jsondata[i]
+		adjectives=item['adjectives']
+		rate=item['rate']
+		indicatorList[i]={name:adjectives,max:100}
+		valueList[i]=rate
+	}
+	
     var mychart = echarts.init(document.getElementById(idname));
     var option = {
 
@@ -7,38 +17,15 @@ function drawRadar(idname,jsondata) {
         tooltip: {},
         backgroundcolor: "blue",
         radar: {
-            indicator: [{
-                name: "环境优美",
-                max: 100
-            },
-                {
-                    name: '设备齐全',
-                    max: 100
-                },
-                {
-                    name: '性价比高',
-                    max: 100
-                },
-                {
-                    name: '交通方便',
-                    max: 100
-                },
-                {
-                    name: '干净整洁',
-                    max: 100
-                },
-                {
-                    name: '人流拥挤',
-                    max: 100
-                }
-            ]
+            indicator: indicatorList
+            
         },
         series: [{
 
             type: 'radar',
             // areaStyle: {normal: {}},
             data: [{
-                value: [80, 20, 38, 78, 93, 67],
+                value: valueList,
                 name: "景区评分"
             },
             ]

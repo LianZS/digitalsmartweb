@@ -131,12 +131,14 @@ CityInfoRequest.prototype.listen = function() {
 	});
 
 	$("#load").click(function() {
+		//更新页面数据
 		children_page()
 		 load_data()
 	})
 }
 
 function children_page() {
+	//切换链接
 	province = $('#prov_select0 option:selected').val();
 	city = $('#city_select0 option:selected').text();
 	citypid = $('#city_select0 option:selected').val();
@@ -165,6 +167,8 @@ function load_data() {
 
 		new People_Distribution_rate(pid, lon, lat);
 	new Image_reuqest(pid)
+	new Comment(pid)
+	new CommentRate(pid,"evaluate")
 	
 }
 Date.prototype.format = function(fmt) {
