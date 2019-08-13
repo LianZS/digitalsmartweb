@@ -330,6 +330,8 @@
 											<thead class="collection-item">
 												<th class="collection-item" style="width: 10%;">网友</th>
 												<th class="collection-item" style="text-align: center;">评价</th>
+												<th class="collection-item" style="text-align: center;">星级评分</th>
+
 												<th class="collection-item" style="width: 10%;">时间</td>
 												<th class="collection-item" style="width: 10%;">编辑</td>
 
@@ -395,8 +397,10 @@
 				area = getParams("area")
 				pid = getParams("pid")
 				newLi = "<li  class='active'><a href='#'>" + area + "</a></li>"
-				new CommentRate(pid)
-				new Comment(pid)
+				CommentRate(pid)
+				Submit()
+				Add_element()
+//				new Comment(pid)
 				$('.breadcrumb').append(newLi)
 			}
 		</script>

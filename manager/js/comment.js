@@ -1,6 +1,8 @@
 function Comment(pid) {
 	this.url = "http://127.0.0.1:8000/attractions/api/getComment?"
 	//	var img_url = "http://127.0.0.1:8000/media/"
+	var post_url = "http://127.0.0.1:8000/attractions/admin/uploadComment?"
+
 	var tr_count = 0; //记录tr的数目
 	var index = 0 //数组游标
 	$.get(this.url, {
@@ -21,12 +23,21 @@ function Comment(pid) {
 			commentlike = item['commentlike']
 			//			userphoto = item['userphoto']
 			//			src = img_url + userphoto
-			tr = "<tr comment-pk=" + i + " class=\"collection-item\" id=\"comment-tr" + i + "\"><td flag=\"0\" class=\"collection-item\" id=\"user-" + i + "\">" + commentuser + "</td><td flag=\"0\" class=\"collection-item\" id=\"comment-detail" + i + "\">" + comment + "</td> <td  flag=\"0\" class=\"collection-item\"  >" + commenttime + " </td><td style=\"text-align:center;\"><a ><li  class=\"fa fa-minus-circle fa-2x\" id=\"commentdel" + i + "\"></li></a></td></tr>"
+			tr = "<tr comment-pk=" + i + " class=\"collection-item\" id=\"comment-tr" + i + "\"><td flag=\"0\" class=\"collection-item\" id=\"user-" + i + "\">" + commentuser + "</td><td flag=\"0\" class=\"collection-item\" id=\"comment-detail" + i + "\">" + comment + "</td> <td flag=\"0\" class=\"collection-item\">" + commentlike + "</td><td  flag=\"0\" class=\"collection-item\"  >" + commenttime + " </td><td style=\"text-align:center;\"><a ><li  class=\"fa fa-minus-circle fa-2x\" id=\"commentdel" + i + "\"></li></a></td></tr>"
 			$("#comment").append(tr)
-			$("#commentdel" + i).click(function() {
+			$('#commentdel' + i).click(function() {
 				tr_count -= 1
+				pk = $("#comment-tr" + i).attr("comment-pk")
+				array[index] = {
+					"pk": parseInt(pk), //表示要删除的元素
+					"commentuser": "",
+					"comment": "",
+					"commenttime": "",
+					"commentlike": ""
+				}
+				index += 1
 				$("#comment-tr" + i).remove()
-			});
+			})
 			tr_count += 1
 			j = i
 		}
@@ -39,7 +50,7 @@ function Comment(pid) {
 			tr_count += 1
 
 			let i = j;
-			tr = "<tr comment-pk=\"-1\" class=\"collection-item\" id=\"comment-tr" + i + "\"><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\" id=\"user-" + i + "\"></td><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\" id=\"comment-detail" + i + "\"></td> <td   contenteditable=\"true\" flag=\"1\" class=\"collection-item\"  ></td><td style=\"text-align:center;\"><a ><li  class=\"fa fa-minus-circle fa-2x\" id=\"commentdel" + i + "\"></li></a></td></tr>"
+			tr = "<tr comment-pk=\"-1\" class=\"collection-item\" id=\"comment-tr" + i + "\"><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\" id=\"user-" + i + "\"></td><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\" id=\"comment-detail" + i + "\"></td><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\"></td> <td   contenteditable=\"true\" flag=\"1\" class=\"collection-item\"  ></td><td style=\"text-align:center;\"><a ><li  class=\"fa fa-minus-circle fa-2x\" id=\"commentdel" + i + "\"></li></a></td></tr>"
 			$("#comment").append(tr)
 
 			$("#commentdel" + i).click(function() {
@@ -49,12 +60,12 @@ function Comment(pid) {
 		});
 
 		$("#send2").click(function() {
-			post_url = "http://127.0.0.1:8000/attractions/admin/uploadCommentRate?"
 			$("tr[comment-pk='-1']").each(function() {
 				var count = 0
 				var user = null
 				var comment = ""
 				var commenttime = ""
+				var commentlike = ""
 				var adj = 1
 
 				$(this).children().each(function() {
@@ -69,22 +80,28 @@ function Comment(pid) {
 					}
 					txt = $(this).text()
 					if(txt != '' & count == 0) { //关键词
-						user = txt
+						commentuser = txt
 						$(this).attr("flag", 0)
 
 					} else if(txt != '' & count == 1) { //评分
 						comment = txt
 						$(this).attr("flag", 0)
-
 					} else if(txt != '' & count == 2) {
-						commenttime = txt
+						commentlike = txt
+
 						$(this).attr("flag", 0)
-						
+
+					} else if(txt != '' & count == 3) {
+						commenttime = txt
+
+						$(this).attr("flag", 0)
 						array[index] = {
-							"pk": -1,//-1表示新增的元素
-							"commentuser": user,
+							
+							"pk": -1, //-1表示新增的元素
+							"commentuser": commentuser,
 							"comment": comment,
-							"commenttime":commenttime
+							"commenttime": commenttime,
+							"commentlike": parseInt(commentlike)
 						}
 						count = 0
 						index += 1
@@ -96,10 +113,23 @@ function Comment(pid) {
 
 				})
 			})
-		
+			$.ajax({
+				type: 'POST',
+				url: post_url,
+				data: {
+					"data": JSON.stringify(array),
+					"pid": pid
+				},
 
-						array = [] //提交一次清空数组一次
-						index = 0
+				success: function() {
+					Comment(pid) //  刷新
+
+				},
+				dataType: "json"
+			});
+
+			array = [] //提交一次清空数组一次
+			index = 0
 
 		})
 
