@@ -273,9 +273,9 @@
 
 					<div class="row">
 						<div class="col-md-4 col-sm-12 col-xs-12">
-							<div class="card">
+							<div class="comment-rate-manager card">
 								<div class="card-action">
-									<h3>评价指数</h3>
+									<h3>评价指数管理</h3>
 								</div>
 								<div class="card-image">
 									<div class="collection" style="overflow: auto;max-height: 600px;">
@@ -288,7 +288,7 @@
 
 											</thead>
 											<tbody id="comment-rate" style="border: 1px ;">
-										
+
 											</tbody>
 											<tfoot>
 												<tr class="collection-item" style="height: 50px;">
@@ -320,20 +320,20 @@
 
 						</div>
 						<div class="col-md-8 col-sm-12 col-xs-12">
-							<div class="card">
+							<div class="comment-manager card">
 								<div class="card-action">
-									<h3>网友评价</h3>
+									<h3>网友评价管理</h3>
 								</div>
 								<div class="card-image">
 									<div class="collection" style="overflow: auto;max-height: 600px;">
-										<table border="1" >
+										<table border="1">
 											<thead class="collection-item">
 												<th class="collection-item" style="width: 10%;">网友</th>
 												<th class="collection-item" style="text-align: center;">评价</th>
 												<th class="collection-item" style="text-align: center;">星级评分</th>
 
 												<th class="collection-item" style="width: 10%;">时间</td>
-												<th class="collection-item" style="width: 10%;">编辑</td>
+													<th class="collection-item" style="width: 10%;">编辑</td>
 
 											</thead>
 											<tbody id="comment" style="border: 1px ;">
@@ -348,9 +348,12 @@
 
 													<td></td>
 												</tr>
-												<tr style="background-color: transparent;">
+												<tr class="collection-item" style="background-color: transparent;">
 													<td></td>
 													<td></td>
+													<td></td>
+													<td></td>
+
 													<td style="text-align:right;height: 50px;">
 														<button id="send2" style="background-color: ##999;">提交</button>
 													</td>
@@ -362,8 +365,27 @@
 							</div>
 
 						</div>
-					</div>
 
+					</div>
+					<div class="row">
+
+						<div class="image-manager card">
+							<div class="card-action">
+								<h3>景区图片管理</h3>
+							</div>
+							<div class="card-image">
+								<div id="imager-manager-table" class="collection" style="overflow: auto;max-height: 700px;">
+									<div class="col-xs-12 col-sm-6 col-md-3" id="6" style="width: 25%;">
+										<div class="card-panel" style="text-align: center;">　<li class="fa fa-5x fa-plus" style="width: 100%; ">
+										</li>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
 				</div>
 				<!-- /. PAGE INNER  -->
 			</div>
@@ -400,7 +422,10 @@
 				CommentRate(pid)
 				Submit()
 				Add_element()
-//				new Comment(pid)
+				Comment(pid)
+				CommentSubmit()
+				Add_Comment_element()
+				Image_Manager(pid)
 				$('.breadcrumb').append(newLi)
 			}
 		</script>

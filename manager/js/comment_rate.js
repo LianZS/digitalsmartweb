@@ -9,13 +9,13 @@ var array = new Array()
 function CommentRate(pid) {
 	//评论指数
 	
+	$("#comment-rate").empty()
+	tr_count=0
 	$.get(get_url, {
 		"pid": pid
 	}, function(data) {
 		comments = data['comment']
 		len = comments.length
-
-		$("#comment-rate").empty()
 
 		for(let i = 0; i < len; i++) {
 			item = comments[i]
@@ -48,92 +48,6 @@ function CommentRate(pid) {
 			tr_count += 1
 		}
 	}, "json")
-//	$("#add-tr").click(function() {
-//		if(tr_count >= 10) {
-//			alert("最大只能拥有十条数据")
-//			return
-//		}
-//		j += 1;
-//		tr_count += 1
-//
-//		let i = j;
-//		tr = "<tr pk='-1' class=\"collection-item\" id=\"tr" + j + "\"><td flag=\"1\" class=\"collection-item\" id=\"comment-key" + j + "\"></td><td flag=\"1\" class=\"collection-item\" id=\"comment-grade" + j + "\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del" + j + "\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit" + j + "\"></li></a></td></tr>"
-//		$("#comment-rate").append(tr)
-//		$('#edit' + i).click(function() {
-//			$("#comment-key" + i).attr("flag", "1")
-//			$("#comment-grade" + i).attr("flag", "1")
-//			var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
-//			document.getElementById("comment-key" + i).focus()
-//			var grade = document.getElementById("comment-grade" + i).setAttribute("contenteditable", "true");
-//		});
-//		$("#del" + i).click(function() {
-//			tr_count -= 1
-//			$("#tr" + i).remove()
-//		});
-//	});
-//	$("#send").click(function() {
-//		$("tr[pk]").each(function() {
-//			var count = 0
-//			var pk = $(this).attr("pk")
-//			var adjectives = null
-//			var rate = 0
-//			var adj = 1
-//			$(this).children().each(function() {
-//				if($(this).attr("flag") == 0) {
-//					return
-//				}
-//				if(adj >= 2) {
-//					if(adj > 2) {
-//						return
-//					}
-//					alert("不能有空")
-//
-//				}
-//				txt = $(this).text()
-//
-//				if(txt != '' & count % 2 == 0) { //关键词
-//					adjectives = txt
-//					$(this).attr("flag", 0)
-//
-//				} else if(txt != '' & count % 2 == 1) { //评分
-//					rate = txt
-//
-//					array[index] = {
-//						"pk": parseInt(pk),
-//						"adjectives": adjectives,
-//						"rate": parseInt(rate)
-//					}
-//					$(this).attr("flag", 0)
-//					count = 0
-//					index += 1
-//				} else {
-//					adj += 1
-//					return
-//				}
-//				count += 1
-//
-//			})
-//		})
-//		$.ajax({
-//			type: 'POST',
-//			url: post_url,
-//			data: {
-//				"data": JSON.stringify(array),
-//				"pid": pid
-//			},
-//
-//			success: function() {
-//				//								new CommentRate(pid) //  刷新
-//				//							console.log(array) //修改后的数据，{adjectives: ""，pk: xxx，rate: -1}==>表示被删除的数据，{adjectives: "xxx"，pk: -1，rate: YY} =>标识新增的数据
-//
-//				array = [] //提交一次清空数组一次
-//				index = 0
-//
-//			},
-//			dataType: "json"
-//		});
-//
-//	})
 
 }
 
