@@ -12,7 +12,28 @@ body {
     font-family: 'Open Sans', sans-serif;
     background: #2c445a;
 }
-
+label{
+    position: relative;
+}
+#fileinp{
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+#btn{
+    padding: 5px 10px;
+    background: #00b0f0;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+}
+#btn{
+    margin-right: 5px;
+}
+#text{
+    color: red;
+}
  #wrapper {
     width: 100%;
 }

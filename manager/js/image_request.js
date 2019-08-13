@@ -1,5 +1,6 @@
 var image_get_url = "http://127.0.0.1:8000/attractions/admin/area_cover"
 var image_url = "http://127.0.0.1:8000/media/"
+var filepath = ""
 
 function Cover_Image_reuqest(pid, name) {
 	// 景区封面
@@ -52,5 +53,31 @@ function Image_Manager(pid) {
 		}
 
 	}, 'json')
+
+	$("#fileinp").change(function() {
+
+		filepath = $("#fileinp").val()
+		$("#text").html(filepath);
+	})
+	$("#btn").click(function() {
+		if(filepath == "") {
+			alert("未选择文件")
+			return
+		} else {
+			var formData = new FormData();
+			formData.append("pic", $("#fileinp")[0].files[0]);
+	
+
+			$.ajax({
+				url: 'http://127.0.0.1:8000/attractions/api/upload',
+				type: 'POST',
+				cache: true,
+    				data: formData,
+				processData: false,
+				contentType: false
+			}).done(function(res) {}).fail(function(res) {});
+
+		}
+	})
 
 }
