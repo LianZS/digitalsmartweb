@@ -65,17 +65,28 @@ function Image_Manager(pid) {
 			return
 		} else {
 			var formData = new FormData();
-			formData.append("pic", $("#fileinp")[0].files[0]);
-	
+			f = $("#fileinp")[0].files[0]
+			formData.append("pic", f);
+			formData.append("pid", parseInt(pid));
 
+			var rd = new FileReader(); //创建文件读取对象
+			rd.readAsDataURL(f);
+			rd.onloadend = function(e) { 
+				src = this.result;
+				newElement = "	<div class='col-xs-12 col-sm-6 col-md-3' id= " + pid + "  style='width: 25%;'><h3>" + name + "</h3><div class='card-panel' ><img src=" + src + " style='width: 100%;height:200px' /></div></div>"
+
+				$("#imager-manager-table").append(newElement)
+
+			}
 			$.ajax({
-				url: 'http://127.0.0.1:8000/attractions/api/upload',
-				type: 'POST',
-				cache: true,
-    				data: formData,
-				processData: false,
-				contentType: false
-			}).done(function(res) {}).fail(function(res) {});
+					url: 'http://127.0.0.1:8000/attractions/api/upload',
+					type: 'POST',
+					cache: true,
+					data: formData,
+					processData: false,
+					contentType: false
+				}).done(function(res) {})
+				.fail(function(res) {});
 
 		}
 	})
