@@ -1,123 +1,91 @@
 function Comment(pid) {
 	this.url = "http://127.0.0.1:8000/attractions/api/getComment?"
-	var img_url = "http://127.0.0.1:8000/media/"
+	//	var img_url = "http://127.0.0.1:8000/media/"
+	var tr_count = 0; //记录tr的数目
+	var index = 0 //数组游标
 	$.get(this.url, {
 		"pid": pid
 	}, function(data, state) {
+		var j = 0;
+		var array = new Array()
+
 		comments = data['comment']
+		$("#comment").empty()
+
 		for(let i = 0; i < comments.length; i++) {
 			item = comments[i]
+			pk = item['pk']
 			commentuser = item['commentuser']
 			comment = item["comment"]
 			commenttime = item['commenttime']
 			commentlike = item['commentlike']
-			userphoto = item['userphoto']
-			commentElement = "<div class='chat-widget-left'>" + comment + "</div>"
-			$("#comment").append(commentElement)
-			src = img_url + userphoto
-			infoElement = "<div class='chat-widget-name-left'><img class='media-object img-circle img-left-chat' style='width:25%' src=" + src + "  /><h4> " + commentuser + "</h4><h5>评价时间：" + commenttime + "</h5></div><hr />"
-			$("#comment").append(infoElement)
-
-		}
-	}, 'json')
-}
-
-function CommentRate(pid) {
-	//评论指数
-	this.url = "http://127.0.0.1:8000/attractions/api/getCommentRate?"
-	var tr_count = 0;//记录tr的数目
-	var index = 0 //数组游标
-
-	$.get(this.url, {
-		"pid": pid
-	}, function(data) {
-		var array = new Array()
-		comments = data['comment']
-		len = comments.length
-		var j = 0;
-		for(let i = 0; i < len; i++) {
-			item = comments[i]
-			adjectives = item['adjectives']
-			rate = item['rate']
-			pk = item['pk']
-			//flag属性0标识未修改过，1表示修改过
-			tr = "<tr  pk=" + pk + " class='collection-item' id='tr" + i + "'><td flag=\"0\" class='collection-item' id='comment-key" + i + "'>" + adjectives + "</td><td flag=\"0\" class=' collection-item' id='comment-grade" + i + "'>" + rate + "</td> <td style='text-align:right;'><a style='padding-right: 20%;'><li  class='fa fa-minus-circle fa-2x' id='del" + i + "'></li></a><a><li class='fa fa-edit fa-2x' id='edit" + i + "'></li></a></td></tr>"
-			$("#comment-rate").append(tr)
-			j = i;
-			$('#edit' + i).click(function() {
-				$("#comment-key" + i).attr("flag", "1")
-				$("#comment-grade" + i).attr("flag", "1")
-
-				var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
-				document.getElementById("comment-key" + i).focus()
-				var grade = document.getElementById("comment-grade" + i).setAttribute("contenteditable", "true");
-			});
-			$('#del' + i).click(function() {
+			//			userphoto = item['userphoto']
+			//			src = img_url + userphoto
+			tr = "<tr comment-pk=" + i + " class=\"collection-item\" id=\"comment-tr" + i + "\"><td flag=\"0\" class=\"collection-item\" id=\"user-" + i + "\">" + commentuser + "</td><td flag=\"0\" class=\"collection-item\" id=\"comment-detail" + i + "\">" + comment + "</td> <td  flag=\"0\" class=\"collection-item\"  >" + commenttime + " </td><td style=\"text-align:center;\"><a ><li  class=\"fa fa-minus-circle fa-2x\" id=\"commentdel" + i + "\"></li></a></td></tr>"
+			$("#comment").append(tr)
+			$("#commentdel" + i).click(function() {
 				tr_count -= 1
-				pk = $("#tr" + i).attr("pk")
-				array[index]={
-					"pk": parseInt(pk),
-							"adjectives": '',
-							"rate": 0
-				}
-				index+=1
-				$("#tr" + i).remove()
-			})
+				$("#comment-tr" + i).remove()
+			});
 			tr_count += 1
+			j = i
 		}
-		$("#add-tr").click(function() {
-			if(tr_count >= 10) {
-				alert("最大只能拥有十条数据")
+		$("#add-comment-tr").click(function() {
+			if(tr_count >= 100) {
+				alert("最大只能拥有100条数据")
 				return
 			}
 			j += 1;
 			tr_count += 1
 
 			let i = j;
-			tr = "<tr pk='NaN' class=\"collection-item\" id=\"tr" + j + "\"><td flag=\"1\" class=\"collection-item\" id=\"comment-key" + j + "\"></td><td flag=\"1\" class=\"collection-item\" id=\"comment-grade" + j + "\"></td> <td style=\"text-align:right;\"><a style=\"padding-right: 20%;\"><li class=\"fa fa-minus-circle fa-2x\" id=\"del" + j + "\"></li></a><a><li class=\"fa fa-edit fa-2x\" id=\"edit" + j + "\"></li></a></td></tr>"
-			$("#comment-rate").append(tr)
-			$('#edit' + i).click(function() {
-				$("#comment-key" + i).attr("flag", "1")
-				$("#comment-grade" + i).attr("flag", "1")
-				var keyword = document.getElementById("comment-key" + i).setAttribute("contenteditable", "true");
-				document.getElementById("comment-key" + i).focus()
-				var grade = document.getElementById("comment-grade" + i).setAttribute("contenteditable", "true");
-			});
-			$("#del" + i).click(function() {
+			tr = "<tr comment-pk=\"-1\" class=\"collection-item\" id=\"comment-tr" + i + "\"><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\" id=\"user-" + i + "\"></td><td flag=\"1\"  contenteditable=\"true\" class=\"collection-item\" id=\"comment-detail" + i + "\"></td> <td   contenteditable=\"true\" flag=\"1\" class=\"collection-item\"  ></td><td style=\"text-align:center;\"><a ><li  class=\"fa fa-minus-circle fa-2x\" id=\"commentdel" + i + "\"></li></a></td></tr>"
+			$("#comment").append(tr)
+
+			$("#commentdel" + i).click(function() {
 				tr_count -= 1
-				$("#tr" + i).remove()
+				$("#comment-tr" + i).remove()
 			});
 		});
-		$("#send").click(function() {
 
-			$("tr[pk]").each(function() {
+		$("#send2").click(function() {
+			post_url = "http://127.0.0.1:8000/attractions/admin/uploadCommentRate?"
+			$("tr[comment-pk='-1']").each(function() {
 				var count = 0
-				var pk = $(this).attr("pk")
-				var adjectives = null
-				var rate = 0
+				var user = null
+				var comment = ""
+				var commenttime = ""
 				var adj = 1
+
 				$(this).children().each(function() {
 					if($(this).attr("flag") == 0) {
 						return
 					}
 					if(adj >= 2) {
+						if(adj > 2)
+							return
 						alert("不能有空")
+
 					}
 					txt = $(this).text()
-
-					if(txt != '' & count % 2 == 0) { //关键词
-						adjectives = txt
+					if(txt != '' & count == 0) { //关键词
+						user = txt
 						$(this).attr("flag", 0)
 
-					} else if(txt != '' & count % 2 == 1) { //评分
-						rate = txt
+					} else if(txt != '' & count == 1) { //评分
+						comment = txt
+						$(this).attr("flag", 0)
 
+					} else if(txt != '' & count == 2) {
+						commenttime = txt
+						$(this).attr("flag", 0)
+						
 						array[index] = {
-							"pk": parseInt(pk),
-							"adjectives": adjectives,
-							"rate": parseInt(rate)
+							"pk": -1,//-1表示新增的元素
+							"commentuser": user,
+							"comment": comment,
+							"commenttime":commenttime
 						}
-						$(this).attr("flag", 0)
 						count = 0
 						index += 1
 					} else {
@@ -128,51 +96,12 @@ function CommentRate(pid) {
 
 				})
 			})
-			console.log(array) //修改后的数据，{adjectives: ""，pk: xxx，rate: 0}==>表示被删除的数据，{adjectives: "xxx"，pk: NaN，rate: YY} =>标识新增的数据
-			array=[]//提交一次清空数组一次
+		
+
+						array = [] //提交一次清空数组一次
+						index = 0
 
 		})
-	}, "json")
-}
 
-class Stack {
-
-	constructor() {
-		this.items = []
-	}
-
-	// 入栈
-	push(element) {
-		this.items.push(element)
-	}
-
-	// 出栈
-	pop() {
-		return this.items.pop()
-	}
-
-	// 末位
-	get peek() {
-		return this.items[this.items.length - 1]
-	}
-
-	// 是否为空栈
-	get isEmpty() {
-		return !this.items.length
-	}
-
-	// 尺寸
-	get size() {
-		return this.items.length
-	}
-
-	// 清空栈
-	clear() {
-		this.items = []
-	}
-
-	// 打印栈数据
-	print() {
-		console.log(this.items.toString())
-	}
+	}, 'json')
 }

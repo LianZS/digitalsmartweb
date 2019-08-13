@@ -20,6 +20,7 @@
 		<script type="text/javascript" src="js/city_request.js"></script>
 		<script type="text/javascript" src="js/image_request.js"></script>
 		<script type="text/javascript" src="js/comment.js"></script>
+		<script type="text/javascript" src="js/comment_rate.js"></script>
 
 	</head>
 
@@ -277,16 +278,17 @@
 									<h3>评价指数</h3>
 								</div>
 								<div class="card-image">
-									<div class="collection">
+									<div class="collection" style="overflow: auto;max-height: 600px;">
 										<table border="1">
 											<thead class="collection-item">
+
 												<th class="collection-item">关键词</th>
 												<th class="collection-item">评分</th>
 												<th class="collection-item">编辑</td>
 
 											</thead>
 											<tbody id="comment-rate" style="border: 1px ;">
-
+										
 											</tbody>
 											<tfoot>
 												<tr class="collection-item" style="height: 50px;">
@@ -300,7 +302,14 @@
 												<tr style="background-color: transparent;">
 													<td></td>
 													<td></td>
-													<td style="text-align:right;height: 50px;"><button id="send" style="background-color: ##999;">提交</button></td>
+													<td style="text-align:right;height: 50px;">
+														<!--<form id="upload-form" action="http://127.0.0.1:8000/attractions/upload" method="post" enctype="multipart/form-data">
+															
+															
+															<input id="send" type="submit" value="提交" style="background-color: ##999;"/>
+														</form>-->
+														<button id="send" style="background-color: ##999;">提交</button>
+													</td>
 												</tr>
 											</tfoot>
 										</table>
@@ -313,39 +322,40 @@
 						<div class="col-md-8 col-sm-12 col-xs-12">
 							<div class="card">
 								<div class="card-action">
-									<b>User List</b>
+									<h3>网友评价</h3>
 								</div>
 								<div class="card-image">
-									<ul class="collection">
-										<li class="collection-item avatar">
-											<i class="material-icons circle green">insert_chart</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-										<li class="collection-item avatar">
-											<i class="material-icons circle">folder</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-										<li class="collection-item avatar">
-											<i class="material-icons circle green">insert_chart</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-										<li class="collection-item avatar">
-											<i class="material-icons circle red">play_arrow</i>
-											<span class="title">Title</span>
-											<p>First Line <br> Second Line
-											</p>
-											<a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-										</li>
-									</ul>
+									<div class="collection" style="overflow: auto;max-height: 600px;">
+										<table border="1" >
+											<thead class="collection-item">
+												<th class="collection-item" style="width: 10%;">网友</th>
+												<th class="collection-item" style="text-align: center;">评价</th>
+												<th class="collection-item" style="width: 10%;">时间</td>
+												<th class="collection-item" style="width: 10%;">编辑</td>
+
+											</thead>
+											<tbody id="comment" style="border: 1px ;">
+
+											</tbody>
+											<tfoot>
+												<tr class="collection-item" style="height: 50px;">
+													<td></td>
+													<td style="text-align: center;">
+														<li id="add-comment-tr" class="fa fa-plus-circle fa-2x "></li>
+													</td>
+
+													<td></td>
+												</tr>
+												<tr style="background-color: transparent;">
+													<td></td>
+													<td></td>
+													<td style="text-align:right;height: 50px;">
+														<button id="send2" style="background-color: ##999;">提交</button>
+													</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
 								</div>
 							</div>
 
@@ -386,6 +396,7 @@
 				pid = getParams("pid")
 				newLi = "<li  class='active'><a href='#'>" + area + "</a></li>"
 				new CommentRate(pid)
+				new Comment(pid)
 				$('.breadcrumb').append(newLi)
 			}
 		</script>
