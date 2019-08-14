@@ -22,15 +22,22 @@ function roaditem_listen(IdName) {
 				"id": i,
 				"up_date": up_date
 
-			},function(data){
-				bounds=data['data']['detail']['bounds']
-				data= data['data']['detail']['data']
-				timelist=data['time']
-				ratelist=data['data']
-				road_routeMap(pid,bounds)
-//			new CityChart(IdName).setData(json, num);
+			}, function(data) {
+				bounds = data['data']['detail']['bounds']
+				data = data['data']['detail']['data']
+				road_timelist = data['time']
+				road_datalist = data['data']
+				road_routeMap(pid, bounds)
+				roaddata = {
+					"Roadtraffic": {
+						"time": road_timelist,
+						"data": road_datalist
+					}
+				}
+				
+				new LineChart(IdName).setData(roaddata, i);
 			})
-			
+
 		})
 	}
 }

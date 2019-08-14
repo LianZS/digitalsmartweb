@@ -1,4 +1,5 @@
-function CityChart(IdName,cityName) {
+function LineChart(IdName,cityName) {
+	//画折线图
     this.IdName = IdName;
     this.mychart = echarts.init(document.getElementById(IdName));
     this.option = {
@@ -63,7 +64,7 @@ function CityChart(IdName,cityName) {
 
 }
 
-CityChart.prototype.setData = function dealData(json, num = -1) {
+LineChart.prototype.setData = function dealData(json, num = -1) {
     var time = '';
     var data = '';
     if (this.IdName == 'realtime-traffic') {
@@ -73,15 +74,17 @@ CityChart.prototype.setData = function dealData(json, num = -1) {
 
     } else if (this.IdName == "roadData") {
         if (num != -1) {
-            json = json.roadData.data;
-            this.option.xAxis.data = json[num - 1].time;
-            this.option.series[0].data = json[num - 1].data;
+        		roaddata=json.Roadtraffic
+            this.option.xAxis.data = roaddata.time;
+            this.option.series[0].data = roaddata.data;
         }
-
+		
         // this.mychart.setOption(this.option);
     } else if (this.IdName == 'year-traffic') {
-        this.option.xAxis.data = json.time;
-        this.option.series[0].data = json.data;
+    		yearjson=json.Yeartraffic
+    		console.log(yearjson)
+        this.option.xAxis.data = yearjson.time;
+        this.option.series[0].data = yearjson.data;
         // this.mychart.setOption(this.option);
     }
     this.mychart.setOption(this.option);

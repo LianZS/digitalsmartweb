@@ -68,7 +68,7 @@ function daily_traffic() {
 				"data": dataList
 			}
 		}
-		chart = new CityChart("realtime-traffic", city);
+		chart = new LineChart("realtime-traffic", city);
 		chart.setData(jsondata)
 
 	}, "json")
@@ -98,11 +98,11 @@ function road_traffic() {
 			speed = road['speed']
 			direction = road['direction']
 			roadid = road['roadid']
-			rate = road['rate']
+			road_rate = road['rate']
 			RoadNameList[i] = roadname
 			SpeedList[i] = speed
 			dirList[i] = direction
-			rateList[i] = rate
+			rateList[i] = road_rate
 
 		}
 
@@ -119,6 +119,32 @@ function road_traffic() {
 		road_info_insert(data)
 
 	}, 'json')
+}
+
+function year_traffic() {
+	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/year?"
+	$.get(url, {
+		"cityCode": pid
+	}, function(data) {
+		YearList = data['data']['detail']['indexSet']
+		year_deilt_dateList = new Array()
+		year_dataList = new Array()
+		for(let i = 0; i < YearList.length; i++) {
+			item = YearList[i]
+			tmp_date = item['tmp_date']
+			year_rate = item['rate']
+			year_deilt_dateList[i]=tmp_date
+			year_dataList[i]=year_rate
+		}
+
+		yeardata = {
+			"Yeartraffic": {
+				"time": year_deilt_dateList,
+				"data": year_dataList
+			}
+		}
+		new LineChart("year-traffic", "").setData(yeardata)
+	}, "json")
 }
 
 function Animate() {
