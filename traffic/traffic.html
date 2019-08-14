@@ -13,7 +13,7 @@
 		<script src="assets/js/echarts.min.js"></script>
 		<script src="assets/js/jquery-3.3.1.min.js"></script>
 		<script src="assets/js/trafficdata.js"></script>
-		<script src="assets/js/Listener.js"></script>
+		<script src="js/road_request.js"></script>
 
 		<script src="../js/jquery.fancybox.pack.js"></script>
 		<script language="javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=209b01c1d0a6f0270d5efb521e29f758&plugin=Map3D,AMap.DistrictLayer,AMap.Scale,AMap.ToolBar"></script>
@@ -317,14 +317,8 @@
 						city_list()
 						daily_traffic()
 						road_traffic()
+						roaditem_listen()
 
-						function Animate() {
-
-							$("#btn").click(function() {
-								$("#Citylist").slideToggle();
-
-							});
-						}
 						Animate();
 
 						

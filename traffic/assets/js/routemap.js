@@ -1,10 +1,8 @@
-function RouteMap(response, num) {
-    parametar = document.location.toString().split("/");
-    cityCode = parametar[parametar.length - 1];
-    num = parseInt(num);
-    var data = response.roadData.info.route.tableData[num - 1];
+function road_routeMap(pid, bounds) {
+		//路线规划
+    cityCode = parseInt(pid);
 
-    var lat = data.coords;
+    var lat = bounds.coords;
     if (parseInt(cityCode) > 1000) {
         Gaode(lat);
     } else {

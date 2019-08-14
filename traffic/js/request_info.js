@@ -1,4 +1,7 @@
+var up_date = 0
+
 function city_list() {
+	//城市列表请求
 	let request_datetime = Date.parse(new Date());
 	let callback = "jsonp_" + request_datetime
 	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/list?"
@@ -34,6 +37,7 @@ function city_list() {
 }
 
 function daily_traffic() {
+	//城市交通
 	pid = getParams("cityCode")
 
 	let ddate = new Date().format("yyyyMMdd");
@@ -71,8 +75,8 @@ function daily_traffic() {
 }
 
 function road_traffic() {
+	//道路交通
 	pid = getParams("cityCode")
-
 	let request_datetime = Date.parse(new Date());
 	let callback = "jsonp_" + request_datetime
 	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
@@ -113,9 +117,17 @@ function road_traffic() {
 			}
 		}
 		road_info_insert(data)
-		Listen()
 
 	}, 'json')
+}
+
+function Animate() {
+	//城市导航按钮动画效果
+
+	$("#btn").click(function() {
+		$("#Citylist").slideToggle();
+
+	});
 }
 
 function getParams(name) {
@@ -145,29 +157,3 @@ Date.prototype.format = function(fmt) {
 	}
 	return fmt;
 }
-//		data = {
-//							"roadData": {
-//								"data": [{
-//										"num": 1,
-//										"time": ["11:35", "11:40", "11:45", "11:50", "11:55", "12:00", ],
-//										"data": ["1.16", "1.20", "1.22", "1.18", ]
-//									},
-//
-//								],
-//								"info": {
-//									"route": {
-//										"tableData": [{
-//											"coords": [{
-//												"lon": "126.615668",
-//												"lat": "45.741636"
-//											}, ]
-//										}, ]
-//									},
-//									"listRoadName": [],
-//									"listSpeed": []
-//									"dir": []
-//								}
-//							}
-//						};
-//
-//						Listen(data, "roadData");
