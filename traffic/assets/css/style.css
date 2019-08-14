@@ -9,17 +9,19 @@ body {
    background-color: #011a33;   
 }
 
-#btn #JingQuList {
+#btn #Citylist {
     width: 100%;
     height: auto;
     text-align: center;
     display: none;
     background-color: #003468;
 }
-#JingQuList li {
+/*#JingQuList .row
+*/#Citylist ul ul li {
 	padding-right: 4%;
     text-align: left;
     display: inline;
+    color: #428bca;
 }
 
 .set-radius-zero {
