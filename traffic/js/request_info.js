@@ -35,7 +35,7 @@ function city_list() {
 
 function daily_traffic() {
 	pid = getParams("cityCode")
-	
+
 	let ddate = new Date().format("yyyyMMdd");
 	callback = "jsonp_" + Date.parse(new Date());
 
@@ -53,7 +53,7 @@ function daily_traffic() {
 
 		for(let i = 0; i < indexList.length; i++) {
 			item = indexList[i]
-			ttime = item['ttime'].slice(0,5)
+			ttime = item['ttime'].slice(0, 5)
 			rate = item['rate']
 			timeList[i] = ttime
 			dataList[i] = rate
@@ -69,17 +69,55 @@ function daily_traffic() {
 
 	}, "json")
 }
-function road_traffic(){
-		pid = getParams("cityCode")
-	
+
+function road_traffic() {
+	pid = getParams("cityCode")
+
 	let request_datetime = Date.parse(new Date());
 	let callback = "jsonp_" + request_datetime
-	let url="http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
+	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
 	$.get(url, {
-		"cityCode":pid,
+		"cityCode": pid,
 		"request_datetime": request_datetime,
 		"callback": callback
+	}, function(data) {
+		data = data['data']
+		up_date = data['up_date']
+		roadlist = data['roadlist']
+		RoadNameList = new Array()
+		SpeedList = new Array()
+		dirList = new Array()
+		rateList = new Array()
+		for(let i = 0; i < roadlist.length; i++) {
+			road = roadlist[i]
+			roadname = road['roadname']
+			speed = road['speed']
+			direction = road['direction']
+			roadid = road['roadid']
+			rate = road['rate']
+			RoadNameList[i] = roadname
+			SpeedList[i] = speed
+			dirList[i] = direction
+			rateList[i] = rate
+
+		}
+
+		data = {
+
+			"info": {
+
+				"listRoadName": RoadNameList,
+				"listSpeed": SpeedList,
+				"dir": dirList,
+				"rate": rateList,
+			}
+		}
+		road_info_insert(data)
+		    Listen()
+
+	}, 'json')
 }
+
 function getParams(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	var r = window.location.search.substr(1).match(reg);
@@ -107,3 +145,29 @@ Date.prototype.format = function(fmt) {
 	}
 	return fmt;
 }
+//		data = {
+//							"roadData": {
+//								"data": [{
+//										"num": 1,
+//										"time": ["11:35", "11:40", "11:45", "11:50", "11:55", "12:00", ],
+//										"data": ["1.16", "1.20", "1.22", "1.18", ]
+//									},
+//
+//								],
+//								"info": {
+//									"route": {
+//										"tableData": [{
+//											"coords": [{
+//												"lon": "126.615668",
+//												"lat": "45.741636"
+//											}, ]
+//										}, ]
+//									},
+//									"listRoadName": [],
+//									"listSpeed": []
+//									"dir": []
+//								}
+//							}
+//						};
+//
+//						Listen(data, "roadData");

@@ -1,10 +1,9 @@
-function loaddata(json) {
-	
-    Infodata = json.roadData.info;
+function road_info_insert(jsondata) {
+    Infodata = jsondata.info;
     names = Infodata.listRoadName;
     speeds = Infodata.listSpeed;
-    realData = json.roadData.data;
     dir = Infodata.dir;
+    rates=Infodata.rate
     var roadname = document.getElementsByClassName("name");
     for (let i = 0; i < roadname.length; i++) {
         roadname[i].innerHTML = names[i];
@@ -16,8 +15,8 @@ function loaddata(json) {
     var expIndex = document.getElementsByClassName("exp");
 
     for (let i = 0; i < expIndex.length; i++) {
-        b = realData[i].data.length;
-        expIndex[i].innerHTML = realData[i].data[b - 1];
+        rate = rates[i]
+        expIndex[i].innerHTML = rate;
     }
     var speedIndex = document.getElementsByClassName("speed");
     for (let i = 0; i < speedIndex.length; i++) {
