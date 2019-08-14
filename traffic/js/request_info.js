@@ -113,7 +113,7 @@ function road_traffic() {
 			}
 		}
 		road_info_insert(data)
-		    Listen()
+		Listen()
 
 	}, 'json')
 }
