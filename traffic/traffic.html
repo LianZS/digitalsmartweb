@@ -100,13 +100,7 @@
 		</div>
 		<!-- LOGO HEADER END-->
 		<section class="menu-section">
-			<!--<div style="float: left; margin-top: 20px;margin-left: 60px;">-->
-			<!--<span style="color: Mediumslateblue;font-size: 10px;">
 
-    	        	             <i class="fa fa-map-marker fa-2x">交通实况</i>
-    	        	               </span>
-
-			</div>-->
 			<div class="container">
 
 				<div class="row ">
@@ -161,15 +155,15 @@
 						<div style="">
 							<div class="mod-tab-quality" id="today-quality" style="width: 50%;float: left;border-right: 1px dashed white;">
 								<div class="block-1 clearfix" style="text-align: center;">
-									<h1 style="color: white">
-                                    广州</h1>
+									<h1 style="color: white" id="cityname">
+                                    </h1>
 									<div class="phrase aqi-lv1">
 
-										<div class="num">
-											46</div>
+										<div class="num" >
+											</div>
 
-										<div class="status">
-											优</div>
+										<div class="status" >
+											</div>
 									</div>
 									<div class="progess" style="margin-left: 10%;">
 										<div class="panel">
@@ -202,25 +196,26 @@
 
 								</div>
 							</div>
-							<div style="width: 10%;float: left; width: 50%;text-align: center;"><h1>hello</h1></div>
+							<div style="width: 10%;float: left; width: 50%;text-align: center;">
+								<h1>hello</h1></div>
 						</div>
 						<div style="clear: left;"></div>
 						<br />
 						<br />
 
-						<div  class="span12 avg" style="clear: left;">
+						<div class="span12 avg" style="clear: left;">
 
 							<div class="span12 data">
 								<div class="span1" style="margin-left: 3%;">
-									<div class="value">
-										47
+									<div class="value" id="value1">
+
 									</div>
 									<div class="caption">
 										AQI
 									</div>
 								</div>
 								<div class="span1">
-									<div class="value">
+									<div class="value" id="value2">
 
 									</div>
 									<div class="caption">
@@ -229,7 +224,7 @@
 									</div>
 								</div>
 								<div class="span1">
-									<div class="value">
+									<div class="value" id="value3">
 
 									</div>
 									<div class="caption">
@@ -237,7 +232,7 @@
 									</div>
 								</div>
 								<div class="span1">
-									<div class="value">
+									<div class="value" id="value4">
 
 									</div>
 									<div class="caption">
@@ -246,7 +241,7 @@
 									</div>
 								</div>
 								<div class="span1">
-									<div class="value">
+									<div class="value" id="value5">
 
 									</div>
 									<div class="caption">
@@ -255,7 +250,7 @@
 									</div>
 								</div>
 								<div class="span1">
-									<div class="value">
+									<div class="value" id="value6">
 
 									</div>
 									<div class="caption">
@@ -264,7 +259,7 @@
 									</div>
 								</div>
 								<div class="span1">
-									<div class="value">
+									<div class="value" id="value7">
 
 									</div>
 									<div class="caption">
@@ -272,9 +267,12 @@
 
 									</div>
 								</div>
+
 							</div>
 						</div>
-
+						<br />
+						<br />
+						<div style="width: 30%;margin-left: 35%; color: white;text-align: center;border: 1px dashed gainsboro;"> 数值越大，污染越大</div>
 					</div>
 				</div>
 				<br />
@@ -449,7 +447,7 @@
 						roaditem_listen("roadData")
 						year_traffic()
 						Animate();
-
+						air_state_request()
 					});
 				</script>
 

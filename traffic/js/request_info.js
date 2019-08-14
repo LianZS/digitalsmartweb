@@ -1,7 +1,8 @@
 var up_date = 0
+var cityname = ""
 
 function city_list() {
-		let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/list?"
+	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/list?"
 	let city_href = "http://127.0.0.1:8020/DigitalSmart/traffic/traffic.html?cityCode="
 	//城市列表请求
 	let request_datetime = Date.parse(new Date());
@@ -39,7 +40,7 @@ function city_list() {
 
 function daily_traffic() {
 	//城市交通
-		let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/curve?"
+	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/curve?"
 
 	pid = getParams("cityCode")
 
@@ -77,7 +78,7 @@ function daily_traffic() {
 }
 
 function road_traffic() {
-		let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
+	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
 
 	//道路交通
 	pid = getParams("cityCode")
@@ -108,6 +109,7 @@ function road_traffic() {
 			rateList[i] = road_rate
 
 		}
+		$("#cityname").text(cityname)
 
 		data = {
 
@@ -136,8 +138,8 @@ function year_traffic() {
 			item = YearList[i]
 			tmp_date = item['tmp_date']
 			year_rate = item['rate']
-			year_deilt_dateList[i]=tmp_date
-			year_dataList[i]=year_rate
+			year_deilt_dateList[i] = tmp_date
+			year_dataList[i] = year_rate
 		}
 
 		yeardata = {
@@ -187,11 +189,49 @@ Date.prototype.format = function(fmt) {
 	return fmt;
 }
 
-function air_state_request(){
-	let url="http://127.0.0.1:8000/traffic/api/airstate?"
-		pid = getParams("cityCode")
-		$.get(url,{
-			"cityCode":pid
-		})
+function air_state_request() {
+	let url = "http://127.0.0.1:8000/traffic/api/airstate?"
+	pid = getParams("cityCode")
+	$.get(url, {
+		"cityCode": pid
+	}, function(data) {
+		lasttime = data["lasttime"]
+		data = data["data"]
+		aqi = data['aqi']
+		co = data['co']
+		noo = data['no2']
+		ooo = data["o3"]
+		pmm = data["pm2"]
+		pmmmm = data["pm10"]
+		soo = data["so2"]
+		$("#value1").text(aqi)
+		$("#value2").text(pmm)
+		$("#value3").text(pmmmm)
+		$("#value4").text(co)
+		$("#value5").text(noo)
+		$("#value6").text(ooo)
+		$("#value7").text(soo)
+		$(".num").text(aqi)
+		if(aqi <= 50) {
+			$(".status").text("优")
+		}
+		if(aqi > 50 & aqi <= 100) {
+			$(".status").text("良")
+		}
+		if(aqi > 100 & aqi <= 150) {
+			$(".status").text("轻度")
+		}
+		if(aqi > 150 & aqi <= 200) {
+			$(".status").text("中度")
+		}
+		if(aqi > 200 & aqi <= 300) {
+			$(".status").text("重度")
+		}
+		if(aqi > 300) {
+			$(".status").text("严重")
+		}
+		//		alert(cityname)
+
+	})
 
 }

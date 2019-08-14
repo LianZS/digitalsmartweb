@@ -519,8 +519,8 @@ width: 1170px;
 -webkit-tap-highlight-color: rgb(0, 0, 0);
 }
 .span1{
-background-color: rgba(255, 255, 255, 0.25);
-/*background-color:#33FFF9;*/
+background-color: rgba(139, 244, 255, 0.2);
+/*background-color:#dff0d8;*/
 border-bottom-left-radius: 50%;
 border-bottom-right-radius: 50%;
 border-top-left-radius: 50%;
@@ -539,7 +539,9 @@ text-size-adjust: 100%;
 width: 10%;
 }
 .value{
-	color: rgb(255, 255, 255);
+	/*color: rgb(255, 255, 255);*/
+	color: #8BF4FF;
+
 display: block;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 36px;
@@ -550,7 +552,8 @@ text-align: center;
 text-size-adjust: 100%;
 }
 .caption{
-	color: rgb(51, 51, 51);
+	/*color: rgb(51, 51, 51);*/
+	color: white;
 display: block;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
