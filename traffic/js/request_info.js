@@ -1,11 +1,12 @@
 var up_date = 0
 
 function city_list() {
+		let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/list?"
+	let city_href = "http://127.0.0.1:8020/DigitalSmart/traffic/traffic.html?cityCode="
 	//城市列表请求
 	let request_datetime = Date.parse(new Date());
 	let callback = "jsonp_" + request_datetime
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/list?"
-	let city_href = "http://127.0.0.1:8020/DigitalSmart/traffic/traffic.html?cityCode="
+
 	$.get(url, {
 		"request_datetime": request_datetime,
 		"callback": callback
@@ -38,12 +39,13 @@ function city_list() {
 
 function daily_traffic() {
 	//城市交通
+		let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/curve?"
+
 	pid = getParams("cityCode")
 
 	let ddate = new Date().format("yyyyMMdd");
 	callback = "jsonp_" + Date.parse(new Date());
 
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/curve?"
 	$.get(url, {
 		"cityCode": pid,
 		"type": "hour",
@@ -75,11 +77,12 @@ function daily_traffic() {
 }
 
 function road_traffic() {
+		let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
+
 	//道路交通
 	pid = getParams("cityCode")
 	let request_datetime = Date.parse(new Date());
 	let callback = "jsonp_" + request_datetime
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
 	$.get(url, {
 		"cityCode": pid,
 		"request_datetime": request_datetime,
@@ -182,4 +185,13 @@ Date.prototype.format = function(fmt) {
 		}
 	}
 	return fmt;
+}
+
+function air_state_request(){
+	let url="http://127.0.0.1:8000/traffic/api/airstate?"
+		pid = getParams("cityCode")
+		$.get(url,{
+			"cityCode":pid
+		})
+
 }

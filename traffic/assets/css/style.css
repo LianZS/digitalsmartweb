@@ -530,13 +530,13 @@ display: block;
 float: left;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
-height: 105px;
+height: 100%;
 line-height: 20px;
 margin-left: 0px;
 margin-right: 40px;
 min-height: 1px;
 text-size-adjust: 100%;
-width: 105px;
+width: 10%;
 }
 .value{
 	color: rgb(255, 255, 255);
