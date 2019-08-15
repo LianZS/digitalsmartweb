@@ -1,8 +1,8 @@
-function draw_age_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_fift,over_fift) {
+function draw_age_barchart(idname, under_nineth, nin_twen, twe_thir, thir_four, four_fift, over_fift) {
 	let mychart = echarts.init(document.getElementById(idname));
 
 	var dataAxis = ['19岁以下', '19~25岁', '26~35岁', '36~45岁', '46~55岁', '55岁以上'];
-	var data = [under_nineth,nin_twen,twe_thir,thir_four,four_fift,over_fift];
+	var data = [under_nineth, nin_twen, twe_thir, thir_four, four_fift, over_fift];
 	var yMax = 1;
 	var dataShadow = [];
 
@@ -13,7 +13,7 @@ function draw_age_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_
 	let option = {
 		title: {
 			text: '',
-					textStyle: {
+			textStyle: {
 				color: "white",
 			},
 		},
@@ -38,12 +38,18 @@ function draw_age_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_
 			axisLine: {
 				show: false
 			},
+			type: 'value',
+
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 10,
+			},
 			axisTick: {
 				show: false
 			},
 			axisLabel: {
 				textStyle: {
-					color: '#999'
+					color: 'white'
 				}
 			}
 		},
@@ -106,4 +112,62 @@ function draw_age_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_
 	};
 
 	mychart.setOption(option);
+}
+
+function draw_keyword_rate_barchart(idname, keyword_array, rate_array) {
+	let mychart = echarts.init(document.getElementById(idname));
+
+	let option = {
+
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: {
+				type: 'shadow'
+			}
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		xAxis: {
+			type: 'value',
+			boundaryGap: [0, 0.01],
+			axisLabel: {
+				color: 'white',
+				fontSize: 8,
+
+			},
+		},
+		yAxis: {
+			type: 'category',
+			data: keyword_array,
+			axisLabel: {
+				color: 'white',
+				fontSize: 8,
+
+			},
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 4,
+			}
+		},
+		series: [{
+				type: 'bar',
+				data: rate_array,
+
+				itemStyle: {
+					color: function(params) {
+					console.log(params)
+						colorList = [ '#FDC907', '#F2FD07', '#c23531','#A7FD07','#34FD07','#07FDA0','#07F9FD','#07A0FD','#6007FD','#9107FD','#EE07FD','#E28ACB','#FDC907', '#F2FD07', '#c23531','#A7FD07','#34FD07','#07FDA0','#07F9FD']
+						return colorList[params.dataIndex];
+					}
+				}
+			
+
+		}]
+}
+mychart.setOption(option);
+
 }

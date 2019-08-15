@@ -72,6 +72,18 @@ function request() {
 		}
 		draw_activerate_linechart("active-rate-chart", ddate_array, activerate_array, base_activerate_array, aver_activerate_array)
 		draw_active_areachart("active-chart",ddate_array,activenum_array)
+		like_data=data['like']
+		let keyword_array=new Array()
+		let rate_array=new Array()
+		for(let i=0;i<like_data.length;i++){
+			keyword = like_data[i]['keyword']
+			rate =like_data[i]["rate"]
+			keyword_array[i]=keyword
+			rate_array[i]=rate
+			
+		}
+		draw_keyword_rate_barchart("app-like",keyword_array,rate_array)
+		
 	}, 'json')
 
 }

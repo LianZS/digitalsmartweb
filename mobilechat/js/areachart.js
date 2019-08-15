@@ -54,7 +54,9 @@ function draw_active_areachart(idname, ddate_array, active_array) {
 			name: "活跃数",
 			data: active_array,
 			type: 'line',
-			areaStyle: {},
+			areaStyle: {
+			color:"#07F9FD"
+			},
 		}]
 	};
 
