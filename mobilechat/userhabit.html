@@ -8,34 +8,19 @@
 		<script src="http://sdk.talkingdata.com/app/h5/v1?appid=2D37E10F4E75439083FE19804875EA55&vn=正式版1.0.9"></script>
 		<meta name="description" content="">
 		<meta name="keywords" content="">
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/public.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/font.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/iconfont.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/main.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/header.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/footer.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/results.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/loading.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/app-detail.css?v=1.2.10" rel="stylesheet" />
+		<link href="asset/css/public.css" rel="stylesheet" />
+		<link href="asset/css/font.css" rel="stylesheet" />
+		<link href="asset/css/iconfont.css" rel="stylesheet" />
+		<link href="asset/css/main.css" rel="stylesheet" />
+		<link href="asset/css/header.css" rel="stylesheet" />
+		<link href="asset/css/footer.css" rel="stylesheet" />
+		<link href="asset/css/results.css" rel="stylesheet" />
+		<link href="asset/css/loading.css" rel="stylesheet" />
+		<link href="asset/css/app-detail.css" rel="stylesheet" />
 		<script src="asset/js/linecharts.js"></script>
 		<script src="asset/js/echarts.min.js"></script>
+		<script src="js/jquery.fancybox.pack.js"></script>
 
-		<script>
-			window.dateLimit = {
-				"minDay": "",
-				"maxDay": "",
-				"minWeek": "",
-				"maxWeek": "",
-				"minMonth": "2016-01-01",
-				"maxMonth": "2017-05-01",
-				"minQ": "",
-				"maxQ": ""
-			}
-			var appName = '',
-				appId = '',
-				curpage = 'marketprofile', //app, wxpub
-				application = '应用';
-		</script><br />
 	</head>
 
 	<body class="">
@@ -170,7 +155,7 @@
 							<div class="proportion clearfix">
 								<dl class="boy l" style="width: 50%">
 									<dt>
-                                  <i class="icon-male"></i>
+                                  <i class="fa fa-plane fa-5x"></i>
                               </dt>
 									<dd>
 										%
@@ -409,64 +394,8 @@
 	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/ui/ui.js"></script>
 	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/echarts.throng.js"></script>
 	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/userDraw/index.js?v=1.2.10"></script>
-	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "//hm.baidu.com/hm.js?4194ddf8a829d68afa312684b382079d";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
 
-		// auto push
-		(function() {
-			var bp = document.createElement('script');
-			var curProtocol = window.location.protocol.split(':')[0];
-			if(curProtocol === 'https') {
-				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-			} else {
-				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-			}
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(bp, s);
-		})();
-	</script>
-	<script type="text/javascript">
-		(function(win, doc, s, i) {
-			x = doc.getElementById(i);
-			if(x) return;
-
-			win.xn = win.xn || function() {
-				win.xn.todoList = win.xn.todoList || [];
-				win.xn.todoList.push(arguments);
-			}
-
-			j = doc.createElement(s),
-				s = doc.getElementsByTagName(s)[0];
-			j.async = true;
-			j.charset = 'UTF-8';
-			j.id = 'xiaonengjs'
-			j.src = 'https://visitor-pro.ntalker.com/visitor/js/bundle.min.js?siteid=kf_9488';
-			s.parentNode.insertBefore(j, s);
-
-			xn('setCustomerInfo', {
-				uname: '',
-				uid: ''
-			})
-		})(window, document, 'script', 'xiaonengjs');
-	</script>
-	<div class="xiao-neng-kf">
-		<a onclick="NTKF.im_openInPageChat('kf_9488_1484277746774')">
-			<img src="http://jic2.talkingdata.com/observatory/mi/images/CustomFileDownloadServer.png">
-			<label><img src="http://jic2.talkingdata.com/observatory/mi/images/CustomFileDownloadServer_hover.png"></label>
-		</a>
-	</div>
-	<div class="xiao-neng-kf QR-code-container">
-		<a>
-			<img src="http://jic2.talkingdata.com/observatory/mi/images/contact-QR-code.png">
-			<label><img src="http://jic2.talkingdata.com/observatory/mi/images/contact-QR-code-hover.png"></label>
-		</a>
-	</div>
+	
 	<script>
 		lin = new LineChart("activenum");
 		lin.drawactive('');
