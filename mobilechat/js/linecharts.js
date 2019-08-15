@@ -1,6 +1,6 @@
 
 
-function draw_sex_linechart(idname, male, female, ddate_array) {
+function draw_sex_linechart(idname,ddate_array, male, female) {
 
 	let mychart = echarts.init(document.getElementById(idname));
 	let option = {
@@ -177,7 +177,7 @@ function draw_activerate_linechart(idname, ddate_array,activerate_array,base_act
 			textStyle: {
 				color: "white",
 			},
-			text: "月活跃度变化"
+			text: ""
 		},
 		tooltip: {
 			trigger: 'axis'

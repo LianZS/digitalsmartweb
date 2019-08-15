@@ -12,7 +12,7 @@ function draw_age_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_
 
 	let option = {
 		title: {
-			text: '年龄分布',
+			text: '',
 					textStyle: {
 				color: "white",
 			},

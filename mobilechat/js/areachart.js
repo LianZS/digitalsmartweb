@@ -1,10 +1,9 @@
 
 
-function drawAreaChart(json) {
-    var mychart = echarts.init(document.getElementById("scence"));
+function draw_active_areachart(idname,ddate_array ,active_array) {
+    var mychart = echarts.init(document.getElementById(idname));
     option = {
            title:{
-//             text:'景区客流量实时监测',
                textStyle:{
                    color:'white'
                }
@@ -28,7 +27,7 @@ function drawAreaChart(json) {
                 fontSize: 15
             },
             boundaryGap: false,
-            data: json.time,
+            data:ddate_array,
 
             axisLabel: {
                 color: "white",
@@ -38,7 +37,7 @@ function drawAreaChart(json) {
         yAxis: {
             type: 'value',
 
-            name: "客流量",
+            name: "活跃数",
             nameLocation: "middle",
             nameGap: 50,
             nameTextStyle: {
@@ -55,8 +54,8 @@ function drawAreaChart(json) {
 
         series: [
             {
-                name: "客流量",
-                data: json.data,
+                name: "活跃数",
+                data: active_array,
                 type: 'line',
                 areaStyle: {},
             }]

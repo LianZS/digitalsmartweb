@@ -5,14 +5,14 @@ function request() {
 		"appid": appid
 	}, function(data) {
 		sex_data = data['sex']
-		let ddate = new Array()
+		let ddate_array = new Array()
 		let bboy = new Array()
 		let ggirl = new Array()
 
 		for(let i = 0; i < sex_data.length; i++) {
 			sex = sex_data[i]
 
-			ddate[i] = sex['ddate']
+			ddate_array[i] = sex['ddate']
 			bboy[i] = sex['boy']
 			ggirl[i] = sex['girl']
 
@@ -21,9 +21,9 @@ function request() {
 		let girl = parseInt(sex['girl'] * 100)
 		$("#male-rate").text(boy + "%")
 		$("#female-rate").text(girl + "%")
-		draw_sex_linechart("sex-chart", bboy, ggirl, ddate)
+		draw_sex_linechart("sex-chart", ddate_array,bboy, ggirl)
 		age_data = data['age']
-		let ddate_array = new Array()
+		ddate_array = new Array()
 		let under_nineth_array = new Array()
 		let nin_twen_array = new Array()
 		let twe_thir_array = new Array()
@@ -71,7 +71,7 @@ function request() {
 
 		}
 		draw_activerate_linechart("active-rate-chart", ddate_array, activerate_array, base_activerate_array, aver_activerate_array)
-
+		draw_active_areachart("active-chart",ddate_array,activenum_array)
 	}, 'json')
 
 }
