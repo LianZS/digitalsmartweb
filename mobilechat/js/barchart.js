@@ -1,4 +1,4 @@
-function draw_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_fift,over_fift) {
+function draw_age_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_fift,over_fift) {
 	let mychart = echarts.init(document.getElementById(idname));
 
 	var dataAxis = ['19岁以下', '19~25岁', '26~35岁', '36~45岁', '46~55岁', '55岁以上'];
@@ -10,16 +10,14 @@ function draw_barchart(idname,under_nineth,nin_twen,twe_thir,thir_four,four_fift
 		dataShadow.push(yMax);
 	}
 
-	option = {
+	let option = {
 		title: {
 			text: '年龄分布',
 					textStyle: {
 				color: "white",
 			},
 		},
-//	tooltip: {
-//			trigger: 'axis'
-//		},
+
 		xAxis: {
 			data: dataAxis,
 			axisLabel: {
