@@ -285,3 +285,23 @@ body {
 .col-md-8 {
 	width: 50%;
 }
+
+.sex {
+	display: inline-block;
+	float: left;
+	width: 49%;
+}
+
+#boy,
+#girl {
+	text-align: center;
+	width: 138px;
+	height: 138px;
+	margin-left: 20%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	border-bottom-left-radius: 50%;
+	border-bottom-right-radius: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+}
