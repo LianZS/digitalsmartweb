@@ -1,6 +1,6 @@
 
 
-function draw_sex_linechart(idname, male, female, datelist) {
+function draw_sex_linechart(idname, male, female, ddate_array) {
 
 	let mychart = echarts.init(document.getElementById(idname));
 	let option = {
@@ -33,7 +33,7 @@ function draw_sex_linechart(idname, male, female, datelist) {
 		xAxis: {
 			type: 'category',
 			boundaryGap: false,
-			data: datelist,
+			data: ddate_array,
 			axisLabel: {
 				color: 'white',
 			},
@@ -168,4 +168,80 @@ function draw_age_linechart(idname, ddate_array, under_nineth_array, nin_twen_ar
 
 	mychart.setOption(option);
 
+}
+function draw_activerate_linechart(idname, ddate_array,activerate_array,base_activerate_array,aver_activerate_array) {
+
+	let mychart = echarts.init(document.getElementById(idname));
+	let option = {
+		title: {
+			textStyle: {
+				color: "white",
+			},
+			text: "月活跃度变化"
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: ['月活跃率', '行业活跃度基准值','行业活跃度基均值'],
+			textStyle: {
+				color: "white"
+			},
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		toolbox: {
+			feature: {
+				saveAsImage: {}
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: ddate_array,
+			axisLabel: {
+				color: 'white',
+			},
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 10,
+
+			},
+		},
+		yAxis: {
+
+			type: 'value',
+			axisLabel: {
+				color: 'white',
+			},
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 10,
+			},
+		},
+		series: [{
+				name: '月活跃率',
+				type: 'line',
+				color: "#33FFFF",
+				data: activerate_array
+			}, {
+				name: '行业活跃度基准值',
+				type: 'line',
+				color: "#FD07F6",
+				data: base_activerate_array
+			},{
+				name: '行业活跃度基均值',
+				type: 'line',
+				color: "#33FF74",
+				data: aver_activerate_array
+			},
+
+		]
+	};
+
+	mychart.setOption(option);
 }

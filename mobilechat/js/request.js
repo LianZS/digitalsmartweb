@@ -50,6 +50,27 @@ function request() {
 		}
 		draw_age_barchart("age-barchart", under_nineth, nin_twen, twe_thir, thir_four, four_fift, over_fift)
 		draw_age_linechart("age-linechart", ddate_array, under_nineth_array, nin_twen_array, twe_thir_array, thir_four_array, four_fift_array, over_fift_array)
+		active_data = data['active']
+
+		ddate_array = []
+		let activenum_array = new Array()
+		let activerate_array = new Array()
+		let aver_activerate_array = new Array()
+		let base_activerate_array = new Array()
+		for(let i = 0; i < active_data.length; i++) {
+			activenum = active_data[i]['activenum']
+			activerate = active_data[i]['activerate']
+			aver_activerate = active_data[i]['aver_activerate']
+			base_activerate = active_data[i]['base_activerate']
+			ddate = active_data[i]['ddate']
+			activenum_array[i] = activenum
+			aver_activerate_array[i] = aver_activerate
+			activerate_array[i] = activerate
+			base_activerate_array[i] = base_activerate
+			ddate_array[i] = ddate
+
+		}
+		draw_activerate_linechart("active-rate-chart", ddate_array, activerate_array, base_activerate_array, aver_activerate_array)
 
 	}, 'json')
 
