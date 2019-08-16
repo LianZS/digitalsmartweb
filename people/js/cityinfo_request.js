@@ -149,7 +149,7 @@ function children_page() {
 	pid = $('#scence_select0 option:selected').val();
 	flag = parseInt($('#scence_select0 option:selected').attr("flag"));
 	range = $('#range_select0 option:selected').val();
-	href = "realtimeScence.html?province=" + province + "&location=" + city + "&citypid=" + citypid + "&area=" + area + "&pid=" + pid + "&flag=" + flag + "&range=" + range
+//	href = "realtimeScence.html?province=" + province + "&location=" + city + "&citypid=" + citypid + "&area=" + area + "&pid=" + pid + "&flag=" + flag + "&range=" + range
 	var url = window.location.href;
 	var valiable = url.split("?")[0] + "?province=" + province + "&location=" + city + "&area=" + area + "&range=" + range
 	window.history.pushState({}, 0, valiable);

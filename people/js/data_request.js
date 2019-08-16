@@ -67,16 +67,17 @@ function SearchRate(area_pid,fla) {
 			baidu_dateList[i] = baidu[i]['tmp_date'];
 			baidu_numList[i] = baidu[i]['rate'];
 		}
-		dataList = {
+		let dataList = {
 			"wechat": wechat_numList,
 			"baidu": baidu_numList,
 			"sougou": sougou_numList
 
 		}
-		if(wechat_dateList.length > baidu_dateList && wechat_dateList.length > sougou_dateList) {
+		
+		if(wechat_dateList.length >= baidu_dateList.length && wechat_dateList.length >= sougou_dateList.length) {
 			dateList = wechat_dateList
 		}
-		if(baidu_dateList.length > wechat_dateList && baidu_dateList.length > sougou_dateList) {
+		if(baidu_dateList.length >= wechat_dateList.length && baidu_dateList.length >= sougou_dateList.length) {
 			dateList = baidu_dateList
 		} else {
 			dateList = sougou_dateList
