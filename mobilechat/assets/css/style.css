@@ -291,7 +291,11 @@ body {
 	float: left;
 	width: 49%;
 }
-
+.sex-class {
+	display: inline-block;
+	float: left;
+	width: 40%;
+}
 #boy,
 #girl {
 	text-align: center;

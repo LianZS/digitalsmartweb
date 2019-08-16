@@ -24,6 +24,7 @@
 
 		<link href="assets/css/style.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css">
+		<script type="text/javascript" src="js/criclechart.js" ></script>
 
 	</head>
 
@@ -143,7 +144,7 @@
 
 							</div>
 							<div style="display: block ;height:30%;text-align: center; ">
-								<div class="sex">
+								<div class="sex-class">
 
 									<div class='boy-pic' style="background-color: transparent;">
 										<span style="color:rgb(0, 147, 254);">	<li class="fa fa-3x fa-male" style="margin-top: 20%;"></li></span>
@@ -151,7 +152,10 @@
 									</div>
 
 								</div>
-								<div class="sex">
+								<div style="float: left;width: 10%;text-align: center;height:30% ;margin-top: 10%;">
+									<span style="color: white;font-size: 20px;">vs</span>
+								</div>
+								<div class="sex-class">
 									<div class='girl-pic' style="background-color: transparent;text-align: center;">
 										<span style="color: pink;"><li class="fa fa-3x fa-female" style="margin-top: 20%;">
 										</li></span>
@@ -161,7 +165,7 @@
 									</div>
 
 								</div>
-								<div id="circle"></div>
+								<div id="circle" style="width: 100%;height: 50%;"></div>
 							</div>
 
 						</div>
@@ -170,6 +174,7 @@
 
 	</body>
 	<script>
+		draw_circle("circle")
 	</script>
 
 </html>
