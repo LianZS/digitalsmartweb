@@ -1,6 +1,7 @@
-
-var maker_array = new Array() // 存放坐标
-
+var loaction_array = new Array()
+var maker_array = new Array() // 存放浮标
+var lnglat =new Array()//存放坐标
+var pid_array =new Array()
 function city_map() {
 	let url = "http://127.0.0.1:8000/traffic/api/getCityInfo"
 	$.get(url, {}, function(data) {
@@ -8,11 +9,13 @@ function city_map() {
 
 		for(let i = 0; i < data_info.length; i++) {
 			city = data_info[i]
-			let loaction = city['loaction']
-			
+			let loaction = city['cityname']
+			let pid=city['pid']
 			let longitude = city['longitude']
 			let latitude = city['latitude']
-			loaction_array[i] = loaction
+			lnglat[i]=[longitude,latitude]
+			loaction_array[i]=loaction
+			pid_array[i]=pid
 			let marker = new AMap.Marker({
 				position: new AMap.LngLat(longitude, latitude), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
 			});
@@ -46,26 +49,21 @@ function draw_map() {
 
 		AMap.event.addListener(maker_array[i], 'mouseover', function() {
 			
-			let info ="<a class='input-item' style='color: white;width:100%' >" + maker_array[i][0] + "</a></div></div>"
+			let info ="<a class='input-item' style='color: white;width:100%' >" +loaction_array[i] + "</a></div></div>"
 			infoWindow = new AMap.InfoWindow({
 				content:  info,
 				isCustom: true, //自定制
 			});
-			console.log(info)
-			console.log(maker_array[i][1], maker_array[i][2])
-			infoWindow.open(map,[maker_array[i][1], maker_array[i][2]]);
+			infoWindow.open(map,lnglat[i]);
 			infoWindow.close();
-
 		});
 
 		AMap.event.addListener(maker_array[i], 'click', () => {
-			province = province_array[i]
-			loaction = loaction_array[i]
-			area = area_array[i]
-			range = 60
-			href = $("a").attr("href") + "?province=" + province + "&location=" + loaction + "&area=" + area + "&range=" + range
-			$("a").attr("href", href)
-			$("a")[0].click()
+			
+			cityCode = pid_array[i]
+			href = $(".traffic").attr("href") + "?cityCode=" + cityCode
+			$(".traffic").attr("href", href)
+			$(".traffic")[0].click()
 		});
 	}
 
