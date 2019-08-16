@@ -305,3 +305,17 @@ body {
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
 }
+.border-div{
+	background: 
+	linear-gradient(#6FF6FF, #6FF6FF) left top,
+		linear-gradient(#6FF6FF, #6FF6FF) left top,
+		linear-gradient(#6FF6FF, #6FF6FF) right top,
+		linear-gradient(#6FF6FF, #6FF6FF) right top,
+		linear-gradient(#6FF6FF, #6FF6FF) left bottom,
+		linear-gradient(#6FF6FF, #6FF6FF) left bottom,
+		linear-gradient(#6FF6FF, #6FF6FF) right bottom,
+		linear-gradient(#6FF6FF, #6FF6FF) right bottom;
+
+  background-repeat: no-repeat;
+background-size: 1px 24px, 24px 1px;
+}
