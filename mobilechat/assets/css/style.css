@@ -291,11 +291,13 @@ body {
 	float: left;
 	width: 49%;
 }
+
 .sex-class {
 	display: inline-block;
 	float: left;
 	width: 40%;
 }
+
 #boy,
 #girl {
 	text-align: center;
@@ -309,17 +311,17 @@ body {
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
 }
-.border-div{
-	background: 
-	linear-gradient(#6FF6FF, #6FF6FF) left top,
-		linear-gradient(#6FF6FF, #6FF6FF) left top,
-		linear-gradient(#6FF6FF, #6FF6FF) right top,
-		linear-gradient(#6FF6FF, #6FF6FF) right top,
-		linear-gradient(#6FF6FF, #6FF6FF) left bottom,
-		linear-gradient(#6FF6FF, #6FF6FF) left bottom,
-		linear-gradient(#6FF6FF, #6FF6FF) right bottom,
-		linear-gradient(#6FF6FF, #6FF6FF) right bottom;
 
-  background-repeat: no-repeat;
-background-size: 1px 24px, 24px 1px;
+.border-div {
+	background: linear-gradient(#6FF6FF, #6FF6FF) left top, linear-gradient(#6FF6FF, #6FF6FF) left top, linear-gradient(#6FF6FF, #6FF6FF) right top, linear-gradient(#6FF6FF, #6FF6FF) right top, linear-gradient(#6FF6FF, #6FF6FF) left bottom, linear-gradient(#6FF6FF, #6FF6FF) left bottom, linear-gradient(#6FF6FF, #6FF6FF) right bottom, linear-gradient(#6FF6FF, #6FF6FF) right bottom;
+	background-repeat: no-repeat;
+	background-size: 1px 24px, 24px 1px;
+}
+
+.app-li {
+	display: inline-block;
+	width: 25%;
+	height: 50px;
+	margin-top: 5%;
+	text-align: center;
 }

@@ -279,3 +279,5 @@ function draw_bar(idname) {
 	mychart.setOption(option);
 
 }
+
+

@@ -27,6 +27,7 @@
 		<script type="text/javascript" src="js/criclechart.js"></script>
 		<script type="text/javascript" src="js/barchart.js"></script>
 		<script type="text/javascript" src="js/linecharts.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
 
 	</head>
 
@@ -34,25 +35,19 @@
 		<header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
 			<div class="container">
 				<div class="navbar-header">
-					<!-- responsive nav button -->
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="sr-only"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
                     </button>
-					<!-- /responsive nav button -->
 
-					<!-- logo -->
 					<h1 class="navbar-brand">
 						<a href="#body">数智
 
 </a>
 					</h1>
-					<!-- /logo -->
 				</div>
-
-				<!-- main nav -->
 
 				<nav class="collapse navbar-collapse navbar-right" role="navigation">
 					<ul id="nav" class="nav navbar-nav">
@@ -60,13 +55,13 @@
 							<a href="../index.html">首页</a>
 						</li>
 						<li>
-							<a href="placepositioning.html">人口定位</a>
+							<a href="../people/realtimeScence.html">人口定位</a>
 						</li>
 						<li>
 							<a href="../traffic/traffic.html?cityCode=257">实时交通</a>
 						</li>
 						<li>
-							<a href="../mobilechat/userhabit.html">互联网数据</a>
+							<a href="#">互联网数据</a>
 						</li>
 						<li>
 							<a href="../traffic/firstpage.html">天气数据</a>
@@ -78,7 +73,6 @@
 
 					</ul>
 				</nav>
-				<!-- /main nav -->
 
 			</div>
 		</header>
@@ -96,17 +90,16 @@
 
 			</div>
 		</div>
-		<!-- LOGO HEADER END-->
-		<!-- MENU SECTION END-->
-		<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
 
+		<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
+			<a id="search-href" href="search.html"></a>
 			<div class="container">
 
 				<div class="row pad-botm">
 					<form>
 						<div style="margin-left:5%;float: left;background-color: white;height: 50px;"><i class="fa fa-search fa-2x" style="padding:10px;"></i></div>
-						<input type="text" style="width: 70%;height: 50px;border: 0;  outline: none;" placeholder="输入您想要查询的信息，如微信，QQ" />
-						<input type="button" value="搜索" style="color: white;border: 0;background-color: rgb(0, 147, 254);margin-left: 2%;width: 5%;height: 40px;" />
+						<input id="appname" type="text" style="width: 70%;height: 50px;border: 0;  outline: none;" placeholder="输入您想要查询的信息，如微信，QQ" />
+						<input id="seach-button" type="button" onclick="search()" value="搜索" style="color: white;border: 0;background-color: rgb(0, 147, 254);margin-left: 2%;width: 5%;height: 40px;" />
 					</form>
 				</div>
 
@@ -196,14 +189,30 @@
 
 						</div>
 					</div>
+					<div class="col-md-4 col-sm-4 col-xs-12" style="width: 25%;">
+						<div class="panel panel-default">
+							<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+								区域热度
+
+							</div>
+							<div style="display: block ;height:30%;text-align: center; ">
+								<div id="area" style="width: 100%;height: 100%;">
+									<img src="assets/img/area.png" style="width: 100%;height: 100%;" />
+								</div>
+							</div>
+
+						</div>
+					</div>
 
 				</div>
 
 	</body>
 	<script>
-		draw_circle("circle")
-		draw_bar("bar")
-		draw_line("line")
+		window.onload = function() {
+			draw_circle("circle")
+			draw_bar("bar")
+			draw_line("line")
+		}
 	</script>
 
 </html>
