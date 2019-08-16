@@ -154,19 +154,128 @@ function draw_keyword_rate_barchart(idname, keyword_array, rate_array) {
 			}
 		},
 		series: [{
-				type: 'bar',
-				data: rate_array,
+			type: 'bar',
+			data: rate_array,
 
-				itemStyle: {
-					color: function(params) {
-						colorList = [ '#FDC907', '#F2FD07', '#c23531','#A7FD07','#34FD07','#07FDA0','#07F9FD','#07A0FD','#6007FD','#9107FD','#EE07FD','#E28ACB','#FDC907', '#F2FD07', '#c23531','#A7FD07','#34FD07','#07FDA0','#07F9FD']
-						return colorList[params.dataIndex];
-					}
+			itemStyle: {
+				color: function(params) {
+					colorList = ['#FDC907', '#F2FD07', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD', '#07A0FD', '#6007FD', '#9107FD', '#EE07FD', '#E28ACB', '#FDC907', '#F2FD07', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD']
+					return colorList[params.dataIndex];
 				}
-			
+			}
 
 		}]
+	}
+	mychart.setOption(option);
+
 }
-mychart.setOption(option);
+
+function draw_bar(idname) {
+	let mychart = echarts.init(document.getElementById(idname));
+
+	var dataAxis = ['人均安装应用', '人均启动应用'];
+	var yMax = 40;
+
+	let option = {
+		title: {
+			text: '',
+			textStyle: {
+				color: "white",
+			},
+		},
+
+		xAxis: {
+			data: dataAxis,
+			axisLabel: {
+				textStyle: {
+					color: 'white'
+				}
+			},
+			axisTick: {
+				show: false
+			},
+			axisLine: {
+				show: false
+			},
+			z: 10
+		},
+		yAxis: {
+			axisLine: {
+				show: false
+			},
+			type: 'value',
+
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 10,
+			},
+			axisTick: {
+				show: false
+			},
+			axisLabel: {
+				textStyle: {
+					color: 'white'
+				}
+			}
+		},
+		dataZoom: [{
+			type: 'inside'
+		}],
+		series: [{ // For shadow
+				type: 'bar',
+				itemStyle: {
+					normal: {
+						color: 'rgba(0,0,0,0.05)'
+					}
+				},
+				barGap: '-100%',
+				barCategoryGap: '40%',
+				data: [54, 54],
+				animation: false
+			},	{
+				type: 'bar',
+				itemStyle: {
+					normal: {
+						color: new echarts.graphic.LinearGradient(
+							0, 0, 0, 1, [{
+									offset: 0,
+									color: '#83bff6'
+								},
+								{
+									offset: 0.5,
+									color: '#188df0'
+								},
+								{
+									offset: 1,
+									color: '#188df0'
+								}
+							]
+						)
+					},
+					emphasis: {
+						color: new echarts.graphic.LinearGradient(
+							0, 0, 0, 1, [{
+									offset: 0,
+									color: '#2378f7'
+								},
+								{
+									offset: 0.7,
+									color: '#2378f7'
+								},
+								{
+									offset: 1,
+									color: '#83bff6'
+								}
+							]
+						)
+					}
+				},
+				data: [46,34]
+			}
+		
+
+		]
+	};
+	mychart.setOption(option);
 
 }
