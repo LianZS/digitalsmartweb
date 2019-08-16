@@ -21,7 +21,7 @@ function request() {
 		let girl = parseInt(sex['girl'] * 100)
 		$("#male-rate").text(boy + "%")
 		$("#female-rate").text(girl + "%")
-		draw_sex_linechart("sex-chart", ddate_array,bboy, ggirl)
+		draw_sex_linechart("sex-chart", ddate_array, bboy, ggirl)
 		age_data = data['age']
 		ddate_array = new Array()
 		let under_nineth_array = new Array()
@@ -71,19 +71,49 @@ function request() {
 
 		}
 		draw_activerate_linechart("active-rate-chart", ddate_array, activerate_array, base_activerate_array, aver_activerate_array)
-		draw_active_areachart("active-chart",ddate_array,activenum_array)
-		like_data=data['like']
-		let keyword_array=new Array()
-		let rate_array=new Array()
-		for(let i=0;i<like_data.length;i++){
+		draw_active_areachart("active-chart", ddate_array, activenum_array)
+		like_data = data['like']
+		let keyword_array = new Array()
+		let rate_array = new Array()
+		for(let i = 0; i < like_data.length; i++) {
 			keyword = like_data[i]['keyword']
-			rate =like_data[i]["rate"]
-			keyword_array[i]=keyword
-			rate_array[i]=rate
-			
+			rate = like_data[i]["rate"]
+			keyword_array[i] = keyword
+			rate_array[i] = rate
+
 		}
-		draw_keyword_rate_barchart("app-like",keyword_array,rate_array)
-		
+		draw_keyword_rate_barchart("app-like", keyword_array, rate_array)
+		province_data = data['area']
+		let ddate_map= []
+		let proinve_array = new Array()
+		for(let i = 0; i < province_data.length; i++) {
+			proince = province_data[i]['province']
+			proinve_array[i] = proince
+			ddate = province_data[i]['ddate']
+			ddate_map[ddate] = 1
+
+		}
+		ddate_array=[]
+		ddate_array=Object.keys(ddate_map)
+		let proinve_set = new Set(proinve_array)
+		let collections = new Array()
+		let count_map = new Array()
+		for(let item of proinve_array) {
+			collections[item] = new Array()
+			count_map[item] = 0
+		}
+		for(let i = 0; i < province_data.length; i++) {
+
+			let proince = province_data[i]['province']
+
+			let rate = province_data[i]['rate']
+			let index = count_map[proince]
+
+			collections[proince][index] = rate
+			count_map[proince] = index + 1
+
+		}
+		draw_province_rate_linechart("province-rate-chart", ddate_array, proinve_set, collections)
 	}, 'json')
 
 }

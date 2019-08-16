@@ -159,7 +159,6 @@ function draw_keyword_rate_barchart(idname, keyword_array, rate_array) {
 
 				itemStyle: {
 					color: function(params) {
-					console.log(params)
 						colorList = [ '#FDC907', '#F2FD07', '#c23531','#A7FD07','#34FD07','#07FDA0','#07F9FD','#07A0FD','#6007FD','#9107FD','#EE07FD','#E28ACB','#FDC907', '#F2FD07', '#c23531','#A7FD07','#34FD07','#07FDA0','#07F9FD']
 						return colorList[params.dataIndex];
 					}
