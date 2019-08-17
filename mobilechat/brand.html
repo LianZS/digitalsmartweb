@@ -24,12 +24,13 @@
 
 		<link href="assets/css/style.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="js/request.js"></script>
 		<script src="js/linecharts.js"></script>
 		<script src="js/barchart.js"></script>
 		<script src="js/areachart.js"></script>
 		<script src="js/linecharts.js"></script>
-		<script src="js/circle_linechart.js"></script>
+				<script src="js/criclechart.js"></script>
+
+		<script src="js/mobile_request.js"></script>
 
 	</head>
 
@@ -37,48 +38,22 @@
 
 		<div class="content-wrapper">
 			<div class="container">
-				<div class="row">
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<div class="panel panel-default">
-							<select></select>
-						</div>
-					</div>
-					<div class="col-md-4 col-sm-4 col-xs-12">
-						<div class="panel panel-default">
-							<select></select>
-						</div>
-					</div>
-
-				</div>
 
 				<div class="row">
-					<div class="col-md-4 col-sm-4 col-xs-12">
+					<div class="col-md-4 col-sm-4 col-xs-12" style="width: 70%;">
 						<div class="panel panel-default">
 							<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
 								品牌占有率
 
 							</div>
-							<div id="brand" style="height: 300px;"></div>
-
-						</div>
-					</div>
-					<div class="col-md-8 col-sm-8 col-xs-12" style="">
-						<div class="panel ">
-							<div class="panel-heading panel-success">
-								机型占有率
-
-							</div>
-							<div id="mobile" style="height: 300px;"></div>
+							<div id="brand" style="height: 350px;"></div>
 
 						</div>
 					</div>
 				</div>
-
-	</body>
 	<script>
-		window.onload = function() {
-			request()
-		}
+		brand_request()
 	</script>
+	</body>
 
 </html>
