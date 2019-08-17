@@ -325,3 +325,29 @@ body {
 	margin-top: 5%;
 	text-align: center;
 }
+
+.menu {
+	width: 10%;
+	display: block;
+	box-shadow: 0 4px 8px #17193b;
+	background: rgba(48, 94, 202, .12);
+	padding: 10px 0;
+	border-radius: 2px;
+}
+
+.menu-ul {
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+.menu-li:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-li {
+	padding: 10px;
+}

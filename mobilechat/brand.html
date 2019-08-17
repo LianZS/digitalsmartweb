@@ -1,0 +1,84 @@
+<br />
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+
+		<title>数智</title>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="../js/jquery.fancybox.pack.js"></script>
+
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css">
+		<script src="js/request.js"></script>
+		<script src="js/linecharts.js"></script>
+		<script src="js/barchart.js"></script>
+		<script src="js/areachart.js"></script>
+		<script src="js/linecharts.js"></script>
+		<script src="js/circle_linechart.js"></script>
+
+	</head>
+
+	<body style="background-color: transparent;">
+
+		<div class="content-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="panel panel-default">
+							<select></select>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="panel panel-default">
+							<select></select>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-md-4 col-sm-4 col-xs-12">
+						<div class="panel panel-default">
+							<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+								品牌占有率
+
+							</div>
+							<div id="brand" style="height: 300px;"></div>
+
+						</div>
+					</div>
+					<div class="col-md-8 col-sm-8 col-xs-12" style="">
+						<div class="panel ">
+							<div class="panel-heading panel-success">
+								机型占有率
+
+							</div>
+							<div id="mobile" style="height: 300px;"></div>
+
+						</div>
+					</div>
+				</div>
+
+	</body>
+	<script>
+		window.onload = function() {
+			request()
+		}
+	</script>
+
+</html>
