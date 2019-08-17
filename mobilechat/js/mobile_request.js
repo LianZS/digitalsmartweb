@@ -35,7 +35,7 @@ function brand_request() {
 			rate_array[i] = {
 				name: brand,
 				type: 'line',
-				color: "#33FFFF",
+			
 				data: rates,
 				color:color[i]
 			}
