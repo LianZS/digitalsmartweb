@@ -69,7 +69,6 @@ function draw_brand_circle(idname, brand_map) {
 			value: other_rate,
 			name: "其它"
 	}
-	console.log(series_data)
 	let mychart = echarts.init(document.getElementById(idname));
 
 	option = {
@@ -109,4 +108,59 @@ function draw_brand_circle(idname, brand_map) {
 	};
 	mychart.setOption(option);
 
+}
+function draw_system_circle(idname) {
+	let mychart = echarts.init(document.getElementById(idname));
+
+	option = {
+		title: {
+
+			x: 'center',
+
+		},
+
+		legend: {
+			orient: 'vertical',
+			left: 'left',
+			data: ['安卓', '苹果','其它'],
+			textStyle: {
+				color: 'white' // 图例文字颜色
+			}
+
+		},
+		series: [{
+			name: '访问来源',
+			type: 'pie',
+			radius: '55%',
+			center: ['50%', '60%'],
+			data: [{
+					value: 87,
+					name: '安卓'
+				}, {
+					value: 20,
+					name: '苹果'
+				},
+				{
+					value: 3,
+					name: '其它'
+				},
+
+			],
+			itemStyle: {
+				emphasis: {
+					shadowBlur: 10,
+					shadowOffsetX: 0,
+					shadowColor: 'rgba(0, 0, 0, 0.5)'
+				},
+				color: function(params) {
+					colorList = ['#4B6CFF', '#F4FF4B',"#D705FD"]
+					return colorList[params.dataIndex];
+				}
+			}
+		}]
+	};
+	mychart.setOption(option);
+
+}function draw_system_rate(idname,system_map){
+	
 }

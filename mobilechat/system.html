@@ -21,12 +21,10 @@
 		<script src="assets/js/custom.js"></script>
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
-		<script src="js/linecharts.js"></script>
 
 		<link href="assets/css/style.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="js/mobile_request.js"></script>
-
+		<script src="js/system.js"></script>>
 	</head>
 
 	<body style="background-color: #191e48;">
@@ -129,23 +127,18 @@
 
 					<div class="show-menu" style="width: 95%;height: 500px;">
 						<div class="row">
-							<div class="col-md-4 col-sm-4 col-xs-12"style="width: 45%;">
+							<div class="col-md-4 col-sm-4 col-xs-12" style="width: 80%;">
 								<div class="panel panel-default">
 									<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
-										品牌占有率
+										手机系统占有率
 
 									</div>
-									<div id="brand" style="height: 350px;"></div>
-
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4 col-xs-12" style="width: 43%;">
-								<div class="panel panel-default">
-									<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
-										品牌占有率变化
+									<div id="system-brand" style="height: 350px;width: 40%;float: left;"></div>
+									<div style="width: 60%;height: 350px;float: left;">
+										<div style="height: 50%;width: 100%;" id="andoird"></div>
+										<div style="height: 50%;width: 100%;background-color: yellow;" id="apple"></div>
 
 									</div>
-									<div id="brand-rate" style="height: 350px;"></div>
 
 								</div>
 							</div>
@@ -158,7 +151,7 @@
 
 	</body>
 	<script>
-		brand_request()
+		draw_system_circle("system-brand")
 	</script>
 
 </html>

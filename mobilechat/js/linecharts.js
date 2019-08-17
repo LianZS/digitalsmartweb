@@ -336,3 +336,64 @@ function draw_line(idname) {
 	mychart.setOption(option);
 
 }
+
+function draw_brand_rate(idname,brand_array,ddate_array,rate_array){
+	
+	let mychart = echarts.init(document.getElementById(idname));
+	let option = {
+		title: {
+			textStyle: {
+				color: "white",
+			},
+			text: ""
+		},
+		tooltip: {
+			trigger: 'axis'
+		},
+		legend: {
+			data: brand_array,
+			textStyle: {
+				color: "white"
+			},
+		},
+		grid: {
+			left: '3%',
+			right: '4%',
+			bottom: '3%',
+			containLabel: true
+		},
+		toolbox: {
+			feature: {
+				saveAsImage: {}
+			}
+		},
+		xAxis: {
+			type: 'category',
+			boundaryGap: false,
+			data: ddate_array,
+			axisLabel: {
+				color: 'white',
+			},
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 10,
+
+			},
+		},
+		yAxis: {
+
+			type: 'value',
+			axisLabel: {
+				color: 'white',
+			},
+			nameTextStyle: {
+				color: 'white',
+				fontSize: 10,
+			},
+		},
+		series:rate_array ,
+		
+	};
+
+	mychart.setOption(option);
+}
