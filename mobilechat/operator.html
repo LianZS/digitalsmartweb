@@ -21,11 +21,12 @@
 		<script src="assets/js/custom.js"></script>
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<script src="js/linecharts.js"></script>
 
 		<link href="assets/css/style.css" rel="stylesheet" />
 		<link rel="stylesheet" href="../css/main.css">
-		<script src="js/system_request.js"></script>>
-		<script src="js/linecharts.js"></script>>
+		<script src="js/operator_request.js"></script>
+		<script src="js/network_request.js"></script>
 
 	</head>
 
@@ -127,27 +128,32 @@
 						</ul>
 					</div>
 
-					<div class="show-menu" style="width: 100%;height: auto;">
+					<div class="show-menu" style="width: 95%;height: auto;">
 						<div class="row">
 							<div class="col-md-4 col-sm-4 col-xs-12" style="width: 85%;">
 								<div class="panel panel-default">
 									<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
-										手机系统占有率
+										运营商占有率
 
 									</div>
-									<div id="system-brand" style="height: 350px;width: 40%;float: left;"></div>
+									<div id="operator" style="height: 350px;width: 40%;float: left;"></div>
 									<div style="width: 60%;height: 350px;float: left;">
-										<div style="height: 50%;width: 100%;" id="andoird"></div>
-										<div style="height: 50%;width: 100%;" id="apple"></div>
+										<div id="operator-rate" style="height: 350px;"></div>
 
 									</div>
 
 									<div style="clear: left;height: 400px;" id="andoird-rate">
+										<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+											网络占有率
 
-									</div>
-									<div style="clear: left;height: 400px;" id="apple-rate">
+										</div>
+										<div id="network" style="height: 350px;width: 40%;float: left;"></div>
+										<div style="width: 60%;height: 350px;float: left;">
+											<div id="network-rate" style="height: 350px;"></div>
 
+										</div>
 									</div>
+
 								</div>
 							</div>
 
@@ -160,9 +166,9 @@
 	</body>
 	<script>
 		window.onload = function() {
-			system_request()
+			operator_request()
+			network_request()
 		}
-		draw_system_circle("system-brand")
 	</script>
 
 </html>

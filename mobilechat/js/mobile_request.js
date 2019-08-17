@@ -1,5 +1,5 @@
 function brand_request() {
-	let url = "http://127.0.0.1:8000/internet/api/mobile/publicBrandshare"
+	let url = "http://127.0.0.1:8000/internet/api/mobile/brandShare"
 	let color=['#FDC907', '#F2FD07', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD', '#07A0FD', '#6007FD', '#9107FD', '#EE07FD', '#E28ACB', '#FDC907', '#F2FD07', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD']
 	$.get(url, {}, function(data) {
 		brands = data["share"]
@@ -25,8 +25,8 @@ function brand_request() {
 			brand_map[name] = rate //更新最新数据
 			index_map[name] = index+1
 		}
-		brands = Object.keys(brand_map)
 		draw_brand_circle("brand", brand_map)
+		brands = Object.keys(brand_map)
 
 		rate_array = new Array()
 		for(let i = 0; i < brands.length; i++) {

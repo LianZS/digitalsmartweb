@@ -165,7 +165,8 @@ function draw_system_circle(idname) {
 }
 
 function draw_detail_system_rate(idname, system_map) {
-legend_data = Object.keys(system_map)
+	
+	legend_data = Object.keys(system_map)
 	series_data = new Array()
 	j = 0
 	for(let i = 0; i < legend_data.length; i++) {
@@ -209,8 +210,8 @@ legend_data = Object.keys(system_map)
 					shadowColor: 'rgba(0, 0, 0, 0.5)'
 				},
 				color: function(params) {
-					colorList = ['#34FD07', '#07FDA0', '#07F9FD', '#FDC907', '#F2FD07','#07A0FD', '#6007FD', '#9107FD', '#EE07FD', '#E28ACB',  '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD']
-					
+					colorList = ['#34FD07', '#07FDA0', '#07F9FD', '#FDC907', '#F2FD07', '#07A0FD', '#6007FD', '#9107FD', '#EE07FD', '#E28ACB', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD']
+
 					return colorList[params.dataIndex];
 				}
 			}
@@ -218,3 +219,4 @@ legend_data = Object.keys(system_map)
 	};
 	mychart.setOption(option);
 }
+

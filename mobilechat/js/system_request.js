@@ -138,15 +138,15 @@ function system_request() {
 		}
 		longest_ddate = new Set(longest_ddate)
 		temp = new Array()
-		for(let item of longest_ddate){
+		for(let item of longest_ddate){//  转数组
 			temp.push(item)
 		}
 		longest_ddate=temp
-		for(let i = 0; i < systems.length; i++) {
+		for(let i = 0; i < systems.length; i++) {//数据的话补0
 			system = systems[i]
 			dates = ddate_array[system]
 			pre_rate_array = new Array()
-			date = dates[0] //开始时间，前面没有数据的话补0
+			date = dates[0] 
 			for(let j = 0; j < longest_ddate.length; j++) {
 				pre_date = longest_ddate[j]
 				if(pre_date == date) {
