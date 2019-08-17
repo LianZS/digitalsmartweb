@@ -1,290 +1,118 @@
+<br />
 <!DOCTYPE html>
 <html>
 
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+
 		<title>数智</title>
-		<script src="http://sdk.talkingdata.com/app/h5/v1?appid=2D37E10F4E75439083FE19804875EA55&vn=正式版1.0.9"></script>
-		<meta name="description" content="">
-		<meta name="keywords" content="">
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/public.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/font.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/iconfont.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/main.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/header.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/footer.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/results.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/loading.css?v=1.2.10" rel="stylesheet" />
-		<link href="http://jic2.talkingdata.com/observatory/mi/css/app-detail.css?v=1.2.10" rel="stylesheet" />
-		<link href="asset/css/style.css" rel="stylesheet" />
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="../js/jquery.fancybox.pack.js"></script>
 
-		<script src="asset/js/linecharts.js"></script>
-		<script src="asset/js/echarts.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-		<script>
-			window.dateLimit = {
-				"minDay": "",
-				"maxDay": "",
-				"minWeek": "",
-				"maxWeek": "",
-				"minMonth": "2016-01-01",
-				"maxMonth": "2017-05-01",
-				"minQ": "",
-				"maxQ": ""
-			}
-			var appName = '',
-				appId = '',
-				curpage = 'marketprofile', //app, wxpub
-				application = '应用';
-		</script>
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css">
+		<script src="js/loadapplist.js"></script>
 	</head>
 
-	<body class="">
-		<div class="header  clearfix">
-			<!--logo-->
-			<div class="logo l" style="color: white;font-size: 20px;">
-				数智
-			</div>
+	<body style="background-color: #191e48;">
+		<header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- responsive nav button -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+                    </button>
+					<!-- /responsive nav button -->
 
-			<div class="top-menu trans l">
-				<ul>
-					<li>
-						<a href="../index.html">首页</a>
-					</li>
-					<li>
-						<a href="javascript:void(0)">数据服务<i class="icon-arrow-right"></i></a>
-						<div class="describe-content clearfix" style="height: auto;">
-							<div class="service-contents">
-								<div class="service-contents-header">
-									<img class="img-pay" src="http://jic2.talkingdata.com/observatory/mi/images/Free.png" height="16px" width="16px" /><label>免费服务</label>
-								</div>
-								<div class="service-contents-a">
-									<a href="" title="APP用户画像">
-										<div class="describe-list trans">
-											<div class="describe-list-describe trans">
-												<span>
-                        <i class="icon-apply-ranking"></i>
-                      </span>
-												<label>APP用户画像</label>
-												<b>洞悉市场动态，提供最新移动应用排行，针对单款应用绘制人群画像</b>
-											</div>
-										</div>
-									</a>
-									<a href="" title="公众号分析">
-										<div class="describe-list trans">
-											<div class="describe-list-describe trans">
-												<span>
-                    <i class="icon-public"></i>
-                  </span>
-												<label>公众号分析</label>
-												<b>通过对自媒体人的账号和文章进行甄别分析，获悉微信公众号画像</b>
-											</div>
-										</div>
-									</a>
-									<a href="" title="终端指数">
-										<div class="describe-list trans">
-											<div class="describe-list-describe trans">
-												<span>
-                    <i class="icon-phone"></i>
-                  </span>
-												<label>终端指数</label>
-												<b>呈现移动设备趋势，提供最受欢迎的设备品牌、分辨率、操作系统等</b>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-						</div>
+					<!-- logo -->
+					<h1 class="navbar-brand">
+						<a href="#body">数智
 
-					</li>
-					<li>
-						<a href="../people/placepositioning.html"> 人口定位<i class=""></i></a>
-					</li>
-					<li>
-						<a href="../traffic/traffic.html"> 实时交通<i class=""></i></a>
-					</li>
-					</li>
-					<li>
-						<a href="../traffic/firstpage.html"> 天气数据<i class=""></i></a>
-					</li>
-				</ul>
-			</div>
-			<div class="search r trans">
-				<i class="icon-search trans"></i>
-				<input type="text" name="keyword" autocomplete="off" placeholder="请输入需查找的内容">
-				<i class="icon-close trans"></i>
-			</div>
-			<div class="r header-operate-container">
-				<div class="operate-right">
-					<a class="icon-question" href="http://doc.talkingdata.com/posts/498"></a>
+</a>
+					</h1>
+					<!-- /logo -->
 				</div>
-				<div class="operate-right account-container to-login">
-					<a href="" title="登录">登录</a>
-					<b class="line"></b>
-					<a href="" title="注册">注册</a>
+
+				<!-- main nav -->
+
+				<nav class="collapse navbar-collapse navbar-right" role="navigation">
+					<ul id="nav" class="nav navbar-nav">
+						<li>
+							<a href="../index.html">首页</a>
+						</li>
+						<li>
+							<a href="../people/realtimeScence.html">人口定位</a>
+						</li>
+						<li>
+							<a href="../traffic/traffic.html?cityCode=257">实时交通</a>
+						</li>
+						<li>
+							<a href="../mobilechat/userhabit.html">互联网数据</a>
+						</li>
+						<li>
+							<a href="../traffic/firstpage.html">天气数据</a>
+						</li>
+
+						<li>
+							<a href="../login.html"> 注册/登陆</a>
+						</li>
+
+					</ul>
+				</nav>
+				<!-- /main nav -->
+
+			</div>
+		</header>
+
+		<div class="navbar navbar-inverse set-radius-zero" style="margin-top: 50px;background-color: black;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
 				</div>
 
 			</div>
-
 		</div>
-		</div>
-		<div class="main-container">
-			<!-- 时间导航 -->
-			<div class="content-timeline">
-				<div class="main-box">
-				</div>
 
-			</div>
+		<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
 
-			<!-- 主要内容 -->
-			<div class="bg-appDetailTop">
-				<div class="appDetail-container draw clearfix">
-					<div class="ranking-sec-menu">
-						<div class="data-menu ">
-							<a href=""><span class="trans active"><i class="icon-throng"></i>终端指数</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="mainDatas-container">
-				<div class="data-menu l">
-					<!--<a href="http://mi.talkingdata.com/market-profile.html"><span class="trans active"><i class="icon-throng"></i>用户画像</span></a>-->
-					<!--<a href="http://mi.talkingdata.com/market-behavior.html"><span class="trans"><i class="icon-behavior"></i>用户行为</span></a>-->
-				</div>
-				<div class="dataPic-container ">
+			<div class="container">
 
-					<div class="datas-container col12">
-						<div class="app-menu" style="width: 10%;">
-							<ul class="menu-en">
-								<li class="trans active">
-									<a href="" title="品牌">
-										<span>品牌</span>
-									</a>
-								</li>
-								<li class="trans ">
-									<a href="" title="分辨率">
-										<span>分辨率</span>
-									</a>
-								</li>
-								<li class="trans ">
-									<a href="" title="操作系统">
-										<span>操作系统</span>
-									</a>
-								</li>
-								<li class="trans ">
-									<a href="" title="运营商">
-										<span>运营商</span>
-									</a>
-								</li>
-								<li class="trans ">
-									<a href="" title="网络">
-										<span>网络</span>
-									</a>
-								</li>
+				<div class="panel " style="margin-top: 5%;">
 
-							</ul>
-						</div>
-						<div class="app-menu" style="width: 90%;">
-							<div style="width: 100%;">
+					<div class="results-list" style="height: 100%;">
+						<ul  style="display: inline;max-height: 300px;overflow: auto;" class="applist" >
 
-								<div class=" prov_field" style="float: left;margin-left: 30%;width: 10%;"><label style="color: white;">品牌</label>
-									<div class=" selection dropdown ">
-										<select id="prov_select0" style="width: 50%;">
-											<option value="华为">华为</option>
-											<option value="小米">小米</option>
+						</ul>
 
-										</select>
-									</div>
-								</div>
-								<div class=" city_field" style="float: left;"><label style="color: white;">机型</label>
-									<div class="selection dropdown">
-										<select id="city_select0">
-											<option value="小米9">小米9</option>
-											<option value="红米k20">红米k20</option>
-
-										</select>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
 					</div>
 				</div>
 
-			</div>
-		</div>
-
-		<!-- 底部 -->
 	</body>
-	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/sea-jQuery.js"></script>
-	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/moment.min.js"></script>
-	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/ui/ui.js"></script>
-	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/lib/echarts.throng.js"></script>
-	<script type="text/javascript" src="http://jic2.talkingdata.com/observatory/mi/js/userDraw/index.js?v=1.2.10"></script>
 	<script>
-		var _hmt = _hmt || [];
-		(function() {
-			var hm = document.createElement("script");
-			hm.src = "//hm.baidu.com/hm.js?4194ddf8a829d68afa312684b382079d";
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(hm, s);
-		})();
-
-		// auto push
-		(function() {
-			var bp = document.createElement('script');
-			var curProtocol = window.location.protocol.split(':')[0];
-			if(curProtocol === 'https') {
-				bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-			} else {
-				bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-			}
-			var s = document.getElementsByTagName("script")[0];
-			s.parentNode.insertBefore(bp, s);
-		})();
+		window.onload=function(){
+			load_app_search_result()
+		}
 	</script>
-	<script type="text/javascript">
-		(function(win, doc, s, i) {
-			x = doc.getElementById(i);
-			if(x) return;
-
-			win.xn = win.xn || function() {
-				win.xn.todoList = win.xn.todoList || [];
-				win.xn.todoList.push(arguments);
-			}
-
-			j = doc.createElement(s),
-				s = doc.getElementsByTagName(s)[0];
-			j.async = true;
-			j.charset = 'UTF-8';
-			j.id = 'xiaonengjs'
-			j.src = 'https://visitor-pro.ntalker.com/visitor/js/bundle.min.js?siteid=kf_9488';
-			s.parentNode.insertBefore(j, s);
-
-			xn('setCustomerInfo', {
-				uname: '',
-				uid: ''
-			})
-		})(window, document, 'script', 'xiaonengjs');
-	</script>
-	<div class="xiao-neng-kf">
-		<a onclick="NTKF.im_openInPageChat('kf_9488_1484277746774')">
-			<img src="http://jic2.talkingdata.com/observatory/mi/images/CustomFileDownloadServer.png">
-			<label><img src="http://jic2.talkingdata.com/observatory/mi/images/CustomFileDownloadServer_hover.png"></label>
-		</a>
-	</div>
-	<div class="xiao-neng-kf QR-code-container">
-		<a>
-			<img src="http://jic2.talkingdata.com/observatory/mi/images/contact-QR-code.png">
-			<label><img src="http://jic2.talkingdata.com/observatory/mi/images/contact-QR-code-hover.png"></label>
-		</a>
-	</div>
-	<script>
-		lin = new LineChart("activenum");
-		lin.drawactive('');
-	</script>
-	</body>
 
 </html>
