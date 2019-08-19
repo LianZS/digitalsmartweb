@@ -97,7 +97,7 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 	let url = "http://scenicmonitor.top/attractions/api/getLocation_geographic_bounds"
 	$.get(url, {
 		pid: area_pid,
-		flag:flag_id,
+		flag:0,
 		sub_domain: ''
 
 	}, function(data, state) {
@@ -110,16 +110,14 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 
 function People_Distribution_rate(area_pid,lon,lat){
 		//  人口分布
-	console.log(area_pid)
-	let url = "http://scenicmonitor.top/attractions/api/getLocation_distribution_rate"
+	let url = " http://scenicmonitor.top/attractions/api/getLocation_distribution_rate"
 	$.get(url, {
 		pid: area_pid,
 		flag:0,
 		sub_domain: ''
 
 	}, function(data, state) {
-		var heatmapData = data['data']
-		
+		let heatmapData = data['data']
 		new hotmap(heatmapData, "container",lon,lat);
 	
 	}, 'json');
