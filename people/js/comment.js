@@ -1,7 +1,7 @@
 function Comment(pid) {
-	this.url = "http://scenicmonitor.top/attractions/api/getComment?"
+	let url = "http://scenicmonitor.top/attractions/api/getComment?"
 	var img_url = "http://scenicmonitor.top/media/"
-	$.get(this.url, {
+	$.get(url, {
 		"pid": pid
 	}, function(data, state) {
 		comments = data['comment']
@@ -23,8 +23,8 @@ function Comment(pid) {
 }
 function CommentRate(pid,idname){
 	//评论指数
-	this.url="http://scenicmonitor.top/attractions/api/getCommentRate?"
-	$.get(this.url,{"pid":pid},function(data){
+	let url="http://scenicmonitor.top/attractions/api/getCommentRate?"
+	$.get(url,{"pid":pid},function(data){
 		comment=data['comment']
 		
 		new CommentRadar(idname,comment)

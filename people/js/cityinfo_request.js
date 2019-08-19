@@ -70,11 +70,11 @@ function start_Add_Element_Of_area(pro, area_url) {
 		area = getParams("area")
 		range=getParams("range")
 		if(area == null&range==null) {
-			new load_data()
+			load_data()
 		} else {
 			$("#scence_select0  option:contains(" + area + ")").attr("selected", true);
 			 $("#range_select0 option:contains(" + range + ")").attr("selected", true);
-				new load_data()
+				load_data()
 
 		}
 
@@ -164,13 +164,12 @@ function load_data() {
 	date_end = parseInt(date_begin) + 1;
 	flag = parseInt($('#scence_select0 option:selected').attr("flag"));
 	range = $('#range_select0 option:selected').val();
-
 	new realtimeFlow(pid, date_begin, date_end,range);
 	new SearchRate(pid, flag);
 	new Geographic_bounds(pid, flag, lon, lat);
-	if(flag == 0)
-
-		new People_Distribution_rate(pid, lon, lat);
+	
+		
+	new People_Distribution_rate(pid, lon, lat);
 	new Image_reuqest(pid)
 	new Comment(pid)
 	new CommentRate(pid, "evaluate")

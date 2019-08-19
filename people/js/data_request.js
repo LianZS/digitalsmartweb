@@ -1,7 +1,7 @@
 function realtimeFlow(area_pid, dbegin, dend,range) {
 	//人流热度
-	this.url = "http://scenicmonitor.top/attractions/api/getLocation_pn_percent_new"
-	$.get(this.url, {
+	let url = "http://scenicmonitor.top/attractions/api/getLocation_pn_percent_new"
+	$.get(url, {
 		pid: area_pid,
 		date_begin: dbegin,
 		date_end: dend,
@@ -30,10 +30,10 @@ function realtimeFlow(area_pid, dbegin, dend,range) {
 
 function SearchRate(area_pid,fla) {
 	//关键词热度
-	this.url = "http://scenicmonitor.top/attractions/api/getLocation_search_rate"
-	$.get(this.url, {
+	let url = "http://scenicmonitor.top/attractions/api/getLocation_search_rate"
+	$.get(url, {
 		pid: area_pid,
-		flag:fla,
+		flag:0,
 		sub_domain: ''
 
 	}, function(data, state) {
@@ -94,8 +94,8 @@ function SearchRate(area_pid,fla) {
 
 function Geographic_bounds(area_pid,flag_id,lon,lat){
 	//  地区地图范围
-	this.url = "http://scenicmonitor.top/attractions/api/getLocation_geographic_bounds"
-	$.get(this.url, {
+	let url = "http://scenicmonitor.top/attractions/api/getLocation_geographic_bounds"
+	$.get(url, {
 		pid: area_pid,
 		flag:flag_id,
 		sub_domain: ''
@@ -110,8 +110,9 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 
 function People_Distribution_rate(area_pid,lon,lat){
 		//  人口分布
-	this.url = "http://scenicmonitor.top/attractions/api/getLocation_distribution_rate"
-	$.get(this.url, {
+	console.log(area_pid)
+	let url = "http://scenicmonitor.top/attractions/api/getLocation_distribution_rate"
+	$.get(url, {
 		pid: area_pid,
 		flag:0,
 		sub_domain: ''
