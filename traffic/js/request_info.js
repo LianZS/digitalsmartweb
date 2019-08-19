@@ -2,7 +2,7 @@ var up_date = 0
 var cityname = ""
 
 function city_list() {
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/list?"
+	let url = "http://scenicmonitor.top/traffic/api/trafficindex/city/list?"
 	let city_href = "http://127.0.0.1:8020/DigitalSmart/traffic/traffic.html?cityCode="
 	//城市列表请求
 	let request_datetime = Date.parse(new Date());
@@ -40,7 +40,7 @@ function city_list() {
 
 function daily_traffic() {
 	//城市交通
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/curve?"
+	let url = "http://scenicmonitor.top/traffic/api/trafficindex/city/curve?"
 
 	pid = getParams("cityCode")
 
@@ -78,7 +78,7 @@ function daily_traffic() {
 }
 
 function road_traffic() {
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/road?"
+	let url = "http://scenicmonitor.top/traffic/api/trafficindex/city/road?"
 
 	//道路交通
 	pid = getParams("cityCode")
@@ -127,7 +127,7 @@ function road_traffic() {
 }
 
 function year_traffic() {
-	let url = "http://127.0.0.1:8000/traffic/api/trafficindex/city/year?"
+	let url = "http://scenicmonitor.top/traffic/api/trafficindex/city/year?"
 	$.get(url, {
 		"cityCode": pid
 	}, function(data) {
@@ -190,7 +190,7 @@ Date.prototype.format = function(fmt) {
 }
 
 function air_state_request() {
-	let url = "http://127.0.0.1:8000/traffic/api/airstate?"
+	let url = "http://scenicmonitor.top/traffic/api/airstate?"
 	pid = getParams("cityCode")
 	$.get(url, {
 		"cityCode": pid

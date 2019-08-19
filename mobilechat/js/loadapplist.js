@@ -1,5 +1,5 @@
 function load_app_search_result() {
-	let url = "http://127.0.0.1:8000/internet/api/app/applist"
+	let url = "http://scenicmonitor.top/internet/api/app/applist"
 	keyword = getParams("keyword")
 	$.get(url, {
 		"keyword": keyword

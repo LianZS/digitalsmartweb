@@ -1,6 +1,6 @@
-var get_comment_url = "http://127.0.0.1:8000/attractions/api/getComment?"
-//	var img_url = "http://127.0.0.1:8000/media/"
-var post_comment_url = "http://127.0.0.1:8000/attractions/admin/uploadComment?"
+var get_comment_url = "http://scenicmonitor.top/attractions/api/getComment?"
+//	var img_url = "http://scenicmonitor.top/media/"
+var post_comment_url = "http://scenicmonitor.top/attractions/admin/uploadComment?"
 var comment_j = 0;
 var comment_array = new Array()
 var comment_tr_count = 0; //记录tr的数目

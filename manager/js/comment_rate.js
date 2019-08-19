@@ -1,5 +1,5 @@
-var get_url = "http://127.0.0.1:8000/attractions/api/getCommentRate?"
-var post_url = "http://127.0.0.1:8000/attractions/admin/uploadCommentRate?"
+var get_url = "http://scenicmonitor.top/attractions/api/getCommentRate?"
+var post_url = "http://scenicmonitor.top/attractions/admin/uploadCommentRate?"
 
 var tr_count = 0; //记录tr的数目
 var index = 0 //数组游标

@@ -1,6 +1,6 @@
 function roaditem_listen(IdName) {
 	//路况item监听
-	let url = 'http://127.0.0.1:8000/traffic/api/trafficindex/city/detailroad?cityCode=100&id=4&up_date=1563968622'
+	let url = 'http://scenicmonitor.top/traffic/api/trafficindex/city/detailroad?cityCode=100&id=4&up_date=1563968622'
 
 	pid = getParams("cityCode")
 

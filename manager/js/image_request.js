@@ -1,5 +1,5 @@
-var image_get_url = "http://127.0.0.1:8000/attractions/admin/area_cover"
-var image_url = "http://127.0.0.1:8000/media/"
+var image_get_url = "http://scenicmonitor.top/attractions/admin/area_cover"
+var image_url = "http://scenicmonitor.top/media/"
 var filepath = ""
 
 function Cover_Image_reuqest(pid, name) {
@@ -79,7 +79,7 @@ function Image_Manager(pid) {
 
 			}
 			$.ajax({
-					url: 'http://127.0.0.1:8000/attractions/api/upload',
+					url: 'http://scenicmonitor.top/attractions/api/upload',
 					type: 'POST',
 					cache: true,
 					data: formData,

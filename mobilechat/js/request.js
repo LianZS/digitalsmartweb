@@ -1,5 +1,5 @@
 function request() {
-	let url = "http://127.0.0.1:8000/internet/api/app/appinfo?"
+	let url = "http://scenicmonitor.top/internet/api/app/appinfo?"
 	appid = getParams("appid")
 	$.get(url, {
 		"appid": appid

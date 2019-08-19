@@ -1,5 +1,5 @@
 function ScenceState(pid){
-	 this.url="http://127.0.0.1:8000/attractions/api/getState?"
+	 this.url="http://scenicmonitor.top/attractions/api/getState?"
 	 $.get(this.url,{"pid":pid},function(data,state){
 	 	item=data['state']
 	 	coststate=item['coststate']

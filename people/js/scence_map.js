@@ -4,7 +4,7 @@ var area_array = new Array()
 var maker_array = new Array() // 存放浮标
 var lnglat =new Array()
 function scence_map() {
-	let url = "http://127.0.0.1:8000/attractions/api/getScenceInfo"
+	let url = "http://scenicmonitor.top/attractions/api/getScenceInfo"
 	$.get(url, {}, function(data) {
 		let data_info = data['data']
 		for(let i = 0; i < data_info.length; i++) {

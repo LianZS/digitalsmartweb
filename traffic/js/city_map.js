@@ -3,7 +3,7 @@ var maker_array = new Array() // 存放浮标
 var lnglat =new Array()//存放坐标
 var pid_array =new Array()
 function city_map() {
-	let url = "http://127.0.0.1:8000/traffic/api/getCityInfo"
+	let url = "http://scenicmonitor.top/traffic/api/getCityInfo"
 	$.get(url, {}, function(data) {
 		let data_info = data['data']
 

@@ -1,6 +1,6 @@
 function Comment(pid) {
-	this.url = "http://127.0.0.1:8000/attractions/api/getComment?"
-	var img_url = "http://127.0.0.1:8000/media/"
+	this.url = "http://scenicmonitor.top/attractions/api/getComment?"
+	var img_url = "http://scenicmonitor.top/media/"
 	$.get(this.url, {
 		"pid": pid
 	}, function(data, state) {
@@ -23,7 +23,7 @@ function Comment(pid) {
 }
 function CommentRate(pid,idname){
 	//评论指数
-	this.url="http://127.0.0.1:8000/attractions/api/getCommentRate?"
+	this.url="http://scenicmonitor.top/attractions/api/getCommentRate?"
 	$.get(this.url,{"pid":pid},function(data){
 		comment=data['comment']
 		

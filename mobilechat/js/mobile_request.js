@@ -1,5 +1,5 @@
 function brand_request() {
-	let url = "http://127.0.0.1:8000/internet/api/mobile/brandShare"
+	let url = "http://scenicmonitor.top/internet/api/mobile/brandShare"
 	let color=['#FDC907', '#F2FD07', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD', '#07A0FD', '#6007FD', '#9107FD', '#EE07FD', '#E28ACB', '#FDC907', '#F2FD07', '#c23531', '#A7FD07', '#34FD07', '#07FDA0', '#07F9FD']
 	$.get(url, {}, function(data) {
 		brands = data["share"]

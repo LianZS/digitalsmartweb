@@ -1,6 +1,6 @@
 function Get_province_city() {
-	var url = "http://127.0.0.1:8000/attractions/admin/provinces"
-	var area_url = "http://127.0.0.1:8000/attractions/api/getRegionsByCity"
+	var url = "http://scenicmonitor.top/attractions/admin/provinces"
+	var area_url = "http://scenicmonitor.top/attractions/api/getRegionsByCity"
 	$.get(url, function(data, state) {
 		data = data['data']
 		provinces = new Set();
@@ -30,7 +30,7 @@ function Get_province_city() {
 }
 
 function load_area_pic(pro, city, citypid) {
-	var area_url = "http://127.0.0.1:8000/attractions/api/getRegionsByCity"
+	var area_url = "http://scenicmonitor.top/attractions/api/getRegionsByCity"
 
 	$.get(area_url, {
 		province: pro,

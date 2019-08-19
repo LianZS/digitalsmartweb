@@ -1,8 +1,8 @@
 function CityInfoRequest() {
 	//刚进入该页面时进行的初始化
 	//页面省份城市初始化
-	this.city_url = "http://127.0.0.1:8000/attractions/api/getCitysByProvince";
-	this.area_url = "http://127.0.0.1:8000/attractions/api/getRegionsByCity"
+	this.city_url = "http://scenicmonitor.top/attractions/api/getCitysByProvince";
+	this.area_url = "http://scenicmonitor.top/attractions/api/getRegionsByCity"
 	//	var objs = document.getElementById("prov_select0");
 	//					var grade = objs.options[objs.selectedIndex].value;\n
 	var pro = getParams("province")

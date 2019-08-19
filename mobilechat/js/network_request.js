@@ -1,5 +1,5 @@
 function network_request() {
-	let url = "http://127.0.0.1:8000/internet/api/mobile/networkShare"
+	let url = "http://scenicmonitor.top/internet/api/mobile/networkShare"
 	let color = ['#EE07FD', '#E28ACB', '#FDC907','#07A0FD', '#6007FD', '#9107FD' ]
 
 	$.get(url, {}, function(data) {

@@ -1,6 +1,6 @@
 function Image_reuqest(pid){
-	this.url ="http://127.0.0.1:8000/attractions/api/getImage"
-	var image_url="http://127.0.0.1:8000/media/"
+	this.url ="http://scenicmonitor.top/attractions/api/getImage"
+	var image_url="http://scenicmonitor.top/media/"
 	$.get(this.url,{"pid":pid},function(data,state){
 		urls = data['url']
 		$(".carousel-inner").empty()
