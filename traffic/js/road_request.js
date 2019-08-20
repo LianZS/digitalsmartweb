@@ -1,9 +1,8 @@
 function roaditem_listen(IdName) {
 	//路况item监听
-	let url = 'http://scenicmonitor.top/traffic/api/trafficindex/city/detailroad?cityCode=100&id=4&up_date=1563968622'
+	let url = 'http://scenicmonitor.top/traffic/api/trafficindex/city/detailroad?'
 
-	pid = getParams("cityCode")
-
+	let pid = getParams("cityCode")
 	var tags = document.getElementsByClassName('route');
 	var lines = document.getElementsByClassName("paiming");
 	for(let i = 0; i < tags.length; i++) {

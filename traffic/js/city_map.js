@@ -49,7 +49,7 @@ function draw_map() {
 
 		AMap.event.addListener(maker_array[i], 'mouseover', function() {
 			
-			let info ="<a class='input-item' style='color: white;width:100%' >" +loaction_array[i] + "</a></div></div>"
+			let info ="<a  class='input-item' style='color: white;width:100%' >" +loaction_array[i] + "</a></div></div>"
 			infoWindow = new AMap.InfoWindow({
 				content:  info,
 				isCustom: true, //自定制
@@ -59,7 +59,6 @@ function draw_map() {
 		});
 
 		AMap.event.addListener(maker_array[i], 'click', () => {
-			
 			cityCode = pid_array[i]
 			href = $(".traffic").attr("href") + "?cityCode=" + cityCode
 			$(".traffic").attr("href", href)
