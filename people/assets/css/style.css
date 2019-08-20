@@ -247,3 +247,8 @@ height: 60px;
 	width: auto;
 	min-height: 500px;
 }
+.item img{
+	min-height: auto;
+	max-height: 350;
+	width: 100%;
+}

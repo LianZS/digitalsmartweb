@@ -13,7 +13,7 @@ function Comment(pid) {
 
 		comments = data['comment']
 		$("#comment").empty()
-
+		
 		for(let i = 0; i < comments.length; i++) {
 			item = comments[i]
 			pk = item['pk']
@@ -67,6 +67,7 @@ function Add_Comment_element() {
 }
 
 function CommentSubmit() {
+	
 	$("#send2").click(function() {
 		$("tr[comment-pk='-1']").each(function() {
 			var count = 0

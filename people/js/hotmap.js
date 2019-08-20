@@ -4,7 +4,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 		center: [center_lon,center_lat],
 		showIndoorMap: false,
         zoom: 16,
-		zooms: [15, 17],
+		zooms: [15, 16],
         isHotspot: false,
         defaultCursor: 'pointer',
         touchZoomCenter: 1,
@@ -12,7 +12,6 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
         mapStyle: "amap://styles/18df5ae292f09eda98fc81c6b37810c0",
         viewMode: '3D',
 	});
-	console.log(center_lon,center_lat)
 	map.plugin(["AMap.Heatmap"], function() {
 		//初始化heatmap对象
 		heatmap = new AMap.Heatmap(map, {
