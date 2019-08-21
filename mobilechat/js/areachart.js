@@ -68,6 +68,7 @@ function draw_province_rate_linechart(idname, ddate_array, province_set, collect
 	let series_array = new Array()
 	let i = 0
 	for(let item of province_set) {
+//		console.log(collections[item])
 		series_array[i] = {
 			name: item,
 			type: 'line',
