@@ -5,6 +5,7 @@ function Comment(pid) {
 		"pid": pid
 	}, function(data, state) {
 		comments = data['comment']
+		$(".panel-body").empty()
 		for(let i = 0; i < comments.length; i++) {
 			item = comments[i]
 			commentuser = item['commentuser']

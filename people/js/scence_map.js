@@ -57,6 +57,8 @@ function draw_map() {
 			infoWindow = new AMap.InfoWindow({
 				content:  info,
 				isCustom: true, //自定制
+				offset: new AMap.Pixel(10, -20)
+
 			});
 			infoWindow.open(map,lnglat[i]);
 			infoWindow.close();

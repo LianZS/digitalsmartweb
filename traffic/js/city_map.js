@@ -45,20 +45,21 @@ function draw_map() {
 	//鼠标点击marker弹出自定义的信息窗体
 	//#这里需要做性能优化
 	for(let i = 0; i < maker_array.length; i++) {
-				
 
 		AMap.event.addListener(maker_array[i], 'mouseover', function() {
-			
 			let info ="<a  class='input-item' style='color: white;width:100%' >" +loaction_array[i] + "</a></div></div>"
 			infoWindow = new AMap.InfoWindow({
 				content:  info,
 				isCustom: true, //自定制
+				offset: new AMap.Pixel(10, -20)
+
 			});
 			infoWindow.open(map,lnglat[i]);
+		
 			infoWindow.close();
 		});
-
-		AMap.event.addListener(maker_array[i], 'click', () => {
+		
+		AMap.event.addListener(maker_array[i], 'click',function() {
 			cityCode = pid_array[i]
 			href = $(".traffic").attr("href") + "?cityCode=" + cityCode
 			$(".traffic").attr("href", href)
