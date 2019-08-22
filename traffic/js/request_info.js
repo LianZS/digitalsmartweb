@@ -55,6 +55,7 @@ function daily_traffic() {
 	}, function(data) {
 		indexList = data['data']['indexlist']
 		city = data['data']['city']
+		$("#cityname").text(city)
 		timeList = new Array()
 		dataList = new Array()
 
@@ -109,7 +110,7 @@ function road_traffic() {
 			rateList[i] = road_rate
 
 		}
-		$("#cityname").text(cityname)
+		
 
 		data = {
 
