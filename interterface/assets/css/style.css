@@ -366,14 +366,15 @@ body {
 	color: white;
 }
 .aplayer-list-light:hover{
-	background-color: red;
+	background-color: gainsboro
 }
 .aplayer-list-light:active{
-	background-color: yellow;
+	background-color: gray;
 }
 #aplayer-list ol li span,#aplayer-list ol li{
-	color: white;
+	color: black;
 }
 .aplayer-list-author{
 	float: right;
 }
+
