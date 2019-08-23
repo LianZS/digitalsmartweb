@@ -1,0 +1,118 @@
+<br />
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+
+		<title>数智</title>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="../js/jquery.fancybox.pack.js"></script>
+
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css">
+		<script src="js/loadapplist.js"></script>
+	</head>
+
+	<body style="background-color: #191e48;">
+		<header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+			<div class="container">
+				<div class="navbar-header">
+					<!-- responsive nav button -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+                    </button>
+					<!-- /responsive nav button -->
+
+					<!-- logo -->
+					<h1 class="navbar-brand">
+						<a href="#body">数智
+
+</a>
+					</h1>
+					<!-- /logo -->
+				</div>
+
+				<!-- main nav -->
+
+				<nav class="collapse navbar-collapse navbar-right" role="navigation">
+					<ul id="nav" class="nav navbar-nav">
+						<li>
+							<a href="../index.html">首页</a>
+						</li>
+						<li>
+							<a href="../people/realtimeScence.html">人口定位</a>
+						</li>
+						<li>
+							<a href="../traffic/traffic.html?cityCode=257">实时交通</a>
+						</li>
+						<li>
+							<a href="../mobilechat/userhabit.html">互联网数据</a>
+						</li>
+						<li>
+							<a href="../traffic/firstpage.html">天气数据</a>
+						</li>
+
+						<li>
+							<a href="../login.html">数据接口</a>
+						</li>
+
+					</ul>
+				</nav>
+				<!-- /main nav -->
+
+			</div>
+		</header>
+
+		<div class="navbar navbar-inverse set-radius-zero" style="margin-top: 50px;background-color: black;">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+				</div>
+
+			</div>
+		</div>
+
+		<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
+
+			<div class="container">
+
+				<div class="panel " style="margin-top: 5%;">
+
+					<div class="results-list" style="height: 100%;">
+						<ul  style="display: inline;max-height: 300px;overflow: auto;" class="applist" >
+
+						</ul>
+
+					</div>
+				</div>
+
+	</body>
+	<script>
+		window.onload=function(){
+			load_app_search_result()
+		}
+	</script>
+
+</html>

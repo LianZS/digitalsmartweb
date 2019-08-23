@@ -1,0 +1,203 @@
+<br />
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="" />
+		<meta name="author" content="" />
+
+		<title>数智</title>
+		<script src="assets/js/echarts.min.js"></script>
+		<script src="assets/js/jquery-3.3.1.min.js"></script>
+		<script src="../js/jquery.fancybox.pack.js"></script>
+
+		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+		<script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/custom.js"></script>
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+
+		<link href="assets/css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/main.css">
+		<script type="text/javascript" src="js/criclechart.js"></script>
+		<script type="text/javascript" src="js/barchart.js"></script>
+		<script type="text/javascript" src="js/linecharts.js"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+
+	</head>
+
+	<body style="background-color: #191e48;">
+		<header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+                    </button>
+
+					<h1 class="navbar-brand">
+						<a href="#body">数智
+
+</a>
+					</h1>
+				</div>
+
+				<nav class="collapse navbar-collapse navbar-right" role="navigation">
+					<ul id="nav" class="nav navbar-nav">
+						<li>
+							<a href="../index.html">首页</a>
+						</li>
+						<li>
+							<a href="../people/index.html">景区监测</a>
+						</li>
+						<li>
+							<a href="../traffic/index.html">城市实况</a>
+						</li>
+						<li>
+							<a href="#">终端用户</a>
+						</li>
+						<li>
+							<a href="../traffic/firstpage.html">天气数据</a>
+						</li>
+
+						<li>
+							<a href="../login.html"> 数据接口</a>
+						</li>
+
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+		<main class="site-content" role="main">
+			<div class="navbar navbar-inverse set-radius-zero" style="margin-top: 50px;background-color: black;">
+		
+
+			</div>
+
+			<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
+				<a id="search-href" href="search.html"></a>
+				<div class="container">
+
+					<div class="row pad-botm">
+						<form>
+							<div style="margin-left:5%;float: left;background-color: white;height: 50px;"><i class="fa fa-search fa-2x" style="padding:10px;"></i></div>
+							<input id="appname" type="text" style="width: 70%;height: 50px;border: 0;  outline: none;" placeholder="输入您想要查询音乐名称" />
+							<input id="seach-button" type="button" onclick="search()" value="搜索" style="color: white;border: 0;background-color: rgb(0, 147, 254);margin-left: 2%;width: 5%;height: 40px;" />
+						</form>
+					</div>
+					<div class="row">
+						<div id="music-type" style="display: block; width: 100%; margin-left: 3%;margin-right: 3%;">
+							<label>
+                                <input type="radio"  value="netease" checked="" name="music" >
+                                网易                            </label>
+							<label>
+                                <input type="radio"  value="qq"  name="music">
+                                ＱＱ                            </label>
+							<label>
+                                <input type="radio"  value="kugou" name="music">
+                                酷狗                            </label>
+							<label>
+                                <input type="radio"  value="kuwo"name="music" >
+                                酷我                            </label>
+							<label>
+                                <input type="radio"  value="xiami" name="music">
+                                虾米                            </label>
+							<label>
+                                <input type="radio"  value="baidu" name="music">
+                                百度                            </label>
+							<label>
+                                <input type="radio"  value="1ting" name="music">
+                                一听                            </label>
+							<label>
+                                <input type="radio"  value="migu"name="music" >
+                                咪咕                            </label>
+							<label>
+                                <input type="radio"  value="lizhi" name="music">
+                                荔枝                            </label>
+							<label>
+                                <input type="radio"  value="qingting"name="music" >
+                                蜻蜓                            </label>
+							<label>
+                                <input type="radio"  value="ximalaya"name="music" >
+                                喜马拉雅                            </label>
+							<label>
+                                <input type="radio"  value="kg" name="music">
+                                全民K歌                            </label>
+							<label>
+                                <input type="radio"  value="5singyc" name="music">
+                                5sing原创                            </label>
+							<label>
+                                <input type="radio"  value="5singfc" name="music">
+                                5sing翻唱                           
+						</label>
+						</div>
+
+					</div>
+
+					<div class="row" id="music-list" style="height: 50%;">
+
+					</div>
+				</div>
+
+		</main>
+		<footer style="margin-left: 20%; margin-right: 20%;width: 56%;padding: 0px;">
+			<div style="color: #4BF4FF;">支持应用</div>
+			<div class="panel ">
+
+				<div style="display: block;height: 100px;padding: 20px;" class="border-div">
+					<ul style="display: inline;" class="music-app-ul">
+						<li>
+							<img src="assets/img/wyy.jpg" />
+						</li>
+						<li>
+							<img src="assets/img/qq.jpg" />
+						</li>
+						<li style="display: inline-block;">
+							<img src="assets/img/kugou.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/kuwo.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/xiami.png" />
+						</li>
+						<li>
+							<img src="assets/img/baidu.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/migu.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/lizhi.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/qingting.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/ximalaya.jpeg" />
+						</li>
+						<li>
+							<img src="assets/img/quanmingksong.png" />
+						</li>
+						<li>
+							<img src="assets/img/5singy.jpeg" />
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</footer>
+
+	</body>
+	<script>
+	</script>
+
+</html>
