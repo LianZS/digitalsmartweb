@@ -365,3 +365,15 @@ body {
 	width: 9%;
 	color: white;
 }
+.aplayer-list-light:hover{
+	background-color: red;
+}
+.aplayer-list-light:active{
+	background-color: yellow;
+}
+#aplayer-list ol li span,#aplayer-list ol li{
+	color: white;
+}
+.aplayer-list-author{
+	float: right;
+}
