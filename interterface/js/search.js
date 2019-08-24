@@ -73,7 +73,7 @@ function search() {
 function choice_file() {
 	filepath = ''
 	$("#pdffile").change(function() {
-		$(".down-button").css("display","none")
+		$(".down-button").css("display", "none")
 		filepath = $("#pdffile").val()
 		$("#text").html(filepath);
 	})
@@ -84,15 +84,14 @@ function choice_file() {
 		} else {
 			page_val = $(".page-choice li input[type='radio']:checked").val() //页码选择
 			type_val = $(".type-choice li input[type='radio']:checked").val() //文件保存格式
-			page_range = $(".page-range").val()//指定的页面
-			console.log(page_val,page_range)
+			page_range = $(".page-range").val() //指定的页面
 			$(".m-load2").css("display", "")
 			var formData = new FormData();
 			f = $("#pdffile")[0].files[0]
 			formData.append("pdf", f);
-			formData.append("pagetype",page_val)
-			formData.append("type",type_val)
-			formData.append("page",page_range)
+			formData.append("pagetype", page_val)
+			formData.append("type", type_val)
+			formData.append("page", page_range)
 
 			$.ajax({
 					url: 'http://127.0.0.1:8000/interface/api/uploadPDF',
@@ -102,21 +101,21 @@ function choice_file() {
 					processData: false,
 					contentType: false
 				}).done(function(data) {
-					response_code =parseInt(data['code'])
-					
-					if (response_code==0){
-						alert("文件类型有误")
-													$(".m-load2").css("display", "none")
+					response_code = parseInt(data['code'])
 
-						return 
+					if(response_code == 0) {
+						alert("文件类型有误")
+						$(".m-load2").css("display", "none")
+
+						return
 					}
 					uid = data['id']
 					$(".uid").val(uid)
 					let url = "http://127.0.0.1:8000/interface/api/getDocLink?"
 					var code = 0
 					var p = 0
-					for(let i = 0; i < 10; i++) {
-						if(i == 9 &p!=100) {
+					for(let i = 0; i < 100; i++) {
+						if(i == 99 & p != 100) {
 							alert("转换失败！ 清重新上传")
 							$("#text").html("重新上传文件")
 
@@ -125,7 +124,7 @@ function choice_file() {
 							return
 						}
 						if(code == 1 & p == 100) {
-						$(".down-button").css("display","")
+							$(".down-button").css("display", "")
 
 							break
 						}
@@ -158,12 +157,15 @@ function choice_file() {
 	})
 
 }
-function show_input_arae(){
-	$(".input-area").css("display","")
+
+function show_input_arae() {
+	$(".input-area").css("display", "")
 }
-function hidden_input_arae(){
-	$(".input-area").css("display","none")
+
+function hidden_input_arae() {
+	$(".input-area").css("display", "none")
 }
+
 function sleep(n) {
 	var start = new Date().getTime();
 	while(true) {
@@ -171,4 +173,37 @@ function sleep(n) {
 			break;
 		}
 	}
+}
+function parse_url(){
+	let url = "http://127.0.0.1:8000/interface/api/analyse?"
+	request_url = $("#url").val()
+	if(request_url ==""){
+		alert("链接不能为空")
+		return
+	}
+	allowPos = $("input[type='radio']:checked").val()
+	$.post(url,{
+		"allowPos":allowPos,
+		"url":request_url
+	},function(data){
+		code = parseInt(data['code'])
+		
+		uid = data['id']
+		if(code==0){
+			alert("请求失败")
+			return 
+		}
+		url ="http://127.0.0.1:8000/interface/api/analyseResult?"
+		for(let i=0;i<100;i++){
+			sleep(1000)
+			
+			$.get(url,{
+				"id":uid
+			},function(data){
+				data = data['data']
+				console.log(data)
+			},"json")
+		}
+	},json)
+	
 }
