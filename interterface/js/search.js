@@ -1,6 +1,8 @@
 var musicname;
 var soft_type;
 var page = 1;
+var uid = null;
+var keyword_data = null;
 
 function search() {
 	let url = " http://127.0.0.1:8000/interface/api/getMusic?"
@@ -73,7 +75,6 @@ function search() {
 function choice_file() {
 	filepath = ''
 	$("#pdffile").change(function() {
-		$(".down-button").css("display", "none")
 		filepath = $("#pdffile").val()
 		$("#text").html(filepath);
 	})
@@ -82,6 +83,8 @@ function choice_file() {
 			alert("未选择文件")
 			return
 		} else {
+			$(".down").css("display", "none")
+
 			page_val = $(".page-choice li input[type='radio']:checked").val() //页码选择
 			type_val = $(".type-choice li input[type='radio']:checked").val() //文件保存格式
 			page_range = $(".page-range").val() //指定的页面
@@ -94,64 +97,26 @@ function choice_file() {
 			formData.append("page", page_range)
 
 			$.ajax({
-					url: 'http://127.0.0.1:8000/interface/api/uploadPDF',
-					type: 'POST',
-					cache: true,
-					data: formData,
-					processData: false,
-					contentType: false
-				}).done(function(data) {
-					response_code = parseInt(data['code'])
+				url: 'http://127.0.0.1:8000/interface/api/uploadPDF',
+				type: 'POST',
+				cache: true,
+				data: formData,
+				processData: false,
+				contentType: false
+			}).done(function(data) {
+				response_code = parseInt(data['code'])
 
-					if(response_code == 0) {
-						alert("文件类型有误")
-						$(".m-load2").css("display", "none")
+				if(response_code == 0) {
+					alert("文件类型有误");
+					$(".m-load2").css("display", "none");
 
-						return
-					}
-					uid = data['id']
-					$(".uid").val(uid)
-					let url = "http://127.0.0.1:8000/interface/api/getDocLink?"
-					var code = 0
-					var p = 0
-					for(let i = 0; i < 100; i++) {
-						if(i == 99 & p != 100) {
-							alert("转换失败！ 清重新上传")
-							$("#text").html("重新上传文件")
+					return
+				}
+				uid = data['id'];
+				$(".uid").val(uid);
+				get_DocLink()
 
-							$(".m-load2").css("display", "none")
-
-							return
-						}
-						if(code == 1 & p == 100) {
-							$(".down-button").css("display", "")
-
-							break
-						}
-						sleep(1000)
-						$.ajaxSettings.async = false;
-						$.get(url, {
-							"id": uid
-						}, function(data) {
-							code = data['code']
-							p = data['p']
-							if(code == 1 & p == 100) {
-								$(".m-load2").css("display", "none")
-
-								$(".down").css("display", "")
-								//								alert("转换成功")
-
-							}
-						}, 'json')
-					}
-					let down_link = "http://127.0.0.1:8000/interface/api/downDocLink?id="
-					$("#upload-form").attr("action", down_link)
-					$(".down-button").click(function() {
-						$("#text").html("重新上传文件")
-					})
-
-				})
-				.fail(function(res) {});
+			})
 
 		}
 	})
@@ -174,36 +139,86 @@ function sleep(n) {
 		}
 	}
 }
-function parse_url(){
-	let url = "http://127.0.0.1:8000/interface/api/analyse?"
-	request_url = $("#url").val()
-	if(request_url ==""){
-		alert("链接不能为空")
-		return
+
+function parse_url() {
+	$(".m-load2").css("display", "");
+	let url = "http://127.0.0.1:8000/interface/api/analyse?";
+	request_url = $("#url").val();
+	if(request_url == "") {
+		alert("链接不能为空");
+		return;
 	}
 	allowPos = $("input[type='radio']:checked").val()
-	$.post(url,{
-		"allowPos":allowPos,
-		"url":request_url
-	},function(data){
-		code = parseInt(data['code'])
-		
-		uid = data['id']
-		if(code==0){
+	$.post(url, {
+		"allowPos": allowPos,
+		"url": request_url
+	}, function(data) {
+		code = parseInt(data['code']);
+
+		uid = data['id'];
+		if(code == 0) {
 			alert("请求失败")
-			return 
+			return
 		}
-		url ="http://127.0.0.1:8000/interface/api/analyseResult?"
-		for(let i=0;i<100;i++){
-			sleep(1000)
-			
-			$.get(url,{
-				"id":uid
-			},function(data){
-				data = data['data']
-				console.log(data)
-			},"json")
+		get_analyseResult()
+
+	}, 'json')
+}
+
+function get_analyseResult() {
+	let url = "http://127.0.0.1:8000/interface/api/analyseResult?";
+	sleep(1000)
+
+	$.get(url, {
+		id: uid
+	}, function(result) {
+		keyword_data = result['data']
+		if(keyword_data == null) { //后端还未生成数据
+
+			get_analyseResult();
+		} else { //生好了
+			let keyword_array = new Array()
+			let keyword_value_array = new Array()
+			$(".m-load2").css("display", "none");
+			if(keyword_data.length == 0) { //已经拿到了数据
+
+				alert("没有数据")
+			}
+			for(let i = 0; i < keyword_data.length; i++) {
+				keyword_map = keyword_data[i]
+				key = Object.keys(keyword_map)[0]
+				value = keyword_data[i][key]
+				keyword_array[i] = key
+				keyword_value_array[i] = value
+
+			}
+			draw_bar('keyword-bar',keyword_array, keyword_value_array)
 		}
-	},json)
-	
+	}, 'json')
+}
+
+function get_DocLink() {
+	let url = "http://127.0.0.1:8000/interface/api/getDocLink?"
+	sleep(2000)
+	$.get(url, {
+		"id": uid
+	}, function(data) {
+		let code = data['code']
+		let p = data['p']
+		if(code == 1 & p == 100) {
+
+			$(".m-load2").css("display", "none");
+			let down_link = "http://127.0.0.1:8000/interface/api/downDocLink?id=";
+			$("#upload-form").attr("action", down_link);
+			$(".down").css("display", '');
+
+			$(".down-button").click(function() {
+				$("#text").html("重新上传文件");
+			});
+
+		} else {
+			get_DocLink()
+		}
+	}, 'json');
+
 }
