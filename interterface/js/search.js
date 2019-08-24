@@ -71,8 +71,9 @@ function search() {
 }
 
 function choice_file() {
+	filepath = ''
 	$("#pdffile").change(function() {
-
+		$(".down-button").css("display","none")
 		filepath = $("#pdffile").val()
 		$("#text").html(filepath);
 	})
@@ -81,10 +82,17 @@ function choice_file() {
 			alert("未选择文件")
 			return
 		} else {
+			page_val = $(".page-choice li input[type='radio']:checked").val() //页码选择
+			type_val = $(".type-choice li input[type='radio']:checked").val() //文件保存格式
+			page_range = $(".page-range").val()//指定的页面
+			console.log(page_val,page_range)
 			$(".m-load2").css("display", "")
 			var formData = new FormData();
 			f = $("#pdffile")[0].files[0]
 			formData.append("pdf", f);
+			formData.append("pagetype",page_val)
+			formData.append("type",type_val)
+			formData.append("page",page_range)
 
 			$.ajax({
 					url: 'http://127.0.0.1:8000/interface/api/uploadPDF',
@@ -94,12 +102,31 @@ function choice_file() {
 					processData: false,
 					contentType: false
 				}).done(function(data) {
+					response_code =parseInt(data['code'])
+					
+					if (response_code==0){
+						alert("文件类型有误")
+													$(".m-load2").css("display", "none")
+
+						return 
+					}
 					uid = data['id']
+					$(".uid").val(uid)
 					let url = "http://127.0.0.1:8000/interface/api/getDocLink?"
 					var code = 0
 					var p = 0
 					for(let i = 0; i < 10; i++) {
+						if(i == 9 &p!=100) {
+							alert("转换失败！ 清重新上传")
+							$("#text").html("重新上传文件")
+
+							$(".m-load2").css("display", "none")
+
+							return
+						}
 						if(code == 1 & p == 100) {
+						$(".down-button").css("display","")
+
 							break
 						}
 						sleep(1000)
@@ -113,11 +140,17 @@ function choice_file() {
 								$(".m-load2").css("display", "none")
 
 								$(".down").css("display", "")
-//								alert("转换成功")
+								//								alert("转换成功")
 
 							}
 						}, 'json')
 					}
+					let down_link = "http://127.0.0.1:8000/interface/api/downDocLink?id="
+					$("#upload-form").attr("action", down_link)
+					$(".down-button").click(function() {
+						$("#text").html("重新上传文件")
+					})
+
 				})
 				.fail(function(res) {});
 
@@ -125,7 +158,12 @@ function choice_file() {
 	})
 
 }
-
+function show_input_arae(){
+	$(".input-area").css("display","")
+}
+function hidden_input_arae(){
+	$(".input-area").css("display","none")
+}
 function sleep(n) {
 	var start = new Date().getTime();
 	while(true) {
