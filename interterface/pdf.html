@@ -14,9 +14,8 @@
 			}
 			
 			.m-load2 {
-				width: 36px;
-				height: 36px;
-				margin: 100px auto;
+				width: 100px;
+				height: 100px;
 				border-radius: 50%;
 			}
 			
@@ -34,7 +33,7 @@
 				left: 16px;
 				top: 0;
 				width: 3px;
-				height: 36px;
+				height: 50px;
 			}
 			
 			.m-load2 .line div:before,
@@ -42,7 +41,7 @@
 				content: '';
 				display: block;
 				height: 50%;
-				background: #fcfcfc;
+				background: white;
 				border-radius: 5px;
 			}
 			
@@ -140,12 +139,11 @@
 		<script src="assets/js/jquery-3.3.1.min.js"></script>
 		<script src="../js/jquery.fancybox.pack.js"></script>
 
-		<script src="//code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
-		<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
 		<script src="assets/js/bootstrap.js"></script>
 		<script src="assets/js/custom.js"></script>
+		<script src="js/search.js"></script>
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
 
@@ -203,20 +201,39 @@
 			</div>
 
 			<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
-				<a id="search-href" href="search.html"></a>
 				<div class="container">
 
-					<div class="row pad-botm">
-						<form>
-							<div style="margin-left:5%;float: left;background-color: white;height: 50px;"><i class="fa fa-search fa-2x" style="padding:10px;"></i></div>
-							<input id="music-name" type="text" style="width: 70%;height: 50px;border: 0;  outline: none;" placeholder="输入百度文档链接" />
-							<input id="seach-button" type="button" onclick="search()" value="搜索" style="color: white;border: 0;background-color: rgb(0, 147, 254);margin-left: 2%;width: 5%;height: 40px;" />
-						</form>
+					<div class="row" style="margin-top: 26%;margin-left: 33%;">
+						<div class="col-xs-12 col-sm-6 col-md-3" id="6" style="width: 25%;">
+
+							<div class="card-panel">
+								<div style="background-color: yellow;height: 100px;width: 100px;border-radius:50% 50% ;text-align: center;">
+									<input type="file" id="pdffile" name="pdf" style="height: 100px;width: 100px;" />
+									<label style="margin-top: 40%;">上传</label>
+								</div>
+								<label>
+    											<span id="text" style="color: white;">请上传pdf文件</span>
+											</label>
+								<br />
+
+								<input type="submit" id="btn" value="点我上传" style="color: black;margin-left: 10%;"></input>
+
+							</div>
+
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-3" id="6" style="width: 25%;margin-left: 8%;">
+
+							<div class="card-panel" style="text-align: center;">
+
+							</div>
+
+						</div>
+
 					</div>
 
-					<div class="row" style="height: 50%;">
+					<div class="row" style="height: 100px;margin-left: 33%;">
 
-						<div class="m-load2" style="display: none;">
+						<div class="m-load2" style="background-color: transparent;display: none;">
 							<div class="line">
 								<div></div>
 								<div></div>
@@ -225,18 +242,20 @@
 								<div></div>
 								<div></div>
 							</div>
-							<div class="circlebg"></div>
+							<label style="margin-top: 55%;color: white;">转换中.....</label>
 						</div>
-						<p style="margin-left:5%;">
-							<input type="radio" name="down" value="doc" checked="checked" style="color: white;">导出为word
-							<input type="radio" name="down" value="pdf" style="color: white;">导出为pdf
-							<input type="radio" name="down" value="ppt" style="color: ;">导出为ppt
-						</p>
+
 					</div>
+					<div class="down row" style="height: 100px;margin-left: 33%; display: none;">
+						<button style="background-color: yellow;width: 100px;height: 100px;border-radius:50% 50% ;">下载</button>
+					</div>
+
 				</div>
 
 		</main>
-
+		<script>
+			choice_file()
+		</script>
 	</body>
 
 </html>
