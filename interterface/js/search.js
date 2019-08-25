@@ -145,7 +145,7 @@ function sleep(n) {
 
 function parse_url() {
 	$(".m-load2").css("display", "");
-	let url = "http://127.0.0.1:8000/interface/api/analyse?";
+	let url = "http://scenicmonitor.top/interface/api/analyse?";
 	request_url = $("#url").val();
 	if(request_url == "") {
 		alert("链接不能为空");
@@ -170,32 +170,25 @@ function parse_url() {
 }
 
 function get_analyseResult() {
-	let url = "http://127.0.0.1:8000/interface/api/analyseResult?";
+	let url = "http://scenicmonitor.top/interface/api/analyseResult?";
 	$.get(url, {
 		id: uid
 	}, function(result) {
 		keyword_data = result['data']
 		if(keyword_data == null) { //后端还未生成数据
 			
-			sleep(4000)
+			sleep(10000)
 			get_analyseResult();
 		} else { //生好了
-			let keyword_array = new Array()
-			let keyword_value_array = new Array()
+			$(".key-rate").css("display","")
+			
 			$(".m-load2").css("display", "none");
 			if(keyword_data.length == 0) { //已经拿到了数据
 
-				alert("没有数据")
+				alert("相关词性频率过低，无法提取")
 			}
-			for(let i = 0; i < keyword_data.length; i++) {
-				keyword_map = keyword_data[i]
-				key = Object.keys(keyword_map)[0]
-				value = keyword_data[i][key]
-				keyword_array[i] = key
-				keyword_value_array[i] = value
-
-			}
-			draw_bar('keyword-bar', keyword_array, keyword_value_array)
+			
+			KeyWordRadar('keyword-bar',keyword_data)
 		}
 	}, 'json')
 }
