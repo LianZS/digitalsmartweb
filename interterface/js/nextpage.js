@@ -1,6 +1,6 @@
 function nextpage() {
 
-	let url = " http://127.0.0.1:8000/interface/api/getMusic?"
+	let url = " http://scenicmonitor.top/interface/api/getMusic?"
 	$(".aplayer-more").click(function() {
 		$(".m-load2").css("display", "")
 

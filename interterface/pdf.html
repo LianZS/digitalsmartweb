@@ -14,8 +14,8 @@
 			}
 			
 			.m-load2 {
-				width: 100px;
-				height: 100px;
+				width: 200px;
+				height: 200px;
 				border-radius: 50%;
 			}
 			
@@ -202,6 +202,13 @@
 
 			<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
 				<div class="container">
+					<div class="row" style="">
+						<h1 style="color: white;margin-left: 31%;">PDF转Word转换器</h1>
+						<h2 style="color: white;margin-left: 23%;">完美而迅速地将PDF转换成Word文件</h2>
+					</div>
+					<br />
+					<br />
+					<br />
 
 					<div class="row" style="margin-left: 33%;">
 						<div class="col-xs-12 col-sm-6 col-md-3" id="6" style="width: 25%;">
@@ -215,13 +222,6 @@
     											<span id="text" style="color: white;">请上传pdf文件</span>
 											</label>
 								<br />
-
-							</div>
-
-						</div>
-						<div class="col-xs-12 col-sm-6 col-md-3" id="6" style="width: 25%;margin-left: 8%;">
-
-							<div class="card-panel" style="text-align: center;">
 
 							</div>
 
@@ -260,7 +260,7 @@
 								<li style="width: 90%;margin-top: 5px;display:none;" class="input-area"><input class="page-range" style="width: 100%; color: black;" type="text" name="page-range" placeholder="请输入页码或者用英文逗号分隔的页码范围，不可使用中文逗号（例如：1,3-5,8,9）；如果输入错误将“转换所有页面”" /></li>
 							</ul>
 							<br/>
-														<br/>
+							<br/>
 
 							<ul style="display: inline;color: white;height: 80px;" class="type-choice">
 								<li style="display: inline-block;width: 11%;">选择转换格式</li>
@@ -281,7 +281,7 @@
 						<input type="submit" id="btn" value="点我上传" style="background-color: yellow;width: 70px;height: 70px;border-radius:50% 50% ;"></input>
 
 					</div>
-					<div class="row" style="height: 100px;margin-left: 33%;">
+					<div class="row" style="height: 10px;margin-left: 33%;">
 
 						<div class="m-load2" style="background-color: transparent;display: none;">
 							<div class="line">
@@ -296,13 +296,119 @@
 						</div>
 
 					</div>
-					<div class="down row" style="height: 100px;margin-left: 33%; display: none;">
-						<form id="upload-form" action="" method="get" enctype="multipart/form-data">
-							<input type="text" class="uid" name="id" style="display: none;" />
-							<input type="submit" class="down-button" value="下载" style="background-color: yellow;width: 100px;height: 100px;border-radius:50% 50% ;" />
-						</form>
-					</div>
+					<div class="down row" style="height: 100px;margin-left: 32%; display:none;margin-top: 5%;margin-bottom: 80px;">
+						<div class="col-xs-12 col-sm-6 col-md-3" style="width: 25%;">
 
+							<div class="card-panel">
+								<div style="background-color: transparent;height: 100px;width: 100px;border-radius:50% 50% ;text-align: center;">
+									<span style="color: white;">
+									<li class="fa fa-file fa-5x">
+									<form action="" id="upload-form">
+									<input type="text" class="uid" name="id" style="display: none;" />
+									<input type="submit" class="down-button" style="height: 110px;width: 100px;" />
+									</form>
+									</li>
+										<h5 style="color: white;" class="down-file-name" style="font-size: 2px;"></h5>
+									<h4 style="color: white;">点击下载文件</h4>
+									</span>
+
+								</div>
+
+								<br>
+
+							</div>
+
+						</div>
+					</div>
+					<div class="row" style="clear: left;">
+						<div class="col-md-4 col-sm-4 col-xs-12" style="width: 30%;">
+							<div class="panel panel-default">
+								<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+									如何把PDF转换成Word
+								</div>
+								<div style="display: block ;height:20%;text-align: center; ">
+
+									<div id="circle" style="margin-top: 10px;color: white;width: 100%; height: 50%; -webkit-tap-highlight-color: transparent; user-select: none;" _echarts_instance_="ec_1566725695021">
+										将PDF拉至拖放区或点击按钮，以将文件上传至我们的平台。文件转换完成后，便可供您下载。
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12" style="width: 30%;">
+							<div class="panel panel-default">
+								<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+									如何把PDF转换成Word
+								</div>
+								<div style="display: block ;height:20%;text-align: center; ">
+
+									<div id="circle" style="margin-top: 10px;color: white;width: 100%; height: 50%; -webkit-tap-highlight-color: transparent; user-select: none;" _echarts_instance_="ec_1566725695021">
+										将PDF拉至拖放区或点击按钮，以将文件上传至我们的平台。文件转换完成后，便可供您下载。
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12" style="width: 30%;">
+							<div class="panel panel-default">
+								<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+									我们确保您文件的安全！
+								</div>
+								<div style="display: block ;height:20%;text-align: center; ">
+
+									<div id="circle" style="margin-top: 10px;color: white;width: 100%; height: 50%; -webkit-tap-highlight-color: transparent; user-select: none;" _echarts_instance_="ec_1566725695021">
+										我们尊重隐私权。在文件转换一小时后，它们将永远从我们的服务器删除。如欲获取更多相关信息，请阅读我们的隐私政策。
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12" style="width: 30%;">
+							<div class="panel panel-default">
+								<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+									数秒内将PDF转成DOC
+								</div>
+								<div style="display: block ;height:20%;text-align: center; ">
+
+									<div id="circle" style="margin-top: 10px;color: white;width: 100%; height: 50%; -webkit-tap-highlight-color: transparent; user-select: none;" _echarts_instance_="ec_1566725695021">
+										文件转换服务过程非常轻松，保证您一试便爱上。
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12" style="width: 30%;">
+							<div class="panel panel-default">
+								<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+									适用于所有操作系统！
+								</div>
+								<div style="display: block ;height:20%;text-align: center; ">
+
+									<div id="circle" style="margin-top: 10px;color: white;width: 100%; height: 50%; -webkit-tap-highlight-color: transparent; user-select: none;" _echarts_instance_="ec_1566725695021">
+										我们的PDF转Word转换器适用于所有计算机，包括Mac、Windows及Linux。
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-12" style="width: 30%;">
+							<div class="panel panel-default">
+								<div class="panel-heading panel-success" style="background-color: transparent;color: gainsboro;border: transparent;">
+									提供最高质量的PDF转Word服务
+								</div>
+								<div style="display: block ;height:20%;text-align: center; ">
+
+									<div id="circle" style="margin-top: 10px;color: white;width: 100%; height: 50%; -webkit-tap-highlight-color: transparent; user-select: none;" _echarts_instance_="ec_1566725695021">
+										将PDF转换为Word文档的过程并不简单，但我们比市面上PDF转换速度快得多，且不收任何费用，为您提供最优质的转换服务。 </div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
 				</div>
 
 		</main>

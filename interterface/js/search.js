@@ -5,7 +5,7 @@ var uid = null;
 var keyword_data = null;
 
 function search() {
-	let url = " http://127.0.0.1:8000/interface/api/getMusic?"
+	let url = "http://scenicmonitor.top/interface/api/getMusic?"
 
 	$("#aplayer-list").css("display", "none")
 	$(".m-load2").css("display", "")
@@ -77,6 +77,7 @@ function choice_file() {
 	$("#pdffile").change(function() {
 		filepath = $("#pdffile").val()
 		$("#text").html(filepath);
+
 	})
 	$("#btn").click(function() {
 		if(filepath == "") {
@@ -91,13 +92,15 @@ function choice_file() {
 			$(".m-load2").css("display", "")
 			var formData = new FormData();
 			f = $("#pdffile")[0].files[0]
+			down_file_name = f.name.split(".")[0]
+			$(".down-file-name").text(down_file_name)
 			formData.append("pdf", f);
 			formData.append("pagetype", page_val)
 			formData.append("type", type_val)
 			formData.append("page", page_range)
 
 			$.ajax({
-				url: 'http://127.0.0.1:8000/interface/api/uploadPDF',
+				url: 'http://scenicmonitor.top/interface/api/uploadPDF',
 				type: 'POST',
 				cache: true,
 				data: formData,
@@ -142,7 +145,7 @@ function sleep(n) {
 
 function parse_url() {
 	$(".m-load2").css("display", "");
-	let url = "http://127.0.0.1:8000/interface/api/analyse?";
+	let url = "http://scenicmonitor.top/interface/api/analyse?";
 	request_url = $("#url").val();
 	if(request_url == "") {
 		alert("链接不能为空");
@@ -166,14 +169,13 @@ function parse_url() {
 }
 
 function get_analyseResult() {
-	let url = "http://127.0.0.1:8000/interface/api/analyseResult?";
-	sleep(1000)
-
+	let url = "http://scenicmonitor.top/interface/api/analyseResult?";
 	$.get(url, {
 		id: uid
 	}, function(result) {
 		keyword_data = result['data']
 		if(keyword_data == null) { //后端还未生成数据
+			sleep(4000)
 
 			get_analyseResult();
 		} else { //生好了
@@ -192,14 +194,13 @@ function get_analyseResult() {
 				keyword_value_array[i] = value
 
 			}
-			draw_bar('keyword-bar',keyword_array, keyword_value_array)
+			draw_bar('keyword-bar', keyword_array, keyword_value_array)
 		}
 	}, 'json')
 }
 
 function get_DocLink() {
-	let url = "http://127.0.0.1:8000/interface/api/getDocLink?"
-	sleep(2000)
+	let url = "http://scenicmonitor.top/interface/api/getDocLink?"
 	$.get(url, {
 		"id": uid
 	}, function(data) {
@@ -208,15 +209,16 @@ function get_DocLink() {
 		if(code == 1 & p == 100) {
 
 			$(".m-load2").css("display", "none");
-			let down_link = "http://127.0.0.1:8000/interface/api/downDocLink?id=";
+			let down_link = "http://scenicmonitor.top/interface/api/downDocLink?id=";
 			$("#upload-form").attr("action", down_link);
 			$(".down").css("display", '');
-
 			$(".down-button").click(function() {
 				$("#text").html("重新上传文件");
 			});
 
 		} else {
+			sleep(2000)
+
 			get_DocLink()
 		}
 	}, 'json');

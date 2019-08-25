@@ -351,36 +351,51 @@ body {
 .menu-li {
 	padding: 10px;
 }
-.music-app-ul li{
+
+.music-app-ul li {
 	display: inline-block;
 	width: 7%;
 	padding: 1%;
 	height: 60px;
 }
-.music-app-ul li img{
+
+.music-app-ul li img {
 	width: 100%;
 	height: 100%;
 }
-#music-type label{
+
+#music-type label {
 	width: 9%;
 	color: white;
 }
-.aplayer-list-light:hover{
+
+.aplayer-list-light:hover {
 	background-color: gainsboro
 }
-.aplayer-list-light:active{
+
+.aplayer-list-light:active {
 	background-color: gray;
 }
-#aplayer-list ol li span,#aplayer-list ol li{
+
+#aplayer-list ol li span,
+#aplayer-list ol li {
 	color: black;
 }
-.aplayer-list-author{
+
+.aplayer-list-author {
 	float: right;
 }
 
-#pdffile{
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
+#pdffile {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+
+.down-button {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
 }
