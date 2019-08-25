@@ -144,7 +144,7 @@
 		<script src="assets/js/bootstrap.js"></script>
 		<script src="assets/js/custom.js"></script>
 		<script src="js/search.js"></script>
-				<script src="js/barchart.js"></script>
+		<script src="js/barchart.js"></script>
 
 		<link href="assets/css/bootstrap.css" rel="stylesheet" />
 		<link href="assets/css/font-awesome.css" rel="stylesheet" />
@@ -198,17 +198,23 @@
 			</div>
 		</header>
 		<main class="site-content" role="main">
-			<div class="navbar navbar-inverse set-radius-zero" style="margin-top: 50px;background-color: black;">
-
-			</div>
 
 			<div class="content-wrapper" style="background-image: url(assets/img/background.jpg);">
 				<div class="container">
+					<br />
+					<br />
+					<div class="row" style="text-align: center;">
+						<h1 style="color: white;">网页文本关键词提取</h1>
+					</div>
+					<br />
+					<br />
+					<br />
+
 					<div class="row pad-botm">
 						<form>
 							<div style="margin-left:5%;float: left;background-color: white;height: 50px;"><i class="fa fa-search fa-2x" style="padding:10px;"></i></div>
 							<input id="url" type="url" name="url" style="width: 70%;height: 50px;border: 0;  outline: none;" placeholder="输入目标url" />
-							<input id="seach-button" type="button"  value="搜索" style="color: white;border: 0;background-color: rgb(0, 147, 254);margin-left: 2%;width: 5%;height: 40px;" onclick="parse_url()" />
+							<input id="seach-button" type="button" value="搜索" style="color: white;border: 0;background-color: rgb(0, 147, 254);margin-left: 2%;width: 5%;height: 40px;" onclick="parse_url()" />
 						</form>
 					</div>
 					<div class="panel ">
@@ -248,69 +254,69 @@
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="Ag"  />形语素
+									<input type="radio" name="nature" value="Ag" />形语素
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="ad"  />副形词
+									<input type="radio" name="nature" value="ad" />副形词
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="an"  />名形词
+									<input type="radio" name="nature" value="an" />名形词
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="b"  />区别词
+									<input type="radio" name="nature" value="b" />区别词
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="c"  />连词
-
-								</li>
-
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="dg"  />副语素
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="d"  />副词
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="e"  />叹词
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="f"  />方位词
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="g"  />语素
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="h"  />前接成分
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="i"  />成语
-
-								</li>
-								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="j"  />简称略语
+									<input type="radio" name="nature" value="c" />连词
 
 								</li>
 
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="k"  />后接成分
+									<input type="radio" name="nature" value="dg" />副语素
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="l"  />习用语
+									<input type="radio" name="nature" value="d" />副词
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
-									<input type="radio" name="nature" value="m"  />数词
+									<input type="radio" name="nature" value="e" />叹词
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="f" />方位词
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="g" />语素
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="h" />前接成分
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="i" />成语
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="j" />简称略语
+
+								</li>
+
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="k" />后接成分
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="l" />习用语
+
+								</li>
+								<li style="display: inline-block;width: 11%;">
+									<input type="radio" name="nature" value="m" />数词
 
 								</li>
 								<li style="display: inline-block;width: 11%;">
@@ -398,9 +404,9 @@
 
 					</div>
 
-				<div class="row" style="width: 100%;">
-					<div style="width: 100%;height: 300px;" id="keyword-bar"></div>
-				</div>
+					<div class="row" style="width: 100%;">
+						<div style="width: 100%;height: 300px;" id="keyword-bar"></div>
+					</div>
 				</div>
 
 		</main>

@@ -145,7 +145,7 @@ function sleep(n) {
 
 function parse_url() {
 	$(".m-load2").css("display", "");
-	let url = "http://scenicmonitor.top/interface/api/analyse?";
+	let url = "http://127.0.0.1:8000/interface/api/analyse?";
 	request_url = $("#url").val();
 	if(request_url == "") {
 		alert("链接不能为空");
@@ -163,20 +163,21 @@ function parse_url() {
 			alert("请求失败")
 			return
 		}
+		sleep(1000)
 		get_analyseResult()
 
 	}, 'json')
 }
 
 function get_analyseResult() {
-	let url = "http://scenicmonitor.top/interface/api/analyseResult?";
+	let url = "http://127.0.0.1:8000/interface/api/analyseResult?";
 	$.get(url, {
 		id: uid
 	}, function(result) {
 		keyword_data = result['data']
 		if(keyword_data == null) { //后端还未生成数据
+			
 			sleep(4000)
-
 			get_analyseResult();
 		} else { //生好了
 			let keyword_array = new Array()
