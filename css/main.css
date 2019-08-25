@@ -741,10 +741,10 @@ ul.external li a:hover {
 
 .testimonial-item img {
     border: 3px solid #fff;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
     display: inline-block;
-    height: auto;
-    max-width: 100px;
+    height: 130px;
+    width: 100px;
 }
 
 .testimonial-item > div {

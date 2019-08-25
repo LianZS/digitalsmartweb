@@ -163,7 +163,9 @@
 .bg-img-3 {
 	background-image: url(../img/slider/banner.jpg);
 }
-
+.bg-img-4{
+	background-image: url(../img/slider/bigdata.png);
+}
 
 /* Animations for content elements */
 
