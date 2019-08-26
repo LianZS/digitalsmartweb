@@ -97,7 +97,7 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 	let url = "http://scenicmonitor.top/attractions/api/getLocation_geographic_bounds"
 	$.get(url, {
 		pid: area_pid,
-		flag:0,
+		flag:flag_id,
 		sub_domain: ''
 
 	}, function(data, state) {
@@ -108,12 +108,12 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 	}, 'json');
 }
 
-function People_Distribution_rate(area_pid,lon,lat){
+function People_Distribution_rate(area_pid,flag_id,lon,lat){
 		//  人口分布
 	let url = " http://scenicmonitor.top/attractions/api/getLocation_distribution_rate"
 	$.get(url, {
 		pid: area_pid,
-		flag:0,
+		flag:flag_id,
 		sub_domain: ''
 
 	}, function(data, state) {

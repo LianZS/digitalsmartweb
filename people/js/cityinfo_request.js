@@ -1,8 +1,8 @@
 function CityInfoRequest() {
 	//刚进入该页面时进行的初始化
 	//页面省份城市初始化
-	this.city_url = "http://scenicmonitor.top/attractions/api/getCitysByProvince";
-	this.area_url = "http://scenicmonitor.top/attractions/api/getRegionsByCity"
+	this.city_url = "http://127.0.0.1:8000/attractions/api/getCitysByProvince";
+	this.area_url = "http://127.0.0.1:8000/attractions/api/getRegionsByCity"
 	//	var objs = document.getElementById("prov_select0");
 	//					var grade = objs.options[objs.selectedIndex].value;\n
 	var pro = getParams("province")
@@ -60,7 +60,7 @@ function start_Add_Element_Of_area(pro, area_url) {
 		for(let i = 0; i < areaList.length; i++) {
 			area = areaList[i]['area'];
 			pid = areaList[i]['pid'];
-			flag = areaList[i]['flag'];
+			flag = areaList[i]['type_flag'];
 			lon = areaList[i]['longitude'];
 			lat = areaList[i]['latitude'];
 			var newElement = "<option value=" + pid + " flag=" + flag + " lon=" + lon + " lat=" + lat + " >" + area + "</option>";
@@ -169,7 +169,7 @@ function load_data() {
 	new Geographic_bounds(pid, flag, lon, lat);
 	
 		
-	new People_Distribution_rate(pid, lon, lat);
+	new People_Distribution_rate(pid, flag,lon, lat);
 	new Image_reuqest(pid)
 	new Comment(pid)
 	new CommentRate(pid, "evaluate")
