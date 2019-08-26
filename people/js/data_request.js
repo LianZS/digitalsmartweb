@@ -28,12 +28,12 @@ function realtimeFlow(area_pid, dbegin, dend,range) {
 
 }
 
-function SearchRate(area_pid,fla) {
+function SearchRate(area_pid,flag_id) {
 	//关键词热度
 	let url = "http://scenicmonitor.top/attractions/api/getLocation_search_rate"
 	$.get(url, {
 		pid: area_pid,
-		flag:0,
+		type_flag:flag_id,
 		sub_domain: ''
 
 	}, function(data, state) {
@@ -97,7 +97,7 @@ function Geographic_bounds(area_pid,flag_id,lon,lat){
 	let url = "http://scenicmonitor.top/attractions/api/getLocation_geographic_bounds"
 	$.get(url, {
 		pid: area_pid,
-		flag:flag_id,
+		type_flag:flag_id,
 		sub_domain: ''
 
 	}, function(data, state) {
@@ -113,7 +113,7 @@ function People_Distribution_rate(area_pid,flag_id,lon,lat){
 	let url = " http://scenicmonitor.top/attractions/api/getLocation_distribution_rate"
 	$.get(url, {
 		pid: area_pid,
-		flag:flag_id,
+		type_flag:flag_id,
 		sub_domain: ''
 
 	}, function(data, state) {
