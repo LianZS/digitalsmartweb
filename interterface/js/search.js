@@ -118,7 +118,7 @@ function choice_file() {
 				}
 				uid = data['id'];
 				$(".uid").val(uid);
-				pdf_task = setInterval("get_DocLink()",2000)
+				pdf_task = setInterval("get_DocLink()",3000)
 
 			})
 
@@ -164,7 +164,7 @@ function parse_url() {
 			alert("请求失败")
 			return
 		}
-		t = setInterval("get_analyseResult()",2000)		
+		t = setInterval("get_analyseResult()",3000)		
 
 	}, 'json')
 }
