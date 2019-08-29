@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>数智</title>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-default top-navbar" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">数智</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+					<a class="navbar-brand waves-effect waves-dark" href="scencemanager.html"><i class="large material-icons">insert_chart</i> <strong> 数智</strong></a>
+
+					<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+				</div>
+
+			</nav>
+
+			<nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav" id="main-menu">
+
+						<li>
+							<a class=" waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>概述</a>
+						</li>
+						<li>
+							<a href="" class="active-menu waves-effect waves-dark"><i class="fa fa-desktop"></i>景区客流量数据</a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>城市交通数据</a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i>终端数据</a>
+						</li>
+
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i>历史天气数据 </a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 智能工具接口</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="header">
+					<h1 class="page-header">
+                            景区客流量数据
+                        </h1>
+					<ol class="breadcrumb">
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">景区客流量数据</a>
+						</li>
+					</ol>
+
+				</div>
+				<div>
+					<pre>  <h4>景区客流量API</h4>
+文档更新时间：2019-08-30
+<span class="label label-important" style="background-color: red;">注意</span>
+  <strong>
+1、所有API的调用，必须附带"token"这个参数，即公开的AppKey；
+2、API返回的JSON格式数据是经过UTF-8编码的，这个文档里的"成功返回示例"为了直观，已经decode过；
+3、由于数据源方面还有服务器负载过大的原因，API中的值有时返回可能为空或者等待时间稍久；
+  </strong>
+
+数据格式说明：
+API返回的数据包括了以下内容：
+
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <thead>
+    <tr>
+      <th>字段</th>
+      <th>字段说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>area</td>
+      <td>景区名</td>
+    </tr>
+    <tr>
+    	
+      <td>pid</td>
+      <td>景区唯一标识</td>
+    </tr>
+        	    <tr>
+
+      <td>date</td>
+      <td>查询日期</td>
+    </tr>
+        	    <tr>
+
+      <td>ttime</td>
+      <td>查询时间</td>
+    </tr>
+            	    <tr>
+
+      <td>num</td>
+      <td>景区客流量</td>
+    </tr>
+                	    <tr>
+
+      <td>longitude</td>
+      <td>景区中心经度</td>
+    </tr>
+                  	    <tr>
+
+      <td>latitude</td>
+      <td>景区中心维度</td>
+    </tr>
+            	    <tr>
+
+      <td>data</td>
+      <td>景区人口密度分布情况</td>
+    </tr>
+           	    <tr>
+
+      <td>multiple</td>
+      <td>人口分布经纬度距中心经纬度扩大倍数</td>
+    </tr>
+  </tbody>
+</table>
+<h4>1、景区客流量统计接口</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getScenceDataByTime?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* pid：景区代码，必选参数
+* ddate：查询日期，必选参数
+* ttime：查询时间，必选参数
+* token：Appkey，必选参数
+* flag：查询类别，可选参数，默认0
+
+
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+一个数组，里面的一项是一个监测点的PM2.5信息，其中每一项数据包括
+* aqi
+* area
+* pm2_5
+* pm2_5_24h
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+<span class="label label-important">默认情况下，最后一项是所有监测点的均值(即一个城市的值)</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://www.pm25.in/api/querys/pm2_5.json?city=珠海&amp;token=xxxxxx  或者
+http://www.pm25.in/api/querys/pm2_5.json?city=zhuhai&amp;token=xxxxxx
+
+成功返回示例：
+[
+    {
+        "aqi": 82,
+        "area": "珠海",
+        "pm2_5": 31,
+        "pm2_5_24h": 60,
+        "position_name": "吉大",
+        "primary_pollutant": "颗粒物(PM2.5)",
+        "quality": "良",
+        "station_code": "1367A",
+        "time_point": "2013-03-07T19:00:00Z"
+    },
+    ...
+    ...
+    ...
+    {
+        "aqi": 108,
+        "area": "珠海",
+        "pm2_5": 0,
+        "pm2_5_24h": 53,
+        "position_name": "斗门",
+        "primary_pollutant": "臭氧8小时",
+        "quality": "轻度污染",
+        "station_code": "1370A",
+        "time_point": "2013-03-07T19:00:00Z"
+    },
+    {
+        "aqi": 99,
+        "area": "珠海",
+        "pm2_5": 39,
+        "pm2_5_24h": 67,
+        "position_name": null,
+        "primary_pollutant": null,
+        "quality": "良",
+        "station_code": null,
+        "time_point": "2013-03-07T19:00:00Z"
+    }
+]
+可能的错误返回信息：
+{
+    "error": "参数不能为空"
+}
+{
+    "error": "该城市还未有PM2.5数据"
+}
+{
+    "error": "Sorry，您这个小时内的API请求次数用完了，休息一下吧！"
+}
+{
+    "error": "You need to sign in or sign up before continuing."
+}
+
+***stations = no时的情况***
+请求示例：
+http://www.pm25.in/api/querys/pm2_5.json?city=guangzhou&amp;token=xxxxxx&amp;stations=no
+成功返回示例：
+[
+    {
+        "aqi": 151,
+        "area": "广州",
+        "pm2_5": 106,
+        "pm2_5_24h": 115,
+        "quality": "中度污染",
+        "time_point": "2013-04-16T11:00:00Z"
+    }
+]
+
+
+以下的API和上面的这个API大同小异，所以就不作太详细的说明了。
+
+<h5>1.2、获取一个城市所有监测点的PM10数据</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/pm10.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* pm10
+* pm10_24h
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.3、获取一个城市所有监测点的CO数据</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/co.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* co
+* co_24h
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.4、获取一个城市所有监测点的NO2数据</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/no2.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* no2
+* no2_24h
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.5、获取一个城市所有监测点的SO2数据</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/so2.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* so2
+* so2_24h
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.6、获取一个城市所有监测点的O3数据</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/o3.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* o3
+* o3_24h
+* o3_8h
+* o3_8h_24h
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.7、获取一个城市所有监测点的AQI数据（含详情）</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/aqi_details.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* co
+* co_24h
+* no2
+* no2_24h
+* o3
+* o3_24h
+* o3_8h
+* o3_8h_24h
+* pm10
+* pm10_24h
+* pm2_5
+* pm2_5_24h
+* position_name
+* primary_pollutant
+* quality
+* so2
+* so2_24h
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.8、获取一个城市所有监测点的AQI数据（不含详情，仅AQI）</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/only_aqi.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* city：必选
+* avg：可选
+* stations：可选
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中每一项数据包括
+* aqi
+* area
+* position_name
+* primary_pollutant
+* quality
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.9、获取一个监测点的AQI数据（含详情）</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/aqis_by_station.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>* station_code：必选</td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，其中的一项数据包括
+* aqi
+* area
+* co
+* co_24h
+* no2
+* no2_24h
+* o3
+* o3_24h
+* o3_8h
+* o3_8h_24h
+* pm10
+* pm10_24h
+* pm2_5
+* pm2_5_24h
+* position_name
+* primary_pollutant
+* quality
+* so2
+* so2_24h
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.10、获取一个城市的监测点列表</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/station_names.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>* city：必选</td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+* city
+* stations：值是一个数组，里面的一个数组又包含了station_name和station_code
+      </td>
+    </tr>
+  </tbody>
+</table>
+成功返回示例：
+{
+    "city": "珠海",
+    "stations": [
+        {
+            "station_name": "吉大",
+            "station_code": "1367A"
+        },
+        {
+            "station_name": "前山",
+            "station_code": "1368A"
+        },
+        {
+            "station_name": "唐家",
+            "station_code": "1369A"
+        },
+        {
+            "station_name": "斗门",
+            "station_code": "1370A"
+        }
+    ]
+}
+特别提示：如果不传city这个参数，将返回全国的监测点，不鼓励频繁调用；
+
+<h5>1.11、获取实施了新《环境空气质量标准》的城市列表，即有PM2.5数据的城市列表</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>* 无</td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>* cities：值是一个数组</td>
+    </tr>
+  </tbody>
+</table>
+成功返回示例：
+{
+    "cities": [
+        "上海",
+        "东莞",
+        "中山",
+         ...
+         ...
+         ...
+        "长春",
+        "长沙",
+        "青岛"
+    ]
+}
+<h5>1.12、获取所有城市的空气质量详细数据</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/all_cities.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>* 无</td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，里面包含目前支持的190个城市所有监测点的详细信息，一共946项，其中每项的信息有
+* aqi
+* area
+* co
+* co_24h
+* no2
+* no2_24h
+* o3
+* o3_24h
+* o3_8h
+* o3_8h_24h
+* pm10
+* pm10_24h
+* pm2_5
+* pm2_5_24h
+* position_name
+* primary_pollutant
+* quality
+* so2
+* so2_24h
+* station_code
+* time_point
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h5>1.13、获取全部城市的空气质量指数(AQI)排行榜</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7">
+  </colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://www.pm25.in/api/querys/aqi_ranking.json</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>* 无</td>
+    </tr>
+    <tr>
+      <td>返回</td>
+      <td>
+一个数组，里面包含目前支持的190个城市AQI排行榜信息，其中每项的信息有
+* aqi
+* area
+* co
+* co_24h
+* no2
+* no2_24h
+* o3
+* o3_24h
+* o3_8h
+* o3_8h_24h
+* pm10
+* pm10_24h
+* pm2_5
+* pm2_5_24h
+* quality
+* level
+* so2
+* so2_24h
+* primary_pollutant
+* time_point
+<b class="label label-important">说明</b>primary_pollutant的值可能为[二氧化硫","二氧化氮","颗粒物(PM10)","颗粒物(PM2.5)","一氧化碳","臭氧1小时","臭氧8小时"]中的一项或多项组合，出现多项时，各项之间用逗号","分隔;AQI低于50时，没有值，为"".
+      </td>
+    </tr>
+  </tbody>
+</table>
+成功返回示例：
+[
+    {
+        "aqi": 24,
+        "area": "昆明",
+        "co": 1.173,
+        "co_24h": 1.362,
+        "no2": 27,
+        "no2_24h": 32,
+        "o3": 16,
+        "o3_24h": 22,
+        "o3_8h": 7,
+        "o3_8h_24h": 18,
+        "pm10": 9,
+        "pm10_24h": 24,
+        "pm2_5": 11,
+        "pm2_5_24h": 15,
+        "quality": "优",
+        "level": "一级",
+        "so2": 6,
+        "so2_24h": 8,
+        "primary_pollutant": "",
+        "time_point": "2013-10-21T14:00:00Z"
+    },
+    ......
+    {
+        "aqi": 51,
+        "area": "福州",
+        "co": 0.562,
+        "co_24h": 0.544,
+        "no2": 20,
+        "no2_24h": 26,
+        "o3": 92,
+        "o3_24h": 93,
+        "o3_8h": 64,
+        "o3_8h_24h": 67,
+        "pm10": 59,
+        "pm10_24h": 50,
+        "pm2_5": 37,
+        "pm2_5_24h": 30,
+        "quality": "良",
+        "level": "二级",
+        "so2": 12,
+        "so2_24h": 10,
+        "primary_pollutant": "颗粒物(PM10)",
+        "time_point": "2013-10-21T14:00:00Z"
+    },
+    ......
+    {
+        "aqi": 58,
+        "area": "泉州",
+        "co": 0.57,
+        "co_24h": 0.47,
+        "no2": 16,
+        "no2_24h": 17,
+        "o3": 149,
+        "o3_24h": 149,
+        "o3_8h": 108,
+        "o3_8h_24h": 108,
+        "pm10": 92,
+        "pm10_24h": 64,
+        "pm2_5": 39,
+        "pm2_5_24h": 29,
+        "quality": "良",
+        "level": "二级",
+        "so2": 12,
+        "so2_24h": 8,
+        "primary_pollutant": "臭氧8小时,颗粒物(PM10)",
+        "time_point": "2013-10-21T14:00:00Z"
+    },
+    ......
+    {
+        "aqi": 500,
+        "area": "哈尔滨",
+        "co": 4.053,
+        "co_24h": 3.942,
+        "no2": 166,
+        "no2_24h": 165,
+        "o3": 13,
+        "o3_24h": 44,
+        "o3_8h": 9,
+        "o3_8h_24h": 35,
+        "pm10": 910,
+        "pm10_24h": 860,
+        "pm2_5": 866,
+        "pm2_5_24h": 719,
+        "quality": "严重污染",
+        "level": "六级",
+        "so2": 61,
+        "so2_24h": 47,
+        "primary_pollutant": "颗粒物(PM2.5),颗粒物(PM10)",
+        "time_point": "2013-10-21T14:00:00Z"
+    }
+]
+</pre>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<script src="assets/materialize/js/materialize.min.js"></script>
+
+		<script src="assets/js/jquery.metisMenu.js"></script>
+
+		<script src="assets/js/easypiechart.js"></script>
+		<script src="assets/js/easypiechart-data.js"></script>
+		<script src="assets/js/custom-scripts.js"></script>
+		<script src="assets/js/city_request.js"></script>
+
+	</body>
+
+</html>

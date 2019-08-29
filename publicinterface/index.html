@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>数智</title>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-default top-navbar" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">数智</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+					<a class="navbar-brand waves-effect waves-dark" href="scencemanager.html"><i class="large material-icons">insert_chart</i> <strong> 数智</strong></a>
+
+					<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+				</div>
+
+			</nav>
+
+			<nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav" id="main-menu">
+
+						<li>
+							<a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>概述</a>
+						</li>
+						<li>
+							<a href="scence.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i>景区客流量数据</a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>城市交通数据</a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i>终端数据</a>
+						</li>
+
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i>历史天气数据 </a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 智能工具接口</a>
+						</li>
+
+					
+					</ul>
+
+				</div>
+
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="header">
+					<h1 class="page-header">
+                            概述
+                        </h1>
+					<ol class="breadcrumb">
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">概述</a>
+						</li>
+					</ol>
+
+				</div>
+				<div>
+					<h3 style="padding: 10px;">Web服务API简介</h3>
+					<h5>数智Web服务API免费向开发者以及非专业开发者提供非常便利的HTTP接口，使用者可以直接使用我方提供的开源AppKey提交请求，可通过这些接口使用各类型的数据服务，返回结果支持JSON格式。
+
+Web服务API对所有用户开放。使用本组服务之前，务必读取注意事项。</h5>
+					<div class="well">
+
+						<span class="label label-important" style="background-color: red;">重要</span>
+						<h4>用前须知！</h4>
+						<ol>
+							<li>认真看看下面的免责声明；</li>
+							<li>你需要具备编程能力，或者你的团队有开发人员；</li>
+							<li>你必须明白这个AppKey是怎么用的，我相信有编程能力的人能够看懂API文档；我们不提供任何注册服务，所以这不是激活码，若想成功访问接口，Appkey是唯一的门票</li>
+							<li>我们目前提供数据涵盖了全国500+个景区客流量数据，包括了客流统计与人口密度分布；支持对过去3年任意时刻客流情况查询； 同时支持景区未来客流量预测数据获取。
+
+							</li>
+							<li>目前提供全国2000+城市地区的近10年的天气历史数据，支持单位日数据查询；同时支持AQI实时查询。</li>
+							<li>提供国内145个城市实时交通延迟指数数据服务，部分支持历史查询；</li>
+							<li>支持3000+热门应用用户画像查询，终端数据情况，支持历史查询；</li>
+							<li>提供智能文本提取服务，用户提交分析链接以及需要提取的词性，系统自动进行文本提取，分析好后返回关键词以及权重。目前支持链接平台包括今日头条、微博、百度百科等大中型网站文本提取。</li>
+							<li>提供快速高效的PDF转word服务，不限制文件大小，用户无需注册登陆即可使用，用户把文件上传至服务器，后台解析完毕自动返回下载链接，对于特大文件，支持用户上传后关闭网站，无需等待；在未来一天内任意时刻，用户重新提交文件时， 平台会自动返回大文件下载链接
+							</li>
+							<li>提供音乐免费下载服务，用户只需提交歌曲名字，系统自动返回相关歌曲下载链接，无需任何费用，支持平台包括网易云，QQ音乐，酷狗，酷我等音乐平台</li>
+							<li>非专业用户、初学者、学习如何发送HTTP请求和解析JSON格式数据的；就想看看数据长什么样，纯粹出于好奇心的；还没想好要做什么东西的；用于测试，但又不说清楚测试什么东西的；作品还在构想或正在开发中的开发者。公共AppKey在下方，往下拉；</li>
+							<li>用户对数据有所疑惑，可发E-Mail到
+								<a>2214057556@qq.com</a>,相关文档实例可到
+								<a>https://blog.csdn.net/Lzs1998</a>查看</li>
+
+						</ol>
+
+						<hr>
+
+						<pre><span class="label label-important" style="background-color: red;">重要</span>
+<h4>关于数智免责声明：</h4>
+第一条、数智为广大用户免费提供简单易用的数据服务的一个公益性网站，数智数据全部来源于网络公开数据，我们不生产数据，我们只是数据的搬运工和包装者；数智所提供的数据仅供使用者作为参考信息，使用者据此做出的行为及所产生的后果与本平台无任何关联。
+
+第二条、由于不可抗力或互联网传输原因等造成信息传播的延迟、数据中断或缺失，本平台不承担任何责任；因不可预测或无法控制的系统故障、设备故障、通讯故障等原因给用户造成损失的，本平台不承担任何赔偿责任。
+
+第三条、本平台尽全力给开发者提供及时、准确的数据及相关产品服务，但不承担因数据准确率、真实性和全面性等原因引起的任何损失、损害，因使用上述数据而产生的一切风险由使用者自身承担。
+
+第四条、未经本平台事先许可，使用数智API接口数据的使用者不得自行修改本网站提供的数据，如果对我们提供的数据有疑义，请直接按照本网站提供的联系方式与我们联系，且不得实施任何有损本平台声誉的行为，否则，我们有权要求使用者承担因此对我们所造成的一切损失。
+
+第五条、本声明的最终解释权归本平台所有。
+
+以上风险提示，您已阅读并理解，如果继续使用，即表明您同意承担使用数智所有服务可能存在的风险。
+</pre>
+						<hr>
+
+						<pre><span class="label label-info">我相信大家都是有节操的，不会恶意使用这个Key！</span>
+<h4>公共AppKey:bGlhbnpvbmdzaGVuZw==</h4>
+<p>  这个AppKey由于是公开的，所以希望大家不要恶意使用而导致他人用不了。我相信大家是有道德的人。</p>
+</pre>
+				
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<script src="assets/materialize/js/materialize.min.js"></script>
+
+		<script src="assets/js/jquery.metisMenu.js"></script>
+
+		<script src="assets/js/easypiechart.js"></script>
+		<script src="assets/js/easypiechart-data.js"></script>
+		<script src="assets/js/custom-scripts.js"></script>
+		<script src="assets/js/city_request.js"></script>
+
+	</body>
+
+</html>

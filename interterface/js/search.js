@@ -6,7 +6,7 @@ var keyword_data = null;
 var t;
 var pdf_task ;
 function search() {
-	let url = "  http://scenicmonitor.top/interface/api/getMusic?"
+	let url = " http://scenicmonitor.top/interface/api/getMusic?"
 
 	$("#aplayer-list").css("display", "none")
 	$(".m-load2").css("display", "")
