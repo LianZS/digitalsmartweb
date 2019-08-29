@@ -2,7 +2,6 @@
 
 function draw_bar(idname,keyword_array,keyword_value_array) {
 	let mychart = echarts.init(document.getElementById(idname));
-	console.log(keyword_array,keyword_value_array)
 	var dataAxis = keyword_array;
 	var yMax = 1.4;
 

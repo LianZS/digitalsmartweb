@@ -10,19 +10,22 @@ function realtimeFlow(area_pid, dbegin, dend,range) {
 		sub_domain: ''
 
 	}, function(data, state) {
-		data = data['data'];
-		timeList = new Array(data.length); //时间
-		numList = new Array(data.length); //人数
+		future_data = data['future_data']//预测数据
+		future_time = data['future_time']//未来时间
+
+		data = data['data'];//已经存在的数据
+		timeList = new Array(data.length); //已过去的时间
+		numList = new Array(data.length); //过去的人数
 
 		for(let i = 0; i < data.length; i++) {
 			timeList[i] = data[i][0];
 			numList[i] = data[i][1];
 		}
-		json = {
+		data_json = {
 			"data": numList,
 			"time": timeList
 		}
-		var obj = new drawAreaChart(json);
+		let obj = new drawAreaChart(data_json,future_time,future_data);
 
 	}, 'json');
 
