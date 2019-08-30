@@ -39,13 +39,13 @@
 							<a class=" waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>概述</a>
 						</li>
 						<li>
-							<a href="" class="active-menu waves-effect waves-dark"><i class="fa fa-desktop"></i>景区客流量数据</a>
+							<a href="scence.html" class=" waves-effect waves-dark"><i class="fa fa-desktop"></i>景区客流量数据</a>
 						</li>
 						<li>
 							<a href="traffic.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>城市实况数据</a>
 						</li>
 						<li>
-							<a href="" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i>终端数据</a>
+							<a href="" class="active-menu waves-effect waves-dark"><i class="fa fa-qrcode"></i>终端数据</a>
 						</li>
 
 						<li>
@@ -64,26 +64,27 @@
 			<div id="page-wrapper">
 				<div class="header">
 					<h1 class="page-header">
-                            景区客流量数据
+                            终端数据
                         </h1>
 					<ol class="breadcrumb">
 						<li>
 							<a href="#">首页</a>
 						</li>
 						<li>
-							<a href="#">景区客流量数据</a>
+							<a href="#">终端数据</a>
 						</li>
 					</ol>
 
 				</div>
 				<div>
-					<pre>  <h4>景区客流量API</h4>
+					<pre>  <h4>终端数据API</h4>
 文档更新时间：2019-08-30
 <span class="label label-important" style="background-color: red;">注意</span>
   <strong>
 1、所有API的调用，必须附带"token"这个参数，即公开的AppKey；
 2、API返回的JSON格式数据是经过UTF-8编码的，这个文档里的"成功返回示例"为了直观，已经decode过；
 3、由于数据源方面还有服务器负载过大的原因，API中的值有时返回可能为空或者等待时间稍久；
+4、所有终端数据是通过爬虫获取，若有欠缺，敬请原谅
   </strong>
 
 数据格式说明：
@@ -101,71 +102,31 @@ API返回的数据包括了以下内容：
   </thead>
   <tbody>
     <tr>
-      <td>area</td>
-      <td>景区名</td>
+      <td>pid__name</td>
+      <td>品牌/运营商/网络</td>
+    </tr>
+      <tr>
+      <td>ddate</td>
+      <td>日期</td>
     </tr>
     <tr>
-    	
-      <td>pid</td>
-      <td>景区唯一标识</td>
+      <td>rate</td>
+      <td>国内市场占有率</td>
     </tr>
-        	    <tr>
-
-      <td>date</td>
-      <td>查询日期</td>
+        <tr>
+      <td>pid__version</td>
+      <td>手机系统版本</td>
     </tr>
-        	    <tr>
-
-      <td>ttime</td>
-      <td>查询时间</td>
+        <tr>
+      <td>rate</td>
+      <td>国内市场占有率</td>
     </tr>
-            	    <tr>
-
-      <td>num</td>
-      <td>景区客流量</td>
-    </tr>
-                	    <tr>
-
-      <td>longitude</td>
-      <td>景区中心经度</td>
-    </tr>
-                  	    <tr>
-
-      <td>latitude</td>
-      <td>景区中心维度</td>
-    </tr>
-            	    <tr>
-
-      <td>data</td>
-      <td>景区人口密度分布情况</td>
-    </tr>
-           	    <tr>
-
-      <td>multiple</td>
-      <td>人口分布经纬度距中心经纬度扩大倍数</td>
-    </tr>
-  </tbody>
-</table>
-<table class="table table-bordered table-striped">
-  <colgroup>
-    <col class="span1">
-    <col class="span7"></colgroup>
-  <thead>
-    <tr>
-      <th>代码</th>
-      <th>景区</th>
-      <th>代码</th>
-      <th>景区</th>
-    </tr>
-  </thead>
-  <tbody>
-<tr> <td>6</td><td>深圳欢乐谷</td> <td>519</td><td>深圳北站</td></tr><tr> <td>1062</td><td>欢乐谷</td> <td>1063</td><td>世界之窗</td></tr><tr> <td>1067</td><td>深圳仙湖植物园</td> <td>1594</td><td>锦绣中华·中国民俗文化村</td></tr><tr> <td>4904</td><td>坣岗荔枝公园</td> <td>4905</td><td>大梅沙海滨公园</td></tr><tr> <td>4906</td><td>东部华侨城</td> <td>4910</td><td>凤凰山森林公园</td></tr><tr> <td>5532</td><td>小梅沙度假村</td> <td>8493</td><td>欢乐海岸</td></tr><tr> <td>8520</td><td>西丽动物园</td> <td>8522</td><td>莲花山公园</td></tr><tr> <td>8528</td><td>梧桐山</td> <td>9362</td><td>杨梅坑</td></tr><tr> <td>10107</td><td>红树林公园</td> <td>18343</td><td>荔香公园</td></tr><tr> <td>18346</td><td>深圳海上世界</td> <td>8</td><td>广州长隆</td></tr><tr> <td>512</td><td>广州站</td> <td>1050</td><td>南昆山生态旅游区</td></tr><tr> <td>1074</td><td>南昆山温泉大观园</td> <td>1057</td><td>西樵山风景名胜区</td></tr><tr> <td>4884</td><td>李小龙乐园</td> <td>1059</td><td>圆明新园</td></tr><tr> <td>4898</td><td>白莲洞公园</td> <td>1060</td><td>中山詹园</td></tr><tr> <td>6118</td><td>中山市火车站</td> <td>1061</td><td>塘口立园</td></tr><tr> <td>1082</td><td>锦江温泉旅游度假区</td> <td>1073</td><td>曹溪温泉假日度假村</td></tr><tr> <td>4927</td><td>风度名城</td> <td>4929</td><td>威尼国际广场</td></tr><tr> <td>1087</td><td>肇庆星湖风景名胜区</td> <td>1101</td><td>海陵岛大角湾风景名胜区</td></tr><tr> <td>1187</td><td>汕尾玄武山旅游区</td> <td>4855</td><td>玄武山旅游区</td></tr><tr> <td>1188</td><td>礐石风景名胜区</td> <td>1230</td><td>南澳岛生态旅游区</td></tr><tr> <td>4856</td><td>忠信人民广场</td> <td>4859</td><td>揭阳潮汕国际机场</td></tr><tr> <td>4991</td><td>榕江西湖公园</td> <td>4864</td><td>兆康时代广场</td></tr><tr> <td>4865</td><td>忠信广场</td> <td>4870</td><td>金沙湾观海长廊</td></tr><tr> <td>4871</td><td>荣基国际广场</td> <td>4881</td><td>罗定人民体育场</td></tr><tr> <td>4882</td><td>同富商业中心</td> <td>4888</td><td>铜锣湾广场</td></tr><tr> <td>4892</td><td>清远站</td> <td>4989</td><td>绿岛山庄</td></tr><tr> <td>4990</td><td>潮州西湖</td> <td>5328</td><td>虎门站</td></tr><tr> <td>5329</td><td>威远炮台</td> <td>514</td><td>三亚凤凰国际机场</td></tr><tr> <td>515</td><td>三亚站</td> <td>517</td><td>海口美兰国际机场</td></tr><tr> <td>1092</td><td>兴隆热带植物园</td> <td>5359</td><td>石梅湾</td></tr><tr> <td>1094</td><td>分界洲岛旅游区</td> <td>1119</td><td>南湾猴岛生态旅游景区</td></tr><tr> <td>5360</td><td>雅居乐海南清水湾</td> <td>1639</td><td>呀诺达雨林文化旅游区</td></tr><tr> <td>5651</td><td>槟榔谷黎苗文化旅游区</td> <td>5284</td><td>乐东商业步行街</td></tr><tr> <td>5285</td><td>金坡广场</td> <td>5286</td><td>商贸购物广场</td></tr><tr> <td>5287</td><td>凤凰商业步行街</td> <td>524</td><td>南昌北站</td></tr><tr> <td>525</td><td>南昌站</td> <td>1176</td><td>龙湾温泉度假村</td></tr><tr> <td>1179</td><td>庐山风景区</td> <td>1214</td><td>瑶里古镇风景区</td></tr><tr> <td>1215</td><td>景德镇古窑民俗博览区</td> <td>1227</td><td>三清山风景区</td></tr><tr> <td>1228</td><td>卧龙谷</td> <td>1234</td><td>仙女湖景区</td></tr><tr> <td>1280</td><td>明月山温泉风景名胜区</td> <td>1281</td><td>天沐江西明月山温泉度假村</td></tr><tr> <td>1686</td><td>龙虎山地质公园</td> <td>535</td><td>西安站</td></tr><tr> <td>627</td><td>西安咸阳国际机场</td> <td>1002</td><td>乾陵博物馆</td></tr><tr> <td>1003</td><td>延安革命纪念馆</td> <td>1004</td><td>枣园革命旧址</td></tr><tr> <td>1009</td><td>华山风景名胜区</td> <td>1679</td><td>法门寺法门寺旅游区</td></tr><tr> <td>5649</td><td>金丝峡景区</td> <td>542</td><td>太原站</td></tr><tr> <td>555</td><td>太原武宿国际机场</td> <td>982</td><td>王家大院</td></tr><tr> <td>1145</td><td>绵山风景名胜区</td> <td>1006</td><td>普救寺</td></tr><tr> <td>1007</td><td>解州关帝庙</td> <td>1134</td><td>天下第一门</td></tr><tr> <td>1626</td><td>黄河壶口瀑布</td> <td>1398</td><td>山西应县木塔景区</td></tr><tr> <td>1524</td><td>五台山风景区</td> <td>1550</td><td>云冈石窟</td></tr><tr> <td>1562</td><td>恒山风景区</td> <td>1572</td><td>皇城相府生态文化旅游区</td></tr><tr> <td>543</td><td>呼和浩特东站</td> <td>544</td><td>呼和浩特白塔国际机场</td></tr><tr> <td>1108</td><td>响沙湾旅游景区</td> <td>5664</td><td>水洞沟文化遗址</td></tr><tr> <td>1117</td><td>广宗寺</td> <td>1560</td><td>阿斯哈图花岗岩石林园区</td></tr><tr> <td>1408</td><td>呼和诺尔旅游景区</td> <td>1410</td><td>满洲里套娃广场</td></tr><tr> <td>1425</td><td>格根塔拉草原旅游区</td> <td>1492</td><td>阿尔山海神圣泉旅游度假区</td></tr><tr> <td>1495</td><td>大青沟</td> <td>1605</td><td>维信国际高尔夫度假村</td></tr><tr> <td>5356</td><td>乌海湖</td> <td>5497</td><td>乌海植物园</td></tr><tr> <td>546</td><td>兰州站</td> <td>553</td><td>兰州中川机场</td></tr><tr> <td>940</td><td>拉卜楞寺</td> <td>1631</td><td>冶力关风景区</td></tr><tr> <td>944</td><td>嘉峪关长城文化旅游景区</td> <td>945</td><td>鸣沙山月牙泉风景名胜区</td></tr><tr> <td>1681</td><td>阳关景区</td> <td>947</td><td>松鸣岩风景名胜区</td></tr><tr> <td>948</td><td>万象洞</td> <td>1142</td><td>官鹅沟自然风景区</td></tr><tr> <td>1154</td><td>西狭颂景区</td> <td>960</td><td>大佛寺</td></tr><tr> <td>961</td><td>武威沙漠公园</td> <td>962</td><td>武威文庙</td></tr><tr> <td>963</td><td>神州荒漠野生动物园</td> <td>964</td><td>景泰黄河石林风景旅游区</td></tr><tr> <td>1010</td><td>麦积山风景区</td> <td>1140</td><td>贵清山旅游风景区</td></tr><tr> <td>1161</td><td>遮阳山旅游风景区</td> <td>549</td><td>乌鲁木齐地窝堡国际机场</td></tr><tr> <td>550</td><td>乌鲁木齐站</td> <td>934</td><td>龟兹绿洲生态园</td></tr><tr> <td>1152</td><td>库车原世袭回部亲王府</td> <td>935</td><td>金沙滩旅游度假区</td></tr><tr> <td>936</td><td>天山天池风景区</td> <td>953</td><td>新疆兵团军垦博物馆</td></tr><tr> <td>959</td><td>锡伯民俗风情园</td> <td>5621</td><td>那拉提旅游风景区</td></tr><tr> <td>1114</td><td>吐鲁番葡萄沟风景区</td> <td>1121</td><td>怪石峪风景区</td></tr><tr> <td>1135</td><td>喀什噶尔老城景区</td> <td>1613</td><td>艾提尕尔清真寺</td></tr><tr> <td>1158</td><td>可可托海风景区</td> <td>1166</td><td>喀纳斯风景区</td></tr><tr> <td>551</td><td>西宁火车站</td> <td>883</td><td>青海省博物馆</td></tr><tr> <td>943</td><td>青海湖风景区</td> <td>5862</td><td>西宁市曹家堡机场</td></tr><tr> <td>554</td><td>石家庄正定国际机场</td> <td>612</td><td>石家庄站</td></tr><tr> <td>1590</td><td>嶂石岩风景名胜区</td> <td>1382</td><td>普陀宗乘之庙</td></tr><tr> <td>1383</td><td>承德避暑山庄</td> <td>1559</td><td>金山岭长城旅游区</td></tr><tr> <td>1553</td><td>野三坡白草畔景区</td> <td>1426</td><td>黄龙山庄</td></tr><tr> <td>1584</td><td>万龙滑雪场</td> <td>1525</td><td>崆山白云洞</td></tr><tr> <td>1530</td><td>娲皇宫</td> <td>1579</td><td>北戴河·集发观光园</td></tr><tr> <td>1646</td><td>吴桥杂技大世界</td> <td>5650</td><td>清东陵景区</td></tr><tr> <td>586</td><td>长沙黄花国际机场</td> <td>1619</td><td>岳麓山风景名胜区</td></tr><tr> <td>1017</td><td>南岳衡山风景区</td> <td>6180</td><td>南岳大庙</td></tr><tr> <td>1023</td><td>任弼时纪念馆</td> <td>1151</td><td>岳阳楼风景区</td></tr><tr> <td>1024</td><td>彭德怀纪念馆</td> <td>6179</td><td>毛泽东同志纪念馆</td></tr><tr> <td>1036</td><td>宝峰湖风景区</td> <td>1037</td><td>黄龙洞风景区</td></tr><tr> <td>1046</td><td>九嶷山舜帝陵风景区</td> <td>1125</td><td>桃花源风景区</td></tr><tr> <td>1138</td><td>茅岩河九天洞风景区</td> <td>1285</td><td>炎帝陵</td></tr><tr> <td>1616</td><td>益阳奥林匹克公园</td> <td>1622</td><td>苏仙岭风景名胜区</td></tr><tr> <td>5646</td><td>东江湖风景旅游区</td> <td>5357</td><td>湄江国家地址公园</td></tr><tr> <td>605</td><td>武汉站</td> <td>975</td><td>武当山风景区</td></tr><tr> <td>1029</td><td>神农架神农顶风景区</td> <td>1030</td><td>神农架红坪景区</td></tr><tr> <td>1031</td><td>古隆中</td> <td>1032</td><td>三峡车溪土家民俗旅游区</td></tr><tr> <td>1147</td><td>神农溪纤夫文化旅游区</td> <td>5613</td><td>恩施大峡谷</td></tr><tr> <td>1698</td><td>荆州古城历史文化旅游区</td> <td>1292</td><td>汤池温泉</td></tr><tr> <td>628</td><td>银川河东机场</td> <td>629</td><td>银川火车站</td></tr><tr> <td>1131</td><td>沙湖生态旅游区</td> <td>1133</td><td>沙坡头旅游区沙漠区</td></tr><tr> <td>641</td><td>成都站</td> <td>5847</td><td>成都市天府广场</td></tr><tr> <td>913</td><td>邛海泸山国家级风景名胜区</td> <td>946</td><td>灵山景区</td></tr><tr> <td>924</td><td>恐龙博物馆</td> <td>926</td><td>皇泽寺</td></tr><tr> <td>942</td><td>翠云廊景区</td> <td>927</td><td>乐山大佛风景区</td></tr><tr> <td>1706</td><td>峨眉山旅游风景区</td> <td>928</td><td>中国死海旅游度假区</td></tr><tr> <td>930</td><td>四姑娘山景区</td> <td>931</td><td>汶川三江生态旅游区</td></tr><tr> <td>939</td><td>广汉三星堆博物馆</td> <td>941</td><td>海螺沟冰川森林公园</td></tr><tr> <td>950</td><td>阆中古城景区</td> <td>951</td><td>西山风景区</td></tr><tr> <td>958</td><td>碧峰峡</td> <td>1661</td><td>蒙顶山风景名胜区</td></tr><tr> <td>1049</td><td>邓小平故里旅游区</td> <td>1123</td><td>夕佳山景区</td></tr><tr> <td>1136</td><td>兴文世界地质公园</td> <td>1130</td><td>七曲山风景区</td></tr><tr> <td>1144</td><td>窦圌山景区</td> <td>653</td><td>贵阳龙洞堡国际机场</td></tr><tr> <td>4503</td><td>人民广场</td> <td>876</td><td>龙宫风景名胜区</td></tr><tr> <td>5665</td><td>黄果树大瀑布景区</td> <td>897</td><td>遵义会议会址</td></tr><tr> <td>902</td><td>贵州百里杜鹃风景名胜区</td> <td>5666</td><td>荔波樟江风景名胜区</td></tr><tr> <td>749</td><td>天津站</td> <td>806</td><td>天津滨海国际机场</td></tr><tr> <td>760</td><td>上海虹桥国际机场</td> <td>763</td><td>上海浦东国际机场</td></tr><tr> <td>771</td><td>杭州萧山国际机场</td> <td>772</td><td>杭州站</td></tr><tr> <td>1300</td><td>竹海风景区</td> <td>4393</td><td>湖州站</td></tr><tr> <td>1601</td><td>南雁荡山国家重点风景名胜区</td> <td>6202</td><td>温州火车站</td></tr><tr> <td>1630</td><td>长屿硐天风景名胜区</td> <td>1636</td><td>江南长城景区</td></tr><tr> <td>4201</td><td>龙泉凤羽休闲山庄</td> <td>4204</td><td>石门洞天</td></tr><tr> <td>4206</td><td>钱江源国家森林公园</td> <td>4727</td><td>清漾景区</td></tr><tr> <td>4395</td><td>嘉兴站</td> <td>4410</td><td>银泰城</td></tr><tr> <td>4417</td><td>城隍庙步行街</td> <td>4424</td><td>朱家尖国际沙雕艺术广场</td></tr><tr> <td>4425</td><td>乌石塘景区</td> <td>6074</td><td>绍兴市城市广场</td></tr><tr> <td>6075</td><td>绍兴市天主堂</td> <td>774</td><td>合肥汽车客运总站</td></tr><tr> <td>1286</td><td>徽园</td> <td>1178</td><td>黄山风景区</td></tr><tr> <td>5634</td><td>黄山皖南古村落（西递）</td> <td>1183</td><td>恩龙山庄生态旅游度假区</td></tr><tr> <td>5635</td><td>绩溪龙川景区</td> <td>1261</td><td>天柱山旅游区</td></tr><tr> <td>1262</td><td>石台牯牛降风景区</td> <td>1624</td><td>九华山风景区</td></tr><tr> <td>1303</td><td>马仁奇峰森林风景区</td> <td>1304</td><td>王稼祥纪念园</td></tr><tr> <td>1541</td><td>阜阳生态乐园</td> <td>5636</td><td>颍上八里河景区</td></tr><tr> <td>1566</td><td>八公山风景区</td> <td>1617</td><td>采石景区</td></tr><tr> <td>786</td><td>首都国际机场</td> <td>4307</td><td>新中关购物中心</td></tr><tr> <td>5381</td><td>北京欢乐谷</td> <td>790</td><td>济南火车站</td></tr><tr> <td>791</td><td>济南遥墙国际机场</td> <td>1507</td><td>孟庙孟府</td></tr><tr> <td>5614</td><td>明故城（三孔）旅游区</td> <td>1522</td><td>五莲山风景区</td></tr><tr> <td>1527</td><td>聊城东昌湖旅游区</td> <td>1537</td><td>台儿庄古城</td></tr><tr> <td>1576</td><td>蒙山旅游区平邑龟蒙景区</td> <td>1577</td><td>蒙山国家森林公园</td></tr><tr> <td>1582</td><td>沂山国家森林公园</td> <td>1586</td><td>中国陶瓷馆</td></tr><tr> <td>1652</td><td>原山国家森林公园</td> <td>1589</td><td>房干生态旅游区</td></tr><tr> <td>1592</td><td>泰山风景区</td> <td>1628</td><td>刘公岛风景名胜区</td></tr><tr> <td>1687</td><td>赤山风景名胜区</td> <td>4352</td><td>青岛十梅庵风景区</td></tr><tr> <td>5903</td><td>青岛市火车站</td> <td>805</td><td>沈阳桃仙国际机场</td></tr><tr> <td>5711</td><td>沈阳奥体中心</td> <td>1231</td><td>大鹿岛风景区</td></tr><tr> <td>1465</td><td>鞍山千山风景名胜区</td> <td>1499</td><td>玉佛苑</td></tr><tr> <td>1468</td><td>关门山国家森林公园</td> <td>1469</td><td>本溪水洞景区</td></tr><tr> <td>1473</td><td>抗美援朝纪念馆</td> <td>1563</td><td>五龙山风景区</td></tr><tr> <td>1474</td><td>红河峡谷漂流</td> <td>1475</td><td>猴石国家森林公园</td></tr><tr> <td>1476</td><td>赫图阿拉城</td> <td>1481</td><td>兴城海滨旅游景区</td></tr><tr> <td>1482</td><td>兴城古城</td> <td>1678</td><td>龙湾海滨风景区</td></tr><tr> <td>1483</td><td>辽沈战役纪念馆</td> <td>1571</td><td>锦州北普陀山旅游区</td></tr><tr> <td>1485</td><td>广佑寺</td> <td>1581</td><td>清河旅游度假区</td></tr><tr> <td>4163</td><td>大连国际会议中心</td> <td>4164</td><td>棒棰岛风景区</td></tr><tr> <td>884</td><td>布达拉宫</td> <td>885</td><td>大昭寺</td></tr><tr> <td>888</td><td>扎什伦布寺</td> <td>889</td><td>珠峰大本营</td></tr><tr> <td>952</td><td>桑耶寺</td> <td>1656</td><td>巴松措风景区</td></tr><tr> <td>893</td><td>玉水寨</td> <td>894</td><td>丽江古城</td></tr><tr> <td>895</td><td>九乡风景区</td> <td>1109</td><td>石林风景区</td></tr><tr> <td>900</td><td>腾冲县热海火山风景区</td> <td>901</td><td>腾冲和顺景区</td></tr><tr> <td>903</td><td>南诏风情岛</td> <td>904</td><td>鸡足山</td></tr><tr> <td>905</td><td>南甸宣抚司署</td> <td>906</td><td>莫里热带雨林风景区</td></tr><tr> <td>907</td><td>燕子洞</td> <td>908</td><td>阿庐古洞</td></tr><tr> <td>916</td><td>西双版纳原始森林公园</td> <td>917</td><td>野象谷热带雨林景区</td></tr><tr> <td>965</td><td>普达措国家公园</td> <td>1143</td><td>九龙瀑布群风景区</td></tr><tr> <td>1653</td><td>秀山历史文化公园</td> <td>4518</td><td>世界第一高桥旅游区</td></tr><tr> <td>976</td><td>县内乡县衙博物馆</td> <td>998</td><td>豫西大峡谷</td></tr><tr> <td>1293</td><td>鸡公山国家级风景名胜区</td> <td>1305</td><td>南湾湖风景旅游区</td></tr><tr> <td>1505</td><td>南街村风景区</td> <td>1506</td><td>中原花木博览园</td></tr><tr> <td>1533</td><td>戚城文物景区</td> <td>1534</td><td>濮阳绿色庄园景区</td></tr><tr> <td>1535</td><td>商丘古文化旅游区</td> <td>1544</td><td>芒砀山文物旅游区</td></tr><tr> <td>1536</td><td>京华园</td> <td>6150</td><td>八里沟景区</td></tr><tr> <td>1538</td><td>嵩山少林风景区</td> <td>1539</td><td>中岳庙</td></tr><tr> <td>1552</td><td>太行大峡谷</td> <td>1565</td><td>云梦山风景区</td></tr><tr> <td>4205</td><td>金山旅游区</td> <td>1573</td><td>中国翰园</td></tr><tr> <td>1574</td><td>包公祠风景区</td> <td>1585</td><td>嵖岈山国家地质公园</td></tr><tr> <td>1627</td><td>云台山景区</td> <td>4125</td><td>中原大佛</td></tr><tr> <td>5915</td><td>洛阳火车站</td> <td>5916</td><td>洛阳火车东站</td></tr><tr> <td>1038</td><td>白帝城风景区</td> <td>1040</td><td>芦笛岩</td></tr><tr> <td>1041</td><td>独秀峰·王城景区</td> <td>1070</td><td>青秀山风景区</td></tr><tr> <td>5695</td><td>广西科技馆</td> <td>1089</td><td>立鱼峰风景区</td></tr><tr> <td>1654</td><td>龙潭公园</td> <td>1663</td><td>柳侯公园</td></tr><tr> <td>1095</td><td>北海银滩</td> <td>1096</td><td>北海海洋之窗</td></tr><tr> <td>1099</td><td>八寨沟旅游景区</td> <td>1100</td><td>刘永福故居</td></tr><tr> <td>1103</td><td>桂平西山风景名胜区</td> <td>1127</td><td>容县三名景区</td></tr><tr> <td>1141</td><td>鹿峰山风景区</td> <td>1129</td><td>龙母庙景区</td></tr><tr> <td>1132</td><td>百色起义纪念馆</td> <td>1137</td><td>大石围天坑群景区</td></tr><tr> <td>1146</td><td>德天瀑布</td> <td>1148</td><td>姑婆山国家森林公园</td></tr><tr> <td>1282</td><td>三平风景区</td> <td>1283</td><td>福建土楼(南靖)景区</td></tr><tr> <td>4618</td><td>第二城闽南印象</td> <td>6423</td><td>厦门大学（南普陀）</td></tr><tr> <td>4622</td><td>泉州商城</td> <td>4668</td><td>环球城</td></tr><tr> <td>4626</td><td>龙岩站</td> <td>4627</td><td>三元阁</td></tr><tr> <td>4633</td><td>莆田站</td> <td>4634</td><td>湄洲岛妈祖庙</td></tr><tr> <td>4669</td><td>建瓯站</td> <td>4676</td><td>南平站</td></tr><tr> <td>4670</td><td>宁德站</td> <td>4671</td><td>福安站</td></tr><tr> <td>4679</td><td>永安站</td> <td>4680</td><td>三明站</td></tr><tr> <td>5644</td><td>三坊七巷景区</td> <td>5813</td><td>福州市奥林匹克体育中心</td></tr><tr> <td>1287</td><td>雨花台风景区</td> <td>1289</td><td>秦淮河</td></tr><tr> <td>12024</td><td>南京马拉松-奥体东门广场</td> <td>1294</td><td>大明寺</td></tr><tr> <td>6149</td><td>仪征铜山森林公园</td> <td>1296</td><td>中华恐龙园</td></tr><tr> <td>5938</td><td>常州市红梅公园</td> <td>1307</td><td>镇江博物馆</td></tr><tr> <td>1353</td><td>金山湖风景区</td> <td>1543</td><td>连岛海滨旅游度假区</td></tr><tr> <td>1575</td><td>花果山风景区</td> <td>1545</td><td>淮海战役烈士纪念塔园林</td></tr><tr> <td>6010</td><td>徐州火车站</td> <td>1546</td><td>溱湖国家湿地公园</td></tr><tr> <td>1611</td><td>狼山风景名胜区</td> <td>1672</td><td>南通博物苑</td></tr><tr> <td>1709</td><td>周恩来纪念馆</td> <td>4356</td><td>新天地广场</td></tr><tr> <td>4357</td><td>无锡太湖国家旅游度假区</td> <td>5595</td><td>中华麋鹿园景区</td></tr><tr> <td>5897</td><td>苏州市寒山寺</td> <td>5898</td><td>苏州市火车站</td></tr><tr> <td>1452</td><td>太阳岛风景区</td> <td>1471</td><td>大庆铁人王进喜纪念馆</td></tr><tr> <td>1472</td><td>大庆油田历史陈列馆</td> <td>1487</td><td>明月岛</td></tr><tr> <td>1493</td><td>嘉荫恐龙国家地质公园</td> <td>1578</td><td>火山口国家森林公园</td></tr><tr> <td>1466</td><td>向海国家自然保护区</td> <td>1467</td><td>莫莫格国家级自然保护区</td></tr><tr> <td>1489</td><td>查干湖旅游度假区</td> <td>1490</td><td>龙湾群国家森林公园</td></tr><tr> <td>1643</td><td>杨靖宇烈士陵园</td> <td>1558</td><td>莲花山滑雪场</td></tr><tr> <td>5659</td><td>伪满皇宫博物馆</td> <td>1567</td><td>北大壶滑雪度假区</td></tr><tr> <td>1568</td><td>吉林松花湖风景名胜区</td> <td>5663</td><td>六鼎山文化旅游区</td></tr>
-
+ 
 
   </tbody>
 </table>
 
-<h4>1、获取景区某时刻客流量总数接口</h4>
+<h4>1、获取手机品牌历史占有率</h4>
 <table class="table table-bordered table-striped">
   <colgroup>
     <col class="span1">
@@ -173,7 +134,7 @@ API返回的数据包括了以下内容：
   <tbody>
     <tr>
       <td>地址</td>
-      <td>http://scenicmonitor.top/interface/api/getScenceDataByTime?</td>
+      <td>http://scenicmonitor.top/interface/api/getBrandShare?</td>
     </tr>
     <tr>
       <td>方法</td>
@@ -182,42 +143,166 @@ API返回的数据包括了以下内容：
     <tr>
       <td>参数</td>
       <td>
-* pid：景区代码，必选参数，请查看景区代码
-* ddate：查询日期，必选参数,格式为yyyymmdd
-* ttime：查询时间，必选参数，格式为HH:MM:SS
 * token：Appkey，必选参数
-* flag：查询类别，必选参数，默认0
-
-
       </td>
     </tr>
     <tr>
       <td>返回</td> 
       <td>
-数据格式 {"num": 20, "pid": 6, "area": 深圳欢乐谷, "date": 20190811, "ttime": 00:05:00}
-* num：客流量
-* pid：景区代码
-* area：景区
-* date：查询日期
-* ttime：查询时间
-
+数据格式 {
+	
+	share: [{pid__name: "华为", ddate: "2014-01-01", rate: 1.14},…]
+}
+* pid__name：品牌
+* ddate：日期
+* rate：占有率
       </td>
     </tr>
   </tbody>
 </table>
 请求示例：
-http://scenicmonitor.top/interface/api/getScenceDataByTime?pid=6&ddate=20170916&ttime=22:00:00&flag=0&token=bGlhbnpvbmdzaGVuZw==
+http://scenicmonitor.top/interface/api/getBrandShare?token=bGlhbnpvbmdzaGVuZw==
 成功返回示例：
-{"num": 10, "pid": 1296, "area": "中华恐龙园", "date": 20190801, "ttime": "00:25:00"}
+share: [{pid__name: "华为", ddate: "2014-01-01", rate: 1.14},…]
+
 可能的错误返回信息：
-{"status": 0, "message": "参数格式有误"}
-{"status": 0, "message": "无目标数据"}
+{"status": 0, "message": "appkey错误"}
+
+<h4>2、获取手机系统历史占有率</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getMobileSystemShare?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	android: [{pid__version: "Android+4.3", ddate: "2014-01-01", rate: 4.91},…]
+	apple: [{pid__version: "OS 6.1", ddate: "2014-01-01", rate: 3.09},…]
+}
+* android：安卓
+* apple：苹果
+* pid__version：手机系统版本
+* ddate：日期
+* rate：占有率
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getMobileSystemShare?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+android: [{pid__version: "Android+4.3", ddate: "2014-01-01", rate: 4.91},…]
+apple: [{pid__version: "OS 6.1", ddate: "2014-01-01", rate: 3.09},…]
+}
+可能的错误返回信息：
+{"status": 0, "message": "appkey错误"}
+
+<h4>3、获取手机网络运营商历史占有率</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getOperatorShare?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	share: [{pid__name: "中国移动", ddate: "2014-01-01", rate: 59.83},…]
+}
+
+* pid__name：运营商
+* ddate：日期
+* rate：占有率
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getOperatorShare?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+share: [{pid__name: "中国移动", ddate: "2014-01-01", rate: 59.83},…]
+}
+可能的错误返回信息：
 {"status": 0, "message": "appkey错误"}
 
 
+<h4>4、获取手机网络历史占有率</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getNetShare?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	share: [{pid__name: "2G", ddate: "2014-01-01", rate: 42.78},…]
+	}
 
-
-
+* pid__name：网络
+* ddate：日期
+* rate：占有率
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getNetShare?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+share: [{pid__name: "2G", ddate: "2014-01-01", rate: 42.78},…]
+}
+可能的错误返回信息：
+{"status": 0, "message": "appkey错误"}
 				</div>
 
 			</div>
