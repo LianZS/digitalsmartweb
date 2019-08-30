@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>数智</title>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-default top-navbar" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">数智</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+					<a class="navbar-brand waves-effect waves-dark" href="scencemanager.html"><i class="large material-icons">insert_chart</i> <strong> 数智</strong></a>
+
+					<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+				</div>
+
+			</nav>
+
+			<nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav" id="main-menu">
+
+						<li>
+							<a class=" waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>概述</a>
+						</li>
+						<li>
+							<a href="" class=" waves-effect waves-dark"><i class="fa fa-desktop"></i>景区客流量数据</a>
+						</li>
+						<li>
+							<a href="" class="active-menu waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>城市实况数据</a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i>终端数据</a>
+						</li>
+
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-table"></i>历史天气数据 </a>
+						</li>
+						<li>
+							<a href="" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 智能工具接口</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="header">
+					<h1 class="page-header">
+                            城市实况数据
+                        </h1>
+					<ol class="breadcrumb">
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">城市实况数据</a>
+						</li>
+					</ol>
+
+				</div>
+				<div>
+					<pre>  <h4>城市实况API</h4>
+文档更新时间：2019-08-30
+<span class="label label-important" style="background-color: red;">注意</span>
+  <strong>
+1、所有API的调用，必须附带"token"这个参数，即公开的AppKey；
+2、API返回的JSON格式数据是经过UTF-8编码的，这个文档里的"成功返回示例"为了直观，已经decode过；
+3、由于数据源方面还有服务器负载过大的原因，API中的值有时返回可能为空或者等待时间稍久；
+4.采用“拥堵延时指数”作为城市拥堵程度的评价指标，即城市居民平均一次出行实际旅行时间与自由流状态下旅行时间的比值。
+该指数从交通出行者角度出发，以简单易懂的方式表达交通拥堵给出行者带来的时间成本。
+此报告客观地从多维度反映城市的交通拥堵状况，力争做到精准、精细、精确，为公众交通出行、机构研究、政府决策提供有价值的理论参考依据。
+  </strong>
+
+数据格式说明：
+API返回的数据包括了以下内容：
+
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <thead>
+    <tr>
+      <th>字段</th>
+      <th>字段说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>city</td>
+      <td>城市</td>
+    </tr>
+    <tr>
+    	
+      <td>cityCode</td>
+      <td>城市唯一标识</td>
+    </tr>
+        	    <tr>
+
+      <td>date</td>
+      <td>查询日期</td>
+    </tr>
+        	    <tr>
+
+    </tr>
+            	    <tr>
+
+      <td>indexlist</td>
+      <td>城市拥堵延时指数数据集合</td>
+    </tr>
+        
+  </tbody>
+</table>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <thead>
+    <tr>
+      <th>代码</th>
+      <th>城市</th>
+      <th>代码</th>
+      <th>城市</th>
+    </tr>
+  </thead>
+  <tbody><tr> <td>148</td><td>秦皇岛</td> <td>100</td><td>拉萨</td></tr><tr> <td>149</td><td>沧州</td> <td>266</td><td>邢台</td></tr><tr> <td>330</td><td>遂宁</td> <td>54</td><td>延边</td></tr><tr> <td>265</td><td>唐山</td> <td>235</td><td>滨州</td></tr><tr> <td>269</td><td>驻马店</td> <td>316</td><td>徐州</td></tr><tr> <td>194</td><td>厦门</td> <td>264</td><td>张家口</td></tr><tr> <td>353</td><td>菏泽</td> <td>79</td><td>乐山</td></tr><tr> <td>153</td><td>洛阳</td> <td>155</td><td>许昌</td></tr><tr> <td>137</td><td>韶关</td> <td>154</td><td>商丘</td></tr><tr> <td>128</td><td>阜阳</td> <td>191</td><td>廊坊</td></tr><tr> <td>139</td><td>茂名</td> <td>361</td><td>玉林</td></tr><tr> <td>286</td><td>济宁</td> <td>355</td><td>大同</td></tr><tr> <td>198</td><td>湛江</td> <td>159</td><td>衡阳</td></tr><tr> <td>162</td><td>淮安</td> <td>255</td><td>漳州</td></tr><tr> <td>146</td><td>贵阳</td> <td>283</td><td>鄂尔多斯</td></tr><tr> <td>351</td><td>辽阳</td> <td>208</td><td>衡水</td></tr><tr> <td>259</td><td>揭阳</td> <td>321</td><td>呼和浩特</td></tr><tr> <td>245</td><td>舟山</td> <td>151</td><td>邯郸</td></tr><tr> <td>36</td><td>兰州</td> <td>305</td><td>柳州</td></tr><tr> <td>215</td><td>鹤壁</td> <td>240</td><td>绵阳</td></tr><tr> <td>121</td><td>三亚</td> <td>53</td><td>长春</td></tr><tr> <td>308</td><td>周口</td> <td>287</td><td>潍坊</td></tr><tr> <td>48</td><td>哈尔滨</td> <td>309</td><td>南阳</td></tr><tr> <td>234</td><td>临沂</td> <td>142</td><td>桂林</td></tr><tr> <td>261</td><td>南宁</td> <td>197</td><td>清远</td></tr><tr> <td>119</td><td>东莞</td> <td>150</td><td>石家庄</td></tr><tr> <td>160</td><td>镇江</td> <td>125</td><td>海口</td></tr><tr> <td>229</td><td>包头</td> <td>223</td><td>盐城</td></tr><tr> <td>307</td><td>保定</td> <td>332</td><td>天津</td></tr><tr> <td>244</td><td>台州</td> <td>326</td><td>烟台</td></tr><tr> <td>58</td><td>沈阳</td> <td>141</td><td>梅州</td></tr><tr> <td>92</td><td>乌鲁木齐</td> <td>303</td><td>汕头</td></tr><tr> <td>323</td><td>咸阳</td> <td>233</td><td>西安</td></tr><tr> <td>167</td><td>大连</td> <td>338</td><td>肇庆</td></tr><tr> <td>75</td><td>成都</td> <td>341</td><td>贵港</td></tr><tr> <td>340</td><td>深圳</td> <td>354</td><td>淄博</td></tr><tr> <td>127</td><td>合肥</td> <td>152</td><td>新乡</td></tr><tr> <td>293</td><td>绍兴</td> <td>257</td><td>广州</td></tr><tr> <td>111</td><td>大理</td> <td>104</td><td>昆明</td></tr><tr> <td>180</td><td>宁波</td> <td>132</td><td>重庆</td></tr><tr> <td>262</td><td>遵义</td> <td>163</td><td>南昌</td></tr><tr> <td>236</td><td>青岛</td> <td>317</td><td>无锡</td></tr><tr> <td>292</td><td>丽水</td> <td>134</td><td>泉州</td></tr><tr> <td>176</td><td>太原</td> <td>158</td><td>长沙</td></tr><tr> <td>300</td><td>福州</td> <td>348</td><td>常州</td></tr><tr> <td>218</td><td>武汉</td> <td>161</td><td>南通</td></tr><tr> <td>66</td><td>西宁</td> <td>138</td><td>佛山</td></tr><tr> <td>210</td><td>开封</td> <td>187</td><td>中山</td></tr><tr> <td>178</td><td>温州</td> <td>268</td><td>郑州</td></tr><tr> <td>258</td><td>云浮</td> <td>334</td><td>嘉兴</td></tr><tr> <td>325</td><td>泰安</td> <td>179</td><td>杭州</td></tr><tr> <td>224</td><td>苏州</td> <td>315</td><td>南京</td></tr><tr> <td>288</td><td>济南</td> <td>248</td><td>内江</td></tr><tr> <td>302</td><td>江门</td> <td>294</td><td>湖州</td></tr><tr> <td>199</td><td>阳江</td> <td>131</td><td>北京</td></tr><tr> <td>267</td><td>安阳</td> <td>360</td><td>银川</td></tr><tr> <td>301</td><td>惠州</td> <td>346</td><td>扬州</td></tr><tr> <td>347</td><td>连云港</td> <td>365</td><td>赣州</td></tr><tr> <td>344</td><td>漯河</td> <td>333</td><td>金华</td></tr><tr> <td>372</td><td>德州</td> <td>213</td><td>平顶山</td></tr><tr> <td>289</td><td>上海</td> <td>366</td><td>聊城</td></tr><tr> <td>291</td><td>南充</td> <td>186</td><td>宜宾</td></tr><tr> <td>278</td><td>宜春</td> <td>249</td><td>曲靖</td></tr><tr> <td>200</td><td>河源</td> <td>243</td><td>衢州</td></tr><tr> <td>170</td><td>渭南</td> <td>364</td><td>上饶</td></tr><tr> <td>105</td><td>楚雄</td> <td>130</td><td>安庆</td></tr><tr> <td>342</td><td>黔东南</td> <td>106</td><td>玉溪</td></tr><tr> <td>112</td><td>保山</td> <td>321300</td><td>宿迁</td></tr><tr> <td>341100</td><td>滁州</td> <td>810000</td><td>香港</td></tr><tr> <td>340200</td><td>芜湖</td> <td>510600</td><td>德阳</td></tr><tr> <td>440400</td><td>珠海</td> <td>654000</td><td>伊犁</td></tr> <td>321200</td><td>泰州</td>
+
+
+  </tbody>
+</table>
+
+<h4>1、获取城市拥堵延时指数数据集</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getCitydailyIndex?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+
+* cityCode：城市代码，必选参数，请查看城市代码
+* ddate：查询日期，必选参数,格式为yyyymmdd
+* token：Appkey，必选参数
+
+
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {data: {
+city: "深圳"
+indexlist: [{ttime: "00:00:00", rate: 1.11},..]
+cityCode:340,
+date:20190821
+}
+}
+* city:城市
+* cityCode:城市代码
+* date:查询日期
+* indexlist:城市拥堵延迟指数集
+* ttime:时间
+* rate:拥堵延迟指数
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getCitydailyIndex?cityCode=340&ddate=20190830&token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{data: {
+city: "深圳"
+cityCode: 340
+date: 20190830
+indexlist: [{ttime: "00:00:00", rate: 1.11}, {ttime: "00:05:00", rate: 1.11}, {ttime: "00:10:00", rate: 1.11},…]可能的错误返回信息：
+}
+}
+可能的错误返回信息
+{"status": 0, "message": "参数格式有误"}
+{"status": 0, "message": "appkey错误"}
+
+<h4>2、获取实时城市严重拥堵道路</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getCityRoadlist?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+
+* cityCode：城市代码，必选参数，请查看城市代码
+* token：Appkey，必选参数
+
+
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	cityCode: 100
+	roadlist: [{roadname: "娘热南路", speed: 16.55, direction: "从神力·时代广场到当热中路，南向北", roadpid: 0, rate: 2.24},…]
+}
+* cityCode:城市代码
+* roadlist:拥堵道路数据聚
+* roadname:道路名
+* direction:道路方向
+* speed:前进速度
+* rate:拥堵延迟指数
+* roadpid:拥堵排名
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getCityRoadlist?cityCode=100&token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+	cityCode: 100
+	roadlist: [{roadname: "娘热南路", speed: 16.55, direction: "从神力·时代广场到当热中路，南向北", roadpid: 0, rate: 2.24},…]
+	0: {roadname: "娘热南路", speed: 16.55, direction: "从神力·时代广场到当热中路，南向北", roadpid: 0, rate: 2.24}
+	1: {roadname: "德庆中路", speed: 29.42, direction: "从沪聂线到德庆西路，东向西", roadpid: 1, rate: 1.76}
+	2: {roadname: "纳金中路", speed: 23.43, direction: "从藏热南路到江冲路，西向东", roadpid: 2, rate: 1.67}
+	3: {roadname: "当热东路", speed: 25.1, direction: "藏热路附近，东向西", roadpid: 3, rate: 1.66}
+	4: {roadname: "鲁定北路", speed: 31.38, direction: "北京西路附近，南向北", roadpid: 4, rate: 1.65}
+	5: {roadname: "人民路", speed: 30.01, direction: "从塔荣路到X102，北向南", roadpid: 5, rate: 1.62}
+	6: {roadname: "拉林公路", speed: 43.82, direction: "S202附近，北向南", roadpid: 6, rate: 1.61}
+	7: {roadname: "嘉玛路", speed: 28.45, direction: "雄巴拉曲大道附近，北向东", roadpid: 7, rate: 1.59}
+	8: {roadname: "当热东路", speed: 26.94, direction: "夺底路南段附近，西向东", roadpid: 8, rate: 1.55}
+	9: {roadname: "曲米路", speed: 19.64, direction: "从慈松塘西路到巴尔库路，北向西", roadpid: 9, rate: 1.49}
+}
+可能的错误返回信息
+{"status": 0, "message": "参数格式有误"}
+{"status": 0, "message": "appkey错误"}
+<h4>3、获取城市季度交通拥堵延迟指数</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getCityMonthsTraffic?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+
+* cityCode：城市代码，必选参数，请查看城市代码
+* token：Appkey，必选参数
+
+
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	city: "滨州"
+	cityCode: 235
+	indexSet: [{tmp_date: 20190815, rate: 1.24}, {tmp_date: 20190816, rate: 1.29}, {tmp_date: 20190817, rate: 1.21},…]
+}
+* cityCode:城市代码
+* city:城市
+* tmp_date：日期
+* rate:拥堵延迟指数
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getCityMonthsTraffic?cityCode=100&token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+	city: "滨州"
+	cityCode: 235
+	indexSet: [{tmp_date: 20190815, rate: 1.24}, {tmp_date: 20190816, rate: 1.29}, {tmp_date: 20190817, rate: 1.21},…]
+	0: {tmp_date: 20190815, rate: 1.24}
+	1: {tmp_date: 20190816, rate: 1.29}
+	2: {tmp_date: 20190817, rate: 1.21}
+	3: {tmp_date: 20190818, rate: 1.21}
+	4: {tmp_date: 20190819, rate: 1.27}
+	5: {tmp_date: 20190820, rate: 1.27}
+	6: {tmp_date: 20190821, rate: 1.23}
+}
+可能的错误返回信息
+{"status": 0, "message": "参数格式有误"}
+{"status": 0, "message": "appkey错误"}
+<h4>4、获取城市实时空气指数</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getCityAirState?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+
+* cityCode：城市代码，必选参数，请查看城市代码
+* token：Appkey，必选参数
+
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	data: {aqi: 27, pm2: 10, pm10: 10, co:5, no2: 2, o3: 10, so2: 9}
+
+	lasttime: "2019-08-20T22:07:10Z"
+	cityCode: 810000
+}
+* cityCode:城市代码
+* lasttime：最近更新时间
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getCityAirState?cityCode=100&token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+	cityCode: "810000"
+	data: {aqi: 27, pm2: 0, pm10: 0, co: 0, no2: 0, o3: 0, so2: 0}
+	aqi: 27
+	co: 10
+	no2: 2
+	o3: 3
+	pm2: 2
+	pm10: 1
+	so2: 0
+	lasttime: "2019-08-20T22:07:10Z"
+}
+可能的错误返回信息
+{"status": 0, "message": "参数格式有误"}
+{"status": 0, "message": "appkey错误"}
+
+
+				</div>
+
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<script src="assets/materialize/js/materialize.min.js"></script>
+
+		<script src="assets/js/jquery.metisMenu.js"></script>
+
+		<script src="assets/js/easypiechart.js"></script>
+		<script src="assets/js/easypiechart-data.js"></script>
+		<script src="assets/js/custom-scripts.js"></script>
+		<script src="assets/js/city_request.js"></script>
+
+	</body>
+
+</html>
