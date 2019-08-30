@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>数智</title>
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<link href="assets/css/custom-styles.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+	</head>
+
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-default top-navbar" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">数智</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+					<a class="navbar-brand waves-effect waves-dark" href="../index.html"><i class="large material-icons">insert_chart</i> <strong> 数智</strong></a>
+
+					<div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
+				</div>
+
+			</nav>
+
+			<nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav" id="main-menu">
+
+						<li>
+							<a class=" waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>概述</a>
+						</li>
+						<li>
+							<a href="scence.html" class=" waves-effect waves-dark"><i class="fa fa-desktop"></i>景区客流量数据</a>
+						</li>
+						<li>
+							<a href="traffic.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i>城市实况数据</a>
+						</li>
+						<li>
+							<a href="mobile.html" class=" waves-effect waves-dark"><i class="fa fa-qrcode"></i>终端数据</a>
+						</li>
+
+						<li>
+							<a href="weather.html" class="waves-effect waves-dark"><i class="fa fa-table"></i>历史天气数据 </a>
+						</li>
+						<li>
+							<a href="" class=" active-menu waves-effect waves-dark"><i class="fa fa-edit"></i> 智能工具接口</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</nav>
+
+			<div id="page-wrapper">
+				<div class="header">
+					<h1 class="page-header">
+                            智能提取接口
+                        </h1>
+					<ol class="breadcrumb">
+						<li>
+							<a href="#">首页</a>
+						</li>
+						<li>
+							<a href="#">智能提取接口</a>
+						</li>
+					</ol>
+
+				</div>
+				<div>
+					<pre>  <h4>智能提取API</h4>
+文档更新时间：2019-08-30
+<span class="label label-important" style="background-color: red;">注意</span>
+  <strong>
+1、所有API的调用，必须附带"token"这个参数，即公开的AppKey；
+2、API返回的JSON格式数据是经过UTF-8编码的，这个文档里的"成功返回示例"为了直观，已经decode过；
+3、由于数据源方面还有服务器负载过大的原因，API中的值有时返回可能为空或者等待时间稍久；
+4、本接口由于需要用到一些关于机器学习的算法，所以有时需要等待的时间稍长。
+  </strong>
+
+数据格式说明：
+API返回的数据包括了以下内容：
+
+
+<h4>1、商品价格历史变化查询</h4>
+<h5>	支持天猫(detail.tmall.com、detail.m.tmall.com)、淘宝(item.taobao.com、h5.m.taobao.com)、
+        京东(item.jd.com、item.m.jd.com)、一号店(item.yhd.com）、苏宁易购(product.suning.com)、
+        网易考拉(goods.kaola.com)、当当网(product.dangdang.com)、亚马逊中国(www.amazon.cn)、国美(item.gome.com.cn)等电商
+        商品详情的历史价格查询。</h5>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getGoodsPrice?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* url：商品链接
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	data: [["2019,7,7", "19"], ["2019,7,8", "19"], ["2019,7,9", "19"], ["2019,7,10", "19"], ["2019,7,11", "19"],…]
+}
+
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getGoodsPrice?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+data: [["2019,7,7", "19"], ["2019,7,8", "19"], ["2019,7,9", "19"], ["2019,7,10", "19"], ["2019,7,11", "19"],…]
+可能的错误返回信息：
+{"status": 0, "message": "appkey错误"}
+
+<h4>2、获取手机系统历史占有率</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getMobileSystemShare?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	android: [{pid__version: "Android+4.3", ddate: "2014-01-01", rate: 4.91},…]
+	apple: [{pid__version: "OS 6.1", ddate: "2014-01-01", rate: 3.09},…]
+}
+* android：安卓
+* apple：苹果
+* pid__version：手机系统版本
+* ddate：日期
+* rate：占有率
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getMobileSystemShare?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+android: [{pid__version: "Android+4.3", ddate: "2014-01-01", rate: 4.91},…]
+apple: [{pid__version: "OS 6.1", ddate: "2014-01-01", rate: 3.09},…]
+}
+可能的错误返回信息：
+{"status": 0, "message": "appkey错误"}
+
+<h4>3、获取手机网络运营商历史占有率</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getOperatorShare?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	share: [{pid__name: "中国移动", ddate: "2014-01-01", rate: 59.83},…]
+}
+
+* pid__name：运营商
+* ddate：日期
+* rate：占有率
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getOperatorShare?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+share: [{pid__name: "中国移动", ddate: "2014-01-01", rate: 59.83},…]
+}
+可能的错误返回信息：
+{"status": 0, "message": "appkey错误"}
+
+
+<h4>4、获取手机网络历史占有率</h4>
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <tbody>
+    <tr>
+      <td>地址</td>
+      <td>http://scenicmonitor.top/interface/api/getNetShare?</td>
+    </tr>
+    <tr>
+      <td>方法</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>参数</td>
+      <td>
+* token：Appkey，必选参数
+      </td>
+    </tr>
+    <tr>
+      <td>返回</td> 
+      <td>
+数据格式 {
+	
+	share: [{pid__name: "2G", ddate: "2014-01-01", rate: 42.78},…]
+	}
+
+* pid__name：网络
+* ddate：日期
+* rate：占有率
+      </td>
+    </tr>
+  </tbody>
+</table>
+请求示例：
+http://scenicmonitor.top/interface/api/getNetShare?token=bGlhbnpvbmdzaGVuZw==
+成功返回示例：
+{
+share: [{pid__name: "2G", ddate: "2014-01-01", rate: 42.78},…]
+}
+可能的错误返回信息：
+{"status": 0, "message": "appkey错误"}
+				</div>
+
+			</div>
+		</div>
+
+		<script src="assets/js/jquery-1.10.2.js"></script>
+
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<script src="assets/materialize/js/materialize.min.js"></script>
+
+		<script src="assets/js/jquery.metisMenu.js"></script>
+
+		<script src="assets/js/easypiechart.js"></script>
+		<script src="assets/js/easypiechart-data.js"></script>
+		<script src="assets/js/custom-scripts.js"></script>
+		<script src="assets/js/city_request.js"></script>
+
+	</body>
+
+</html>
