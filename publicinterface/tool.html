@@ -90,7 +90,23 @@
 数据格式说明：
 API返回的数据包括了以下内容：
 
+<table class="table table-bordered table-striped">
+  <colgroup>
+    <col class="span1">
+    <col class="span7"></colgroup>
+  <thead>
+    <tr>
+      <th>代码</th>
+      <th>词性</th>
+      <th>代码</th>
+      <th>词性</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr> <td>a</td> <td>形容词</td> <td>nr</td> <td>人名</td></tr><tr> <td>ns</td> <td>地名</td> <td>q</td> <td>量词</td></tr><tr> <td>t</td> <td>时间词</td> <td>v</td> <td>动词</td></tr><tr> <td>Ag</td> <td>形语素</td> <td>ad</td> <td>副形词</td></tr><tr> <td>an</td> <td>名形词</td> <td>b</td> <td>区别词</td></tr><tr> <td>c</td> <td>连词</td> <td>dg</td> <td>副语素</td></tr><tr> <td>d</td> <td>副词</td> <td>e</td> <td>叹词</td></tr><tr> <td>f</td> <td>方位词</td> <td>g</td> <td>语素</td></tr><tr> <td>h</td> <td>前接成分</td> <td>i</td> <td>成语</td></tr><tr> <td>j</td> <td>简称略语</td> <td>k</td> <td>后接成分</td></tr><tr> <td>l</td> <td>习用语</td> <td>m</td> <td>数词</td></tr><tr> <td>Ng</td> <td>名语素</td> <td>nt</td> <td>机构团体</td></tr><tr> <td>nz</td> <td>其他专名</td> <td>o</td> <td>拟声词</td></tr><tr> <td>p</td> <td>介词</td> <td>r</td> <td>代词</td></tr><tr> <td>s</td> <td>处所词</td> <td>tg</td> <td>时语素</td></tr><tr> <td>u</td> <td>助词</td> <td>vg</td> <td>动语素</td></tr><tr> <td>vd</td> <td>副动词</td> <td>vn</td> <td>名动词</td></tr><tr> <td>w</td> <td>标点符号</td> <td>x</td> <td>非语素字</td></tr><tr> <td>y</td> <td>语气词</td> <td>z</td> <td>状态词</td></tr>
 
+  </tbody>
+</table>
 <h4>1、商品价格历史变化查询</h4>
 <h5>	支持天猫(detail.tmall.com、detail.m.tmall.com)、淘宝(item.taobao.com、h5.m.taobao.com)、
         京东(item.jd.com、item.m.jd.com)、一号店(item.yhd.com）、苏宁易购(product.suning.com)、
@@ -107,12 +123,12 @@ API返回的数据包括了以下内容：
     </tr>
     <tr>
       <td>方法</td>
-      <td>GET</td>
+      <td>POST</td>
     </tr>
     <tr>
       <td>参数</td>
       <td>
-* url：商品链接
+* url：商品链接，必选参数
 * token：Appkey，必选参数
       </td>
     </tr>
@@ -129,13 +145,14 @@ API返回的数据包括了以下内容：
   </tbody>
 </table>
 请求示例：
-http://scenicmonitor.top/interface/api/getGoodsPrice?token=bGlhbnpvbmdzaGVuZw==
+http://scenicmonitor.top/interface/api/getGoodsPrice?token=bGlhbnpvbmdzaGVuZw==&url=https://chaoshi.detail.tmall.com/item.htm?id=556442478145&spm=875.7931836/B.2017039.7.66144265uFeYac&scm=1007.12144.81309.73136_0_0&pvid=3bd567dd-9892-41bd-b5c5-49e748c2d1e1&utparam=%7B%22x_hestia_source%22%3A%2273136%22%2C%22x_object_type%22%3A%22item%22%2C%22x_mt%22%3A8%2C%22x_src%22%3A%2273136%22%2C%22x_pos%22%3A4%2C%22x_pvid%22%3A%223bd567dd-9892-41bd-b5c5-49e748c2d1e1%22%2C%22x_object_id%22%3A556442478145%7D
 成功返回示例：
 data: [["2019,7,7", "19"], ["2019,7,8", "19"], ["2019,7,9", "19"], ["2019,7,10", "19"], ["2019,7,11", "19"],…]
 可能的错误返回信息：
 {"status": 0, "message": "appkey错误"}
 
-<h4>2、获取手机系统历史占有率</h4>
+<h4>2、文本关键词提取</h4>
+<h5>    支持微博、今日头条、微信等大中型网站文本链接解析</h5>
 <table class="table table-bordered table-striped">
   <colgroup>
     <col class="span1">
@@ -143,15 +160,17 @@ data: [["2019,7,7", "19"], ["2019,7,8", "19"], ["2019,7,9", "19"], ["2019,7,10",
   <tbody>
     <tr>
       <td>地址</td>
-      <td>http://scenicmonitor.top/interface/api/getMobileSystemShare?</td>
+      <td>http://scenicmonitor.top/interface/api/getUrlKeyword?</td>
     </tr>
     <tr>
       <td>方法</td>
-      <td>GET</td>
+      <td>POST</td>
     </tr>
     <tr>
       <td>参数</td>
       <td>
+* url：文本链接，必选参数
+* allowPos : 词性代码，必选参数
 * token：Appkey，必选参数
       </td>
     </tr>
@@ -159,117 +178,24 @@ data: [["2019,7,7", "19"], ["2019,7,8", "19"], ["2019,7,9", "19"], ["2019,7,10",
       <td>返回</td> 
       <td>
 数据格式 {
-	
-	android: [{pid__version: "Android+4.3", ddate: "2014-01-01", rate: 4.91},…]
-	apple: [{pid__version: "OS 6.1", ddate: "2014-01-01", rate: 3.09},…]
+	data:[('杜特', 1.0), ('王毅', 0.7383340036343697), ('杨洁篪', 0.7355249880641205), ('何立峰', 0.7323975331449243), ('祝贺', 0.3742371835280207)]
+
 }
-* android：安卓
-* apple：苹果
-* pid__version：手机系统版本
-* ddate：日期
-* rate：占有率
+
       </td>
     </tr>
   </tbody>
 </table>
 请求示例：
-http://scenicmonitor.top/interface/api/getMobileSystemShare?token=bGlhbnpvbmdzaGVuZw==
+http://scenicmonitor.top/interface/api/getUrlKeyword?token=bGlhbnpvbmdzaGVuZw==&allowPos=nr&url=https://www.toutiao.com/a6730603909976424963/
 成功返回示例：
 {
-android: [{pid__version: "Android+4.3", ddate: "2014-01-01", rate: 4.91},…]
-apple: [{pid__version: "OS 6.1", ddate: "2014-01-01", rate: 3.09},…]
+data:[('杜特', 1.0), ('王毅', 0.7383340036343697), ('杨洁篪', 0.7355249880641205), ('何立峰', 0.7323975331449243), ('祝贺', 0.3742371835280207)]
+
 }
 可能的错误返回信息：
 {"status": 0, "message": "appkey错误"}
 
-<h4>3、获取手机网络运营商历史占有率</h4>
-<table class="table table-bordered table-striped">
-  <colgroup>
-    <col class="span1">
-    <col class="span7"></colgroup>
-  <tbody>
-    <tr>
-      <td>地址</td>
-      <td>http://scenicmonitor.top/interface/api/getOperatorShare?</td>
-    </tr>
-    <tr>
-      <td>方法</td>
-      <td>GET</td>
-    </tr>
-    <tr>
-      <td>参数</td>
-      <td>
-* token：Appkey，必选参数
-      </td>
-    </tr>
-    <tr>
-      <td>返回</td> 
-      <td>
-数据格式 {
-	
-	share: [{pid__name: "中国移动", ddate: "2014-01-01", rate: 59.83},…]
-}
-
-* pid__name：运营商
-* ddate：日期
-* rate：占有率
-      </td>
-    </tr>
-  </tbody>
-</table>
-请求示例：
-http://scenicmonitor.top/interface/api/getOperatorShare?token=bGlhbnpvbmdzaGVuZw==
-成功返回示例：
-{
-share: [{pid__name: "中国移动", ddate: "2014-01-01", rate: 59.83},…]
-}
-可能的错误返回信息：
-{"status": 0, "message": "appkey错误"}
-
-
-<h4>4、获取手机网络历史占有率</h4>
-<table class="table table-bordered table-striped">
-  <colgroup>
-    <col class="span1">
-    <col class="span7"></colgroup>
-  <tbody>
-    <tr>
-      <td>地址</td>
-      <td>http://scenicmonitor.top/interface/api/getNetShare?</td>
-    </tr>
-    <tr>
-      <td>方法</td>
-      <td>GET</td>
-    </tr>
-    <tr>
-      <td>参数</td>
-      <td>
-* token：Appkey，必选参数
-      </td>
-    </tr>
-    <tr>
-      <td>返回</td> 
-      <td>
-数据格式 {
-	
-	share: [{pid__name: "2G", ddate: "2014-01-01", rate: 42.78},…]
-	}
-
-* pid__name：网络
-* ddate：日期
-* rate：占有率
-      </td>
-    </tr>
-  </tbody>
-</table>
-请求示例：
-http://scenicmonitor.top/interface/api/getNetShare?token=bGlhbnpvbmdzaGVuZw==
-成功返回示例：
-{
-share: [{pid__name: "2G", ddate: "2014-01-01", rate: 42.78},…]
-}
-可能的错误返回信息：
-{"status": 0, "message": "appkey错误"}
 				</div>
 
 			</div>
