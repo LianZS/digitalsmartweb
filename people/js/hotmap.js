@@ -1,4 +1,12 @@
 function hotmap(heatmapData,elementid,center_lon,center_lat) {
+	count_list =new Array()
+	for(let i=0;i<heatmapData.length;i++){
+		item =heatmapData[i]
+		count = item['count']
+		count_list[i] = count
+	}
+	max = Math.max.apply(800,count_list)
+	console.log(max)
 	var map = new AMap.Map(elementid, {
 		resizeEnable: true,
 		center: [center_lon,center_lat],
@@ -29,7 +37,7 @@ function hotmap(heatmapData,elementid,center_lon,center_lat) {
 		});
 		heatmap.setDataSet({
 			data: heatmapData,
-			max: 800
+			max: max
 		});
 	});
 }

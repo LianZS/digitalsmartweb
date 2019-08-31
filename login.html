@@ -5,30 +5,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="keywords"  />
 
-<title>Login</title>
+<title>登陆</title>
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/animate.css">
         <link href="css/style.css" rel='stylesheet' type='text/css' />
-<!--webfonts-->
 <link href='#css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700' rel='stylesheet' type='text/css'>
 <link href='#css?family=Exo+2' rel='stylesheet' type='text/css'>
         <script src="js/modernizr-2.6.2.min.js"></script>
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<script src="people/assets/js/jquery-3.3.1.min.js"></script>
 
-<!--//webfonts-->
 <script src="http://ajax.useso.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
-<body  >
-<script>$(document).ready(function(c) 
-	$('.close').on('click', function(c){
-		$('.login-form').fadeOut('slow', function(c){
-	  		$('.login-form').remove();
-		});
-	});	  
-});
-</script>
- <!--SIGN UP-->
- <h1></h1>
+<body>
+
  <div class="login-form">
 	<div class="close"> </div>
 		<div class="head-info">
@@ -41,15 +30,16 @@
 		<img src="img/user.png" />
 	</div>
 			<form>
-					<input type="text" class="text" value="User" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Username';}" >
+					<input id="name" type="text" class="text" value="12345" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '123456';}" >
 						<div class="key">
-					<input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}">
+					<input id="pass" type="password" value="12345" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '123456';}">
 						</div>
 			</form>
 	<div class="signin">
-		<input type="submit" value="Login" >
+		<input type="submit" value="登陆" id="send">
 	</div>
 </div>
+<a id="chang_href" href="first.html"></a>
 <footer id="footer">
 			<div class="container">
 				<div class="row text-center">
@@ -74,4 +64,13 @@
 			</div>
 	</footer>
 </body>
+<script>
+	$("#send").click(function(){
+			console.log("s")
+		document.getElementById("chang_href").click(); 
+
+	
+	}
+	)
+</script>
 </html>

@@ -3,7 +3,7 @@ var cityname = ""
 
 function city_list() {
 	let url = "http://scenicmonitor.top/traffic/api/trafficindex/city/list?"
-	let city_href = "http://127.0.0.1:8020/DigitalSmart/traffic/traffic.html?cityCode="
+	let city_href = "http://shuzhi.work/traffic/traffic.html?cityCode="
 	//城市列表请求
 	let request_datetime = Date.parse(new Date());
 	let callback = "jsonp_" + request_datetime

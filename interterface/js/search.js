@@ -72,13 +72,11 @@ function search() {
 	}, 'json')
 
 }
-
 function choice_file() {
 	filepath = ''
 	$("#pdffile").change(function() {
 		filepath = $("#pdffile").val()
 		$("#text").html(filepath);
-
 	})
 	$("#btn").click(function() {
 		if(filepath == "") {
