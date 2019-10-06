@@ -1,6 +1,6 @@
 function realtimeFlow(area_pid, dbegin, dend,range) {
 	//人流热度
-	let url = "http://scenicmonitor.top/attractions/api/getLocation_pn_percent_new"
+	let url = "http://127.0.0.1:8000/attractions/api/getLocation_pn_percent_new"
 	$.get(url, {
 		pid: area_pid,
 		date_begin: dbegin,
@@ -16,11 +16,11 @@ function realtimeFlow(area_pid, dbegin, dend,range) {
 		data = data['data'];//已经存在的数据
 		timeList = new Array(data.length); //已过去的时间
 		numList = new Array(data.length); //过去的人数
-
 		for(let i = 0; i < data.length; i++) {
 			timeList[i] = data[i][0];
 			numList[i] = data[i][1];
 		}
+		
 		data_json = {
 			"data": numList,
 			"time": timeList

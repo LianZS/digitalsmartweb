@@ -1,10 +1,10 @@
 function drawAreaChart(data_json, future_time, future_data) {
 	let pre_array = new Array();
-	for(let i = 0; i < data_json.data.length; i++) {
-		pre_array[i] = 0
-	}
-
-	future_data = pre_array.concat(future_data); //在预测数据中已经发生的置为0
+//	for(let i = 0; i < data_json.data.length; i++) {
+//		pre_array[i] = 0
+//	}
+	
+	future_data = data_json.data.concat(future_data); //在预测数据中已经发生的置为0
 	let mychart = echarts.init(document.getElementById("scence"));
 	let option = {
 		title: {

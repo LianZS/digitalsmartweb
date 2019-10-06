@@ -4,74 +4,99 @@ var page = 1;
 var uid = null;
 var keyword_data = null;
 var t;
-var pdf_task ;
+var pdf_task;
+
 function search() {
-	let url = " http://scenicmonitor.top/interface/api/getMusic?"
+	let url = " http://scenicmonitor.top/interface/api/getMusic?";
 
-	$("#aplayer-list").css("display", "none")
-	$(".m-load2").css("display", "")
-	$(".music-audio").empty()
+	$("#aplayer-list").css("display", "none");
+	$(".m-load2").css("display", "");
+	$(".music-audio").empty();
 
-	musicname = $("#music-name").val()
+	musicname = $("#music-name").val();
 	if(musicname == "") {
-		return
+		return;
 	}
-	page = 1
+	page = 1;
 	soft_type = $("input[type='radio']:checked").val();
 	$.get(url, {
 		"name": musicname,
 		"type": soft_type,
 		"page": page,
-	}, function(data) {
-		$("ol").empty()
-		data = data['data']
-		if(data.length == 0) {
-			alert("不好意思，该找不到相关歌曲！")
-			$(".m-load2").css("display", "none")
+	}, function(result) {
+		result = result['result'];
+		if(result == "success") {
+			t = setInterval("get_music_result_list()", 2000); //获取音乐列表
 
-			return
 		}
-		for(let i = 0; i < data.length; i++) {
 
-			author = data[i]['author']
-			title = data[i]['title']
-			music_url = data[i]['url']
-			img = data[i]['img']
-			li_id = page * 11111 + i
-			li = "<li class=\"aplayer-list-light\"   id=" + li_id + "     value=" + img + "><span class=\"aplayer-list-title\">" + title + "</span><span class=\"aplayer-list-author\" style=\"float: right;\">" + author + "</span><span class=\"aplayer-url\" value=" + music_url + "></span></li>"
-			$("ol").append(li)
-			$("#" + li_id).click(function() {
-				img = $(this).attr("value")
-				author = $(this).children("span.aplayer-list-author").text()
-				title = $(this).children("span.aplayer-list-title").text()
-				$("#song-img").attr("src", img)
-				$("#song-title").text(title)
-				$("#author").text(author)
-				$(".music-audio").empty()
-				music_url = $(this).children("span.aplayer-url").attr("value")
-				music_url = window.atob(music_url) //解码
-
-				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>"
-				$(".music-audio").append(music_play)
-			})
-			if(i == 0) { //第一条自动播放
-				$(".music-audio").empty()
-				music_url = window.atob(music_url) //解码
-				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>"
-				$(".music-audio").append(music_play)
-				$("#song-img").attr("src", img)
-				$("#song-title").text(title)
-				$("#author").text(author)
-			}
-		}
-		page += 1
-		$(".m-load2").css("display", "none")
-
-		$("#aplayer-list").css("display", "")
-
-	}, 'json')
+	}, 'json');
 
 }
+
+function get_music_result_list() {
+	let url = " http://scenicmonitor.top/interface/api/getMusicResult?";
+	console.log("ok");
+	$("ol").empty();
+	$.get(url, {
+		"name": musicname,
+		"type": soft_type,
+		"page": page,
+	}, function(data) {
+		data = data['data'];
+	if(data==null){
+			return ;
+		}
+		if(data.length == 0) {
+			alert("不好意思，该找不到相关歌曲！");
+			$(".m-load2").css("display", "none");
+
+			return;
+		}
+
+		for(let i = 0; i < data.length; i++) {
+
+			author = data[i]['author'];
+			title = data[i]['title'];
+			music_url = data[i]['url'];
+			img = data[i]['img'];
+			li_id = page * 11111 + i;
+			li = "<li class=\"aplayer-list-light\"   id=" + li_id + "     value=" + img + "><span class=\"aplayer-list-title\">" + title + "</span><span class=\"aplayer-list-author\" style=\"float: right;\">" + author + "</span><span class=\"aplayer-url\" value=" + music_url + "></span></li>";
+			$("ol").append(li);
+			$("#" + li_id).click(function() {
+				img = $(this).attr("value");
+				author = $(this).children("span.aplayer-list-author").text();
+				title = $(this).children("span.aplayer-list-title").text();
+				$("#song-img").attr("src", img);
+				$("#song-title").text(title);
+				$("#author").text(author);
+				$(".music-audio").empty();
+				music_url = $(this).children("span.aplayer-url").attr("value");
+				music_url = window.atob(music_url); //解码;
+
+				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>";
+				$(".music-audio").append(music_play);
+			})
+			if(i == 0) { //第一条自动播放
+				$(".music-audio").empty();
+				music_url = window.atob(music_url) ;//解码
+				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>";
+				$(".music-audio").append(music_play);
+				$("#song-img").attr("src", img);
+				$("#song-title").text(title);
+				$("#author").text(author);
+			}
+		}
+		page += 1;
+		$(".m-load2").css("display", "none");
+
+		$("#aplayer-list").css("display", "");
+		clearInterval(t);
+
+	});
+
+}
+
 function choice_file() {
 	filepath = ''
 	$("#pdffile").change(function() {
@@ -99,7 +124,7 @@ function choice_file() {
 			formData.append("page", page_range)
 
 			$.ajax({
-				url: '  http://scenicmonitor.top/interface/api/uploadPDF',
+				url: 'http://scenicmonitor.top/interface/api/uploadPDF',
 				type: 'POST',
 				cache: true,
 				data: formData,
@@ -116,7 +141,7 @@ function choice_file() {
 				}
 				uid = data['id'];
 				$(".uid").val(uid);
-				pdf_task = setInterval("get_DocLink()",3000)
+				pdf_task = setInterval("get_DocLink()", 3000)
 
 			})
 
@@ -144,7 +169,7 @@ function sleep(n) {
 
 function parse_url() {
 	$(".m-load2").css("display", "");
-	let url = "  http://scenicmonitor.top/interface/api/analyse?";
+	let url = "http://scenicmonitor.top/interface/api/analyse?";
 	request_url = $("#url").val();
 	if(request_url == "") {
 		alert("链接不能为空");
@@ -162,31 +187,32 @@ function parse_url() {
 			alert("请求失败")
 			return
 		}
-		t = setInterval("get_analyseResult()",3000)		
+		t = setInterval("get_analyseResult()", 3500);
 
 	}, 'json')
 }
 
-
 function get_analyseResult() {
-	let url = "  http://scenicmonitor.top/interface/api/analyseResult?";
+	let url = "http://scenicmonitor.top/interface/api/analyseResult?";
 	$.get(url, {
 		id: uid
 	}, function(result) {
 		keyword_data = result['data']
 		if(keyword_data == null) { //后端还未生成数据
-			return 
+			return
 		} else { //生好了
-			$(".key-rate").css("display","")
-			
+			$(".key-rate").css("display", "")
+
 			$(".m-load2").css("display", "none");
 			if(keyword_data.length == 0) { //已经拿到了数据
 
-				alert("相关词性频率过低，无法提取")
+				alert("相关词性频率过低，无法提取");
+				clearInterval(t);
+
 			}
-			
-			KeyWordRadar('keyword-bar',keyword_data)
-	clearInterval(t)
+
+			KeyWordRadar('keyword-bar', keyword_data)
+			clearInterval(t);
 		}
 	}, 'json')
 }
@@ -209,7 +235,7 @@ function get_DocLink() {
 				$("#text").html("重新上传文件");
 			});
 
-		} 
+		}
 	}, 'json');
 
 }
