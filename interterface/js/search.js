@@ -6,8 +6,76 @@ var keyword_data = null;
 var t;
 var pdf_task;
 
-function search() {
+function SynSearch() {
 	let url = " http://scenicmonitor.top/interface/api/getMusic?";
+
+	$("#aplayer-list").css("display", "none");
+	$(".m-load2").css("display", "");
+	$(".music-audio").empty();
+	
+	musicname = $("#music-name").val();
+	if(musicname == "") {
+		return;
+	}
+	page = 1;
+	soft_type = $("input[type='radio']:checked").val();
+	$.get(url, {
+		"name": musicname,
+		"type": soft_type,
+		"page": page,
+	}, function(result) {
+		music_list = result['data'];
+		if(music_list.length == 0) {
+			alert("不好意思，该找不到相关歌曲！");
+			$(".m-load2").css("display", "none");
+
+			return;
+		}
+		$("ol").empty();
+
+		for(let i = 0; i < music_list.length; i++) {
+			author = music_list[i]['author'];
+			title = music_list[i]['title'];
+			music_url = music_list[i]['url'];
+			img = music_list[i]['img'];
+			li_id = page * 11111 + i;
+			li = "<li class=\"aplayer-list-light\"   id=" + li_id + "     value=" + img + "><span class=\"aplayer-list-title\">" + title + "</span><span class=\"aplayer-list-author\" style=\"float: right;\">" + author + "</span><span class=\"aplayer-url\" value=" + music_url + "></span></li>";
+			$("ol").append(li);
+			$("#" + li_id).click(function() {
+				img = $(this).attr("value");
+				author = $(this).children("span.aplayer-list-author").text();
+				title = $(this).children("span.aplayer-list-title").text();
+				$("#song-img").attr("src", img);
+				$("#song-title").text(title);
+				$("#author").text(author);
+				$(".music-audio").empty();
+				music_url = $(this).children("span.aplayer-url").attr("value");
+				music_url = window.atob(music_url); //解码;
+
+				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>";
+				$(".music-audio").append(music_play);
+			})
+			if(i == 0) { //第一条自动播放
+				$(".music-audio").empty();
+				music_url = window.atob(music_url); //解码
+				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>";
+				$(".music-audio").append(music_play);
+				$("#song-img").attr("src", img);
+				$("#song-title").text(title);
+				$("#author").text(author);
+			}
+		}
+		page += 1;
+		$(".m-load2").css("display", "none");
+
+		$("#aplayer-list").css("display", "");
+
+	}, 'json');
+}
+
+function Asysearch() {
+	//异步获取音乐
+	let url = " http://scenicmonitor.top/interface/api/getMusicAsy?";
 
 	$("#aplayer-list").css("display", "none");
 	$(".m-load2").css("display", "");
@@ -26,7 +94,7 @@ function search() {
 	}, function(result) {
 		result = result['result'];
 		if(result == "success") {
-			t = setInterval("get_music_result_list()", 2000); //获取音乐列表
+			t = setInterval("get_music_result_list()", 4000); //获取音乐列表
 
 		}
 
@@ -36,7 +104,6 @@ function search() {
 
 function get_music_result_list() {
 	let url = " http://scenicmonitor.top/interface/api/getMusicResult?";
-	console.log("ok");
 	$("ol").empty();
 	$.get(url, {
 		"name": musicname,
@@ -44,8 +111,8 @@ function get_music_result_list() {
 		"page": page,
 	}, function(data) {
 		data = data['data'];
-	if(data==null){
-			return ;
+		if(data == null) {
+			return;
 		}
 		if(data.length == 0) {
 			alert("不好意思，该找不到相关歌曲！");
@@ -79,7 +146,7 @@ function get_music_result_list() {
 			})
 			if(i == 0) { //第一条自动播放
 				$(".music-audio").empty();
-				music_url = window.atob(music_url) ;//解码
+				music_url = window.atob(music_url); //解码
 				music_play = "<audio controls autoplay style=\"width: 100%;\"><source src=" + music_url + " type=\"audio/mpeg\"></audio>";
 				$(".music-audio").append(music_play);
 				$("#song-img").attr("src", img);
