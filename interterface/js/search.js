@@ -165,14 +165,14 @@ function get_music_result_list() {
 }
 
 function choice_file() {
-	filepath = ''
+	filepath = '';
 	$("#pdffile").change(function() {
-		filepath = $("#pdffile").val()
+		filepath = $("#pdffile").val();
 		$("#text").html(filepath);
 	})
 	$("#btn").click(function() {
 		if(filepath == "") {
-			alert("未选择文件")
+			alert("未选择文件");
 			return
 		} else {
 			$(".down").css("display", "none")
@@ -208,7 +208,7 @@ function choice_file() {
 				}
 				uid = data['id'];
 				$(".uid").val(uid);
-				pdf_task = setInterval("get_DocLink()", 3000)
+				pdf_task = setInterval("get_DocLink()", 5000)
 
 			})
 
@@ -285,7 +285,7 @@ function get_analyseResult() {
 }
 
 function get_DocLink() {
-	let url = "  http://scenicmonitor.top/interface/api/getDocLink?"
+	let url = " http://scenicmonitor.top/interface/api/getDocLink?"
 	$.get(url, {
 		"id": uid
 	}, function(data) {

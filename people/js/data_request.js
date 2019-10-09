@@ -1,6 +1,6 @@
 function realtimeFlow(area_pid, dbegin, dend,range) {
 	//人流热度
-	let url = "http://127.0.0.1:8000/attractions/api/getLocation_pn_percent_new"
+	let url = "http://scenicmonitor.top/attractions/api/getLocation_pn_percent_new"
 	$.get(url, {
 		pid: area_pid,
 		date_begin: dbegin,
@@ -10,9 +10,8 @@ function realtimeFlow(area_pid, dbegin, dend,range) {
 		sub_domain: ''
 
 	}, function(data, state) {
-		future_data = data['future_data']//预测数据
-		future_time = data['future_time']//未来时间
-
+		future_data = data['future_data'];//预测数据
+		future_time = data['future_time'];//未来时间
 		data = data['data'];//已经存在的数据
 		timeList = new Array(data.length); //已过去的时间
 		numList = new Array(data.length); //过去的人数
@@ -25,7 +24,7 @@ function realtimeFlow(area_pid, dbegin, dend,range) {
 			"data": numList,
 			"time": timeList
 		}
-		let obj = new drawAreaChart(data_json,future_time,future_data);
+		let obj = new drawAreaChart(data_json,"时间","客流量","scence","red");
 
 	}, 'json');
 
@@ -126,6 +125,39 @@ function People_Distribution_rate(area_pid,flag_id,lon,lat){
 	}, 'json');
 	
 }
+
+function trend(area_pid,dbegin, dend){
+	let url='http://scenicmonitor.top/attractions/api/getLocation_trend_percent_new?'
+	$.get(url, {
+		pid: area_pid,
+		date_begin: dbegin,
+		date_end: dend,
+		predict: true,
+		sub_domain: ''
+
+	}, function(data, state) {
+
+		data = data['data'];//已经存在的数据
+		timeList = new Array(data.length); //已过去的时间
+		numList = new Array(data.length); //过去的人数
+		for(let i = 0; i < data.length; i++) {
+			timeList[i] = data[i][0];
+			numList[i] = data[i][1];
+		}
+		
+		data_json = {
+			"data": numList,
+			"time": timeList
+		}
+		let obj = new drawAreaChart(data_json,"时间","趋势指数","trend-index","#07F9FD");
+
+	}, 'json');
+}
+
+
+
+
+
 Date.prototype.format = function(fmt) {
 	var o = {
 		"M+": this.getMonth() + 1, //月份 

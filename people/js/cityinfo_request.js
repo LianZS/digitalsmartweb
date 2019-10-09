@@ -164,16 +164,59 @@ function load_data() {
 	date_end = parseInt(date_begin) + 1;
 	flag = parseInt($('#scence_select0 option:selected').attr("flag"));
 	range = $('#range_select0 option:selected').val();
-	new realtimeFlow(pid, date_begin, date_end,range);
+	try{
+		new realtimeFlow(pid, date_begin, date_end,range);
+	}catch(e){
+		new realtimeFlow(pid, date_begin, date_end,range);
+	}
+	try{
+			new SearchRate(pid, flag);
+
+	}catch(e){
 	new SearchRate(pid, flag);
+	}
+	try{
+			new Geographic_bounds(pid, flag, lon, lat);
+
+	}catch(e){
 	new Geographic_bounds(pid, flag, lon, lat);
+	}
 	
-		
+	try{
+			new People_Distribution_rate(pid, flag,lon, lat);
+
+	}catch(e){
 	new People_Distribution_rate(pid, flag,lon, lat);
-	new Image_reuqest(pid)
-	new Comment(pid)
-	new CommentRate(pid, "evaluate")
-	new ScenceState(pid)
+	}
+	try{
+			new Image_reuqest(pid);
+
+	}catch(e){
+	new Image_reuqest(pid);
+	}
+	try{	new Comment(pid);
+
+		
+	}catch(e){
+	new Comment(pid);
+	}
+	try{
+			new CommentRate(pid, "evaluate");
+
+	}catch(e){
+			new CommentRate(pid, "evaluate");
+	}
+	try{
+			new ScenceState(pid);
+
+	}catch(e){
+	new ScenceState(pid);
+	}
+	try{
+		new trend(pid,date_begin, date_end);
+	}catch(e){
+		new trend(pid,date_begin, date_end);
+	}
 
 }
 Date.prototype.format = function(fmt) {

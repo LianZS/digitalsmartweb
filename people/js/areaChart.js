@@ -1,14 +1,9 @@
-function drawAreaChart(data_json, future_time, future_data) {
+function drawAreaChart(data_json,x_name,y_name,id_name,color) {
 	let pre_array = new Array();
-//	for(let i = 0; i < data_json.data.length; i++) {
-//		pre_array[i] = 0
-//	}
-	
-	future_data = data_json.data.concat(future_data); //在预测数据中已经发生的置为0
-	let mychart = echarts.init(document.getElementById("scence"));
+
+	let mychart = echarts.init(document.getElementById(id_name));
 	let option = {
 		title: {
-			//             text:'景区客流量实时监测',
 			textStyle: {
 				color: 'white'
 			}
@@ -24,7 +19,7 @@ function drawAreaChart(data_json, future_time, future_data) {
 		},
 		xAxis: {
 			type: 'category',
-			name: "时间",
+			name: x_name,
 			nameLocation: "middle",
 			nameGap: 30,
 			nameTextStyle: {
@@ -32,7 +27,7 @@ function drawAreaChart(data_json, future_time, future_data) {
 				fontSize: 15
 			},
 			boundaryGap: false,
-			data: data_json.time.concat(future_time),
+			data: data_json.time,
 
 			axisLabel: {
 				color: "white",
@@ -42,7 +37,7 @@ function drawAreaChart(data_json, future_time, future_data) {
 		yAxis: {
 			type: 'value',
 
-			name: "客流量",
+			name: y_name,
 			nameLocation: "middle",
 			nameGap: 50,
 			nameTextStyle: {
@@ -58,21 +53,15 @@ function drawAreaChart(data_json, future_time, future_data) {
 		},
 
 		series: [{
-			name: "客流量",
+			name: y_name,
 			data: data_json.data,
 			type: 'line',
 			areaStyle: {
-				color: "red"
+				color:color
 
 			},
-		}, {
-			name:"预测",
-			data: future_data,
-			type: 'line',
-			areaStyle: {
-				color: "#07F9FD"
-			},
-		}]
+		}
+		]
 	};
 
 	mychart.setOption(option);
